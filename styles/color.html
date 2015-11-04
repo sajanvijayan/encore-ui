@@ -1,101 +1,323 @@
 <rx-page title="'Color'" class="styleguide">
   <p class="clear">
-    Color is an essential part of communicating with your Encore users.
-    Certain colors in Encore are reserved for particular actions of events.
+    If you use colors from this palette in your project,
+    <strong>only use the variable names provided, NOT hex codes</strong>.
+    The LESS variables for colors ship by default with the Framework and are
+    available at the project level. Using them ensures consistency across Encore
+    as colors shift or change over time, and will save you from having to revise
+    hard-coded hex codes in the future. Hex codes are provided here
+    for reference only.
+  </p>
+  <p>
+    We have <a href="#/styles/color-1-0">a reference to the old 1.0 color palette</a>
+    for your convenience, but note that the 1.0 palette is slated for deprecation
+    and shouldn't be used. Any styles that use the 1.0 palette should be updated.
   </p>
 
-  <section layout="row" layout-align="left stretch" layout-wrap layout-margin>
-    <div class="swatch">
-      <div class="swatch-heading swatch-green">#24b56a - @green</div>
-      <div class="swatch-body">
+  <!-- palettes -->
+  <div layout="row" layout-wrap layout-align="top left">
+    <div class="palette red">
+      <div class="color primary heading light-text">
+        <div>Red 500 (Primary)</div>
+        <div>@red-500 <small>#F44336</small></div>
+      </div>
+      <div class="color secondary-100 dark-text">
+        <div>100</div>
+        <div>@red-100 <small>#FFCDD2</small></div>
+      </div>
+      <div class="color primary light-text">
+        <div>500</div>
+        <div>@red-500 <small>#F44336</small></div>
+      </div>
+      <div class="color secondary-700 light-text">
+        <div>700</div>
+        <div>@red-700 <small>#D32F2F</small></div>
+      </div>
+      <div class="color accent light-text">
+        <div>Accent</div>
+        <div>@red-accent <small>#EB4D5C</small></div>
+      </div>
+    </div>
+
+    <div class="palette blue">
+      <div class="color primary heading light-text">
+        <div>Blue 500 (Primary)</div>
+        <div>@blue-500 <small>#3391FF</small></div>
+      </div>
+      <div class="color secondary-100 dark-text">
+        <div>100</div>
+        <div>@blue-100 <small>#BBDEFB</small></div>
+      </div>
+      <div class="color primary light-text">
+        <div>500</div>
+        <div>@blue-500 <small>#3391FF</small></div>
+      </div>
+      <div class="color secondary-700 light-text">
+        <div>700</div>
+        <div>@blue-700 <small>#1976D2</small></div>
+      </div>
+      <div class="color accent light-text">
+        <div>Accent</div>
+        <div>@blue-accent <small>#00BDFF</small></div>
+      </div>
+    </div>
+
+    <div class="palette green">
+      <div class="color primary heading light-text">
+        <div>Green 500 (Primary)</div>
+        <div>@green-500 <small>#4CAF51</small></div>
+      </div>
+      <div class="color secondary-100 dark-text">
+        <div>100</div>
+        <div>@green-100 <small>#C8E6C9</small></div>
+      </div>
+      <div class="color primary light-text">
+        <div>500</div>
+        <div>@green-500 <small>#4CAF51</small></div>
+      </div>
+      <div class="color secondary-700 light-text">
+        <div>700</div>
+        <div>@green-700 <small>#2E7D32</small></div>
+      </div>
+      <div class="color accent light-text">
+        <div>Accent</div>
+        <div>@green-accent <small>#43B947</small></div>
+      </div>
+    </div>
+
+    <div class="palette orange">
+      <div class="color primary heading dark-text">
+        <div>Orange 500 (Primary)</div>
+        <div>@orange-500 <small>#FFC107</small></div>
+      </div>
+      <div class="color secondary-100 dark-text">
+        <div>100</div>
+        <div>@orange-100 <small>#FFECB3</small></div>
+      </div>
+      <div class="color primary dark-text">
+        <div>500</div>
+        <div>@orange-500 <small>#FFC107</small></div>
+      </div>
+      <div class="color secondary-700 dark-text">
+        <div>700</div>
+        <div>@orange-700 <small>#FF8F00</small></div>
+      </div>
+      <div class="color accent dark-text">
+        <div>Accent</div>
+        <div>@orange-accent <small>#FFD740</small></div>
+      </div>
+    </div>
+
+    <div class="palette purple">
+      <div class="color primary heading light-text">
+        <div>Purple 500 (Primary)</div>
+        <div>@purple-500 <small>#3B44A9</small></div>
+      </div>
+      <div class="color secondary-100 light-text">
+        <div>100</div>
+        <div>@purple-100 <small>#4A5ACC</small></div>
+      </div>
+      <div class="color primary light-text">
+        <div>500</div>
+        <div>@purple-500 <small>#3B44A9</small></div>
+      </div>
+      <div class="color secondary-700 light-text">
+        <div>700</div>
+        <div>@purple-700 <small>#2E3187</small></div>
+      </div>
+      <div class="color accent light-text">
+        <div>Accent</div>
+        <div>@purple-accent <small>#5A74F2</small></div>
+      </div>
+    </div>
+
+    <div class="palette gray">
+      <div class="color shade-0 heading dark-text">
+        <div>Grayscale</div>
+        <div>@gray-0, @white <small>#FFFFFF</small></div>
+      </div>
+      <div class="color shade-25 dark-text">
+        <div>25</div>
+        <div>@gray-25 <small>#FAFAFA</small></div>
+      </div>
+      <div class="color shade-50 dark-text">
+        <div>50</div>
+        <div>@gray-50 <small>#F5F5F5</small></div>
+      </div>
+      <div class="color shade-100 dark-text">
+        <div>100</div>
+        <div>@gray-100 <small>#EEEEEE</small></div>
+      </div>
+      <div class="color shade-200 dark-text">
+        <div>200</div>
+        <div>@gray-200 <small>#E7E7E7</small></div>
+      </div>
+      <div class="color shade-300 dark-text">
+        <div>300</div>
+        <div>@gray-300 <small>#E0E0E0</small></div>
+      </div>
+      <div class="color shade-400 dark-text">
+        <div>400</div>
+        <div>@gray-400 <small>#D8D8D8</small></div>
+      </div>
+      <div class="color shade-500 dark-text">
+        <div>500</div>
+        <div>@gray-500 <small>#BDBDBD</small></div>
+      </div>
+      <div class="color shade-600 dark-text">
+        <div>600</div>
+        <div>@gray-600 <small>#9E9E9E</small></div>
+      </div>
+      <div class="color shade-700 light-text">
+        <div>700</div>
+        <div>@gray-700 <small>#757575</small></div>
+      </div>
+      <div class="color shade-800 light-text">
+        <div>800</div>
+        <div>@gray-800 <small>#616161</small></div>
+      </div>
+      <div class="color shade-900 light-text">
+        <div>900</div>
+        <div>@gray-900 <small>#424242</small></div>
+      </div>
+      <div class="color shade-950 light-text">
+        <div>950</div>
+        <div>@gray-950 <small>#333333</small></div>
+      </div>
+      <div class="color shade-975 light-text">
+        <div>975</div>
+        <div>@gray-975 <small>#212121</small></div>
+      </div>
+      <div class="color shade-1000 light-text">
+        <div>1000</div>
+        <div>@gray-1000, @black <small>#000000</small></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Color Usage</h2>
+  <p>
+    Color is a tool that helps communicate with Encore users. Certain colors in Encore are
+    reserved for particular actions of events.
+  </p>
+
+  <div layout="row" layout-wrap layout-align="top left">
+    <div class="palette green">
+      <div class="color primary light-text">
+        <div>Green - Create/Add<br />500</div>
+        <div>@green-500 <small>#4CAF51</small></div>
+      </div>
+      <div class="detail">
         <ul class="list">
+          <li>Used for links and icons that deal explicitly with create and add actions.</li>
           <li>
-            Used for links and icons that deal explicitly with create and add
-            actions.
-          </li>
-          <li>
-            Should not be used to communicated "active" or "success"
-            (since those are states, not actions a user can take)
+            Should not be used to communicate "active" or "success" (since those are
+            states, not actions a user can take)
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="swatch">
-      <div class="swatch-heading swatch-light-green">
-        #c8e5bf - @light-green
+    <div class="palette green">
+      <div class="color secondary-100 dark-text">
+        <div>Green - Success/Active<br />100</div>
+        <div>@green-100 <small>#C8E6C9</small></div>
       </div>
-      <div class="swatch-body">
-        Used for statuses that communicate success.
-      </div>
-    </div>
-
-    <div class="swatch">
-      <div class="swatch-heading swatch-blue">#4881c0 - @blue</div>
-      <div class="swatch-body">
-        Used for links that direct the user to a new page or area.
+      <div class="detail">
+        <ul class="list">
+          <li>Used for statuses that communicate success in notifications.</li>
+          <li>Used for displaying active status in tables and status bubbles.</li>
+        </ul>
       </div>
     </div>
 
-    <div class="swatch">
-      <div class="swatch-heading swatch-light-blue">#86cafd - @light-blue</div>
-      <div class="swatch-body">
-        Used for statuses that are meant to be informative, but are not
-        associated with success, failure, warning, or error.
+    <div class="palette blue">
+      <div class="color secondary-700 light-text">
+        <div>Blue - Standard Link<br />700</div>
+        <div>@blue-700 <small>#1976D2</small></div>
+      </div>
+      <div class="detail">
+        <ul class="list">
+          <li>Used for links that direct the user to a new page or area.</li>
+        </ul>
       </div>
     </div>
 
-    <div class="swatch">
-      <div class="swatch-heading swatch-disabled-gray">
-        #dededd - @disabled-gray
+    <div class="palette blue">
+      <div class="color secondary-100 dark-text">
+        <div>Blue - Informative<br />100</div>
+        <div>@blue-100 <small>#BBDEFB</small></div>
       </div>
-      <div class="swatch-body">
-        Used to communicated a button, link, or element is disabled.
-      </div>
-    </div>
-
-    <div class="swatch">
-      <div class="swatch-heading swatch-cancel-gray">
-        #898989 - @cancel-gray
-      </div>
-      <div class="swatch-body">
-        Used to communicate that an icon, button, or link is associated
-        with a cancel action.
-      </div>
-    </div>
-
-    <div class="swatch">
-      <div class="swatch-heading swatch-orange">#db7820 - @orange</div>
-      <div class="swatch-body">
+      <div class="detail">
         <ul class="list">
           <li>
-            Used to mean "warning" where the user's attention or
-            confirmation is needed before taking an additional action.
-          </li>
-          <li>
-            Used for links and icons that deal with editing, changing, or
-            updating something. In some cases this may cause an irreversible
-            change to that object.
+            Used for statuses that are meant to be informative, but are not
+            associated with success, failure, warning, or error.
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="swatch">
-      <div class="swatch-heading swatch-red">#fc0f1d - @red</div>
-      <div class="swatch-body">
+    <div class="palette gray">
+      <div class="color shade-300 dark-text">
+        <div>Gray - Disabled<br />300</div>
+        <div>@gray-300 <small>#E0E0E0</small></div>
+      </div>
+      <div class="detail">
         <ul class="list">
           <li>
-            Used to mean "error", either as part of a response or
-            status message.
-          </li>
-          <li>
-            Used for link colors and icons associated with destructive/destroy
-            actions. Irreversible changes (like rebuilding a server) are not
-            considered destructive actions.
+            Used to communicate a button, link, or element is disabled.
           </li>
         </ul>
       </div>
     </div>
-  </section>
+
+    <div class="palette gray">
+      <div class="color shade-700 light-text">
+        <div>Gray - Cancel<br />700</div>
+        <div>@gray-700 <small>#757575</small></div>
+      </div>
+      <div class="detail">
+        <ul class="list">
+          <li>Used to communicate that an icon, button, or link is associated with a cancel action.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="palette orange">
+      <div class="color secondary-700">
+        <div>Orange - Warning/Critical Change<br />700</div>
+        <div>@orange-700 <small>#FF8F00</small></div>
+      </div>
+      <div class="detail">
+        <ul class="list">
+          <li>
+            Used to mean "warning" where the user's attention or confirmation
+            is needed before taking an additional action.
+          </li>
+          <li>
+            Used for links and icons that deal with editing, changing, or updating something. In some cases this may cause an irreversible change to that object.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="palette red">
+      <div class="color primary light-text">
+        <div>Red - Error/Destructive<br />500</div>
+        <div>@red-500 <small>#F44336</small></div>
+      </div>
+      <div class="detail">
+        <ul class="list">
+          <li>
+            Used to mean "error", either as part of a response or status message.
+          </li>
+          <li>
+            Used for link colors and icons associated with destructive/destroy actions.
+            Irreversible changes (like rebuilding a server) are not considered destructive actions.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </rx-page>

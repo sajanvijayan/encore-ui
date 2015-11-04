@@ -1,5 +1,6 @@
 @import (reference) "vars";
 @import "_code";
+@import "_palette";
 
 /* README */
 .component-description {
@@ -133,6 +134,10 @@ table.component-attributes {
     }
 }
 
+.page-content {
+    clear: both;
+}
+
 p {
     line-height: 1.5;
 }
@@ -180,82 +185,5 @@ rx-page.styleguide {
     h5,
     h6 {
         margin-top: 2em;
-    }
-
-    .swatch {
-        flex: 0 0 auto;
-        height: 250px;
-        width: 275px;
-        margin: 10px;
-        box-sizing: border-box;
-        background-color: #fff;
-        border: 1px solid @disabled-gray;
-        padding: 0;
-
-        box-shadow: 0 3px 5px -2px @cancel-gray;
-
-        .swatch-heading,
-        .swatch-body {
-            padding: 15px;
-        }
-
-        .swatch-heading {
-            height: 30px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .swatch-body {
-            ul,
-            ol {
-                &.list {
-                    margin: 0 0 0 20px;
-
-                    li {
-                        margin-left: 0;
-                    }
-                }
-            }
-        }//.swatch-body
-
-        .swatch-green {
-            background-color: @green;
-            color: #fff;
-        }
-
-        .swatch-light-green {
-            background-color: @light-green;
-            color: #000;
-        }
-
-        .swatch-blue {
-            background-color: @blue;
-            color: #fff;
-        }
-
-        .swatch-light-blue {
-            background-color: @light-blue;
-            color: #000;
-        }
-
-        .swatch-disabled-gray {
-            background-color: @disabled-gray;
-            color: #000;
-        }
-
-        .swatch-cancel-gray {
-            background-color: @cancel-gray;
-            color: #fff;
-        }
-
-        .swatch-orange {
-            background-color: @orange;
-            color: #fff;
-        }
-
-        .swatch-red {
-            background-color: @red;
-            color: #fff;
-        }
     }
 }

@@ -117,6 +117,12 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                 name: 'Color'
             }])
         })
+        .when('/styles/color-1-0', {
+            templateUrl: 'styles/color-1-0.html',
+            controller: genericRouteController([{
+                name: 'Color'
+            }])
+        })
         .when('/styles/wells', {
             templateUrl: 'styles/wells.html',
             controller: genericRouteController([{
