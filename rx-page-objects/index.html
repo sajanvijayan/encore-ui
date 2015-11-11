@@ -137,7 +137,6 @@
 <li><a href="#encore.exercise.module_rxRadio">encore.exercise.rxRadio</a></li>
 <li><a href="#encore.exercise.module_rxSearchBox">encore.exercise.rxSearchBox</a></li>
 <li><a href="#encore.exercise.module_rxSelect">encore.exercise.rxSelect</a></li>
-<li><a href="#encore.exercise.module_rxMultiSelect">encore.exercise.rxMultiSelect</a></li>
 <li><a href="#encore.exercise.module_rxTags">encore.exercise.rxTags</a></li>
 <li><a href="#encore.exercise.module_rxToggleSwitch">encore.exercise.rxToggleSwitch</a></li>
 </ul>
@@ -1178,13 +1177,15 @@ rxMultiSelect exercises.</p>
 <p><strong>Params</strong></p>
 <ul>
 <li>[options=] <code>Object</code> - Test options. Used to build valid tests.  <ul>
-<li>[instance=rxMultiSelect.main] <code><a href="#rxMultiSelect">rxMultiSelect</a></code> - Component to exercise.  </li>
+<li>[instance=] <code><a href="#rxMultiSelect">rxMultiSelect</a></code> - Component to exercise.  </li>
+<li>[cssSelector=] <code>string</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
+<li>[inputs=[]] <code>Object</code> - The options of the select input.  </li>
 </ul>
 </li>
 </ul>
 <p><strong>Example</strong>  </p>
 <pre><code class="lang-js">describe(&#39;default exercises&#39;, encore.exercise.rxMultiSelect({
-    cssSelector: &#39;.secondary-info rx-paginate&#39;, // select one of many widgets on page
+    instance: myPage.subscriptionList, // select one of many widgets from your page objects
 }));
 </code></pre>
 <p><a name="encore.exercise.module_rxOptionTable"></a></p>
@@ -1269,23 +1270,6 @@ rxSelect exercises</p>
 </li>
 <li>selectedText <code>String</code> - The expected selected text of the dropdown.  </li>
 </ul>
-<p><a name="encore.exercise.module_rxMultiSelect"></a></p>
-<p>#encore.exercise.rxMultiSelect
-rxMultiSelect exercises.</p>
-<p><strong>Params</strong></p>
-<ul>
-<li>[options=] <code>Object</code> - Test options. Used to build valid tests.  <ul>
-<li>[instance=] <code><a href="#rxMultiSelect">rxMultiSelect</a></code> - Component to exercise.  </li>
-<li>[cssSelector=] <code>string</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
-<li>[inputs=[]] <code>Object</code> - The options of the select input.  </li>
-</ul>
-</li>
-</ul>
-<p><strong>Example</strong>  </p>
-<pre><code class="lang-js">describe(&#39;default exercises&#39;, encore.exercise.rxMultiSelect({
-    instance: myPage.subscriptionList, // select one of many widgets from your page objects
-}));
-</code></pre>
 <p><a name="encore.exercise.module_rxTags"></a></p>
 <p>#encore.exercise.rxTags
 rxTags exercises</p>
@@ -1313,6 +1297,10 @@ rxToggleSwitch exercises.</p>
 <li>[instance=] <code><a href="#rxToggleSwitch">rxToggleSwitch</a></code> - Component to exercise.  </li>
 <li>[cssSelector=] <code>string</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
 <li>[disabled=false] <code>boolean</code> - Determines if the switch can be toggled  </li>
+<li>[enabledAtStart=null] <code>boolean</code> - Beginning state of toggle switch.  The value will be detected 
+automatically if not given.  </li>
+<li>[enabledAtEnd=null] <code>boolean</code> - End state of toggle switch.  The value will be detected automatically 
+if not given.  </li>
 </ul>
 </li>
 </ul>
