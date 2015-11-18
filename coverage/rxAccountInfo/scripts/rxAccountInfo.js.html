@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for rxAccountInfo/rxAccountInfo.js</title>
+    <title>Code coverage report for rxAccountInfo/scripts/rxAccountInfo.js</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../prettify.css">
-    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
     <style type='text/css'>
         div.coverage-summary .sorter {
-            background-image: url(../sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">rxAccountInfo/rxAccountInfo.js</span></h1>
+    <h1>Code coverage report for <span class="entity">rxAccountInfo/scripts/rxAccountInfo.js</span></h1>
     <h2>
         Statements: <span class="metric">100% <small>(30 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">100% <small>(12 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,7 +21,7 @@
         Lines: <span class="metric">100% <small>(30 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">rxAccountInfo/</a> &#187; rxAccountInfo.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">rxAccountInfo/scripts/</a> &#187; rxAccountInfo.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -115,61 +115,7 @@
 88
 89
 90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
+91</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -259,34 +205,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * @ngdoc overview
- * @name rxAccountInfo
- * @description
- * # rxAccountInfo Component
- *
- * This component is used to draw an account info box at the top of each page,
- * directly underneath the breadcrumbs. `rxPage` (through `rxApp`) integrates it
- * directly into its template, and you activate it by passing `account-number="..."`
- * to `&lt;rx-page&gt;`.
- * 
- * While you could theoretically use this component elsewhere, its design and style
- * were done with the intention of sitting underneath the breadcrumbs.
- *
- * When placed on a page that has `:user` in its route parameters, this component
- * will also draw a drop-down user selector, to allow the Racker to change which
- * user they're looking at for the given account. At this time, this user-selection
- * is *only* available for products under Cloud. If you need it for additional products,
- * please let us know.
- *
- * This directive requires that `SupportAccount`, `Encore`, `AccountStatusGroup`,
- * and `Teams` services are available. These are not provided by this project,
- * but are available in an internal Rackspace repository.
- *
- * ## Directives
- * * {@link rxAccountInfo.directive:rxAccountInfo rxAccountInfo}
- */
-angular.module('encore.ui.rxAccountInfo', [])
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('encore.ui.rxAccountInfo')
 /**
  * @ngdoc directive
  * @name rxAccountInfo.directive:rxAccountInfo
@@ -381,9 +300,9 @@ angular.module('encore.ui.rxAccountInfo', [])
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Nov 11 2015 15:40:12 GMT-0600 (CST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Nov 18 2015 16:43:00 GMT-0600 (CST)</div>
 </div>
-<script src="../prettify.js"></script>
+<script src="../../prettify.js"></script>
 <script>
 window.onload = function () {
         if (typeof prettyPrint === 'function') {
@@ -391,6 +310,6 @@ window.onload = function () {
         }
 };
 </script>
-<script src="../sorter.js"></script>
+<script src="../../sorter.js"></script>
 </body>
 </html>

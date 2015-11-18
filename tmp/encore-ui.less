@@ -366,7 +366,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   height: @line-height-computed;
   margin-bottom: @line-height-computed;
   background-color: @progress-bg;
-  border: 1px solid #ccc;
+  border: 1px solid @gray-400;
   padding: 1px;
 }
 
@@ -377,7 +377,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   height: 100%;
   font-size: @font-size-small;
   line-height: @line-height-computed;
-  color: #1672b9;
+  color: @gray-900;
   text-align: center;
   background-color: @progress-bar-bg;
   .transition(width .6s ease);
@@ -408,12 +408,12 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 
 .progress-bar-secondary {
   .progress-bar-variant(@progress-bar-secondary-bg);
-  color: #fff;
+  color: @white;
 }
 
 .progress-bar-tertiary {
   .progress-bar-variant(@progress-bar-tertiary-bg);
-  color: #fff;
+  color: @white;
 }
 
 #gradient {
@@ -422,7 +422,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   //
   // Creates two color stops, start and end, by specifying a color and position for each color stop.
   // Color stops are not available in IE9 and below.
-  .horizontal(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  .horizontal(@start-color: @gray-800; @end-color: @gray-950; @start-percent: 0%; @end-percent: 100%) {
     background-image: -webkit-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Safari 5.1-6, Chrome 10+
     background-image: -o-linear-gradient(left, @start-color @start-percent, @end-color @end-percent); // Opera 12
     background-image: linear-gradient(to right, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
@@ -434,7 +434,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
   //
   // Creates two color stops, start and end, by specifying a color and position for each color stop.
   // Color stops are not available in IE9 and below.
-  .vertical(@start-color: #555; @end-color: #333; @start-percent: 0%; @end-percent: 100%) {
+  .vertical(@start-color: @gray-800; @end-color: @gray-950; @start-percent: 0%; @end-percent: 100%) {
     background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Safari 5.1-6, Chrome 10+
     background-image: -o-linear-gradient(top, @start-color @start-percent, @end-color @end-percent);  // Opera 12
     background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
@@ -442,14 +442,14 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down
   }
 
-  .directional(@start-color: #555; @end-color: #333; @deg: 45deg) {
+  .directional(@start-color: @gray-800; @end-color: @gray-950; @deg: 45deg) {
     background-repeat: repeat-x;
     background-image: -webkit-linear-gradient(@deg, @start-color, @end-color); // Safari 5.1-6, Chrome 10+
     background-image: -o-linear-gradient(@deg, @start-color, @end-color); // Opera 12
     background-image: linear-gradient(@deg, @start-color, @end-color); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
   }
 
-  .horizontal-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+  .horizontal-three-colors(@start-color: @blue-accent; @mid-color: @purple-500; @color-stop: 50%; @end-color: @red-700) {
     background-image: -webkit-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
     background-image: -o-linear-gradient(left, @start-color, @mid-color @color-stop, @end-color);
     background-image: linear-gradient(to right, @start-color, @mid-color @color-stop, @end-color);
@@ -457,7 +457,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
   }
 
-  .vertical-three-colors(@start-color: #00b3ee; @mid-color: #7a43b6; @color-stop: 50%; @end-color: #c3325f) {
+  .vertical-three-colors(@start-color: @blue-accent; @mid-color: @purple-500; @color-stop: 50%; @end-color: @red-700) {
     background-image: -webkit-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
     background-image: -o-linear-gradient(@start-color, @mid-color @color-stop, @end-color);
     background-image: linear-gradient(@start-color, @mid-color @color-stop, @end-color);
@@ -465,7 +465,7 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); // IE9 and down, gets no color-stop at all for proper fallback
   }
 
-  .radial(@inner-color: #555; @outer-color: #333) {
+  .radial(@inner-color: @gray-800; @outer-color: @gray-950) {
     background-image: -webkit-radial-gradient(circle, @inner-color, @outer-color);
     background-image: radial-gradient(circle, @inner-color, @outer-color);
     background-repeat: no-repeat;
@@ -653,7 +653,7 @@ html,
 body {
   height: 100%;
   font-size: @appFontSize;
-  color: @appTextColor;
+  color: @gray-900;
   font-family: @appFont;
 }
 
@@ -821,7 +821,7 @@ h6 {
   margin: 1em 0;
 
   &.subdued {
-    color: @subduedTitle;
+    color: @gray-700;
   }
 }
 
@@ -873,7 +873,7 @@ h6 {
 
   // Colors
   &.subdued {
-    color: @subduedTitle;
+    color: @gray-700;
   }
 }//.title
 
@@ -964,23 +964,27 @@ h6 {
 
 // Wells
 .well {
-  background: #eeeeee;
+  background: @gray-100;
   padding: 40px 50px;
   box-shadow: 0 0 0 10px white inset;
 
   p {
     line-height: 1.5em;
-    color: @wellText;
+    color: @gray-700;
   }
 
   ul {
     display: inline-block;
     text-align: left;
   }
+
+  h2 {
+    color: @gray-700;
+  }
 }
 
 .modal-well {
-  background-color: #eeeeee;
+  background-color: @gray-100;
   padding: 20px 30px;
 
   h2 {
@@ -990,7 +994,7 @@ h6 {
 
 // Other Stuff
 .subdued {
-  color: @subduedText;
+  color: @gray-700;
 }
 
 // Add hover style if a link or inside a link
@@ -2195,11 +2199,11 @@ rx-collapse {
       .box-sizing(border-box);
       width: 30px;
       padding: 0 10px;
-      background-color: @borderGrey;
+      background-color: @gray-500;
       vertical-align: middle;
+      cursor: pointer;
 
       .double-chevron {
-        cursor: pointer;
         &:after {
           display: inline-block;
           color: @white;
@@ -2217,7 +2221,7 @@ rx-collapse {
       }
     }
 
-    border: 2px solid @borderGrey;
+    border: 2px solid @gray-500;
 
     .rx-collapse-title {
       display: inline-block;
@@ -2232,7 +2236,7 @@ rx-collapse {
   }
   .sml-title {
     cursor: pointer;
-    color: @cancel-gray;
+    color: @gray-700;
     font-size: 10pt;
   }
 
@@ -2905,14 +2909,14 @@ rx-field-name {
 .info-panel {
   clear: both;
   background: @white;
-  border-color: @tabBorder;
+  border-color: @blue-700;
   border-width: 0 5px 5px 5px;
   border-style: solid;
   padding: 0 10px 10px 10px;
   overflow: hidden;
 
   .info-title {
-    background: @tabBorder;
+    background: @blue-700;
     color: @white;
     width: 100%;
     padding: 8px 10px;
@@ -4384,7 +4388,7 @@ rx-tags {
   display: none;
   list-style: none;
   background: @white;
-  border: 1px solid #cccccc;
+  border: 1px solid @gray-400;
   padding: 6px 0;
   z-index: 3; // Will display over a textarea element
   max-height: 300px;
@@ -4394,10 +4398,10 @@ rx-tags {
     display: block;
     margin: 0;
     padding: 5px 10px;
-    color: @inputColor;
+    color: @gray-900;
   }
   .active a {
-    background: @optionHighlightBg;
+    background: @blue-700;
     color: @white;
   }
 }
