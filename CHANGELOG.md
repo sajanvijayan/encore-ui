@@ -1,3 +1,14 @@
+<a name="1.38.0"></a>
+## 1.38.0 (2015-12-02)
+
+
+#### Bug Fixes
+
+* **bug:** FRMW-451 currencyToPennies handle negative values ([0fe99228](git@github.com:rackerlabs/encore-ui/commit/0fe99228288ceb3c713b06f0870734b0d3d7dc4e))
+* **colors:** correct styling for primary link usage ([90b11eb4](git@github.com:rackerlabs/encore-ui/commit/90b11eb46be573cfdd24232afc0766bd52ffc50e))
+* **imagemin:** Fix grunt-tasks imagemin path ([cda233aa](git@github.com:rackerlabs/encore-ui/commit/cda233aad669dbff6c36a127b206f26eadd1b8ba))
+
+
 <a name="1.37.1"></a>
 ### 1.37.1 (2015-11-18)
 
