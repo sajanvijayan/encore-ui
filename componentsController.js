@@ -25,8 +25,7 @@ angular
 
             return _.filter(components, function (item) {
                 return item.name.toLowerCase().indexOf(search) !== -1 ||
-                    (item.stability && item.stability.substring(0, search.length) === search) ||
-                    item.lastModified.toLowerCase().indexOf(search) !== -1;
+                    (item.stability && item.stability.substring(0, search.length) === search)
             });
         };
     })

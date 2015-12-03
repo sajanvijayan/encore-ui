@@ -629,10 +629,10 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     margin-right: 5em;
   }
   .account-info-label {
-    color: #777777;
+    color: @gray-700;
   }
   .account-info-data {
-    color: #777777;
+    color: @gray-700;
     font-size: 26px;
     img {
       height: 35px;
@@ -647,10 +647,10 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 .rx-page {
   .account-info-banner {
     clear: both;
-    background: #d1d1d1;
+    background: @white;
     width: 100%;
     border-top: 1px solid;
-    border-color: #b9b9b9;
+    border-color: @gray-500;
   }
 
   ul.account-info-text {
@@ -660,37 +660,28 @@ https://github.com/yui/pure/blob/master/LICENSE.md
       float: left;
       padding-right: 40px;
       .label {
-        color: #797979;
-        text-shadow: 0 1px #efefef;
+        color: @gray-700;
         font-size: 9px;
       }
       .account-data {
-        color: #505050;
         font-size: 18px;
         font-weight: 300;
         .field-select {
           width: 140px;
           &:before { // background behind arrow
-            background: #959595;
             top: 4px;
             height: 80%;
-          }
-          &:after { // arrow color
-            color: #6c6c6c;
           }
         }
         select {
           font-size: 12px;
-          background: #959595; // select box background
-          border: 1px solid #6c6c6c;
-          color: @white;
         }
       }
       .msg-warn {
-        color: #cb2124;
+        color: @red-700;
       }
       .msg-info {
-        color: #dd7800;
+        color: @orange-700;
       }
     }
     li.badges {
@@ -716,15 +707,15 @@ https://github.com/yui/pure/blob/master/LICENSE.md
 
 @import "vars";
 
-// containers for actionmenus that spawn modals
+// containers for action menus that spawn modals
 .action-menu-container {
   position: relative;
   width: 15px;
   & > i {
     cursor: pointer;
-    color: @subduedText;
+    color: @gray-600;
     &:hover {
-      color: @subduedTextHover;
+      color: @gray-700;
     }
   }
 }
@@ -903,7 +894,7 @@ table {
     }
   }
   .fa-times.delete-x:hover {
-    color: @warnRedHover;
+    color: saturate(@red-700, 15%);
     cursor: pointer;
   }
 }
@@ -1036,37 +1027,37 @@ h6 {
 
 .msg-action,
 .msg-action a {
-  color: @actionGreen;
+  color: @green-700;
   &:hover,
   &:focus {
-    color: @actionGreen;
+    color: saturate(@green-700, 15%);
   }
 }
 
 .msg-warn,
 .msg-warn a {
-  color: @warnRed;
+  color: @red-700;
   &:hover,
   &:focus {
-    color: @warnRedHover;
+    color: saturate(@red-700, 15%);
   }
 }
 
 .msg-info,
 .msg-info a {
-  color: @infoOrange;
+  color: @orange-700;
   &:hover,
   &:focus {
-    color: @infoOrangeHover;
+    color: saturate(@orange-700, 15%);
   }
 }
 
 .msg-info-blue,
 .msg-info-blue a {
-  color: @infoBlue;
+  color: @blue-700;
   &:hover,
   &:focus {
-    color: @infoBlueHover;
+    color: saturate(@blue-700, 15%);
   }
 }
 
@@ -1731,7 +1722,7 @@ body:hover .visually-hidden button {
     padding: 1px 2px;
     .border-radius(2px);
     top: 9px;
-    color: #427fc4;
+    color: @blue-900;
   }
 }
 
@@ -1739,12 +1730,12 @@ body:hover .visually-hidden button {
 .link-disabled {
   pointer-events: none;
   a {
-    color: #d5d3d3;
+    color: @gray-600;
   }
   .rx-spinner {
     margin-left: 10px;
-    border-bottom-color: #d5d3d3;
-    border-right-color: #d5d3d3;
+    border-bottom-color: @gray-600;
+    border-right-color: @gray-600;
   }
 }
 
@@ -1760,21 +1751,21 @@ a.disabled {
 .rx-breadcrumbs {
   overflow: hidden;
   border-style: solid;
-  border-color: #cccccc;
+  border-color: @gray-100;
   float: left;
 
   .breadcrumb {
     float: left;
 
     .breadcrumb-name {
-      padding: @breadcrumbHeight/2 1em @breadcrumbHeight/2 2em;
+      padding: @rxBreadcrumbs-height/2 1em @rxBreadcrumbs-height/2 2em;
       font-size: 0.9em;
       display: block;
-      color: #555555;
+      color: @gray-900;
       position: relative;
       text-decoration: none;
       text-shadow: 0 1px 0 rgba(255,255,255,.5);
-      background: #dddddd;
+      background: @gray-400;
     }
     .breadcrumb-name.last {
       background: transparent;
@@ -1785,29 +1776,29 @@ a.disabled {
       content: "";
       position: absolute;
       top: 50%;
-      margin-top: -@breadcrumbHeight;
+      margin-top: -@rxBreadcrumbs-height;
       border: 0 solid transparent;
-      border-width: @breadcrumbHeight 0 @breadcrumbHeight @breadcrumbArrowWidth;
-      right: -@breadcrumbArrowWidth;
+      border-width: @rxBreadcrumbs-height 0 @rxBreadcrumbs-height @rxBreadcrumbs-arrow-width;
+      right: -@rxBreadcrumbs-arrow-width;
     }
 
     a::after {
       /* TODO add in border gradient to match nav background */
-      border-left-color: #dddddd;
+      border-left-color: @gray-400;
       z-index: 2;
     }
     a::before {
-      border-left-color: #cccccc;
-      right: -(@breadcrumbArrowWidth + 1);
+      border-left-color: @gray-500;
+      right: -(@rxBreadcrumbs-arrow-width + 1);
       z-index: 1;
     }
 
     .first {
       padding-left: 1em;
-      background: #c8c8c8;
+      background: @gray-500;
     }
     .first::after {
-      border-left-color: #c8c8c8;
+      border-left-color: @gray-500;
     }
 
     a:hover {
@@ -2131,7 +2122,7 @@ thead th .btn-link {
     flex: 1;
     text-align: center;
     padding: 7px 13px;
-    color: #989998;
+    color: @gray-700;
 
     &:first-of-type {
       border-top-left-radius: @buttonGroupBorderRadius;
@@ -2157,7 +2148,7 @@ thead th .btn-link {
 
   input:checked + label {
     color: @white;
-    background: #757575;
+    background: @gray-700;
   }
 }//.button-group
 
@@ -2668,9 +2659,6 @@ thead .rx-floating-header:first-child {
   float: right;
   box-sizing: border-box;
   width: 50%;
-  select {
-    .border-radius(0px);
-  }
 }
 
 /* Submit buttons */
@@ -3309,42 +3297,46 @@ rx-multi-select {
     margin-bottom: 2px;
     position: relative;
     background: no-repeat 18px 50%;
+    background-size: 20px 20px;
 
     .button {
       font-weight: normal;
       margin-bottom: 0;
     }
+    a {
+      text-decoration: underline;
+    }
 
     &.notification-success {
-      background-color: #ddffd3;
-      background-image: url("images/green-checkmark-circled.png");
-      color: #45ad26;
+      background-color: @green-100;
+      background-image: url("images/green-checkmark-circled.svg");
+      color: @gray-950;
       a {
-        color: #7db162;
+        color: @gray-950;
       }
     }
     &.notification-info {
-      background-color: #83c9fe;
-      background-image: url("images/info-circled.png");
-      color: #1672b9;
+      background-color: @blue-100;
+      background-image: url("images/info-circled.svg");
+      color: @gray-950;
       a {
-        color: #568fb8;
+        color: @gray-950;
       }
     }
     &.notification-warning {
-      background-color: #ffa61b;
-      background-image: url("images/warning-triangle.png");
-      color: @white;
+      background-color: @orange-100;
+      background-image: url("images/warning-triangle.svg");
+      color: @gray-950;
       a {
-        color: #f1d6af;
+        color: @gray-950;
       }
     }
     &.notification-error {
-      background-color: #f21a1a;
-      background-image: url("images/error-stop.png");
+      background-color: @red-700;
+      background-image: url("images/error-stop.svg");
       color: @white;
       a {
-        color: #fdaaab;
+        color: @white;
       }
     }
     &.notification-loading {
@@ -3355,6 +3347,8 @@ rx-multi-select {
         left: 19px;
         top: 50%;
         margin-top: -9px;
+        border-bottom-color: @gray-950;
+        border-right-color: @gray-950;
       }
     }
   }
@@ -3366,12 +3360,18 @@ rx-multi-select {
     height: 100%;
     padding: 0 15px;
     content: "\00D7";
-    .opacity(.5);
-    color: @black;
+    .opacity(.75);
+    color: @gray-950;
     &:hover,
     &:focus {
-      .opacity(0.8);
+      .opacity(1);
       text-decoration: none;
+    }
+  }
+  .notification-error {
+    .notification-dismiss {
+      .opacity(1);
+      color: @white;
     }
   }
 }
@@ -3398,7 +3398,6 @@ rx-multi-select {
     opacity: 1;
   }
 }//.animate-fade
-
 
 /*
  * rxOptionTable
@@ -4013,9 +4012,10 @@ rx-select-filter {
 *  Based on: http://cssdeck.com/labs/css3-animation-spinner
 *  Copyright 2013 - birkof.ro
  *********************************************************/
+
 .rx-spinner {
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid @gray-600;
   border-top-color: transparent;
   border-left-color: transparent;
   .border-radius(150px);
@@ -4030,30 +4030,7 @@ rx-select-filter {
   -o-animation: spin 0.8s infinite linear;
   animation: spin 0.8s infinite linear;
 }
-.rx-spinner.dark {
-  border-bottom-color: @appTextColor;
-  border-right-color: @appTextColor;
-}
-.rx-spinner.mini {
-  border-width: 2px;
-  width: 4px;
-  height: 4px;
-}
-.rx-spinner.small {
-  border-width: 2px;
-  width: 8px;
-  height: 8px;
-}
-.rx-spinner.large {
-  border-width: 3px;
-  width: 22px;
-  height: 22px;
-}
-.rx-spinner.extra-large {
-  border-width: 4px;
-  width: 32px;
-  height: 32px;
-}
+
 @-webkit-keyframes spin { /* Safari and Chrome */
   from {
     -webkit-transform: rotate(0deg);
@@ -4062,6 +4039,7 @@ rx-select-filter {
     -webkit-transform: rotate(360deg);
   }
 }
+
 @-moz-keyframes spin { /* Firefox */
   from {
     -moz-transform: rotate(0deg);
@@ -4070,22 +4048,7 @@ rx-select-filter {
     -moz-transform: rotate(360deg);
   }
 }
-@-ms-keyframes spin { /* IE */
-  from {
-    -ms-transform: rotate(0deg);
-  }
-  to {
-    -ms-transform: rotate(360deg);
-  }
-}
-@-o-keyframes spin { /* Opera */
-  from {
-    -o-transform: rotate(0deg);
-  }
-  to {
-    -o-transform: rotate(360deg);
-  }
-}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -4183,13 +4146,13 @@ rx-tags {
     line-height: @rxTag-height;
     border-radius: @rxTag-height / 2;
     vertical-align: top;
-    background-color: #e0e0e0;
+    background-color: @gray-300;
     &:hover {
       cursor: default;
     }
 
     &:focus {
-      background-color: #007bff;
+      background-color: @blue-700;
       outline: none;
       .fa,
       .text,
@@ -4205,28 +4168,31 @@ rx-tags {
     .text {
       font-size: 12px;
       margin: 0 7px 0 10px;
-      color: #727272;
+      color: @gray-800;
     }
 
     .category {
       font-size: 10px;
       margin-right: 20px;
-      color: #878787;
+      color: @gray-800;
     }
 
     .fa-tag {
       margin-left: @rxTag-height / 2;
-      color: #999999;
+      color: @gray-600;
     }
 
     .fa-times {
       margin-right: @rxTag-height / 2;
-      color: #b8b8b8;
+      color: @gray-600;
       &:hover {
         cursor: pointer;
-        color: @warnRedHover;
+        color: @gray-800;
       }
     }
+  }
+  .tag:focus .fa-times:hover {
+    color: @white;
   }
 }
 
@@ -4313,7 +4279,7 @@ rx-tags {
 
 .nav-tabs {
   display: flex;
-  border-bottom: 9px solid @tabBorder;
+  border-bottom: 9px solid @blue-700;
   clear: both;
 
   li {
@@ -4324,12 +4290,12 @@ rx-tags {
 
   a {
     display: block;
-    background: #3f6085;
-    color: #cccccc;
+    background: @blue-900;
+    color: @gray-300;
     padding: 10px 20px;
 
     .subdued {
-      color: @subduedTextHover;
+      color: @gray-500;
     }
 
     &:hover:not(.active),
@@ -4339,17 +4305,17 @@ rx-tags {
       text-decoration: none;
 
       .subdued {
-        color: @subduedText;
+        color: @gray-500;
       }
     }
   }
 
   .active a {
-    background: @tabBorder;
+    background: @blue-700;
     color: @white;
 
     .subdued {
-      color: @subduedText;
+      color: @gray-500;
     }
   }
 }
@@ -4359,9 +4325,9 @@ rx-tags {
   display: none;
   background: @white;
   padding: 10px;
-  border-left: 2px solid @tabBorder;
-  border-right: 2px solid @tabBorder;
-  border-bottom: 2px solid @tabBorder;
+  border-left: 2px solid @blue-700;
+  border-right: 2px solid @blue-700;
+  border-bottom: 2px solid @blue-700;
 
   &.active {
     display: block;
@@ -4382,8 +4348,8 @@ rx-tags {
 @zindexTooltip: 1070;
 @tooltipMaxWidth: 200px;
 @tooltipHeaderColor: @white;
-@tooltipColor: #f1f1f1;
-@tooltipBg: #878787;
+@tooltipColor: @white;
+@tooltipBg: @gray-700;
 @tooltipOpacity: 1;
 
 //** Tooltip arrow width

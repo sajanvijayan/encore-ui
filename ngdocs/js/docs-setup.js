@@ -23,6 +23,33 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "encore.ui.atoms",
+      "shortName": "encore.ui.atoms",
+      "type": "overview",
+      "moduleName": "encore.ui.atoms",
+      "shortDescription": "Atoms",
+      "keywords": "api atoms basic blocks building elements encore overview tbd ui"
+    },
+    {
+      "section": "api",
+      "id": "encore.ui.molecules",
+      "shortName": "encore.ui.molecules",
+      "type": "overview",
+      "moduleName": "encore.ui.molecules",
+      "shortDescription": "Molecules",
+      "keywords": "api atoms complex elements encore molecules overview tbd ui"
+    },
+    {
+      "section": "api",
+      "id": "encore.ui.quarks",
+      "shortName": "encore.ui.quarks",
+      "type": "overview",
+      "moduleName": "encore.ui.quarks",
+      "shortDescription": "Quarks",
+      "keywords": "api atoms category constants elements encore fall filters include items molecules non-visual overview quarks services support tbd ui values"
+    },
+    {
+      "section": "api",
       "id": "grid",
       "shortName": "grid",
       "type": "overview",

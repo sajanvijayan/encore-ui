@@ -106,13 +106,16 @@ pre code {
   background-color: #eb4d5c;
 }
 .palette.blue .color.primary {
-  background-color: #3391ff;
+  background-color: #1976d2;
 }
 .palette.blue .color.secondary-100 {
   background-color: #bbdefb;
 }
-.palette.blue .color.secondary-700 {
-  background-color: #1976d2;
+.palette.blue .color.secondary-500 {
+  background-color: #3391ff;
+}
+.palette.blue .color.secondary-900 {
+  background-color: #0d47a1;
 }
 .palette.blue .color.accent {
   background-color: #00bdff;
@@ -136,7 +139,7 @@ pre code {
   background-color: #ffecb3;
 }
 .palette.orange .color.secondary-700 {
-  background-color: #ff8f00;
+  background-color: #d14904;
 }
 .palette.orange .color.accent {
   background-color: #ffd740;
@@ -366,4 +369,7 @@ rx-page.styleguide h4,
 rx-page.styleguide h5,
 rx-page.styleguide h6 {
   margin-top: 2em;
+}
+.align-right {
+  text-align: right;
 }

@@ -1,33 +1,40 @@
 <rx-page title="component.name">
-    <div class="page-actions">
-        <a href="ngdocs/index.html#/api/{{ component.name }}/" class="component-api button">View API</a>
-        <a href="https://github.com/rackerlabs/encore-ui/tree/master/src/{{ component.name }}/" class="component-source button">View Source</a>
+  <div layout="row" layout-align="middle">
+    <div flex>
+      <img ng-if="component.stability"
+        alt="stability is {{component.stability}}"
+        ng-src="http://badges.github.io/stability-badges/dist/{{component.stability}}.svg" />
     </div>
-
-    <div class="clear component-description" ng-if="component.docs.md">
-        <h2 class="readme-title">Readme</h2>
-        <div ng-bind-html="component.docs.md"></div>
+    <div flex class="align-right">
+      <a href="ngdocs/index.html#/api/{{ component.name }}/" class="component-api button">View API</a>
+      <a href="https://github.com/rackerlabs/encore-ui/tree/master/src/{{ component.name }}/" class="component-source button">View Source</a>
     </div>
+  </div>
 
-    <tabset class="clearfix clear" ng-if="component.docs.html || component.docs.js">
-        <tab heading="Demo">
-            <div rx-compile="component.docs.html" class="component-demo"></div>
-        </tab>
+  <div class="clear component-description" ng-if="component.docs.md">
+    <h2 class="readme-title">Readme</h2>
+    <div ng-bind-html="component.docs.md"></div>
+  </div>
 
-        <tab heading="Markup" ng-if="component.docs.html">
-            <rx-prism language="markup">{{ component.docs.html }}</rx-prism>
-        </tab>
+  <tabset class="clearfix clear" ng-if="component.docs.html || component.docs.js">
+  <tab heading="Demo">
+  <div rx-compile="component.docs.html" class="component-demo"></div>
+  </tab>
 
-        <tab heading="JavaScript" ng-if="component.docs.js">
-            <rx-prism language="clike">{{ component.docs.js }}</rx-prism>
-        </tab>
+  <tab heading="Markup" ng-if="component.docs.html">
+  <rx-prism language="markup">{{ component.docs.html }}</rx-prism>
+  </tab>
 
-        <tab heading="Less" ng-if="component.docs.less">
-            <rx-prism language="css">{{ component.docs.less }}</rx-prism>
-        </tab>
+  <tab heading="JavaScript" ng-if="component.docs.js">
+  <rx-prism language="clike">{{ component.docs.js }}</rx-prism>
+  </tab>
 
-        <tab heading="Protractor" ng-if="component.docs.midway">
-            <rx-prism language="clike">{{ component.docs.midway }}</rx-prism>
-        </tab>
-    </tabset>
+  <tab heading="Less" ng-if="component.docs.less">
+  <rx-prism language="css">{{ component.docs.less }}</rx-prism>
+  </tab>
+
+  <tab heading="Protractor" ng-if="component.docs.midway">
+  <rx-prism language="clike">{{ component.docs.midway }}</rx-prism>
+  </tab>
+  </tabset>
 </rx-page>

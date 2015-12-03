@@ -1297,9 +1297,9 @@ rxToggleSwitch exercises.</p>
 <li>[instance=] <code><a href="#rxToggleSwitch">rxToggleSwitch</a></code> - Component to exercise.  </li>
 <li>[cssSelector=] <code>string</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
 <li>[disabled=false] <code>boolean</code> - Determines if the switch can be toggled  </li>
-<li>[enabledAtStart=null] <code>boolean</code> - Beginning state of toggle switch.  The value will be detected 
+<li>[enabledAtStart=null] <code>boolean</code> - Beginning state of toggle switch.  The value will be detected
 automatically if not given.  </li>
-<li>[enabledAtEnd=null] <code>boolean</code> - End state of toggle switch.  The value will be detected automatically 
+<li>[enabledAtEnd=null] <code>boolean</code> - End state of toggle switch.  The value will be detected automatically
 if not given.  </li>
 </ul>
 </li>
@@ -1697,7 +1697,8 @@ to achieve consistent behavior.</p>
 <p>##rxMisc.currencyToPennies(currencyStringOrArray)
 Transform <code>currencyStringOrArray</code> (USD) to an integer representing pennies or an array of integers representing
 pennies. Built to reverse Angular&#39;s &#39;currency&#39; filter. Do not pass in fractions of a penny because it will be
-rounded with Math.round() which doesn&#39;t use bankers&#39; rounding for negative numbers.</p>
+rounded with Math.round() which doesn&#39;t use bankers&#39; rounding for negative numbers.
+NOTE: AngularJS representation of negative currency changes in<br><a href="https://code.angularjs.org/1.4.4/docs/api/ng/filter/currency">AngularJS v1.4.4</a></p>
 <p><strong>Params</strong></p>
 <ul>
 <li>currencyStringOrArray <code>string</code> | <code>array.&lt;string&gt;</code> - Raw text or an array of raw texts as output by Angular&#39;s

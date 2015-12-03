@@ -74,6 +74,65 @@ This also helps to ensure that separate teams are not trying to do the same thin
 </ul>
 <p>Topics outside of the scope of the PR should be left for later. If a component already has design sign-off, the PR is not the place to question the design or ask for design changes</p>
 <h4 class="title sm" id="get-feedback-early-and-often">Get feedback early and often</h4 class="title sm"><p>It is much better to ask for feedback on an unfinished idea than to receive feedback on a finished one. If you are developing a new component, or updating an old one, feel free to post code as you write it. But please add &quot;DO NOT MERGE&quot; to the title of the PR, to let people know it is not quite ready.</p>
+<h4 class="title sm" id="request-a-check-for-color-contrast-with-tota11y">Request a check for color contrast with Tota11y</h4 class="title sm"><p>Another point of feedback a hybrid or designer may provide on a pull request concerns color contrast. Patterns in the Framework have been carefully vetted by
+designers for adequate color contrast to comply with a11y standards for accessibility. To confirm that ratios of color contrast for critical text comply with
+standards, we use <a href="http://khan.github.io/tota11y/">Tota11y</a>, a bookmarklet tool that can be run in a development environment. To demonstrate that a new
+feature or design complies, post an additional screen shot with Tota11y contrast ratios showing along with the usual &quot;before&quot; and &quot;after&quot; screen shots. When
+contrast is adequate, all checks on the page that Tota11y provides should show as green, with a ratio of 4.5 or higher.</p>
+<ul>
+<li>Go to <a href="http://khan.github.io/tota11y/">http://khan.github.io/tota11y/</a> and follow the installation option for dragging the tota11y button to your bookmarks bar.</li>
+<li>Load your browser with the application/environment that displays the page before any code or color changes.</li>
+<li>Click the tota11y bookmark on your browser bar.</li>
+<li>Click the icon at the bottom of your screen that looks like a set of eye glasses.</li>
+<li>Click the &quot;Contrast&quot; option from the menu that appears.</li>
+<li>Take a screenshot of the page/section that displays the desired area you are focused on.</li>
+<li>Load your browser with the application/environment that displays the page after any code or color changes.</li>
+<li>Click the icon at the bottom of your screen that looks like a set of eye glasses.</li>
+<li>Click the &quot;Contrast&quot; option from the menu that appears.</li>
+<li>Take a screenshot of the page/section that displays the desired area you are focused on.</li>
+<li>Save the &quot;Before&quot; and &quot;After&quot; images on your computer.</li>
+<li>Submit your Pull Request to the appropriate github repository.</li>
+<li>Include the &quot;Before&quot; and &quot;After&quot; images in your initial comment of the Pull Request.</li>
+<li>Include a small description of the initial problem and solution displayed in the images. Including before and after shots show the contrast ratio improvements clearly to those reviewing your pull request.</li>
+</ul>
+<h3 class="title" id="how-to-review-pull-requests-for-design">How to Review Pull Requests for Design</h3 class="title"><p>Even when mock-ups are provided, minor discrepancies and inconsistencies may creep into pull requests
+as developers make their best guess at the designer&#39;s intent. Translating mock-ups and visuals into
+precise measurements and class names in code can be tricky. If you are submitting a pull request to the
+Framework, or if your project consumes the Framework and your team includes designers or hybrids,
+require a &quot;Design LGTM&quot; before merge on each pull request that involves changes to the interface, HTML mark-up,
+or CSS.</p>
+<p>Design LGTMs can only be given by people in a traditional design role, or by hybrids that do design and
+development. However, adopting similar review methods on teams without designers or hybrids is advisable,
+but may be tricky depending on your team&#39;s experience and eye for design and small visual discrepancies.</p>
+<p>An initial design mockup should be referenced during review. This is usually documented in the initial
+JIRA story, or may be a link to InVision. If additional specs are needed, then please obtain additional
+feedback from the initial designer. Most common patterns and UI elements can be referenced in the framework Style Guide.</p>
+<p>When reviewing a pull request for design, designers and hybrids look to see that the screenshots provided
+on a pull request are as close to mock-ups as can be reasonably expected. Common areas to check include:</p>
+<ul>
+<li>Text size and decoration<ul>
+<li>Is text underlined where it should be? Is text size using the same proportions the mock-up indicated?</li>
+</ul>
+</li>
+<li>Color usage<ul>
+<li>Did the developer use colors provided by <a href="http://rackerlabs.github.io/encore-ui/#/styles/color">the Framework&#39;s color palette</a>, rather than sampling colors or introducing new hex codes?</li>
+<li>Is color contrast compliant with A11y standards (<a href="" ng-click="vm.scrollTo('using-tota11y-to-check-for-adequate-contrast')">see &quot;Request a check for color contrast with Tota11y&quot; above</a>)?</li>
+</ul>
+</li>
+<li>Margins and padding</li>
+<li>Proper usage of layout guidelines and any other patterns and standards provided by the Framework</li>
+<li>Consistency with similar elements or pages within the same application or within the Encore ecosystem<ul>
+<li>Even when mock-ups are implemented and the screenshots match, there&#39;s still a possibility that the new work doesn&#39;t match existing precendents that have already been coded.</li>
+</ul>
+</li>
+</ul>
+<p>When hybrids review a pull request, they may be able to provide additional feedback, like:</p>
+<ul>
+<li>Were the correct classes used in conjunction with mark-up?</li>
+<li>Does the mark-up match the order and execution outlined for patterns in the Framework?</li>
+<li>Were any edits or changes to CSS made that were unnecessary (like creating properties we already have a class for)</li>
+</ul>
+<p>Some feedback or suggestions can be put off and covered in a separate pull request (<a href="" ng-click="vm.scrollTo('non-requested-feedback')">see &quot;Non-Requested Feedback&quot; above</a>).</p>
 <h3 class="title" id="encoreui-developer-setup">EncoreUI Developer Setup</h3 class="title"><p><a href="#/guides/ui-setup">EncoreUI Developer Setup</a> - How to install the EncoreUI codebase</p>
 <h3 class="title" id="coding-standards">Coding Standards</h3 class="title"><p><a href="#/guides/css-styleguide">CSS Style Guide</a></p>
 <p><a href="#/guides/js-styleguide">JavaScript Style Guide</a></p>
@@ -116,7 +175,7 @@ This also helps to ensure that separate teams are not trying to do the same thin
 <li>New screenshots are added, exactly how they were outlined above. Copy any pre-existing &quot;before&quot; screenshots from the old screenshot collection. Tag the designer reviewing this pull request.</li>
 <li>Previous screenshots are edited to no longer render inline. This prevents confusion while retaining accurate historical records of visual feedback during review.</li>
 </ol>
-<h5 id="editing-previous-screenshots">Editing previous screenshots</h5><p>Here is an example of how you should edit the old screenshot comments to change them from inline rendered to non-rendered.</p>
+<h4 class="title sm" id="editing-previous-screenshots">Editing previous screenshots</h4 class="title sm"><p>Here is an example of how you should edit the old screenshot comments to change them from inline rendered to non-rendered.</p>
 <p><strong>Before:</strong> Used to render inline.</p>
 <pre><code>![I heard you like screenshots in github](https://cloud.githubusercontent.com/assets/1214609/7869834/dcd3cada-054a-11e5-9f4f-79d35d1153db.jpg)
 </code></pre><p><strong>After:</strong> Will no longer render inline.</p>
