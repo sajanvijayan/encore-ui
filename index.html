@@ -1,7 +1,8 @@
 <!doctype html>
 <html ng-app="demoApp">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png" rx-favicon="{ local: 'local-favicon.png' }" />
+    <title>Encore UI</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" rx-favicon="{ local: 'images/local-favicon.png' }" />
 
     <!-- Content inside bower:css is auto-generated via `grunt wiredep` -->
     <!-- bower:css -->
@@ -9,11 +10,11 @@
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
 
-    <link href="dist/encore-ui-resp-1.40.0.css" rel="stylesheet" />
-    <link href="assets/prism.css" rel="stylesheet" />
-    <link href="assets/generated_demo.css" rel="stylesheet" />
-
-    <script src="assets/prism.js"></script>
+    <link href="dist/encore-ui-resp-1.41.0-0.css" rel="stylesheet" />
+    <link href="css/prism.css" rel="stylesheet" />
+    <link href="css/demoApp.css" rel="stylesheet" />
+    <link href="css/demos.css" rel="stylesheet" />
+    <link href="css/examples.css" rel="stylesheet" />
 
     <!-- Content inside bower:js is auto-generated via `grunt wiredep` -->
     <!-- bower:js -->
@@ -24,22 +25,35 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-    <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/html2canvas/build/html2canvas.js"></script>
     <script src="bower_components/mousetrap/mousetrap.js"></script>
     <script src="bower_components/angular-hotkeys/build/hotkeys.min.js"></script>
     <script src="bower_components/ng-debounce/angular-debounce.js"></script>
     <!-- endbower -->
 
-    <script src="dist/encore-ui-tpls-1.40.0.js"></script>
-    <script src="demo.js"></script>
-    <script src="modules.js"></script>
-    <script src="browser-helpers.js"></script>
-    <script src="moduleControllers.js"></script>
-    <script src="componentsController.js"></script>
-    <script src="guides/guideController.js"></script>
+    <!-- generated release -->
+    <script src="dist/encore-ui-tpls-1.41.0-0.js"></script>
+    <!-- demo application and supporting utilities -->
+    <script src="scripts/demoApp.js"></script>
+    <script src="scripts/browser-helpers.js"></script>
+    <script src="scripts/prism.js"></script>
+    <!-- modules -->
+    <script src="scripts/loadModules.js"></script>
+    <script src="scripts/loadModuleDemoControllers.js"></script>
+    <script src="scripts/listModulesController.js"></script>
+    <script src="scripts/listCategoryModulesController.js"></script>
+    <script src="scripts/showModuleController.js"></script>
+    <script src="scripts/modulesFilter.js"></script>
+    <script src="scripts/categoryModulesFilter.js"></script>
+    <!-- guides -->
+    <script src="scripts/showGuideController.js"></script>
+    <!-- directives -->
+    <script src="scripts/alwaysInvalid.js"></script>
+    <script src="scripts/rxPrism.js"></script>
+    <script src="scripts/rxStyleguide.js"></script>
+    <script src="scripts/rxExample.js"></script>
 
-    <title>Encore UI</title>
 </head>
 <body>
     <rx-app site-title="Encore Demo App" menu="demoNav" new-instance="true" collapsible-nav="true">

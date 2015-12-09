@@ -1,0 +1,16 @@
+<div class="example">
+  <tabset>
+    <tab heading="Demo">
+      <div ng-include="markup_url"></div>
+    </tab>
+    <tab heading="Markup">
+      <rx-prism language="markup" code-url="{{markup_url}}"></rx-prism>
+    </tab>
+    <tab ng-if="has_javascript" heading="JavaScript">
+      <rx-prism language="clike" code-url="{{javascript_url}}"></rx-prism>
+    </tab>
+    <tab ng-if="has_less" heading="Less">
+      <rx-prism language="css" code-url="{{less_url}}"></rx-prism>
+    </tab>
+  </tabset>
+</div>

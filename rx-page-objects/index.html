@@ -1,6 +1,11 @@
 <p>#Index</p>
 <p><strong>Modules</strong></p>
 <ul>
+<li><a href="#encore.module_rxCheckbox">encore.rxCheckbox</a><ul>
+<li><a href="#encore.module_rxCheckbox.initialize">encore.rxCheckbox.initialize(rxCheckboxElement)</a></li>
+<li><a href="#encore.module_rxCheckbox.generateAccessor">encore.rxCheckbox.generateAccessor(elem)</a></li>
+</ul>
+</li>
 <li><a href="#encore.module_rxAccountInfo">encore.rxAccountInfo</a><ul>
 <li><a href="#encore.module_rxAccountInfo.main">encore.rxAccountInfo.main</a></li>
 <li><a href="#encore.module_rxAccountInfo.initialize">encore.rxAccountInfo.initialize(rxAccountInfoElement)</a></li>
@@ -20,11 +25,6 @@
 <li><a href="#encore.module_rxCharacterCount">encore.rxCharacterCount</a><ul>
 <li><a href="#encore.module_rxCharacterCount.main">encore.rxCharacterCount.main</a></li>
 <li><a href="#encore.module_rxCharacterCount.initialize">encore.rxCharacterCount.initialize(rxCharacterCountElement)</a></li>
-</ul>
-</li>
-<li><a href="#encore.module_rxCheckbox">encore.rxCheckbox</a><ul>
-<li><a href="#encore.module_rxCheckbox.initialize">encore.rxCheckbox.initialize(rxCheckboxElement)</a></li>
-<li><a href="#encore.module_rxCheckbox.generateAccessor">encore.rxCheckbox.generateAccessor(elem)</a></li>
 </ul>
 </li>
 <li><a href="#encore.module_rxCollapse">encore.rxCollapse</a><ul>
@@ -125,9 +125,9 @@
 <li><a href="#encore.module_rxToggleSwitch.initialize">encore.rxToggleSwitch.initialize(rxToggleSwitchElement)</a></li>
 </ul>
 </li>
+<li><a href="#encore.exercise.module_rxCheckbox">encore.exercise.rxCheckbox</a></li>
 <li><a href="#encore.exercise.module_rxBulkSelect">encore.exercise.rxBulkSelect</a></li>
 <li><a href="#encore.exercise.module_rxCharacterCount">encore.exercise.rxCharacterCount</a></li>
-<li><a href="#encore.exercise.module_rxCheckbox">encore.exercise.rxCheckbox</a></li>
 <li><a href="#encore.exercise.module_rxCollapse">encore.exercise.rxCollapse</a></li>
 <li><a href="#encore.exercise.module_rxFieldName">encore.exercise.rxFieldName</a></li>
 <li><a href="#encore.exercise.module_rxMetadata">encore.exercise.rxMetadata</a></li>
@@ -142,6 +142,18 @@
 </ul>
 <p><strong>Namespaces</strong></p>
 <ul>
+<li><a href="#rxCheckbox">rxCheckbox</a><ul>
+<li><a href="#rxCheckbox.isCheckbox">rxCheckbox.isCheckbox</a></li>
+<li><a href="#rxCheckbox.isDisplayed">rxCheckbox.isDisplayed()</a></li>
+<li><a href="#rxCheckbox.isDisabled">rxCheckbox.isDisabled()</a></li>
+<li><a href="#rxCheckbox.isPresent">rxCheckbox.isPresent()</a></li>
+<li><a href="#rxCheckbox.isValid">rxCheckbox.isValid()</a></li>
+<li><a href="#rxCheckbox.isSelected">rxCheckbox.isSelected()</a></li>
+<li><a href="#rxCheckbox.select">rxCheckbox.select()</a></li>
+<li><a href="#rxCheckbox.unselect"><del>rxCheckbox.unselect()</del></a></li>
+<li><a href="#rxCheckbox.deselect">rxCheckbox.deselect()</a></li>
+</ul>
+</li>
 <li><a href="#rxAccountInfo">rxAccountInfo</a><ul>
 <li><a href="#rxAccountInfo.name">rxAccountInfo.name</a></li>
 <li><a href="#rxAccountInfo.number">rxAccountInfo.number</a></li>
@@ -189,18 +201,6 @@
 <li><a href="#rxCharacterCount.isDisplayed">rxCharacterCount.isDisplayed()</a></li>
 <li><a href="#rxCharacterCount.isNearLimit">rxCharacterCount.isNearLimit()</a></li>
 <li><a href="#rxCharacterCount.isOverLimit">rxCharacterCount.isOverLimit()</a></li>
-</ul>
-</li>
-<li><a href="#rxCheckbox">rxCheckbox</a><ul>
-<li><a href="#rxCheckbox.isCheckbox">rxCheckbox.isCheckbox</a></li>
-<li><a href="#rxCheckbox.isDisplayed">rxCheckbox.isDisplayed()</a></li>
-<li><a href="#rxCheckbox.isDisabled">rxCheckbox.isDisabled()</a></li>
-<li><a href="#rxCheckbox.isPresent">rxCheckbox.isPresent()</a></li>
-<li><a href="#rxCheckbox.isValid">rxCheckbox.isValid()</a></li>
-<li><a href="#rxCheckbox.isSelected">rxCheckbox.isSelected()</a></li>
-<li><a href="#rxCheckbox.select">rxCheckbox.select()</a></li>
-<li><a href="#rxCheckbox.unselect"><del>rxCheckbox.unselect()</del></a></li>
-<li><a href="#rxCheckbox.deselect">rxCheckbox.deselect()</a></li>
 </ul>
 </li>
 <li><a href="#rxCollapse">rxCollapse</a><ul>
@@ -385,7 +385,31 @@
 <ul>
 <li><a href="#count">count()</a></li>
 </ul>
-<p><a name="encore.module_rxAccountInfo"></a></p>
+<p><a name="encore.module_rxCheckbox"></a></p>
+<p>#encore.rxCheckbox
+Page object for interacting with rxCheckbox elements</p>
+<p><strong>Members</strong></p>
+<ul>
+<li><a href="#encore.module_rxCheckbox">encore.rxCheckbox</a><ul>
+<li><a href="#encore.module_rxCheckbox.initialize">encore.rxCheckbox.initialize(rxCheckboxElement)</a></li>
+<li><a href="#encore.module_rxCheckbox.generateAccessor">encore.rxCheckbox.generateAccessor(elem)</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="encore.module_rxCheckbox.initialize"></a></p>
+<p>##encore.rxCheckbox.initialize(rxCheckboxElement)
+<strong>Params</strong></p>
+<ul>
+<li>rxCheckboxElement <code>WebElement</code> - WebElement to be transformed into an rxCheckbox page object  </li>
+</ul>
+<p><strong>Returns</strong>: <a href="#rxCheckbox">rxCheckbox</a> - Page object representing the rxCheckbox element<br><a name="encore.module_rxCheckbox.generateAccessor"></a></p>
+<p>##encore.rxCheckbox.generateAccessor(elem)
+Generates a getter and a setter for an rxCheckbox element on your page.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>elem <code>WebElement</code> - The WebElement for the rxCheckbox.  </li>
+</ul>
+<p><strong>Returns</strong>: <code>Object</code> - A getter and a setter to be applied to a rxCheckbox page object.<br><a name="encore.module_rxAccountInfo"></a></p>
 <p>#encore.rxAccountInfo
 <strong>Members</strong></p>
 <ul>
@@ -464,31 +488,7 @@ Passing in an <code>actionConstructorFn</code> will default to calling that for 
 <ul>
 <li>rxCharacterCountElement <code>WebElement</code> - WebElement to be transformed into an rxCharacterCountElement object  </li>
 </ul>
-<p><strong>Returns</strong>: <a href="#rxCharacterCount">rxCharacterCount</a> - Page object representing the rxCharacterCount object.<br><a name="encore.module_rxCheckbox"></a></p>
-<p>#encore.rxCheckbox
-Page object for interacting with rxCheckbox elements</p>
-<p><strong>Members</strong></p>
-<ul>
-<li><a href="#encore.module_rxCheckbox">encore.rxCheckbox</a><ul>
-<li><a href="#encore.module_rxCheckbox.initialize">encore.rxCheckbox.initialize(rxCheckboxElement)</a></li>
-<li><a href="#encore.module_rxCheckbox.generateAccessor">encore.rxCheckbox.generateAccessor(elem)</a></li>
-</ul>
-</li>
-</ul>
-<p><a name="encore.module_rxCheckbox.initialize"></a></p>
-<p>##encore.rxCheckbox.initialize(rxCheckboxElement)
-<strong>Params</strong></p>
-<ul>
-<li>rxCheckboxElement <code>WebElement</code> - WebElement to be transformed into an rxCheckbox page object  </li>
-</ul>
-<p><strong>Returns</strong>: <a href="#rxCheckbox">rxCheckbox</a> - Page object representing the rxCheckbox element<br><a name="encore.module_rxCheckbox.generateAccessor"></a></p>
-<p>##encore.rxCheckbox.generateAccessor(elem)
-Generates a getter and a setter for an rxCheckbox element on your page.</p>
-<p><strong>Params</strong></p>
-<ul>
-<li>elem <code>WebElement</code> - The WebElement for the rxCheckbox.  </li>
-</ul>
-<p><strong>Returns</strong>: <code>Object</code> - A getter and a setter to be applied to a rxCheckbox page object.<br><a name="encore.module_rxCollapse"></a></p>
+<p><strong>Returns</strong>: <a href="#rxCharacterCount">rxCharacterCount</a> - Page object representing the rxCharacterCount object.<br><a name="encore.module_rxCollapse"></a></p>
 <p>#encore.rxCollapse
 <strong>Members</strong></p>
 <ul>
@@ -1036,7 +1036,22 @@ it(&#39;should sort the column ascending by default&#39;, function () {
 <ul>
 <li>rxToggleSwitchElement <code>WebElement</code> - WebElement to be transformed into an rxToggleSwitchElement object.  </li>
 </ul>
-<p><strong>Returns</strong>: <a href="#rxToggleSwitch">rxToggleSwitch</a> - Page object representing the rxToggleSwitch object.<br><a name="encore.exercise.module_rxBulkSelect"></a></p>
+<p><strong>Returns</strong>: <a href="#rxToggleSwitch">rxToggleSwitch</a> - Page object representing the rxToggleSwitch object.<br><a name="encore.exercise.module_rxCheckbox"></a></p>
+<p>#encore.exercise.rxCheckbox
+rxCheckbox exercises</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>[options=] <code>Object</code> - Test options. Used to build valid tests.  <ul>
+<li>[instance=] <code><a href="#rxCheckbox">rxCheckbox</a></code> - Component to exercise.  </li>
+<li>[cssSelector=] <code>String</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
+<li>[disabled=false] <code>Boolean</code> - Determines if the checkbox is disabled  </li>
+<li>[selected=false] <code>Boolean</code> - Determines if the checkbox is selected  </li>
+<li>[visible=true] <code>Boolean</code> - Determines if the checkbox is visible  </li>
+<li>[valid=true] <code>Boolean</code> - Determines if the checkbox is valid  </li>
+</ul>
+</li>
+</ul>
+<p><a name="encore.exercise.module_rxBulkSelect"></a></p>
 <p>#encore.exercise.rxBulkSelect
 rxBulkSelect exercises.</p>
 <p><strong>Params</strong></p>
@@ -1078,21 +1093,6 @@ trailing whitespace when calculating the remaining character count.  </li>
     ignoreInsignificantWhitespace: false
 }));
 </code></pre>
-<p><a name="encore.exercise.module_rxCheckbox"></a></p>
-<p>#encore.exercise.rxCheckbox
-rxCheckbox exercises</p>
-<p><strong>Params</strong></p>
-<ul>
-<li>[options=] <code>Object</code> - Test options. Used to build valid tests.  <ul>
-<li>[instance=] <code><a href="#rxCheckbox">rxCheckbox</a></code> - Component to exercise.  </li>
-<li>[cssSelector=] <code>String</code> - DEPRECATED: Fallback selector string to initialize widget with.  </li>
-<li>[disabled=false] <code>Boolean</code> - Determines if the checkbox is disabled  </li>
-<li>[selected=false] <code>Boolean</code> - Determines if the checkbox is selected  </li>
-<li>[visible=true] <code>Boolean</code> - Determines if the checkbox is visible  </li>
-<li>[valid=true] <code>Boolean</code> - Determines if the checkbox is valid  </li>
-</ul>
-</li>
-</ul>
 <p><a name="encore.exercise.module_rxCollapse"></a></p>
 <p>#encore.exercise.rxCollapse
 rxCollapse exercises.</p>
@@ -1306,9 +1306,49 @@ if not given.  </li>
 </ul>
 <p><strong>Example</strong>  </p>
 <pre><code class="lang-js">describe(&#39;default exercises&#39;, encore.exercise.rxToggleSwitch({
-    cssSelector: myPage.emailPreference // select one of many widgets from your page objects
+    instance: myPage.emailPreference // select one of many widgets from your page objects
 }));
 </code></pre>
+<p><a name="rxCheckbox"></a></p>
+<p>#rxCheckbox
+<strong>Members</strong></p>
+<ul>
+<li><a href="#rxCheckbox">rxCheckbox</a><ul>
+<li><a href="#rxCheckbox.isCheckbox">rxCheckbox.isCheckbox</a></li>
+<li><a href="#rxCheckbox.isDisplayed">rxCheckbox.isDisplayed()</a></li>
+<li><a href="#rxCheckbox.isDisabled">rxCheckbox.isDisabled()</a></li>
+<li><a href="#rxCheckbox.isPresent">rxCheckbox.isPresent()</a></li>
+<li><a href="#rxCheckbox.isValid">rxCheckbox.isValid()</a></li>
+<li><a href="#rxCheckbox.isSelected">rxCheckbox.isSelected()</a></li>
+<li><a href="#rxCheckbox.select">rxCheckbox.select()</a></li>
+<li><a href="#rxCheckbox.unselect"><del>rxCheckbox.unselect()</del></a></li>
+<li><a href="#rxCheckbox.deselect">rxCheckbox.deselect()</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="rxCheckbox.isCheckbox"></a></p>
+<p>##rxCheckbox.isCheckbox
+Useful for situations where input types might change in the future, ensuring that the expected one is being used.</p>
+<p><strong>Returns</strong>: <code>Boolean</code> - Whether or not the element in question is a checkbox.<br><a name="rxCheckbox.isDisplayed"></a></p>
+<p>##rxCheckbox.isDisplayed()
+<strong>Returns</strong>: <code>Boolean</code> - Whether the checkbox is currently displayed.<br><a name="rxCheckbox.isDisabled"></a></p>
+<p>##rxCheckbox.isDisabled()
+<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is disabled.<br><a name="rxCheckbox.isPresent"></a></p>
+<p>##rxCheckbox.isPresent()
+<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is present on the page.<br><a name="rxCheckbox.isValid"></a></p>
+<p>##rxCheckbox.isValid()
+<strong>Returns</strong>: <code>Boolean</code> - Whether the checkbox is valid.<br><a name="rxCheckbox.isSelected"></a></p>
+<p>##rxCheckbox.isSelected()
+<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is selected.<br><a name="rxCheckbox.select"></a></p>
+<p>##rxCheckbox.select()
+Make sure checkbox is selected/checked</p>
+<p><a name="rxCheckbox.unselect"></a></p>
+<p>##<del>rxCheckbox.unselect()</del>
+<strong>DEPRECATED</strong>: Use <a href="#rxCheckbox.deselect">deselect</a> instead.
+This function will be removed in a future release of the EncoreUI framework.</p>
+<p><strong><em>Deprecated</em></strong><br><strong>Returns</strong>: <code>undefined</code><br><a name="rxCheckbox.deselect"></a></p>
+<p>##rxCheckbox.deselect()
+make sure checkbox is deselected/unchecked</p>
 <p><a name="rxAccountInfo"></a></p>
 <p>#rxAccountInfo
 <strong>Members</strong></p>
@@ -1545,47 +1585,7 @@ Get and set the comment&#39;s textual content. Will erase the current text when 
 <p>##rxCharacterCount.isNearLimit()
 <strong>Returns</strong>: <code>Boolean</code> - Whether or not the &#39;near-limit&#39; class is displayed.<br><a name="rxCharacterCount.isOverLimit"></a></p>
 <p>##rxCharacterCount.isOverLimit()
-<strong>Returns</strong>: <code>Boolean</code> - Whether or not the &#39;over-limit&#39; class is displayed.<br><a name="rxCheckbox"></a></p>
-<p>#rxCheckbox
-<strong>Members</strong></p>
-<ul>
-<li><a href="#rxCheckbox">rxCheckbox</a><ul>
-<li><a href="#rxCheckbox.isCheckbox">rxCheckbox.isCheckbox</a></li>
-<li><a href="#rxCheckbox.isDisplayed">rxCheckbox.isDisplayed()</a></li>
-<li><a href="#rxCheckbox.isDisabled">rxCheckbox.isDisabled()</a></li>
-<li><a href="#rxCheckbox.isPresent">rxCheckbox.isPresent()</a></li>
-<li><a href="#rxCheckbox.isValid">rxCheckbox.isValid()</a></li>
-<li><a href="#rxCheckbox.isSelected">rxCheckbox.isSelected()</a></li>
-<li><a href="#rxCheckbox.select">rxCheckbox.select()</a></li>
-<li><a href="#rxCheckbox.unselect"><del>rxCheckbox.unselect()</del></a></li>
-<li><a href="#rxCheckbox.deselect">rxCheckbox.deselect()</a></li>
-</ul>
-</li>
-</ul>
-<p><a name="rxCheckbox.isCheckbox"></a></p>
-<p>##rxCheckbox.isCheckbox
-Useful for situations where input types might change in the future, ensuring that the expected one is being used.</p>
-<p><strong>Returns</strong>: <code>Boolean</code> - Whether or not the element in question is a checkbox.<br><a name="rxCheckbox.isDisplayed"></a></p>
-<p>##rxCheckbox.isDisplayed()
-<strong>Returns</strong>: <code>Boolean</code> - Whether the checkbox is currently displayed.<br><a name="rxCheckbox.isDisabled"></a></p>
-<p>##rxCheckbox.isDisabled()
-<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is disabled.<br><a name="rxCheckbox.isPresent"></a></p>
-<p>##rxCheckbox.isPresent()
-<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is present on the page.<br><a name="rxCheckbox.isValid"></a></p>
-<p>##rxCheckbox.isValid()
-<strong>Returns</strong>: <code>Boolean</code> - Whether the checkbox is valid.<br><a name="rxCheckbox.isSelected"></a></p>
-<p>##rxCheckbox.isSelected()
-<strong>Returns</strong>: <code>Boolean</code> - Whether or not the checkbox is selected.<br><a name="rxCheckbox.select"></a></p>
-<p>##rxCheckbox.select()
-Make sure checkbox is selected/checked</p>
-<p><a name="rxCheckbox.unselect"></a></p>
-<p>##<del>rxCheckbox.unselect()</del>
-<strong>DEPRECATED</strong>: Use <a href="#rxCheckbox.deselect">deselect</a> instead.
-This function will be removed in a future release of the EncoreUI framework.</p>
-<p><strong><em>Deprecated</em></strong><br><strong>Returns</strong>: <code>undefined</code><br><a name="rxCheckbox.deselect"></a></p>
-<p>##rxCheckbox.deselect()
-make sure checkbox is deselected/unchecked</p>
-<p><a name="rxCollapse"></a></p>
+<strong>Returns</strong>: <code>Boolean</code> - Whether or not the &#39;over-limit&#39; class is displayed.<br><a name="rxCollapse"></a></p>
 <p>#rxCollapse
 <strong>Members</strong></p>
 <ul>

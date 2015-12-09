@@ -1,0 +1,105 @@
+<h2 class="page-title" id="css-styleguide">CSS Styleguide</h2><h3  id="acknowledgements">Acknowledgements:</h3><p>Most of these standards are based off of the guidelines provided by <a href="http://smacss.com/">SMACSS</a> 
+and <a href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/">OOCSS</a>. Reading up 
+on these materials will give you a much greater understanding of why these rules were chosen.</p>
+<h3  id="basic-rules">Basic Rules:</h3><ol>
+<li><p><strong>Use class names for your selectors</strong></p>
+<p> Many style guides focus around preventing classitis by depending on HTML elements for selectors. While using only 
+ &quot;semantic&quot; HTML is a neat idea, 
+ <a href="http://www.stubbornella.org/content/2011/04/28/our-best-practices-are-killing-us/">it doesn&#39;t scale well</a>.</p>
+<p> Therefore, use of HTML elements or id&#39;s in a selector is strongly discouraged, as they create unnecessary 
+ specificity. <strong>The only time it is acceptable to use elements as selectors is when applying styles to a specific 
+ component (<code>rxApp</code>, <code>rxButton</code>, etc).</strong></p>
+<p> <em>Scenario #1</em></p>
+<p> Use <code>.blog-article {}</code> instead of <code>article {}</code>.</p>
+<p> Yes, sometimes it&#39;s &quot;uglier&quot; to use <code>blog-article</code> as a class, but it&#39;s much more re-usable than relying on the 
+ specific HTML <code>article</code> element.  Along that same logic, 
+ <a href="http://www.stubbornella.org/content/2011/09/06/style-headings-using-html5-sections/">don&#39;t style heading elements</a>,
+ but use class names instead.</p>
+<pre><code class="lang-html"> &lt;h1 class=&quot;alpha&quot;&gt;My Big Site Title&lt;/h1&gt;
+ &lt;h2 class=&quot;alpha&quot;&gt;My Just as Big Site Tagline&lt;/h2&gt;
+ http://csswizardry.com/2012/11/code-smells-in-css/
+</code></pre>
+<p> <strong>The only time it is acceptable to style heading elements is when defining their base styles.</strong></p>
+<p> <em>Scenario #2</em></p>
+<p> <code>.login-form</code> instead of <code>#login-form</code></p>
+<p> Here, instead of using an ID, we use a class name. While there may only ever be one login form on a page, using a 
+ class name gives us much more flexibility for the future. <strong>This is probably the biggest change that you&#39;ll need to 
+ make when coding CSS according to this style guide.</strong></p>
+<p> For a great example on how using IDs in selectors can cause major re-usability problems, take a look at the &#39;twitter 
+ widget&#39; example in the post 
+ <a href="http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class/">&quot;When using IDs can be a pain in the class...&quot;</a></p>
+</li>
+<li><p><strong><a href="http://csswizardry.com/2012/05/keep-your-css-selectors-short/">Keep CSS selectors short</a></strong></p>
+<p> CSS selectors should have no more than 3 qualifiers.</p>
+<p> Since we use LESS, it&#39;s easy to create long selectors without realizing it (through too much nesting of CSS).
+ As a general rule, <a href="http://www.youtube.com/watch?v=GhX8iPcDSsI"><strong>don&#39;t nest selectors more than 2 deep</strong></a>.</p>
+</li>
+<li><p>Avoid <code>!important</code> AT ALL COSTS</p>
+<p> Nothing reduces the re-usability and flexibility of your CSS like using <code>!important</code>. Chances are, if you&#39;re 
+ finding yourself needing to use it, the CSS you&#39;re overriding is too specific and needs to be refactored using 
+ the previous rules.</p>
+<p> If you simply can&#39;t avoid using <code>!important</code>, you <strong>MUST</strong> include a comment adjacent to its use explaining why 
+ it&#39;s necessary. This comment should explain what selectors !important is overriding and why those selectors can&#39;t 
+ be changed to be less specific.</p>
+</li>
+<li><p>Use CSS Lint</p>
+<p> If the previous three rules seem too complicated or annoying to have to remember, just run your code through 
+ <a href="http://csslint.net/#warnings=display-property-grouping,duplicate-properties,empty-rules,known-properties,text-indent,vendor-prefix,fallback-colors,star-property-hack,underscore-property-hack,bulletproof-font-face,font-faces,duplicate-background-images,regex-selectors,universal-selector,unqualified-attributes,zero-units,overqualified-elements,shorthand,floats,font-sizes,ids,important,outline-none,qualified-headings,unique-headings">CSS Lint</a> when committing.</p>
+</li>
+</ol>
+<h3  id="format">Format</h3><p><strong>Note</strong>: This section inspired by <a href="https://github.com/necolas/idiomatic-css/blob/master/README.md#format">The Principles of writing consistent, idiomatic CSS</a></p>
+<p>This code format ensures that code is easy to read, easy to clearly comment, minimizes the chance of accidentally 
+introducing errors, and results in useful diffs and blames.</p>
+<ul>
+<li>Line length should be no more than 120 characters.</li>
+<li>4 spaces for one level of indentation. No tabs.</li>
+<li>Use one discrete selector per line in multi-selector rulesets.</li>
+<li>Include a single space before the opening brace of a ruleset.</li>
+<li>Include one declaration per line in a declaration block.</li>
+<li>Include a single space after the colon of a declaration.</li>
+<li>Use lowercase and shorthand hex values, e.g., <code>#aaa</code>.</li>
+<li>Use double quotes consistently. (e.g. <code>content: &quot;&quot;</code> or <code>[type=&quot;text&quot;]</code>)</li>
+<li>Quote attribute values in selectors (e.g. <code>input[type=&quot;checkbox&quot;]</code>)</li>
+<li><em>Where allowed</em>, avoid specifying units for zero-values (e.g. <code>margin: 0;</code>)</li>
+<li>Include a space after each comma in comma-separated property or function values.</li>
+<li>Include a semi-colon at the end of the last declaration in a declaration block.</li>
+<li>Place the closing brace of a ruleset in the same column as the first character of the ruleset.</li>
+<li>Separate each ruleset by a blank line.</li>
+</ul>
+<pre><code class="lang-css">.selector-1,
+.selector-2,
+.selector-3[type=&quot;text&quot;] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    font-family: helvetica, arial, sans-serif;
+    color: #333;
+    background: #fff;
+    background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
+}
+
+.selector-a,
+.selector-b {
+    padding: 10px;
+}
+</code></pre>
+<h3  id="class-naming">Class Naming</h3><p>In order to create consistent class names, it&#39;s encouraged to use the naming defined 
+at <a href="http://semantic-ui.com">semantic-ui.com</a>. This is especially true for components that are meant to be re-usable 
+like icons or alert boxes.</p>
+<h3  id="scoping-styles-to-directives">Scoping Styles to Directives</h3><p>CSS selectors used to scope styles for a specific directive may differ depending on how the directive behaves.</p>
+<h4  id="element-directives">Element Directives</h4><p>For element directives, use the element name selector.</p>
+<pre><code class="lang-css">rx-field-name { ... }
+rx-help-text { ... }
+</code></pre>
+<h4  id="attribute-directives">Attribute Directives</h4><p>For attribute directives that <em>wrap</em> their target element in custom markup (e.g. <code>rx-checkbox</code>, <code>rx-radio</code>, 
+<code>rx-select</code>), we don&#39;t have a semantic element or attribute to use for the root CSS selector.
+In this case, it is best to use the angular-normalized CSS class name so that it is not confused with an element 
+selector (<code>.rxCheckbox</code> vs <code>rx-checkbox</code>).</p>
+<pre><code class="lang-css">.rxCheckbox { ... }
+.rxSelect { ... }
+.rxRadio { ... }
+</code></pre>
+<p>For attribute directives that do not wrap their target element, use the attribute name selector.</p>
+<pre><code class="lang-css">[rx-form] { ... }
+</code></pre>

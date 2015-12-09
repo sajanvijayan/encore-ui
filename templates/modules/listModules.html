@@ -1,0 +1,42 @@
+<rx-page title="vm.pageTitle" class="modules-list">
+  <div class="clear">
+    <table rx-floating-header class="table-striped">
+      <thead>
+        <tr>
+          <th colspan="10">
+            <rx-search-box
+              rx-placeholder="'Filter by any...'"
+              class="filter-box"
+              ng-model="searchText">
+            </rx-search-box>
+          </th>
+        </tr>
+        <tr>
+          <th class="column name" ng-click="vm.sortColumn('name')">Name
+            <span ng-show="vm.showCaret('name')" ng-class="vm.getCaretType()"></span>
+          </th>
+          <th class="column stability" ng-click="vm.sortColumn('stability')">Stability
+            <span ng-show="vm.showCaret('stability')" ng-class="vm.getCaretType()"></span>
+          </th>
+          <th class="column category" ng-click="vm.sortColumn('category')">Category
+            <span ng-show="vm.showCaret('category')" ng-class="vm.getCaretType()"></span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="vm.modules.length" ng-repeat="module in vm.modules | modulesFilter:searchText | orderBy:vm.sortKey:vm.sortReverse">
+          <td><a href="#/{{module.category}}/{{module.name}}">{{ module.name }}</a></td>
+          <td>
+            <span ng-if="module.stability">
+              <img ng-src="http://badges.github.io/stability-badges/dist/{{module.stability}}.svg"></img>
+            </span>
+          </td>
+          <td><a href="#/{{module.category}}">{{module.category | rxCapitalize}}</a></td>
+        </tr>
+        <tr ng-if="!vm.modules.length">
+          <td colspan="10">No {{vm.category}} were found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</rx-page>

@@ -1,0 +1,115 @@
+<rx-page title="'Layouts'">
+
+    <div class="module-description clear">
+        <h2>Grids</h2>
+        <p>
+          <a href="http://github.com/badges/stability-badges">
+            <img src="http://badges.github.io/stability-badges/dist/deprecated.svg">
+          </a>
+        </p>
+
+        <p>
+          <strong>
+            <span class="msg-info">WARNING:</span>
+            Use of these grids has been deprecated and this code will be
+            removed in the near future. If you are using Pure CSS framework
+            grids, you should convert them to the new
+            <a href="#/components/layout">flexbox grid</a>.
+          </strong>
+        </p>
+        <h2>Usage</h2>
+        <p>
+          No additional installation is needed, as grids-min.css
+          is already included in encore-ui CSS libraries.
+        </p>
+        <p>
+          Most of the grid layouts you will use will be in the context of
+          rxPage inside rxApp. For this reason, we
+          will be using the regular grids only, not responsive grids.
+        </p>
+        <p>
+          The code sample below will give the clearest context of how grids
+          work. Title containers on rxPage components are
+          defaulted to float left, so the <code>.pure-g</code> class also has
+          a clear class attached.
+        </p>
+        <p>
+          You'll find that the grid components will not have borders or
+          padding within the grid units themselves. If you need white space
+          between grid columns, adding a <code>.columns</code> class to the
+          <code>.pure-g</code> container will give padding of 1.5ems per each
+          individual cell, or 3ems together.
+        </p>
+
+    </div>
+
+    <rx-styleguide code-url="templates/styleguide/layouts/grids.html"></rx-styleguide>
+
+    <h3 class="clear">Common Layouts</h2>
+    <div class="module-description clear">
+        <p>
+          Get started with some common layouts. You can view or copy the
+          source code to see what's happening.
+        </p>
+        <p>
+          The purpose of these layouts is to show design patterns and source
+          markup, rather than functionality. We have not included any
+          angular.js components, so the page may not function the way you'd
+          expect.
+        </p>
+        <ul class="list">
+            <li>
+              <a href="#/styleguide/layouts/1">Layout 1: Detail Page</a>
+              <ul>
+                <li>
+                  Contains one rxMetadata element with three columns, action
+                  links, and three datatables.
+                  (<a href="https://github.com/rackerlabs/encore-ui/tree/master/demo/styleguide/layout-1.html">
+                    View Markup
+                  </a>)
+                </li>
+                <li>
+                  Uses <a href="#/components/rxApp">rxPage</a>, grids,
+                  <a href="#/components/rxMetadata">rxMetadata</a>
+                  and basic table components.
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#/styleguide/layouts/2">Layout 2: Data Table</a>
+              <ul>
+                <li>
+                  Multiple-column data table.
+                 (<a href="https://github.com/rackerlabs/encore-ui/tree/master/demo/styleguide/layout-2.html">View Markup</a>)
+                </li>
+                <li>
+                  Uses<a href="#/components/rxApp">rxPage</a>,
+                  <a href="#/components/rxActionMenu">rxActionMenu</a>,
+                  parts of <a href="#/components/rxPaginate">rxPaginate</a>
+                  and <a href="#/components/rxModalAction">rxModalAction</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#/styleguide/layouts/3">Layout 3: Create Form</a>
+              <ul>
+                <li>
+                  Create form that is page wide (rather than a modal)
+                  (<a href="https://github.com/rackerlabs/encore-ui/tree/master/demo/styleguide/layout-3.html">View Markup</a>)
+                </li>
+                <li>
+                  Uses <a href="#/components/rxApp">rxPage</a> and
+                  sub-directives related to
+                  <a href="#/components/rxForm">rxForm</a>.
+                </li>
+              </ul>
+            </li>
+        </ul>
+
+
+    </div>
+
+
+</rx-page>

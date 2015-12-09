@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/rxAge/scripts/rxAge.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">components/rxAge/scripts/rxAge.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(34 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">95.45% <small>(21 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(34 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">components/rxAge/scripts/</a> &#187; rxAge.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">24</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('encore.ui.rxAge')
+// Another option
+// age.js -- https://github.rackspace.com/gist/roge5001/2417941
+// age.spec.js -- https://github.rackspace.com/gist/roge5001/2417940
+/**
+ * @ngdoc filter
+ * @name rxAge.filter:rxAge
+ * @description
+ * Several filters are available to parse dates.
+ */
+.filter('rxAge', function () {
+    return function (dateString, maxUnits, verbose) {
+        if (!dateString) {
+            return 'Unavailable';
+        } else if (dateString === 'z') {
+            return '--';
+        }
+&nbsp;
+        var now = moment();
+        var date = moment(new Date(dateString));
+        var diff = now.diff(date);
+        var duration = moment.duration(diff);
+        var days = parseInt(duration.asDays(), 10);
+        var hours = parseInt(duration.asHours(), 10);
+        var mins = parseInt(duration.asMinutes(), 10);
+        var age = [];
+&nbsp;
+        if (_.isBoolean(maxUnits)) {
+            // if maxUnits is a boolean, then we assume it's meant to be the verbose setting
+            verbose = maxUnits;
+        } else if (!_.isBoolean(verbose)) {
+            // otherwise, if verbose isn't set, default to false
+            verbose =  false;
+        }
+&nbsp;
+        // This initialization has to happen AFTER verbose init so that we can
+        // use the original passed in value.
+        maxUnits = (_.isNumber(maxUnits)) ? maxUnits : 2;
+&nbsp;
+        var dateUnits = [days, hours - (24 * days), mins - (60 * hours)];
+        var suffixes = ['d', 'h', 'm'];
+&nbsp;
+        if (verbose) {
+            suffixes = [' day', ' hour', ' minute'];
+&nbsp;
+            _.forEach(suffixes, function (suffix, index) {
+                suffixes[index] += ((dateUnits[index] != 1) ? 's' : <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>;
+            });
+        }
+&nbsp;
+        if (days &gt; 0) {
+            age.push({ value: days, suffix: suffixes[0] });
+        }
+&nbsp;
+        if (hours &gt; 0) {
+            age.push({ value: hours - (24 * days), suffix: suffixes[1] });
+        }
+&nbsp;
+        age.push({ value: mins - (60 * hours), suffix: suffixes[2] });
+&nbsp;
+        return _.map(age.slice(0, maxUnits), function (dateUnit, index, listOfAges) {
+            if (index == listOfAges.length - 1) {
+                return Math.round(dateUnit.value) + dateUnit.suffix;
+            } else {
+                return Math.floor(dateUnit.value) + dateUnit.suffix;
+            }
+        }).join((verbose) ? ', ' : ' ');
+    };
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Dec 09 2015 14:48:38 GMT-0600 (CST)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

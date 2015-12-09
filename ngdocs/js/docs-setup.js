@@ -5,6 +5,24 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
+      "id": "atoms",
+      "shortName": "atoms",
+      "type": "overview",
+      "moduleName": "atoms",
+      "shortDescription": "Atoms",
+      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox ui"
+    },
+    {
+      "section": "api",
+      "id": "atoms.directive:rxCheckbox",
+      "shortName": "rxCheckbox",
+      "type": "directive",
+      "moduleName": "atoms",
+      "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
+      "keywords": "api atoms attribute behave checkbox chkdemo class code complexity control css decendents demo demovalue determines directive directives disabled display element highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
+    },
+    {
+      "section": "api",
       "id": "configs",
       "shortName": "configs",
       "type": "overview",
@@ -23,48 +41,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "encore.ui.atoms",
-      "shortName": "encore.ui.atoms",
-      "type": "overview",
-      "moduleName": "encore.ui.atoms",
-      "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building elements encore overview tbd ui"
-    },
-    {
-      "section": "api",
-      "id": "encore.ui.molecules",
-      "shortName": "encore.ui.molecules",
-      "type": "overview",
-      "moduleName": "encore.ui.molecules",
-      "shortDescription": "Molecules",
-      "keywords": "api atoms complex elements encore molecules overview tbd ui"
-    },
-    {
-      "section": "api",
-      "id": "encore.ui.quarks",
-      "shortName": "encore.ui.quarks",
-      "type": "overview",
-      "moduleName": "encore.ui.quarks",
-      "shortDescription": "Quarks",
-      "keywords": "api atoms category constants elements encore fall filters include items molecules non-visual overview quarks services support tbd ui values"
-    },
-    {
-      "section": "api",
       "id": "grid",
       "shortName": "grid",
       "type": "overview",
       "moduleName": "grid",
       "shortDescription": "grid Component",
       "keywords": "api component grid layout overview"
-    },
-    {
-      "section": "api",
-      "id": "hotkeys",
-      "shortName": "hotkeys",
-      "type": "overview",
-      "moduleName": "hotkeys",
-      "shortDescription": "hotkeys Component",
-      "keywords": "account actions allows angular angular-hotkeys api app apps avoid best browsers choosing chosen collapse combination component config conflicts consider controller creates ctrl currently define defined defining deletes description design difficult directive encore encoreui end-users example find github global good guidance guide help helper hotkeys identified identify identifying integration io isn key keybinding keystroke keystrokes leaving letter letters library list ll long main menu modifier mousetrap multiple official operating overview pattern plugin practice presses provide provided reference route rxapp selected set shortcut shortcuts simple simply single solution specific standard systems user views ways window"
     },
     {
       "section": "api",
@@ -86,12 +68,48 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "molecules",
+      "shortName": "molecules",
+      "type": "overview",
+      "moduleName": "molecules",
+      "shortDescription": "Molecules",
+      "keywords": "api atoms complex elements molecules overview tbd"
+    },
+    {
+      "section": "api",
       "id": "progressbar",
       "shortName": "progressbar",
       "type": "overview",
       "moduleName": "progressbar",
       "shortDescription": "progressbar Component",
       "keywords": "action angular api bootstrap component details encore feedback framework github io overview progress progressbar provide utilizes workflow"
+    },
+    {
+      "section": "api",
+      "id": "quarks",
+      "shortName": "quarks",
+      "type": "overview",
+      "moduleName": "quarks",
+      "shortDescription": "Quarks",
+      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks service services support tbd values xor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:xor",
+      "shortName": "xor",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Returns the exclusive or of two arrays.",
+      "keywords": "api array arrays elements excluded exclusive filter input quarks returns second unique"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:hotkeys",
+      "shortName": "hotkeys",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "hotkeys",
+      "keywords": "account actions allows angular angular-hotkeys api app apps avoid best browsers choosing chosen collapse combination config conflicts consider controller creates ctrl currently define defined defining deletes description design difficult directive encore encoreui end-users example find github global good guidance guide help helper hotkeys identified identify identifying integration io isn key keybinding keystroke keystrokes leaving letter letters library list ll long main menu modifier mousetrap multiple official operating pattern plugin practice presses provide provided quark quarks reference route rxapp selected service set shortcut shortcuts simple simply single solution specific standard systems user views ways window"
     },
     {
       "section": "api",
@@ -415,7 +433,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxBulkSelect",
       "shortDescription": "rxBulkSelect Component",
-      "keywords": "action api component directive directives items multiple notifyproperties overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectutils rxbulkselectvalidate rxcheckbox service services table"
+      "keywords": "action api atoms component directive directives items multiple notifyproperties overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectutils rxbulkselectvalidate service services table"
     },
     {
       "section": "api",
@@ -542,24 +560,6 @@ NG_DOCS={
       "moduleName": "rxCharacterCount",
       "shortDescription": "A component provides an attribute directive intended for adding to &lt;textarea&gt;",
       "keywords": "_do_ add adding addition advantage allowed api applied attribute built-in case cases character characters choose class classes component considered content correctly count counted-input-wrapper counter currently default demo directive directives directly display div element elements enabled ensure enter enters example experimental extensively failure false feature field functionality heavily highlight highlighted highlighting ignored initial input-highlighting inside intended isshown leading left limit maximum model ng-hide ng-model ng-show ng-trim ngshow number orange performs place placing position preliminary putting recommend red remaining requires rx-character-count rxcharactercount scrollbar shipping spaces span style styling support test tested text textarea trailing true underneath unstable user ve warning watch width"
-    },
-    {
-      "section": "api",
-      "id": "rxCheckbox",
-      "shortName": "rxCheckbox",
-      "type": "overview",
-      "moduleName": "rxCheckbox",
-      "shortDescription": "rxCheckbox Component",
-      "keywords": "api behave checkbox chkdemo class code complexity component css decendents demo directive directives display element highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output overview performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
-    },
-    {
-      "section": "api",
-      "id": "rxCheckbox.directive:rxCheckbox",
-      "shortName": "rxCheckbox",
-      "type": "directive",
-      "moduleName": "rxCheckbox",
-      "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
-      "keywords": "api attribute checkbox control demovalue determines directive disabled element markup native ng-model purposes required rx-checkbox rxcheckbox styling wraps"
     },
     {
       "section": "api",
@@ -747,7 +747,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxForm",
       "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component components conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxformutils rxhelptext rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections service services set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
+      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component components conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxformutils rxhelptext rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections service services set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
     },
     {
       "section": "api",
@@ -837,7 +837,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxForm",
       "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxform rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
+      "keywords": "api atoms control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxform rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
     },
     {
       "section": "api",
@@ -1206,7 +1206,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxPaginate",
       "shortDescription": "Directive that takes in the page tracking object and outputs a page",
-      "keywords": "api call change changes column conjunction controller current described direction directive display displayed error fails filter getitems input instance intend maximum message method model number numberofpages object optional outputs pagetracking paginate paginated pagination property readme request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based watch"
+      "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error fails filter getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based watch"
     },
     {
       "section": "api",
@@ -1548,7 +1548,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxTags",
       "shortDescription": "rxTags component",
-      "keywords": "api apply component descriptions directive directives entity filter filters overview predetermined rxtags xor"
+      "keywords": "api apply component descriptions directive directives entity overview predetermined rxtags"
     },
     {
       "section": "api",
@@ -1558,15 +1558,6 @@ NG_DOCS={
       "moduleName": "rxTags",
       "shortDescription": "Like native form components, this directive uses ng-model to store",
       "keywords": "$scope accepts additional api applied array attribute binding blue category color coloroptions colors component components customize default determines directive disabled form ignored key list meaning model native ng-disabled ng-model object objects option options properties provided represent required rxtags selected selecting single store subset tag tag0 tags text"
-    },
-    {
-      "section": "api",
-      "id": "rxTags.filter:xor",
-      "shortName": "xor",
-      "type": "filter",
-      "moduleName": "rxTags",
-      "shortDescription": "Returns the exclusive or of two arrays.",
-      "keywords": "api array arrays elements excluded exclusive filter input returns rxtags second unique"
     },
     {
       "section": "api",
