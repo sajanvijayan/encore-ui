@@ -535,13 +535,6 @@ angular.module('demoApp')
 
 /*jshint unused:false*/
 angular.module('demoApp')
-.controller('rxCapitalizeCtrl', function ($scope) {
-    $scope.hello = 'hello world. this is my text';
-});
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
 .controller('rxCharacterCountCtrl', function ($scope) {
     $scope.data = {
         comment1: '',
@@ -1366,18 +1359,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxSessionStorageCtrl', function ($scope, $window, SessionStorage) {
-    $scope.setSideKick = function () {
-        SessionStorage.setItem('Batman', 'Robin');
-    };
-
-    $scope.getSideKick = function () {
-        $window.alert(SessionStorage.getItem('Batman'));
-    };
-});
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxSortableColumnCtrl', function ($scope, PageTracking, rxSortUtil) {
@@ -1599,6 +1580,18 @@ angular.module('demoApp')
 });
 
 
+angular.module('demoApp')
+.controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {
+    $scope.setSideKick = function () {
+        SessionStorage.setItem('Batman', 'Robin');
+    };
+
+    $scope.getSideKick = function () {
+        $window.alert(SessionStorage.getItem('Batman'));
+    };
+});
+
+
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('hotkeysVolumeCtrl', function ($scope, hotkeys) {
@@ -1624,6 +1617,14 @@ angular.module('demoApp')
             $scope.volume -= 1;
         }
     });
+});
+
+
+
+
+angular.module('demoApp')
+.controller('rxCapitalizeCtrl', function ($scope) {
+    $scope.hello = 'hello world this is my text.';
 });
 
 

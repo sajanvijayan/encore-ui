@@ -91,7 +91,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks service services support tbd values xor"
+      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks rxbreadcrumbssvc rxcapitalize service services sessionstorage support tbd values xor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxCapitalize",
+      "shortName": "rxCapitalize",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "The rxCapitalize filter capitalizes the first word in a string via an Angular filter.",
+      "keywords": "angular api capitalizes filter quarks rxcapitalize string word"
     },
     {
       "section": "api",
@@ -110,6 +119,24 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "hotkeys",
       "keywords": "account actions allows angular angular-hotkeys api app apps avoid best browsers choosing chosen collapse combination config conflicts consider controller creates ctrl currently define defined defining deletes description design difficult directive encore encoreui end-users example find github global good guidance guide help helper hotkeys identified identify identifying integration io isn key keybinding keystroke keystrokes leaving letter letters library list ll long main menu modifier mousetrap multiple official operating pattern plugin practice presses provide provided quark quarks reference route rxapp selected service set shortcut shortcuts simple simply single solution specific standard systems user views ways window"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxBreadcrumbsSvc",
+      "shortName": "rxBreadcrumbsSvc",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
+      "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path quarks relative reuse rxbreadcrumbssvc second service sethome takes url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:SessionStorage",
+      "shortName": "SessionStorage",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
+      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided quarks removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
     },
     {
       "section": "api",
@@ -406,7 +433,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxBreadcrumbs",
       "shortDescription": "rxBreadcrumbs Component",
-      "keywords": "adds api breadcrumbs component directive directives navigation overview rxbreadcrumbs rxbreadcrumbssvc service services updates"
+      "keywords": "adds api breadcrumbs component directive directives navigation overview rxbreadcrumbs updates"
     },
     {
       "section": "api",
@@ -415,16 +442,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxBreadcrumbs",
       "shortDescription": "Responsible for drawing the breadcrumbs for a page",
-      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing inside leverages marked method passed precedence receive responsible rxapp rxbreadcrumbs rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag"
-    },
-    {
-      "section": "api",
-      "id": "rxBreadcrumbs.service:rxBreadcrumbsSvc",
-      "shortName": "rxBreadcrumbsSvc",
-      "type": "service",
-      "moduleName": "rxBreadcrumbs",
-      "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
-      "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path relative reuse rxbreadcrumbs rxbreadcrumbssvc second service sethome takes url"
+      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing inside leverages marked method passed precedence quarks receive responsible rxapp rxbreadcrumbs rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag"
     },
     {
       "section": "api",
@@ -524,24 +542,6 @@ NG_DOCS={
       "moduleName": "rxButton",
       "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
       "keywords": "api applied attribute attributes behavior button call class classes clicked complete controlled default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed false handler instance loading loadingmsg matter message messages modified modify names ng-click ng-disabled normal operation passed process progress provided re-enable renders replaces rxbutton set text toggle toggle-msg toggled true variable"
-    },
-    {
-      "section": "api",
-      "id": "rxCapitalize",
-      "shortName": "rxCapitalize",
-      "type": "overview",
-      "moduleName": "rxCapitalize",
-      "shortDescription": "rxCapitalize Component",
-      "keywords": "angular api capitalize component filter filters logic overview rxcapitalize string word"
-    },
-    {
-      "section": "api",
-      "id": "rxCapitalize.filter:rxCapitalize",
-      "shortName": "rxCapitalize",
-      "type": "filter",
-      "moduleName": "rxCapitalize",
-      "shortDescription": "The rxCapitalize filter capitalizes the first word in a string.",
-      "keywords": "api capitalizes filter rxcapitalize string word"
     },
     {
       "section": "api",
@@ -1387,24 +1387,6 @@ NG_DOCS={
       "moduleName": "rxSession",
       "shortDescription": "Service for managing user session in encore-ui.",
       "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing returns rxlocalstorage rxsession service session stored stores storetoken token true user valid"
-    },
-    {
-      "section": "api",
-      "id": "rxSessionStorage",
-      "shortName": "rxSessionStorage",
-      "type": "overview",
-      "moduleName": "rxSessionStorage",
-      "shortDescription": "rxSessionStorage Component",
-      "keywords": "api component global interacting object overview rxsessionstorage service services session sessionstorage simple storage wrapper"
-    },
-    {
-      "section": "api",
-      "id": "rxSessionStorage.service:SessionStorage",
-      "shortName": "SessionStorage",
-      "type": "service",
-      "moduleName": "rxSessionStorage",
-      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
-      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided removeitem return returns robin rxsessionstorage service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
     },
     {
       "section": "api",
