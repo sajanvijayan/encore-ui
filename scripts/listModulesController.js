@@ -5,7 +5,7 @@ angular.module('demoApp')
     vm.category = 'modules';
     vm.capitalizedCategory = $filter('rxCapitalize')(vm.category);
     vm.pageTitle = 'All ' + vm.capitalizedCategory;
-    vm.sortKey = 'name';
+    vm.sortKey = 'displayName';
     vm.sortReverse = false;
     vm.modules = _.filter(Modules, { 'isCategory': false });
 
@@ -18,7 +18,7 @@ angular.module('demoApp')
 
     function activate () {
         rxBreadcrumbsSvc.set([{
-            path: '/' + vm.category,
+            path: '#/' + vm.category,
             name: vm.capitalizedCategory
         }]);
     }

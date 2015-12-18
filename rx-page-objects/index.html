@@ -125,6 +125,10 @@
 <li><a href="#encore.module_rxToggleSwitch.initialize">encore.rxToggleSwitch.initialize(rxToggleSwitchElement)</a></li>
 </ul>
 </li>
+<li><a href="#encore.module_rxDatePicker">encore.rxDatePicker</a><ul>
+<li><a href="#encore.module_rxDatePicker.initialize">encore.rxDatePicker.initialize(rxDatePickerElement)</a></li>
+</ul>
+</li>
 <li><a href="#encore.exercise.module_rxCheckbox">encore.exercise.rxCheckbox</a></li>
 <li><a href="#encore.exercise.module_rxBulkSelect">encore.exercise.rxBulkSelect</a></li>
 <li><a href="#encore.exercise.module_rxCharacterCount">encore.exercise.rxCharacterCount</a></li>
@@ -378,6 +382,28 @@
 <li><a href="#rxToggleSwitch.enable">rxToggleSwitch.enable()</a></li>
 <li><a href="#rxToggleSwitch.isDisabled">rxToggleSwitch.isDisabled()</a></li>
 <li><a href="#rxToggleSwitch.disable">rxToggleSwitch.disable()</a></li>
+</ul>
+</li>
+<li><a href="#rxDatePicker">rxDatePicker</a><ul>
+<li><a href="#rxDatePicker.isDisabled">rxDatePicker.isDisabled</a></li>
+<li><a href="#rxDatePicker.isValid">rxDatePicker.isValid</a></li>
+<li><a href="#rxDatePicker.isOpen">rxDatePicker.isOpen</a></li>
+<li><a href="#rxDatePicker.txtCurrentMonth">rxDatePicker.txtCurrentMonth()</a></li>
+<li><a href="#rxDatePicker.txtDisplayValue">rxDatePicker.txtDisplayValue()</a></li>
+<li><a href="#rxDatePicker.eleControl">rxDatePicker.eleControl()</a></li>
+<li><a href="#rxDatePicker.elePopup">rxDatePicker.elePopup()</a></li>
+<li><a href="#rxDatePicker.elePrevArrow">rxDatePicker.elePrevArrow()</a></li>
+<li><a href="#rxDatePicker.eleNextArrow">rxDatePicker.eleNextArrow()</a></li>
+<li><a href="#rxDatePicker.eleFirstDay">rxDatePicker.eleFirstDay()</a></li>
+<li><a href="#rxDatePicker.eleLastDay">rxDatePicker.eleLastDay()</a></li>
+<li><a href="#rxDatePicker.isDaySelected">rxDatePicker.isDaySelected(date)</a></li>
+<li><a href="#rxDatePicker.isDayToday">rxDatePicker.isDayToday(date)</a></li>
+<li><a href="#rxDatePicker.eleDayByDate">rxDatePicker.eleDayByDate(date)</a></li>
+<li><a href="#rxDatePicker.selectDate">rxDatePicker.selectDate(dateString)</a></li>
+<li><a href="#rxDatePicker.open">rxDatePicker.open()</a></li>
+<li><a href="#rxDatePicker.close">rxDatePicker.close()</a></li>
+<li><a href="#rxDatePicker.navigateBack">rxDatePicker.navigateBack()</a></li>
+<li><a href="#rxDatePicker.navigateForward">rxDatePicker.navigateForward()</a></li>
 </ul>
 </li>
 </ul>
@@ -1036,7 +1062,15 @@ it(&#39;should sort the column ascending by default&#39;, function () {
 <ul>
 <li>rxToggleSwitchElement <code>WebElement</code> - WebElement to be transformed into an rxToggleSwitchElement object.  </li>
 </ul>
-<p><strong>Returns</strong>: <a href="#rxToggleSwitch">rxToggleSwitch</a> - Page object representing the rxToggleSwitch object.<br><a name="encore.exercise.module_rxCheckbox"></a></p>
+<p><strong>Returns</strong>: <a href="#rxToggleSwitch">rxToggleSwitch</a> - Page object representing the rxToggleSwitch object.<br><a name="encore.module_rxDatePicker"></a></p>
+<p>#encore.rxDatePicker
+<a name="encore.module_rxDatePicker.initialize"></a></p>
+<p>##encore.rxDatePicker.initialize(rxDatePickerElement)
+<strong>Params</strong></p>
+<ul>
+<li>rxDatePickerElement <code>WebElement</code> - WebElement to be transformed into an rxDatePicker page object.  </li>
+</ul>
+<p><strong>Returns</strong>: <a href="#rxDatePicker">rxDatePicker</a> - Page object representing the rxDatepicker element.<br><a name="encore.exercise.module_rxCheckbox"></a></p>
 <p>#encore.exercise.rxCheckbox
 rxCheckbox exercises</p>
 <p><strong>Params</strong></p>
@@ -2490,6 +2524,106 @@ Warning: This property is known to be unstable in many Selenium end to end test 
 <p>##rxToggleSwitch.isDisabled()
 <strong>Returns</strong>: <code>Boolean</code> - Whether or not the switch component is currently disabled.<br><a name="rxToggleSwitch.disable"></a></p>
 <p>##rxToggleSwitch.disable()
-<strong>Returns</strong>: <code>undefined</code><br><a name="count"></a></p>
+<strong>Returns</strong>: <code>undefined</code><br><a name="rxDatePicker"></a></p>
+<p>#rxDatePicker
+<strong>Members</strong></p>
+<ul>
+<li><a href="#rxDatePicker">rxDatePicker</a><ul>
+<li><a href="#rxDatePicker.isDisabled">rxDatePicker.isDisabled</a></li>
+<li><a href="#rxDatePicker.isValid">rxDatePicker.isValid</a></li>
+<li><a href="#rxDatePicker.isOpen">rxDatePicker.isOpen</a></li>
+<li><a href="#rxDatePicker.txtCurrentMonth">rxDatePicker.txtCurrentMonth()</a></li>
+<li><a href="#rxDatePicker.txtDisplayValue">rxDatePicker.txtDisplayValue()</a></li>
+<li><a href="#rxDatePicker.eleControl">rxDatePicker.eleControl()</a></li>
+<li><a href="#rxDatePicker.elePopup">rxDatePicker.elePopup()</a></li>
+<li><a href="#rxDatePicker.elePrevArrow">rxDatePicker.elePrevArrow()</a></li>
+<li><a href="#rxDatePicker.eleNextArrow">rxDatePicker.eleNextArrow()</a></li>
+<li><a href="#rxDatePicker.eleFirstDay">rxDatePicker.eleFirstDay()</a></li>
+<li><a href="#rxDatePicker.eleLastDay">rxDatePicker.eleLastDay()</a></li>
+<li><a href="#rxDatePicker.isDaySelected">rxDatePicker.isDaySelected(date)</a></li>
+<li><a href="#rxDatePicker.isDayToday">rxDatePicker.isDayToday(date)</a></li>
+<li><a href="#rxDatePicker.eleDayByDate">rxDatePicker.eleDayByDate(date)</a></li>
+<li><a href="#rxDatePicker.selectDate">rxDatePicker.selectDate(dateString)</a></li>
+<li><a href="#rxDatePicker.open">rxDatePicker.open()</a></li>
+<li><a href="#rxDatePicker.close">rxDatePicker.close()</a></li>
+<li><a href="#rxDatePicker.navigateBack">rxDatePicker.navigateBack()</a></li>
+<li><a href="#rxDatePicker.navigateForward">rxDatePicker.navigateForward()</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="rxDatePicker.isDisabled"></a></p>
+<p>##rxDatePicker.isDisabled
+true if root element has &#39;disabled&#39; attribute</p>
+<p><strong>Returns</strong>: <code>Boolean</code><br><a name="rxDatePicker.isValid"></a></p>
+<p>##rxDatePicker.isValid
+true if root element has &#39;disabled&#39; attribute</p>
+<p><strong>Returns</strong>: <code>Boolean</code><br><a name="rxDatePicker.isOpen"></a></p>
+<p>##rxDatePicker.isOpen
+whether or not the popup is visible</p>
+<p><strong>Returns</strong>: <code>Boolean</code><br><a name="rxDatePicker.txtCurrentMonth"></a></p>
+<p>##rxDatePicker.txtCurrentMonth()
+fetch current month (as seen in picker element)</p>
+<p><strong>Returns</strong>: <code>String</code><br><a name="rxDatePicker.txtDisplayValue"></a></p>
+<p>##rxDatePicker.txtDisplayValue()
+fetch display value (as seen in fake control element)</p>
+<p><strong>Returns</strong>: <code>String</code><br><a name="rxDatePicker.eleControl"></a></p>
+<p>##rxDatePicker.eleControl()
+fetch fake control element</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.elePopup"></a></p>
+<p>##rxDatePicker.elePopup()
+fetch popup picker element</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.elePrevArrow"></a></p>
+<p>##rxDatePicker.elePrevArrow()
+fetch left nav arrow in picker</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.eleNextArrow"></a></p>
+<p>##rxDatePicker.eleNextArrow()
+fetch right nav arrow in picker</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.eleFirstDay"></a></p>
+<p>##rxDatePicker.eleFirstDay()
+fetch first day of calendar</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.eleLastDay"></a></p>
+<p>##rxDatePicker.eleLastDay()
+fetch last day of calendar</p>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.isDaySelected"></a></p>
+<p>##rxDatePicker.isDaySelected(date)
+true if day has &#39;selected&#39; class</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>date <code>String</code> - YYYY-MM-DD date string  </li>
+</ul>
+<p><strong>Returns</strong>: <code>Boolean</code><br><a name="rxDatePicker.isDayToday"></a></p>
+<p>##rxDatePicker.isDayToday(date)
+true if day has &#39;today&#39; class</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>date <code>String</code> - YYYY-MM-DD date string  </li>
+</ul>
+<p><strong>Returns</strong>: <code>Boolean</code><br><a name="rxDatePicker.eleDayByDate"></a></p>
+<p>##rxDatePicker.eleDayByDate(date)
+fetch by <code>data-date</code> value</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>date <code>String</code> - YYYY-MM-DD date string of day to fetch  </li>
+</ul>
+<p><strong>Returns</strong>: <code>ElementFinder</code><br><a name="rxDatePicker.selectDate"></a></p>
+<p>##rxDatePicker.selectDate(dateString)
+Used to select visible day in selector</p>
+<p><strong>Params</strong></p>
+<ul>
+<li>dateString <code>String</code> - YYYY-MM-DD date string of date to select  </li>
+</ul>
+<p><a name="rxDatePicker.open"></a></p>
+<p>##rxDatePicker.open()
+Ensure picker is open</p>
+<p><a name="rxDatePicker.close"></a></p>
+<p>##rxDatePicker.close()
+Ensure picker is closed</p>
+<p><a name="rxDatePicker.navigateBack"></a></p>
+<p>##rxDatePicker.navigateBack()
+navigate to previous month in picker</p>
+<p><a name="rxDatePicker.navigateForward"></a></p>
+<p>##rxDatePicker.navigateForward()
+navigate to next month in picker</p>
+<p><a name="count"></a></p>
 <p>#count()
 <strong>Returns</strong>: <code>Number</code> - The total number of badges for the account.  </p>

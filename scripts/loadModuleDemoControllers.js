@@ -39,8 +39,6 @@ angular.module('demoApp')
 
 
 
-
-
 angular.module('demoApp')
 .controller('layoutController', function ($scope) {
     $scope.layout = 'row';
@@ -65,13 +63,6 @@ angular.module('demoApp')
 });
 
 
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('progressbarCtrl', function ($scope) {
-    // This file is used to help build the 'demo' documentation page and should be updated with example code
-});
 
 
 // Note that these factories are only present for the purposes of this demo. In a real application,
@@ -271,17 +262,6 @@ angular.module('demoApp')
 });
 
 
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxAgeCtrl', function ($scope) {
-    var day = 1000 * 60 * 60 * 24;
-    $scope.ageHours = new Date((Date.now() - (day / 2.3))).toString();
-    $scope.ageDays = new Date((Date.now() - (day * 1.5))).toString();
-    $scope.ageMonths = new Date((Date.now() - (day * 40.2))).toString();
-    $scope.ageYears = new Date((Date.now() - (day * 380.1))).toString();
-});
 
 
 /*jshint unused:false*/
@@ -554,15 +534,6 @@ angular.module('demoApp')
 .controller('rxCompileCtrl', function ($scope) {
     $scope.world = 'wrrrld';
     $scope.myExpression = 'Hello {{world}}';
-});
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxDiskSizeCtrl', function ($scope) {
-    $scope.sizeGB = 420;
-    $scope.sizeTB = 125000;
-    $scope.sizePB = 171337000;
 });
 
 
@@ -1580,6 +1551,30 @@ angular.module('demoApp')
 });
 
 
+
+
+angular.module('demoApp')
+.controller('rxDatePickerCtrl', function ($scope) {
+    $scope.enabledValid = '2015-12-15';
+    $scope.disabledValid = '2015-12-15';
+
+    $scope.enabledInvalid = '2015-12-15';
+    $scope.disabledInvalid = '2015-12-15';
+});
+
+angular.module('demoApp')
+.controller('rxDatePickerEmptyCtrl', function ($scope) {
+    $scope.emptyDate = '';
+
+    $scope.undefinedDate = undefined;
+});
+
+angular.module('demoApp')
+.controller('rxDatePickerSimpleCtrl', function ($scope) {
+    $scope.dateModel = '2015-11-17';
+});
+
+
 angular.module('demoApp')
 .controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {
     $scope.setSideKick = function () {
@@ -1620,11 +1615,48 @@ angular.module('demoApp')
 });
 
 
+/*jshint unused:false*/
+angular.module('demoApp')
+.controller('rxAgeCtrl', function ($scope) {
+    var day = 1000 * 60 * 60 * 24;
+    $scope.ageHours = new Date((Date.now() - (day / 2.3))).toString();
+    $scope.ageDays = new Date((Date.now() - (day * 1.5))).toString();
+    $scope.ageMonths = new Date((Date.now() - (day * 40.2))).toString();
+    $scope.ageYears = new Date((Date.now() - (day * 380.1))).toString();
+});
+
+
 
 
 angular.module('demoApp')
 .controller('rxCapitalizeCtrl', function ($scope) {
     $scope.hello = 'hello world this is my text.';
+});
+
+
+angular.module('demoApp')
+.controller('rxDiskSizeCtrl', function ($scope) {
+    $scope.sizeGB = 420;
+    $scope.sizeTB = 125000;
+    $scope.sizePB = 171337000;
+});
+
+
+angular.module('demoApp')
+.controller('rxEnvironmentMatchSimpleCtrl', function ($scope, Environment) {
+    $scope.Environment = Environment;
+});
+
+
+angular.module('demoApp')
+.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
+    $scope.Environment = Environment;
+});
+
+
+angular.module('demoApp')
+.controller('titleizeSimpleCtrl', function ($scope) {
+    $scope.sample = 'HELLO_welcome TO ENCore FRamework!';
 });
 
 

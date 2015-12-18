@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "atoms",
       "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox ui"
+      "keywords": "api atoms basic blocks building directive elements overview quarks rxcheckbox ui"
     },
     {
       "section": "api",
@@ -41,15 +41,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "grid",
-      "shortName": "grid",
-      "type": "overview",
-      "moduleName": "grid",
-      "shortDescription": "grid Component",
-      "keywords": "api component grid layout overview"
-    },
-    {
-      "section": "api",
       "id": "layout",
       "shortName": "layout",
       "type": "overview",
@@ -73,16 +64,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "molecules",
       "shortDescription": "Molecules",
-      "keywords": "api atoms complex elements molecules overview tbd"
+      "keywords": "api atoms complex directive directives elements molecules overview quarks rxdatepicker"
     },
     {
       "section": "api",
-      "id": "progressbar",
-      "shortName": "progressbar",
-      "type": "overview",
-      "moduleName": "progressbar",
-      "shortDescription": "progressbar Component",
-      "keywords": "action angular api bootstrap component details encore feedback framework github io overview progress progressbar provide utilizes workflow"
+      "id": "molecules.directive:rxDatePicker",
+      "shortName": "rxDatePicker",
+      "type": "directive",
+      "moduleName": "molecules",
+      "shortDescription": "Basic date picker.",
+      "keywords": "api basic compose conjunction datetime designed directive evaluates expression format formate generate iso iso8601 mentioned molecule molecules ngmodel notice picker portion returns standard string valid yyyy-mm-dd"
     },
     {
       "section": "api",
@@ -91,7 +82,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks rxbreadcrumbssvc rxcapitalize service services sessionstorage support tbd values xor"
+      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl service services sessionstorage support tbd titleize values xor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxAge",
+      "shortName": "rxAge",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Several filters are available to parse dates.",
+      "keywords": "abbreviated allow amounts api argument aug combine component dates days default digit digits display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes mulitple multiple ng-controller number parse pass provided quarks representation requires rxage rxagectrl second sep sun third thu true truncates tue units usage word"
     },
     {
       "section": "api",
@@ -101,6 +101,42 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "The rxCapitalize filter capitalizes the first word in a string via an Angular filter.",
       "keywords": "angular api capitalizes filter quarks rxcapitalize string word"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxDiskSize",
+      "shortName": "rxDiskSize",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Converts GB disk size into a more readable format (e.g. GBs, TBs, PBs)",
+      "keywords": "api converts disk filter format gb gbs pb pbs quarks readable size tb tbs"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxEnvironmentMatch",
+      "shortName": "rxEnvironmentMatch",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Checks if current environment matches target environment",
+      "keywords": "api checks current environment false filter matches production quarks returns rxenvironmentmatch target true"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxEnvironmentUrl",
+      "shortName": "rxEnvironmentUrl",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Builds a URL based on current environment.",
+      "keywords": "api based builds cbs cloudatlas current encore environment filter isn note object passed path quarks rackspace renders return rxenvironmenturl simply staging tld url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:titleize",
+      "shortName": "titleize",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
+      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js quarks result simple simple_string string stripping title titleize titleized underscores version"
     },
     {
       "section": "api",
@@ -191,24 +227,6 @@ NG_DOCS={
       "moduleName": "rxActiveUrl",
       "shortDescription": "This is used as an attribute to directive &lt;rx-product-resources&gt;, in the",
       "keywords": "api attribute checks class current directive form returns rx-active-url rxactiveurl selected subset url"
-    },
-    {
-      "section": "api",
-      "id": "rxAge",
-      "shortName": "rxAge",
-      "type": "overview",
-      "moduleName": "rxAge",
-      "shortDescription": "rxAge Component",
-      "keywords": "abbreviated allow amounts api argument aug combine component dates days default display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes ng-controller number overview parse pass provided representation requires rxage rxagectrl second sep sun third thu true truncates tue units word"
-    },
-    {
-      "section": "api",
-      "id": "rxAge.filter:rxAge",
-      "shortName": "rxAge",
-      "type": "filter",
-      "moduleName": "rxAge",
-      "shortDescription": "Several filters are available to parse dates.",
-      "keywords": "api dates filter filters parse rxage"
     },
     {
       "section": "api",
@@ -598,30 +616,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxDiskSize",
-      "shortName": "rxDiskSize",
-      "type": "overview",
-      "moduleName": "rxDiskSize",
-      "shortDescription": "rxDiskSize Component",
-      "keywords": "api component converts disk filter filters format gb gbs overview pbs readable rxdisksize size tbs"
-    },
-    {
-      "section": "api",
-      "id": "rxDiskSize.filter:rxDiskSize",
-      "shortName": "rxDiskSize",
-      "type": "filter",
-      "moduleName": "rxDiskSize",
-      "shortDescription": "Converts GB disk size into a more readable format (e.g. GBs, TBs, PBs)",
-      "keywords": "api converts disk filter format gb gbs pb pbs readable rxdisksize size tb tbs"
-    },
-    {
-      "section": "api",
       "id": "rxEnvironment",
       "shortName": "rxEnvironment",
       "type": "overview",
       "moduleName": "rxEnvironment",
       "shortDescription": "rxEnvironment Component",
-      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly filter filters find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide rackspace return running rxenvironment rxenvironmentmatch rxenvironmenturl service services set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
+      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide rackspace return running rxenvironment rxenvironmenturl service services set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
     },
     {
       "section": "api",
@@ -631,24 +631,6 @@ NG_DOCS={
       "moduleName": "rxEnvironment",
       "shortDescription": "Show or hide content based on environment name",
       "keywords": "api based content directive environment hide prod rx-if-environment rxenvironment service staging unified-preprod"
-    },
-    {
-      "section": "api",
-      "id": "rxEnvironment.filter:rxEnvironmentMatch",
-      "shortName": "rxEnvironmentMatch",
-      "type": "filter",
-      "moduleName": "rxEnvironment",
-      "shortDescription": "Checks if current environment matches target environment",
-      "keywords": "api checks current environment false filter matches production returns rxenvironment rxenvironmentmatch target true"
-    },
-    {
-      "section": "api",
-      "id": "rxEnvironment.filter:rxEnvironmentUrl",
-      "shortName": "rxEnvironmentUrl",
-      "type": "filter",
-      "moduleName": "rxEnvironment",
-      "shortDescription": "Builds a URL based on current environment.",
-      "keywords": "api based builds cbs cloudatlas current encore environment filter isn note object passed path rackspace renders return rxenvironment rxenvironmenturl simply staging tld url"
     },
     {
       "section": "api",
@@ -972,16 +954,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMisc",
       "shortDescription": "rxMisc Component",
-      "keywords": "api component components filter filters framework functionality module overview rxautosave rxdomhelper rxmisc rxnestedelement service services shared titleize"
-    },
-    {
-      "section": "api",
-      "id": "rxMisc.filter:titleize",
-      "shortName": "titleize",
-      "type": "filter",
-      "moduleName": "rxMisc",
-      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
-      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js result rxmisc simple simple_string string stripping title titleize titleized underscores version"
+      "keywords": "api component components framework functionality module overview rxautosave rxdomhelper rxmisc rxnestedelement service services shared"
     },
     {
       "section": "api",

@@ -26,6 +26,10 @@ angular.module('demoApp')
             return mod.name.match(searchRegExp);
         }
 
+        function matchesDisplayName (mod) {
+            return mod.displayName.match(searchRegExp);
+        }
+
         function matchesStability (mod) {
             return mod.stability.match(searchRegExp);
         }
@@ -35,7 +39,7 @@ angular.module('demoApp')
         }
 
         return _.filter(modules, function (mod) {
-            return matchesName(mod) || matchesStability(mod) || matchesCategory(mod);
+            return matchesDisplayName(mod) || matchesStability(mod) || matchesCategory(mod);
         });
     };
 });

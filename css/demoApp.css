@@ -244,9 +244,17 @@ pre code {
 }
 rx-example {
   display: block;
-  margin: 0 0 30px;
+  margin-top: 2em;
 }
-/* README */
+rx-example h1:first-of-type,
+rx-example h2:first-of-type,
+rx-example h3:first-of-type,
+rx-example h4:first-of-type,
+rx-example h5:first-of-type,
+rx-example h6:first-of-type {
+  margin-top: 0;
+}
+/* TODO: (deprecated) remove with last of components */
 .module-description {
   border: 1px solid #aaa;
   background: #fff;
@@ -294,13 +302,6 @@ rx-example {
 }
 .module-description .readme-title {
   margin-top: 0;
-}
-.styleguide-character-count .counted-input-wrapper {
-  width: 328px;
-}
-.styleguide-character-count .counted-input-wrapper .input-highlighting,
-.styleguide-character-count .counted-input-wrapper textarea {
-  width: 328px;
 }
 .overview-column {
   width: 300px;
@@ -351,22 +352,6 @@ p {
   list-style: disc inside;
   margin: 10px 10px 10px 23px;
   text-indent: -13px;
-}
-.component-demo h1:first-child,
-.component-demo h2:first-child,
-.component-demo h3:first-child,
-.component-demo h4:first-child,
-.component-demo h5:first-child,
-.component-demo h6:first-child {
-  margin-top: 0;
-}
-rx-page.styleguide h1,
-rx-page.styleguide h2,
-rx-page.styleguide h3,
-rx-page.styleguide h4,
-rx-page.styleguide h5,
-rx-page.styleguide h6 {
-  margin-top: 2em;
 }
 .align-right {
   text-align: right;

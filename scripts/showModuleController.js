@@ -9,7 +9,7 @@ angular.module('demoApp')
             path: '#/' + module.category,
             name: $filter('rxCapitalize')(module.category)
         }, {
-            name: module.name
+            name: module.displayName
         }
     ]);
 

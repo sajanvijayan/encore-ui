@@ -1,4 +1,4 @@
-<rx-page title="module.name" class="{{module.name}}-demo">
+<rx-page title="module.displayName" class="{{module.name}}-demo">
   <div layout="row" layout-align="middle">
     <div flex>
       <img ng-if="module.stability"
@@ -7,11 +7,13 @@
     </div>
 
     <div flex class="align-right">
-      <span ng-if="module.isLegacy"><!-- for legacy Components -->
-        <a href="ngdocs/index.html#/api/{{ module.name }}/" class="module-api button">View API</a>
-      </span>
-      <span ng-if="!module.isLegacy"><!-- for everything else -->
-        <a href="ngdocs/index.html#/api/{{ module.category }}.{{ module.api }}/" class="module-api button">View API</a>
+      <span ng-if="module.hasApi">
+        <span ng-if="module.isLegacy"><!-- for legacy Components -->
+          <a href="ngdocs/index.html#/api/{{ module.name }}/" class="module-api button">View API</a>
+        </span>
+        <span ng-if="!module.isLegacy"><!-- for everything else -->
+          <a href="ngdocs/index.html#/api/{{ module.category }}.{{ module.api }}/" class="module-api button">View API</a>
+        </span>
       </span>
       <a href="https://github.com/rackerlabs/encore-ui/tree/master/src/{{ module.category }}/{{ module.name }}/" class="module-source button">View Source</a>
     </div>
