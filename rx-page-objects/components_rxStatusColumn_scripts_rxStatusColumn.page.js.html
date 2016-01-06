@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/rxStatusColumn/scripts/rxStatusColumn.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/rxStatusColumn/scripts/rxStatusColumn.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
+var Page = require('astrolabe').Page;
+
+var classNameToStatus = function (iconClassName) {
+    iconClassName = iconClassName.replace(/fa fa-lg/, '').trim();
+    return {
+        'fa-ban': 'ERROR',
+        'fa-exclamation-triangle': 'WARNING',
+        'fa-info-circle': 'INFO'
+    }[iconClassName] || null;
+};
+
+/**
+   @namespace
+*/
+var rxStatusColumn = {
+
+    /**
+       Represents the custom defined status type.
+       This has no relation to the tooltip text, the icon chosen, or the color used to represent it.
+       @returns {String} Status cell's custom defined status type.
+    */
+    byType: {
+        get: function () {
+            return this.rootElement.getAttribute('status');
+        }
+    },
+
+    /**
+       Represents the status as summarized by the icon selection alone. Extracted from the font-awesome icon used.
+       @returns {String} Status cell's font-awesome icon name.
+    */
+    byIcon: {
+        get: function () {
+            return this.rootElement.$('i').getAttribute('class').then(classNameToStatus);
+        }
+    },
+
+    /**
+       Represents the status as summarized by the color selection alone. Extracted from the class name.
+       @returns {String} Status cell's color class name.
+    */
+    byColor: {
+        get: function () {
+            return this.rootElement.getAttribute('class').then(function (classes) {
+                return classes.match(/status-(\w+)/)[1];
+            });
+        }
+    },
+
+    api: {
+        get: function () {
+            return this.rootElement.getAttribute('api').then(function (api) {
+                return api ? api : null;
+            });
+        }
+    },
+
+    /**
+       Will appear on hover.
+       @namespace rxStatusColumn.tooltip
+     */
+    tooltip: {
+        get: function () {
+            var cellElement = this.rootElement;
+            return Page.create({
+                rootElement: {
+                    get: function () {
+                        return cellElement.$('.tooltip-inner');
+                    }
+                },
+
+                /**
+                   Hovers over the current row's status column and returns whether or not a tooltip appears.
+                   @memberof rxStatusColumn.tooltip
+                   @returns {Boolean} Whether or not a tooltip is present.
+                */
+                exists: {
+                    get: function () {
+                        browser.actions().mouseMove(cellElement.$('i')).perform();
+                        return this.rootElement.isPresent();
+                    }
+                },
+
+                /**
+                   Warning: This property is known to be unstable in many Selenium end to end test runs in EncoreUI.
+                   @memberof rxStatusColumn.tooltip
+                   @returns {String} Tooltip text.
+                */
+                text: {
+                    get: function () {
+                        var tooltip = this;
+                        return this.exists.then(function (exists) {
+                            return exists ? tooltip.rootElement.getText() : null;
+                        });
+                    }
+                }
+
+            });
+        }
+    }
+
+};
+
+/**
+   @exports encore.rxStatusColumn
+ */
+exports.rxStatusColumn = {
+
+    /**
+       @function
+       @param {WebElement} rxStatusCellElement - Status cell element from a table row.
+       @returns {Page} Page object representing an {@link rxStatusColumn}.
+     */
+    initialize: function (rxStatusCellElement) {
+        rxStatusColumn.rootElement = {
+            get: function () { return rxStatusCellElement; }
+        };
+        return Page.create(rxStatusColumn);
+    },
+
+    /**
+       @constant
+       @returns {Object} Lookup of status strings from human-readable statuses.
+     */
+    statuses: {
+        active: 'ACTIVE',
+        disabled: 'DISABLED',
+        deleted: 'DELETED',
+        deleting: 'DELETING',
+        error: 'ERROR',
+        migrating: 'MIGRATING',
+        rebuild: 'REBUILD',
+        rescue: 'RESCUE',
+        resize: 'RESIZE',
+        suspended: 'SUSPENDED',
+        unknown: 'UNKNOWN'
+    },
+
+    /**
+       @constant
+       @returns {Object} Lookup of icon class names from a human-readable version.
+     */
+    icons: {
+        error: 'ERROR',
+        info: 'INFO',
+        warning: 'WARNING'
+    },
+
+    /**
+       @constant
+       @returns {Object} Lookup of color class names from a human-readable class name.
+     */
+    colors: {
+        active: 'ACTIVE',
+        disabled: 'DISABLED',
+        error: 'ERROR',
+        info: 'INFO',
+        pending: 'PENDING',
+        warning: 'WARNING'
+    }
+
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

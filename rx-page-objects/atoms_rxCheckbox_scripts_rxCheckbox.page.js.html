@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: atoms/rxCheckbox/scripts/rxCheckbox.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: atoms/rxCheckbox/scripts/rxCheckbox.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
+var _ = require('lodash');
+var Page = require('astrolabe').Page;
+
+/**
+ * @namespace
+ */
+var rxCheckbox = {
+    eleWrapper: {
+        get: function () {
+            return this.rootElement.element(by.xpath('..'));
+        }
+    },
+
+    eleFakeCheckbox: {
+        get: function () {
+            return this.eleWrapper.$('.fake-checkbox');
+        }
+    },
+
+    /**
+       Useful for situations where input types might change in the future, ensuring that the expected one is being used.
+       @returns {Boolean} Whether or not the element in question is a checkbox.
+     */
+    isCheckbox: {
+        value: function () {
+            return this.rootElement.getAttribute('type').then(function (type) {
+                return type === 'checkbox';
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @returns {Boolean} Whether the checkbox is currently displayed.
+     */
+    isDisplayed: {
+        value: function () {
+            var page = this;
+            return this.eleFakeCheckbox.isPresent().then(function (isFakeCheckbox) {
+                return isFakeCheckbox ? page.eleFakeCheckbox.isDisplayed() : page.rootElement.isDisplayed();
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @returns {Boolean} Whether or not the checkbox is disabled.
+     */
+    isDisabled: {
+        value: function () {
+            var page = this;
+            return this.eleFakeCheckbox.isPresent().then(function (isFakeCheckbox) {
+                if (isFakeCheckbox) {
+                    return page.eleWrapper.getAttribute('class').then(function (classes) {
+                        return _.contains(classes.split(' '), 'rx-disabled');
+                    });
+                }
+                return page.rootElement.getAttribute('disabled').then(function (disabled) {
+                    return (disabled ? true : false);
+                });
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @returns {Boolean} Whether or not the checkbox is present on the page.
+     */
+    isPresent: {
+        value: function () {
+            var page = this;
+            return this.eleFakeCheckbox.isPresent().then(function (isFakeCheckbox) {
+                return isFakeCheckbox || page.rootElement.isPresent();
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @returns {Boolean} Whether the checkbox is valid.
+     */
+    isValid: {
+        value: function () {
+            return this.rootElement.getAttribute('class').then(function (classes) {
+                return _.contains(classes.split(' '), 'ng-valid');
+            });
+        }
+    },
+
+    /**
+       @function
+       @returns {Boolean} Whether or not the checkbox is selected.
+     */
+    isSelected: {
+        value: function () {
+            return this.rootElement.isSelected();
+        }
+    },
+
+    /**
+     * @function
+     * @description Make sure checkbox is selected/checked
+     */
+    select: {
+        value: function () {
+            var checkbox = this.rootElement;
+            return this.isSelected().then(function (selected) {
+                if (!selected) {
+                    checkbox.click();
+                }
+            });
+        }
+    },
+
+    /**
+     * @deprecated
+     * @function
+     * @description
+     * **DEPRECATED**: Use {@link rxCheckbox.deselect} instead.
+     * This function will be removed in a future release of the EncoreUI framework.
+     * @returns {undefined}
+     */
+    unselect: {
+        value: function () {
+            return this.deselect();
+        }
+    },
+
+    /**
+     * @function
+     * @description make sure checkbox is deselected/unchecked
+     */
+    deselect: {
+        value: function () {
+            var checkbox = this.rootElement;
+            return this.isSelected().then(function (selected) {
+                if (selected) {
+                    checkbox.click();
+                }
+            });
+        }
+    }
+};
+
+/**
+ * @exports encore.rxCheckbox
+ * @description Page object for interacting with rxCheckbox elements
+ */
+exports.rxCheckbox = {
+    /**
+     * @function
+     * @param {WebElement} rxCheckboxElement - WebElement to be transformed into an rxCheckbox page object
+     * @returns {rxCheckbox} Page object representing the rxCheckbox element
+     */
+    initialize: function (rxCheckboxElement) {
+        rxCheckbox.rootElement = {
+            get: function () { return rxCheckboxElement; }
+        };
+        return Page.create(rxCheckbox);
+    },
+
+    /**
+     * @function
+     * @description Generates a getter and a setter for an rxCheckbox element on your page.
+     * @param {WebElement} elem - The WebElement for the rxCheckbox.
+     * @returns {Object} A getter and a setter to be applied to a rxCheckbox page object.
+     */
+    generateAccessor: function (elem) {
+        return {
+            get: function () {
+                return exports.rxCheckbox.initialize(elem).isSelected();
+            },
+            set: function (enable) {
+                var checkbox = exports.rxCheckbox.initialize(elem);
+                enable ? checkbox.select() : checkbox.deselect();
+            }
+        };
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -39,10 +39,16 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                 { name: 'Collapsible' }
             ])
         })
-        .when('/layout/grids', {
-            templateUrl: 'templates/layout/grids.html',
+        .when('/layout/grid', {
+            templateUrl: 'templates/layout/grid.html',
             controller: genericRouteController([
-                { name: 'Grids' }
+                { name: 'Flexbox Grid' }
+            ])
+        })
+        .when('/layout/grid-1-0', {
+            templateUrl: 'templates/layout/grid-1-0.html',
+            controller: genericRouteController([
+                { name: 'Pure CSS Grid' }
             ])
         })
         .when('/layout/modals', {
@@ -337,8 +343,8 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                             href: '#/layout/collapsible'
                         },
                         {
-                            linkText: 'Grids',
-                            href: '#/layout/grids'
+                            linkText: 'Flexbox Grid',
+                            href: '#/layout/grid'
                         },
                         {
                             linkText: 'Modals',

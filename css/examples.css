@@ -1,3 +1,6 @@
+.example .rxStatusMappings-demo .demo-status-column-table {
+  max-width: 500px;
+}
 .example .button-group.example {
   width: 250px;
 }

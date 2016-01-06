@@ -110,7 +110,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/configs/configs.module.js",
-            "src/components/configs/scripts/devicePaths.js",
             "src/components/configs/scripts/feedbackApi.js",
             "src/components/configs/scripts/routesCdnPath.js"
         ],
@@ -559,7 +558,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxEnvironment/rxEnvironment.module.js",
-            "src/components/rxEnvironment/scripts/Environment.js",
             "src/components/rxEnvironment/scripts/rxIfEnvironment.js"
         ],
         "tplFiles": [],
@@ -839,8 +837,7 @@ angular.module('demoApp')
         "srcFiles": [
             "src/components/rxMisc/rxMisc.module.js",
             "src/components/rxMisc/scripts/rxAutoSave.js",
-            "src/components/rxMisc/scripts/rxDOMHelper.js",
-            "src/components/rxMisc/scripts/rxNestedElement.js"
+            "src/components/rxMisc/scripts/rxDOMHelper.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [],
@@ -929,8 +926,7 @@ angular.module('demoApp')
             "src/components/rxNotify/rxNotify.module.js",
             "src/components/rxNotify/scripts/rxNotification.js",
             "src/components/rxNotify/scripts/rxNotifications.js",
-            "src/components/rxNotify/scripts/rxNotify.js",
-            "src/components/rxNotify/scripts/rxPromiseNotifications.js"
+            "src/components/rxNotify/scripts/rxNotify.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [
@@ -986,8 +982,7 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxPageTitle/rxPageTitle.module.js",
-            "src/components/rxPageTitle/scripts/rxPageTitle.js",
-            "src/components/rxPageTitle/scripts/rxUnsafeRemoveHTML.js"
+            "src/components/rxPageTitle/scripts/rxPageTitle.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [],
@@ -1150,8 +1145,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxSelectFilter/rxSelectFilter.module.js",
-            "src/components/rxSelectFilter/scripts/Apply.js",
-            "src/components/rxSelectFilter/scripts/SelectFilter.js",
             "src/components/rxSelectFilter/scripts/rxSelectFilter.js"
         ],
         "tplFiles": [],
@@ -1204,8 +1197,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxSortableColumn/rxSortableColumn.module.js",
-            "src/components/rxSortableColumn/scripts/rxSortEmptyTop.js",
-            "src/components/rxSortableColumn/scripts/rxSortUtil.js",
             "src/components/rxSortableColumn/scripts/rxSortableColumn.js"
         ],
         "tplFiles": [],
@@ -1258,7 +1249,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxStatus/rxStatus.module.js",
-            "src/components/rxStatus/scripts/ErrorFormatter.js",
             "src/components/rxStatus/scripts/Status.js",
             "src/components/rxStatus/scripts/StatusUtil.js"
         ],
@@ -1287,8 +1277,7 @@ angular.module('demoApp')
             "src/components/rxStatusColumn/rxStatusColumn.module.js",
             "src/components/rxStatusColumn/scripts/rxStatusColumn.js",
             "src/components/rxStatusColumn/scripts/rxStatusColumnIcons.js",
-            "src/components/rxStatusColumn/scripts/rxStatusHeader.js",
-            "src/components/rxStatusColumn/scripts/rxStatusMappings.js"
+            "src/components/rxStatusColumn/scripts/rxStatusHeader.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [
@@ -1554,6 +1543,106 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "Apply",
+        "stability": "experimental",
+        "description": "Used to apply an instance of SelectFilter to an array.",
+        "api": "filter:Apply",
+        "keywords": [],
+        "name": "Apply",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/Apply/scripts/Apply.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('ApplySimpleCtrl', function ($scope, SelectFilter) {\n    $scope.filter = SelectFilter.create({\n        properties: ['account', 'status'],\n        selected: {\n            account: ['A']\n        }\n    });\n\n    $scope.tickets = [\n        { account: 'A', status: 'NEW', description: 'Open a new service ticket.' },\n        { account: 'A', status: 'IN_PROGRESS', description: 'Updating server status.' },\n        { account: 'B', status: 'TRANSFERRED', description: 'Transferred account to ORD region.' },\n        { account: 'B', status: 'VENDOR', description: 'Added new third-party vendor service.' },\n        { account: 'A', status: 'TRANSFERRED', description: 'Transferred account to IAD region.' }\n    ];\n});\n",
+            "html": "<p>\n  Used to apply an instance of <code><a href=\"#/quarks/SelectFilter\">SelectFilter</a></code> to an array.\n</p>\n\n<rx-example name=\"Apply.simple\"></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "Environment",
+        "stability": "unstable",
+        "description": "Allows environments to be defined, and retrieving the current environment based on location.",
+        "api": "service:Environment",
+        "keywords": [],
+        "name": "Environment",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/Environment/scripts/Environment.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {\n    var environment = Environment.get();\n    $scope.url = environment.url;\n    $scope.name = environment.name;\n});\n",
+            "html": "<p>\n  Allows environments to be defined, and retrieving the current environment based on location.\n</p>\n\n<rx-example name=\"Environment.simple\"></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "ErrorFormatter",
+        "stability": "stable",
+        "description": "Provides a helper method to parse and format error objects.",
+        "api": "service:ErrorFormatter",
+        "keywords": [],
+        "name": "ErrorFormatter",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/ErrorFormatter/scripts/ErrorFormatter.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {\n    $scope.setErrorMsg = function (msg) {\n        var error = { message: msg };\n        $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);\n    };\n});\n",
+            "html": "<p>\n  Provides a helper method to parse and format error objects.\n</p> \n\n<rx-example name=\"ErrorFormatter.simple\"></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "SelectFilter",
+        "stability": "experimental",
+        "description": "A prototype for creating objects that can be used for filtering arrays.",
+        "api": "service:SelectFilter",
+        "keywords": [],
+        "name": "SelectFilter",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/SelectFilter/scripts/SelectFilter.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  A prototype for creating objects that can be used for filtering arrays.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "SessionStorage",
         "stability": "unstable",
         "description": "",
@@ -1573,6 +1662,31 @@ angular.module('demoApp')
             "md": "",
             "js": "angular.module('demoApp')\n.controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {\n    $scope.setSideKick = function () {\n        SessionStorage.setItem('Batman', 'Robin');\n    };\n\n    $scope.getSideKick = function () {\n        $window.alert(SessionStorage.getItem('Batman'));\n    };\n});\n",
             "html": "<p>\n  A component that provides a simple wrapper around the global\n  <code>sessionStorage</code> object for interacting with session storage.\n</p>\n\n<rx-example name=\"SessionStorage.simple\"></rx-example>\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "devicePaths",
+        "stability": "stable",
+        "description": "Device Paths configuration",
+        "api": "value:devicePaths",
+        "keywords": [],
+        "name": "devicePaths",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/devicePaths/scripts/devicePaths.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Provides configuration for device paths.\n</p>",
             "less": "",
             "midway": "// this component's exercise.js file, if it exists, is below\n"
         }
@@ -1748,6 +1862,156 @@ angular.module('demoApp')
             "md": "",
             "js": "angular.module('demoApp')\n.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {\n    $scope.Environment = Environment;\n});\n",
             "html": "<p>\n  Builds a URL based on current environment.\n</p>\n\n<rx-example name=\"rxEnvironmentUrl.simple\"></rx-example>\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxNestedElement",
+        "stability": "unstable",
+        "description": "Helper function to aid in the creation of boilerplate DDO definitions",
+        "api": "service:rxNestedElement",
+        "keywords": [],
+        "name": "rxNestedElement",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxNestedElement/scripts/rxNestedElement.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Helper function to aid in the creation of boilerplate Directive Definition Object definitions \n  required to validate nested custom elements.\n</p>\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxPromiseNotifications",
+        "stability": "stable",
+        "description": "Manages displaying messages for a notification promise.",
+        "api": "service:rxPromiseNotifications",
+        "keywords": [],
+        "name": "rxPromiseNotifications",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxPromiseNotifications/scripts/rxPromiseNotifications.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxPromiseNotificationsSimpleCtrl', function ($scope, rxNotify, rxPromiseNotifications, $q) {\n\n    $scope.add = function (stack) {\n        var messageOptions = _.clone($scope.options);\n\n        if ($scope.ondismiss.should) {\n            messageOptions.ondismiss = _.clone($scope.ondismiss.method);\n        }\n\n        messageOptions.stack = stack;\n\n        rxNotify.add($scope.message, messageOptions);\n    };\n\n    rxNotify.add('Helpful Information', {\n        stack: 'demo'\n    });\n    rxNotify.add('Additional Helpful Information', {\n        stack: 'demo'\n    });\n\n    $scope.addPromise = function () {\n        $scope.deferred = $q.defer();\n\n        rxPromiseNotifications.add($scope.deferred.promise, {\n            loading: 'Loading Service',\n            success: 'Service Succesfully Loaded',\n            error: 'Error Loading Service'\n        }, 'demo');\n    };\n});\n",
+            "html": "<p>\n  Manages the displaying of notification success and failure messages.\n</p>\n\n<rx-example name=\"rxPromiseNotifications.simple\"></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxSortEmptyTop",
+        "stability": "unstable",
+        "description": "Moves rows with an empty predicate in ascending and descending order.",
+        "api": "filter:rxSortEmptyTop",
+        "keywords": [],
+        "name": "rxSortEmptyTop",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxSortEmptyTop/scripts/rxSortEmptyTop.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxSortEmptyTopSimpleCtrl', function ($scope, PageTracking, rxSortUtil) {\n    $scope.sort = rxSortUtil.getDefault('name');\n    $scope.sort = rxSortUtil.getDefault('name', false);\n    $scope.pager = PageTracking.createInstance();\n\n    $scope.sortCol = function (predicate) {\n        return rxSortUtil.sortCol($scope, predicate);\n    };\n\n    $scope.serverVolumes = [\n        {\n            name: 'Monitor Agent 4',\n            volumeId: 'a44079a5-040b-495f-be22-35994ea03cc5'\n        },\n        {\n            name: 'Stress Volume 33',\n            volumeId: '65d89e82-9363-482e-92d1-f3f7d4f135a7'\n        },\n        {\n            name: null,\n            volumeId: '0a87a764-45f0-4a1e-8dbf-20d76291022d'\n        },\n        {\n            name: 'Stress Volume 24',\n            volumeId: ''\n        },\n        {\n            name: null,\n            volumeId: 'be827f83-8d4c-4d4c-afc3-4c9bf0fdfe00'\n        },\n    ];\n});\n",
+            "html": "<p>\n  Moves rows with an empty predicate to the top of the column in\n  ascending order, and to the bottom in descending order.\n</p>\n\n<rx-example name='rxSortEmptyTop.simple'></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxSortUtil",
+        "stability": "unstable",
+        "description": "Service which provides utility methods for sorting collections.",
+        "api": "service:rxSortUtil",
+        "keywords": [],
+        "name": "rxSortUtil",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxSortUtil/scripts/rxSortUtil.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Service which provides utility methods for sorting collections.\n</p>\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxStatusMappings",
+        "stability": "experimental",
+        "description": "A set of methods for creating mappings to status identifiers used in EncoreUI",
+        "api": "service:rxStatusMappings",
+        "keywords": [],
+        "name": "rxStatusMappings",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxStatusMappings/scripts/rxStatusMappings.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxStatusMappingsSimpleCtrl', function ($scope, rxStatusMappings) {\n    $scope.servers = [\n        { status: 'ACTIVE', title: 'ACTIVE status' },\n        { status: 'ERROR', title: 'ERROR status' },\n        { status: 'DISABLED', title: 'DISABLED status' },\n        { status: 'DELETED', title: 'DELETED status mapped to ERROR' },\n        { status: 'UNKNOWN', title: 'UNKNOWN status mapped to ERROR' },\n        { status: 'RESCUE', title: 'RESCUE status mapped to INFO' },\n        { status: 'SUSPENDED', title: 'SUSPENDED status mapped to WARNING' },\n        { status: 'REBUILD', title: 'REBUILD status mapped to PENDING' },\n        { status: 'RESIZE', title: 'RESIZE status mapped to PENDING' },\n        { status: 'MIGRATING', title: 'MIGRATING status mapped to PENDING' },\n        { status: 'DELETING', title: 'DELETING status mapped to PENDING, using `fooApi` mapping', api:'fooApi' }\n    ];\n\n    // We have a few different ways of adding mappings. We've tried to show them all here\n    rxStatusMappings.addGlobal({\n        'DELETING': 'PENDING'\n    });\n    rxStatusMappings.mapToInfo('RESCUE');\n    rxStatusMappings.mapToWarning('SUSPENDED');\n    rxStatusMappings.mapToPending(['REBUILD','RESIZE','MIGRATING']);\n    rxStatusMappings.mapToError(['DELETED', 'UNKNOWN']);\n    rxStatusMappings.addAPI('fooApi', { 'DELETING': 'PENDING' });\n    rxStatusMappings.mapToPending('SomeApiSpecificStatus', 'fooApi');\n});\n",
+            "html": "<p>\n  A set of methods for creating mappings to status identifiers used in EncoreUI.\n</p>\n\n<rx-example name=\"rxStatusMappings.simple\"></rx-example>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxUnsafeRemoveHTML",
+        "stability": "stable",
+        "description": "Removes all HTML tags from a string.",
+        "api": "filter:rxUnsafeRemoveHTML",
+        "keywords": [],
+        "name": "rxUnsafeRemoveHTML",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxUnsafeRemoveHTML/scripts/rxUnsafeRemoveHTML.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxUnsafeRemoveHTMLSimpleCtrl', function ($scope) {\n    $scope.sample = 'Sample string <strong>without</strong> <span>HTML tags</span>.';\n});\n",
+            "html": "<p>\n  Removes all HTML tags from a given string, using the browser's own parsing engine.  Any content inside of tags will be kept.\n</p>\n\n<rx-example name=\"rxUnsafeRemoveHTML.simple\"></rx-example>\n",
             "less": "",
             "midway": "// this component's exercise.js file, if it exists, is below\n"
         }

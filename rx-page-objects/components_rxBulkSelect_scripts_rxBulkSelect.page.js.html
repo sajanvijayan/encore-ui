@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/rxBulkSelect/scripts/rxBulkSelect.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/rxBulkSelect/scripts/rxBulkSelect.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
+var _ = require('lodash');
+var Page = require('astrolabe').Page;
+
+/**
+   @namespace
+ */
+
+var rxBulkSelectDefaultRowFn = function (rowElement) {
+    return exports.rxCheckbox.initialize(rowElement.$('input[type="checkbox"]'));
+};
+
+var rxBatchActionMenu = function (rootElement) {
+    var actionMenu = exports.rxActionMenu.initialize(rootElement);
+
+    // Need to override several properties styles and the ng-hide attribute
+    // compared to what is seen in rxActionMenu.
+    Object.defineProperties(actionMenu, {
+        'isExpanded': {
+            value: function () {
+                return rootElement.$('.batch-action-menu-container')
+                    .getAttribute('class').then(function (className) {
+                        return className.indexOf('ng-hide') === -1;
+                });
+            }
+        },
+        'icoCog': {
+            get: function () {
+                return rootElement.$('.fa-cogs');
+            }
+        },
+        'isEnabled': {
+            value: function () {
+                return rootElement.$('.btn-link.header-button').isEnabled();
+            }
+        },
+        'isPresent': {
+            value: function () {
+                return rootElement.isPresent();
+            }
+        }
+    });
+
+    return actionMenu;
+};
+
+var rxBulkSelect = {
+    /**
+       @function
+       @returns {Boolean} Whether the root element is currently displayed.
+     */
+    isDisplayed: {
+        value: function () {
+            return this.rootElement.isDisplayed();
+        }
+    },
+
+    isEnabled: {
+        value: function () {
+            return this.rootElement.element(
+                by.cssContainingText('.btn-link', 'Batch Actions')
+            ).isEnabled();
+        }
+    },
+
+    batchActions: {
+        get: function () {
+            return rxBatchActionMenu(this.rootElement.$('rx-batch-actions'));
+        }
+    },
+
+    selectAllCheckbox: {
+        get: function () {
+            return exports.rxCheckbox.initialize(
+                this.rootElement.$('[rx-bulk-select-header-check]').$('input[type="checkbox"]')
+            );
+        }
+    },
+
+    eleBulkMessage: {
+        get: function () {
+            return this.rootElement.$('.bulk-select-header');
+        }
+    },
+
+    bulkMessage: {
+        get: function () {
+            return this.eleBulkMessage.element(by.binding('numSelected')).getText().then(function (text) {
+                return _.isEmpty(text) ? null : text;
+            });
+        }
+    },
+
+    selectAll: {
+        value: function () {
+            this.eleBulkMessage.element(by.partialButtonText('Select all')).click();
+        }
+    },
+
+    clearSelections: {
+        value: function () {
+            this.eleBulkMessage.element(by.partialButtonText('Clear')).click();
+        }
+    },
+
+    tblRows: {
+        get: function () {
+            return this.rootElement.$$('tbody tr');
+        }
+    },
+
+    row: {
+        value: function (i) {
+            return this.rowFromElement(this.tblRows.get(i));
+        }
+    },
+
+    tblSelectedRows: {
+        get: function () {
+            return this.rootElement.$$('tbody tr.selected');
+        }
+    },
+
+    anySelected: {
+        value: function () {
+            return this.tblSelectedRows.count().then(function (numSelectedRows) {
+                return numSelectedRows > 0;
+            });
+        }
+    },
+
+    allSelected: {
+        value: function () {
+            var page = this;
+            return this.tblRows.count().then(function (numRows) {
+                return page.tblSelectedRows.count().then(function (numSelectedRows) {
+                    return numRows === numSelectedRows;
+                });
+            });
+        }
+    },
+
+    /**
+       @function
+       @param {Number|Number[]} i - The index or indices of the row(s) to select
+     */
+    selectByIndex: {
+        value: function selectRowByIndex (i) {
+            if (Array.isArray(i)) {
+                _.each(i, selectRowByIndex, this);
+            } else {
+                rxBulkSelectDefaultRowFn(this.tblRows.get(i)).select();
+            }
+        }
+    },
+
+    /**
+       @function
+       @param {Number|Number[]} i - The index or indices of the row(s) to deselect
+     */
+    deselectByIndex: {
+        value: function deselectRowByIndex (i) {
+            if (Array.isArray(i)) {
+                _.each(i, deselectRowByIndex, this);
+            } else {
+                rxBulkSelectDefaultRowFn(this.tblRows.get(i)).deselect();
+            }
+        }
+    }
+};
+
+/**
+   @exports encore.rxBulkSelect
+ */
+exports.rxBulkSelect = {
+    /**
+       @function
+       @param {WebElement} rxBulkSelectElement - WebElement to be transformed into an rxBulkSelectElement object.
+       @returns {rxBulkSelect} Page object representing the rxBulkSelect object.
+     */
+    initialize: function (rxBulkSelectElement, rxBulkSelectRowFn) {
+        rxBulkSelect.rowFromElement = {
+            value: rxBulkSelectRowFn || rxBulkSelectDefaultRowFn
+        };
+
+        rxBulkSelect.rootElement = {
+            get: function () { return rxBulkSelectElement; }
+        };
+        return Page.create(rxBulkSelect);
+    },
+
+    /**
+       @returns {rxBulkSelect} Page object representing the _first_ rxBulkSelect object found on the page.
+    */
+    main: (function () {
+        rxBulkSelect.rowFromElement = {
+            value: rxBulkSelectDefaultRowFn
+        };
+
+        rxBulkSelect.rootElement = {
+            get: function () { return $('[rx-bulk-select]'); }
+        };
+        return Page.create(rxBulkSelect);
+    })()
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: molecules/rxDatePicker/scripts/rxDatePicker.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: molecules/rxDatePicker/scripts/rxDatePicker.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var Page = require('astrolabe').Page;
+
+/**
+ * @namespace
+ */
+var rxDatePicker = {
+    /**
+     * @function
+     * @description fetch current month (as seen in picker element)
+     * @return {String}
+     */
+    txtCurrentMonth: {
+        get: function () {
+            return this.rootElement.$('.currentMonth').getText();
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch display value (as seen in fake control element)
+     * @return {String}
+     */
+    txtDisplayValue: {
+        get: function () {
+            return this.rootElement.$('.displayValue').getText();
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch fake control element
+     * @return {ElementFinder}
+     */
+    eleControl: {
+        get: function () {
+            return this.rootElement.$('.control');
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch popup picker element
+     * @return {ElementFinder}
+     */
+    elePopup: {
+        get: function () {
+            return this.rootElement.$('.popup');
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch left nav arrow in picker
+     * @return {ElementFinder}
+     */
+    elePrevArrow: {
+        get: function () {
+            return this.rootElement.$('.arrow.prev');
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch right nav arrow in picker
+     * @return {ElementFinder}
+     */
+    eleNextArrow: {
+        get: function () {
+            return this.rootElement.$('.arrow.next');
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch first day of calendar
+     *
+     * @return {ElementFinder}
+     */
+    eleFirstDay: {
+        get: function () {
+            return this.rootElement.$$('.day').first();
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch last day of calendar
+     *
+     * @return {ElementFinder}
+     */
+    eleLastDay: {
+        get: function () {
+            return this.rootElement.$$('.day').last();
+        }
+    },
+
+    /**
+     * @function
+     * @description true if day has 'selected' class
+     *
+     * @param {String} date YYYY-MM-DD date string
+     * @return {Boolean}
+     */
+    isDaySelected: {
+        value: function (date) {
+            return this.eleDayByDate(date).getAttribute('class').then(function (classes) {
+                return _.contains(classes, 'selected');
+            });
+        }
+    },
+
+    /** NOTE: useless unless time can be frozen
+     * @function
+     * @description true if day has 'today' class
+     *
+     * @param {String} date YYYY-MM-DD date string
+     * @return {Boolean}
+     */
+    isDayToday: {
+        value: function (date) {
+            return this.eleDayByDate(date).getAttribute('class').then(function (classes) {
+                return _.contains(classes, 'today');
+            });
+        }
+    },
+
+    /**
+     * @description true if root element has 'disabled' attribute
+     * @return {Boolean}
+     */
+    isDisabled: {
+        get: function () {
+            return this.rootElement.getAttribute('disabled').then(function (disabled) {
+                return (disabled ? true : false);
+            });
+        }
+    },
+
+    /**
+     * @description true if root element has 'disabled' attribute
+     * @return {Boolean}
+     */
+    isValid: {
+        get: function () {
+            return this.rootElement.getAttribute('class').then(function (classes) {
+                return !_.contains(classes, 'ng-invalid');
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @description fetch by `data-date` value
+     *
+     * @param {String} date YYYY-MM-DD date string of day to fetch
+     * @return {ElementFinder}
+     */
+    eleDayByDate: {
+        value: function (date) {
+            return this.rootElement.$('[data-date="' + date + '"]');
+        }
+    },
+
+    /**
+     * @function
+     * @description Used to select visible day in selector
+     *
+     * @param {String} dateString YYYY-MM-DD date string of date to select
+     */
+    selectDate: {
+        value: function (dateString) {
+            this.eleDayByDate(dateString).$('span').click();
+        }
+    },
+
+    /**
+     * @description whether or not the popup is visible
+     * @return {Boolean}
+     */
+    isOpen: {
+        value: function () {
+            return this.elePopup.isPresent();
+        }
+    },
+
+    /**
+     * @function
+     * @description Ensure picker is open
+     */
+    open: {
+        value: function () {
+            var self = this;
+            this.isOpen().then(function (isOpen) {
+                if (!isOpen) {
+                    self.eleControl.click();
+                }
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @description Ensure picker is closed
+     */
+    close: {
+        value: function () {
+            var self = this;
+            return this.isOpen().then(function (isOpen) {
+                if (isOpen) {
+                    self.eleControl.click();
+                }
+            });
+        }
+    },
+
+    /**
+     * @function
+     * @description navigate to previous month in picker
+     */
+    navigateBack: {
+        value: function () {
+            this.elePrevArrow.click();
+        }
+    },
+
+    /**
+     * @function
+     * @description navigate to next month in picker
+     */
+    navigateForward: {
+        value: function () {
+            this.eleNextArrow.click();
+        }
+    }
+};
+
+/**
+ * @exports encore.rxDatePicker
+ */
+exports.rxDatePicker = {
+    /**
+     * @function
+     * @param {WebElement} rxDatePickerElement - WebElement to be transformed into an rxDatePicker page object.
+     * @returns {rxDatePicker} Page object representing the rxDatepicker element.
+     */
+    initialize: function (rxDatePickerElement) {
+        rxDatePicker.rootElement = {
+            get: function () { return rxDatePickerElement; }
+        };
+        return Page.create(rxDatePicker);
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

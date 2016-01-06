@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/rxActionMenu/scripts/rxActionMenu.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/rxActionMenu/scripts/rxActionMenu.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var _ = require('lodash');
+var Page = require('astrolabe').Page;
+
+/**
+   Clicking an action menu item will trigger this function.
+   By default, it returns the page object outlined below.
+   @namespace rxActionMenu.action.action
+ */
+var action = function (actionElement) {
+
+    return Page.create({
+
+        rootElement: {
+            get: function () {
+                return actionElement;
+            }
+        },
+
+        /**
+           Returns a modal object to manipulate later, with given `customFunctionality`.
+           See &lt;a href="#encore.module_rxModalAction.initialize">rxModalAction.initialize&lt;/a>
+           for more information about what `customFunctionality` means here.
+           Using a modal object is the default action since many instances of the action menu serve to launch
+           modals. If you're not using rxActionMenu to launch modals, over-ride this entire section
+           when calling &lt;a href="#encore.module_rxActionMenu.initialize">rxActionMenu.initialize&lt;/a>,
+           where you can pass in a custom `actionConstructorFn`.
+           @memberof rxActionMenu.action.action
+           @function
+           @param {Object} customFunctionality - Custom functionality of the modal, should you use one.
+           @returns {rxModalAction} A modal that gets opened by clicking the action menu item.
+        */
+        openModal: {
+            value: function (customFunctionality) {
+                actionElement.$('.modal-link').click();
+                return exports.rxModalAction.initialize(customFunctionality);
+            }
+        },
+
+        /**
+           @memberof rxActionMenu.action.action
+           @returns {String} The trimmed text of the action menu item.
+         */
+        text: {
+            get: function () {
+                return actionElement.getText().then(function (text) {
+                    return text.trim();
+                });
+            }
+        }
+
+    });
+};
+
+/**
+   @namespace
+ */
+var rxActionMenu = {
+
+    icoCog: {
+        get: function () {
+            return this.rootElement.$('.fa-cog');
+        }
+    },
+
+    /**
+       This selector will grab any top-level child elements under `.actions-area`, one level deep.
+       Since action menus allow for free-form html entry, there is no guarantee that any
+       particular structure will appear inside the action menu. However, we can be sure
+       that they'll use the `.actions-area` class to style it, and inside of it will be some
+       sort of element list. This exposes a hook into the html for matching text or counting nodes.
+       @private
+    */
+    cssFirstAny: {
+        get: function () {
+            return '.actions-area > *';
+        }
+    },
+
+    /**
+       @function
+       @returns {Boolean} Whether or not the action cog is showing its underlying menu.
+     */
+    isExpanded: {
+        value: function () {
+            return this.rootElement.$('.action-list').getAttribute('class').then(function (className) {
+                return className.indexOf('ng-hide') === -1;
+            });
+        }
+    },
+
+    /**
+       @function
+       @returns {Boolean} Whether or not the action cog is hiding its underlying menu.
+     */
+    isCollapsed: {
+        value: function () {
+            return this.isExpanded().then(function (isExpanded) {
+                return !isExpanded;
+            });
+        }
+    },
+
+    /**
+       Clicks the action cog to expand the action menu, unless it's already open.
+       @function
+       @returns {undefined}
+     */
+    expand: {
+        value: function () {
+            var page = this;
+            return this.isCollapsed().then(function (collapsed) {
+                if (collapsed) {
+                    page.icoCog.click();
+                }
+            });
+        }
+    },
+
+    /**
+       Clicks the action cog to collapse the action menu, unless it's already closed.
+       @function
+       @returns {undefined}
+     */
+    collapse: {
+        value: function () {
+            var page = this;
+            return this.isExpanded().then(function (expanded) {
+                if (expanded) {
+                    page.icoCog.click();
+                }
+            });
+        }
+    },
+
+    /**
+       Will expand the action menu to determine if the action is available.
+       @function
+       @param {String} actionName - The name of the action menu item to check for existence.
+       @returns {Boolean} Whether or not the action menu has an item matching the text `actionName`.
+     */
+    hasAction: {
+        value: function (actionName) {
+            this.expand();
+            var actionElement = this.rootElement.element(by.cssContainingText(this.cssFirstAny, actionName));
+            return actionElement.isPresent().then(function (present) {
+                return present ? actionElement.isDisplayed() : present;
+            });
+        }
+    },
+
+    /**
+       @namespace rxActionMenu.action
+       @param {String} actionName - Name of the action item to return an {@link rxActionMenu.action.action} object for.
+       @returns {*} Defaults to returning an {@link rxActionMenu.action.action} object if none was specified at
+       initialization. See &lt;a href="#encore.module_rxActionMenu.initialize">encore.rxActionMenu.initialize&lt;/a>
+       for more details about passing in a custom action item function.
+     */
+    action: {
+        value: function (actionName) {
+            this.expand();
+            var actionElement = this.rootElement.element(by.cssContainingText(this.cssFirstAny, actionName));
+            return this.actionConstructorFn(actionElement);
+        }
+    },
+
+    /**
+       Does not expand the action menu to determine the count of menu items.
+       @function
+       @returns {Number} The number of action items present in the action menu.
+     */
+    actionCount: {
+        value: function () {
+            return this.rootElement.$$(this.cssFirstAny).count();
+        }
+    }
+
+};
+
+/**
+   @exports encore.rxActionMenu
+ */
+exports.rxActionMenu = {
+
+    /**
+      Passing in an `actionConstructorFn` will default to calling that for any
+      calls made to `rxActionMenu.action('Action Name')`. If it's not defined, it defaults to a function
+      that creates a page object represented by {@link rxActionMenu.action.action}.
+      Most times you'll want to leave this `undefined`.
+      @function
+      @param {WebElement} rxActionMenuElement - WebElement to be transformed into an rxActionMenu object
+      @param {Function=} actionConstructorFn - Function to invoke on calling {@link rxActionMenu.action}.
+      @returns {rxActionMenu} Page object representing the rxActionMenu object.
+    */
+    initialize: function (rxActionMenuElement, actionConstructorFn) {
+        rxActionMenu.rootElement = {
+            get: function () {
+                return rxActionMenuElement;
+            }
+        };
+
+        rxActionMenu.actionConstructorFn = {
+            get: function () {
+                if (_.isFunction(actionConstructorFn)) {
+                    return actionConstructorFn;
+                }
+                return action;
+            }
+        };
+
+        return Page.create(rxActionMenu);
+    }
+
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

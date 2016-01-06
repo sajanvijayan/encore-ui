@@ -82,7 +82,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants elements filter filters hotkeys molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl service services sessionstorage support tbd titleize values xor"
+      "keywords": "api atoms constants devicepaths elements environment filter filters hotkeys molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl rxnestedelement rxpromisenotifications rxsortemptytop rxsortutil rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:Apply",
+      "shortName": "Apply",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
+      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat quarks selectfilter service"
     },
     {
       "section": "api",
@@ -131,6 +140,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.filter:rxSortEmptyTop",
+      "shortName": "rxSortEmptyTop",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Filter that moves rows with an empty predicate to the top of the column in",
+      "keywords": "adam api ascending bottom column descending empty emptysort filter firstname moves null nullsort order predicate quarks rows rxsortemptytop sort top var"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:rxUnsafeRemoveHTML",
+      "shortName": "rxUnsafeRemoveHTML",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Given a string, it removes all HTML tags from the string, using the",
+      "keywords": "answer api browser cleaned content details engine filter html htmlstring http inside parsing quarks remove removes stackoverflow string tags text"
+    },
+    {
+      "section": "api",
       "id": "quarks.filter:titleize",
       "shortName": "titleize",
       "type": "filter",
@@ -146,6 +173,24 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Returns the exclusive or of two arrays.",
       "keywords": "api array arrays elements excluded exclusive filter input quarks returns second unique"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:Environment",
+      "shortName": "Environment",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
+      "keywords": "add adding additional allows api application based basegithuburl build current defining demo didn encore environment environments example friendly ghpages github https io local location matched matches object path pattern preprod properties quarks rackspace regex retrieving return rxenvironmenturl service string takes three url urls"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:ErrorFormatter",
+      "shortName": "ErrorFormatter",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Provides a helper method to parse error objects for message and format them",
+      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing quarks referenceerror replace replacement replacements result rxstatus second service seterror specialized status string template user variable variables"
     },
     {
       "section": "api",
@@ -167,12 +212,66 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxNestedElement",
+      "shortName": "rxNestedElement",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Helper function to aid in the creation of boilerplate DDO definitions",
+      "keywords": "aid angular api boilerplate child childelement creation custom ddo default defined definition definitions directive element elements function helper merge module myapp nested nestedelement object options opts parent parentelement quarks required return rxnestedelement service validate"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxPromiseNotifications",
+      "shortName": "rxPromiseNotifications",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Manages displaying messages for a promise.",
+      "keywords": "_failure_ _success_ action add api attach call common created deferred depending display displaying error html loading manages message messages method msgs pattern promise quarks rejection requested requests resolve result rxpromisenotifications service showing stack success successful unresolved"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxSortUtil",
+      "shortName": "rxSortUtil",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Service which provided utility methods for sorting collections.",
+      "keywords": "api based collection collections default getdefault methods object predicate provided quarks returns rxsortutil service sort sortcol sorting sorts utility"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxStatusMappings",
+      "shortName": "rxStatusMappings",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A set of methods for creating mappings between a product&#39;s notion",
+      "keywords": "_could_ accommodate active addapi addglobal advantage angular api apiname apis argument array attribute based basic blocked call calls chance check code constant convert create creating cumbersome declare define defined defines defining directive easily eliminates encoreui equivalent error errors example factory failed failure fall find foo forced framework full function getinternalmapping globally group grouped help identifiers includes individual info instances intended internal leaving list map mapped mapping mappings maptoactive maptodisabled maptoerror maptoinfo maptopending maptowarning method methods misassigning misspelling mistyping notion object optional pair parameter pass passed physically product provide provided quarks receives registered repetition required return returns room rules running rx-status-column rxstatusmappings second separately service set shorter shutdown single specific standby status statuses statusstring stopping string sufficient suspended takes template three transformation type utility values warning"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:SelectFilter",
+      "shortName": "SelectFilter",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
+      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public quarks relying requirement selected selectfilter server-side service single source stated strict subsets three time tracks var watched year"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:SessionStorage",
       "shortName": "SessionStorage",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
       "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided quarks removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
+    },
+    {
+      "section": "api",
+      "id": "quarks.value:devicePaths",
+      "shortName": "devicePaths",
+      "type": "parameters",
+      "moduleName": "quarks",
+      "shortDescription": "Provides configuration for device paths.",
+      "keywords": "api configuration device parameters paths quarks"
     },
     {
       "section": "api",
@@ -621,7 +720,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxEnvironment",
       "shortDescription": "rxEnvironment Component",
-      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide rackspace return running rxenvironment rxenvironmenturl service services set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
+      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide quarks rackspace return running rxenvironment rxenvironmenturl service services set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
     },
     {
       "section": "api",
@@ -630,16 +729,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxEnvironment",
       "shortDescription": "Show or hide content based on environment name",
-      "keywords": "api based content directive environment hide prod rx-if-environment rxenvironment service staging unified-preprod"
-    },
-    {
-      "section": "api",
-      "id": "rxEnvironment.service:Environment",
-      "shortName": "Environment",
-      "type": "service",
-      "moduleName": "rxEnvironment",
-      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
-      "keywords": "add adding additional allows api application based basegithuburl build current defining demo didn encore environment environments example friendly ghpages github https io local location matched matches object path pattern preprod properties rackspace regex retrieving return rxenvironment rxenvironmenturl service string takes three url urls"
+      "keywords": "api based content directive environment hide prod quarks rx-if-environment rxenvironment service staging unified-preprod"
     },
     {
       "section": "api",
@@ -954,7 +1044,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMisc",
       "shortDescription": "rxMisc Component",
-      "keywords": "api component components framework functionality module overview rxautosave rxdomhelper rxmisc rxnestedelement service services shared"
+      "keywords": "api component components framework functionality module overview rxautosave rxdomhelper rxmisc service services shared"
     },
     {
       "section": "api",
@@ -973,15 +1063,6 @@ NG_DOCS={
       "moduleName": "rxMisc",
       "shortDescription": "A small set of functions to provide some functionality",
       "keywords": "angular api arguments dom-related elements functionality functions isn jquery-lite methods provide rxmisc service set small wrapped"
-    },
-    {
-      "section": "api",
-      "id": "rxMisc.service:rxNestedElement",
-      "shortName": "rxNestedElement",
-      "type": "service",
-      "moduleName": "rxMisc",
-      "shortDescription": "Helper function to aid in the creation of boilerplate DDO definitions",
-      "keywords": "aid angular api boilerplate child childelement creation custom ddo default defined definition definitions directive element elements function helper merge module myapp nested nestedelement object options opts parent parentelement required return rxmisc rxnestedelement service validate"
     },
     {
       "section": "api",
@@ -1062,7 +1143,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxNotify",
       "shortDescription": "rxNotify Component",
-      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview queue recommend reference required rxnotification rxnotifications rxnotify rxpromisenotifications service services situations stack status styling supported true type username var variable views warning window"
+      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview queue recommend reference required rxnotification rxnotifications rxnotify service services situations stack status styling supported true type username var variable views warning window"
     },
     {
       "section": "api",
@@ -1090,15 +1171,6 @@ NG_DOCS={
       "moduleName": "rxNotify",
       "shortDescription": "Manages page messages for an application.",
       "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user values warning watch work"
-    },
-    {
-      "section": "api",
-      "id": "rxNotify.service:rxPromiseNotifications",
-      "shortName": "rxPromiseNotifications",
-      "type": "service",
-      "moduleName": "rxNotify",
-      "shortDescription": "Manages displaying messages for a promise",
-      "keywords": "add api attach call common created deferred depending display displaying error failure html ll loading manages message messages method msgs pattern promise rejection requests resolve result rxnotify rxpromisenotifications service showing stack success successful unresolved"
     },
     {
       "section": "api",
@@ -1134,16 +1206,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxPageTitle",
       "shortDescription": "rxPageTitle Component",
-      "keywords": "api component filter filters manages overview rxpagetitle rxunsaferemovehtml service services titles"
-    },
-    {
-      "section": "api",
-      "id": "rxPageTitle.filter:rxUnsafeRemoveHTML",
-      "shortName": "rxUnsafeRemoveHTML",
-      "type": "filter",
-      "moduleName": "rxPageTitle",
-      "shortDescription": "Given a string, it removes all HTML tags from the string, using the",
-      "keywords": "answer api browser cleaned content details engine filter html htmlstring http inside parsing remove removes rxpagetitle stackoverflow string tags text"
+      "keywords": "api component manages overview rxpagetitle service services titles"
     },
     {
       "section": "api",
@@ -1314,7 +1377,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxSelectFilter",
       "shortDescription": "rxSelectFilter component",
-      "keywords": "api apply component directive directives dropdown filter filtering filters intended interface multi-select overview rxselectfilter selectfilter service services table"
+      "keywords": "api component directive directives dropdown filtering intended interface multi-select overview rxselectfilter table"
     },
     {
       "section": "api",
@@ -1324,24 +1387,6 @@ NG_DOCS={
       "moduleName": "rxSelectFilter",
       "shortDescription": "Automatically creates the appropriate dropdowns to manage a filter object.",
       "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter selectfilter set usage validation"
-    },
-    {
-      "section": "api",
-      "id": "rxSelectFilter.filter:Apply",
-      "shortName": "Apply",
-      "type": "filter",
-      "moduleName": "rxSelectFilter",
-      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
-      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat rxselectfilter selectfilter"
-    },
-    {
-      "section": "api",
-      "id": "rxSelectFilter.service:SelectFilter",
-      "shortName": "SelectFilter",
-      "type": "service",
-      "moduleName": "rxSelectFilter",
-      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
-      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public relying requirement rxselectfilter selected selectfilter server-side service single source stated strict subsets three time tracks var watched year"
     },
     {
       "section": "api",
@@ -1368,7 +1413,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxSortableColumn",
       "shortDescription": "rxSortableColumn Component",
-      "keywords": "api component directive directives filter filters functionality overview property rxsortablecolumn rxsortemptytop rxsortutil service services single sort table"
+      "keywords": "api component directive directives functionality overview property rxsortablecolumn single sort table"
     },
     {
       "section": "api",
@@ -1378,24 +1423,6 @@ NG_DOCS={
       "moduleName": "rxSortableColumn",
       "shortDescription": "Renders a clickable link in a table heading which will sort the table by",
       "keywords": "api array ascending called clickable clicked collection current descending directive displayed displaytext function heading indicates link order predicate property referenced renders reverse rxsortablecolumn sort sorted sortmethod sortproperty table text"
-    },
-    {
-      "section": "api",
-      "id": "rxSortableColumn.filter:rxSortEmptyTop",
-      "shortName": "rxSortEmptyTop",
-      "type": "filter",
-      "moduleName": "rxSortableColumn",
-      "shortDescription": "Filter that moves rows with an empty predicate to the top of the column in",
-      "keywords": "adam api ascending bottom column descending empty filter firstname moves null order predicate rows rxsortablecolumn rxsortemptytop sort top"
-    },
-    {
-      "section": "api",
-      "id": "rxSortableColumn.service:rxSortUtil",
-      "shortName": "rxSortUtil",
-      "type": "service",
-      "moduleName": "rxSortableColumn",
-      "shortDescription": "Service which provided utility methods for sorting collections.",
-      "keywords": "api based collection collections default getdefault methods object predicate provided returns rxsortablecolumn rxsortutil service sort sortcol sorting sorts utility"
     },
     {
       "section": "api",
@@ -1422,16 +1449,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxStatus",
       "shortDescription": "rxStatus Component",
-      "keywords": "api component errorformatter manages notifications overview rxnotify rxstatus service services status statusutil"
-    },
-    {
-      "section": "api",
-      "id": "rxStatus.service:ErrorFormatter",
-      "shortName": "ErrorFormatter",
-      "type": "service",
-      "moduleName": "rxStatus",
-      "shortDescription": "Provides a helper method to parse error objects for &#39;message&#39; and format them",
-      "keywords": "api error format helper message method objects parse rxstatus service seterror status"
+      "keywords": "api component manages notifications overview rxnotify rxstatus service services status statusutil"
     },
     {
       "section": "api",
@@ -1458,7 +1476,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxStatusColumn",
       "shortDescription": "rxStatusColumn Component",
-      "keywords": "api columns component directive directives object objects overview putting rxstatuscolumn rxstatuscolumnicons rxstatusheader rxstatusmappings service services status styles tables"
+      "keywords": "api columns component directive directives object objects overview putting rxstatuscolumn rxstatuscolumnicons rxstatusheader status styles tables"
     },
     {
       "section": "api",
@@ -1486,15 +1504,6 @@ NG_DOCS={
       "moduleName": "rxStatusColumn",
       "shortDescription": "Mapping of internal statuses to FontAwesome icons.",
       "keywords": "api defined fontawesome icons internal map mapping names object rxstatuscolumn statuses"
-    },
-    {
-      "section": "api",
-      "id": "rxStatusColumn.service:rxStatusMappings",
-      "shortName": "rxStatusMappings",
-      "type": "service",
-      "moduleName": "rxStatusColumn",
-      "shortDescription": "A set of methods for creating mappings between a product&#39;s notion",
-      "keywords": "_could_ accommodate active addapi addglobal advantage angular api apiname apis argument array attribute based basic blocked call calls chance check code constant convert create creating cumbersome declare define defined defines defining directive easily eliminates encoreui equivalent error errors example factory failed failure fall find foo forced framework full function getinternalmapping globally group grouped help identifiers includes individual info instances intended internal leaving list map mapped mapping mappings maptoactive maptodisabled maptoerror maptoinfo maptopending maptowarning method methods misassigning misspelling mistyping notion object optional pair parameter pass passed physically product provide provided receives registered repetition required return returns room rules running rx-status-column rxstatuscolumn rxstatusmappings second separately service set shorter shutdown single specific standby status statuses statusstring stopping string sufficient suspended takes template three transformation type utility values warning"
     },
     {
       "section": "api",

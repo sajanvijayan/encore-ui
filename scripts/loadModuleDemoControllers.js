@@ -1576,6 +1576,44 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('ApplySimpleCtrl', function ($scope, SelectFilter) {
+    $scope.filter = SelectFilter.create({
+        properties: ['account', 'status'],
+        selected: {
+            account: ['A']
+        }
+    });
+
+    $scope.tickets = [
+        { account: 'A', status: 'NEW', description: 'Open a new service ticket.' },
+        { account: 'A', status: 'IN_PROGRESS', description: 'Updating server status.' },
+        { account: 'B', status: 'TRANSFERRED', description: 'Transferred account to ORD region.' },
+        { account: 'B', status: 'VENDOR', description: 'Added new third-party vendor service.' },
+        { account: 'A', status: 'TRANSFERRED', description: 'Transferred account to IAD region.' }
+    ];
+});
+
+
+angular.module('demoApp')
+.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {
+    var environment = Environment.get();
+    $scope.url = environment.url;
+    $scope.name = environment.name;
+});
+
+
+angular.module('demoApp')
+.controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {
+    $scope.setErrorMsg = function (msg) {
+        var error = { message: msg };
+        $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);
+    };
+});
+
+
+
+
+angular.module('demoApp')
 .controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {
     $scope.setSideKick = function () {
         SessionStorage.setItem('Batman', 'Robin');
@@ -1585,6 +1623,8 @@ angular.module('demoApp')
         $window.alert(SessionStorage.getItem('Batman'));
     };
 });
+
+
 
 
 /*jshint unused:false*/
@@ -1651,6 +1691,114 @@ angular.module('demoApp')
 angular.module('demoApp')
 .controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
+});
+
+
+
+
+angular.module('demoApp')
+.controller('rxPromiseNotificationsSimpleCtrl', function ($scope, rxNotify, rxPromiseNotifications, $q) {
+
+    $scope.add = function (stack) {
+        var messageOptions = _.clone($scope.options);
+
+        if ($scope.ondismiss.should) {
+            messageOptions.ondismiss = _.clone($scope.ondismiss.method);
+        }
+
+        messageOptions.stack = stack;
+
+        rxNotify.add($scope.message, messageOptions);
+    };
+
+    rxNotify.add('Helpful Information', {
+        stack: 'demo'
+    });
+    rxNotify.add('Additional Helpful Information', {
+        stack: 'demo'
+    });
+
+    $scope.addPromise = function () {
+        $scope.deferred = $q.defer();
+
+        rxPromiseNotifications.add($scope.deferred.promise, {
+            loading: 'Loading Service',
+            success: 'Service Succesfully Loaded',
+            error: 'Error Loading Service'
+        }, 'demo');
+    };
+});
+
+
+angular.module('demoApp')
+.controller('rxSortEmptyTopSimpleCtrl', function ($scope, PageTracking, rxSortUtil) {
+    $scope.sort = rxSortUtil.getDefault('name');
+    $scope.sort = rxSortUtil.getDefault('name', false);
+    $scope.pager = PageTracking.createInstance();
+
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+
+    $scope.serverVolumes = [
+        {
+            name: 'Monitor Agent 4',
+            volumeId: 'a44079a5-040b-495f-be22-35994ea03cc5'
+        },
+        {
+            name: 'Stress Volume 33',
+            volumeId: '65d89e82-9363-482e-92d1-f3f7d4f135a7'
+        },
+        {
+            name: null,
+            volumeId: '0a87a764-45f0-4a1e-8dbf-20d76291022d'
+        },
+        {
+            name: 'Stress Volume 24',
+            volumeId: ''
+        },
+        {
+            name: null,
+            volumeId: 'be827f83-8d4c-4d4c-afc3-4c9bf0fdfe00'
+        },
+    ];
+});
+
+
+
+
+angular.module('demoApp')
+.controller('rxStatusMappingsSimpleCtrl', function ($scope, rxStatusMappings) {
+    $scope.servers = [
+        { status: 'ACTIVE', title: 'ACTIVE status' },
+        { status: 'ERROR', title: 'ERROR status' },
+        { status: 'DISABLED', title: 'DISABLED status' },
+        { status: 'DELETED', title: 'DELETED status mapped to ERROR' },
+        { status: 'UNKNOWN', title: 'UNKNOWN status mapped to ERROR' },
+        { status: 'RESCUE', title: 'RESCUE status mapped to INFO' },
+        { status: 'SUSPENDED', title: 'SUSPENDED status mapped to WARNING' },
+        { status: 'REBUILD', title: 'REBUILD status mapped to PENDING' },
+        { status: 'RESIZE', title: 'RESIZE status mapped to PENDING' },
+        { status: 'MIGRATING', title: 'MIGRATING status mapped to PENDING' },
+        { status: 'DELETING', title: 'DELETING status mapped to PENDING, using `fooApi` mapping', api:'fooApi' }
+    ];
+
+    // We have a few different ways of adding mappings. We've tried to show them all here
+    rxStatusMappings.addGlobal({
+        'DELETING': 'PENDING'
+    });
+    rxStatusMappings.mapToInfo('RESCUE');
+    rxStatusMappings.mapToWarning('SUSPENDED');
+    rxStatusMappings.mapToPending(['REBUILD','RESIZE','MIGRATING']);
+    rxStatusMappings.mapToError(['DELETED', 'UNKNOWN']);
+    rxStatusMappings.addAPI('fooApi', { 'DELETING': 'PENDING' });
+    rxStatusMappings.mapToPending('SomeApiSpecificStatus', 'fooApi');
+});
+
+
+angular.module('demoApp')
+.controller('rxUnsafeRemoveHTMLSimpleCtrl', function ($scope) {
+    $scope.sample = 'Sample string <strong>without</strong> <span>HTML tags</span>.';
 });
 
 

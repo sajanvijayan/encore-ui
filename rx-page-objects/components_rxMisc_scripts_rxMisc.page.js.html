@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/rxMisc/scripts/rxMisc.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/rxMisc/scripts/rxMisc.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
+var _ = require('lodash');
+
+/**
+ * @namespace
+ */
+exports.rxMisc = {
+    /**
+     * @description
+     * Equivalent to `browser.actions().mouseDown(elem).mouseUp().perform();`.
+     * This function should be used when dealing with odd or unusual behavior while interacting with click events
+     * that don't seem to work right. Either the element does not appear to respond to a normal `.click()` call, or
+     * the element is responding to more than one click event. This typically happens more often in Firefox than
+     * in other browsers. See `htmlSelectOption.selet` for an example of a function that will slow click an element
+     * to achieve consistent behavior.
+     * @param {WebElement} elem - Web element to "slow click".
+     * @returns {undefined}
+     */
+    slowClick: function (elem) {
+        browser.actions().mouseDown(elem).mouseUp().perform();
+    },
+
+    /**
+     * @description
+     * Transform `currencyStringOrArray` (USD) to an integer representing pennies or an array of integers representing
+     * pennies. Built to reverse Angular's 'currency' filter. Do not pass in fractions of a penny because it will be
+     * rounded with Math.round() which doesn't use bankers' rounding for negative numbers.
+     * NOTE: AngularJS representation of negative currency changes in   
+     * [AngularJS v1.4.4](https://code.angularjs.org/1.4.4/docs/api/ng/filter/currency)
+     * @param {string|array&lt;string>} currencyStringOrArray - Raw text or an array of raw texts as output by Angular's
+     * `currency` filter.
+     *
+     * @example
+     * ```js
+     * encore.rxMisc.currencyToPennies('$0.01') == 1
+     * encore.rxMisc.currencyToPennies('$100 CAN') == 10000
+     * encore.rxMisc.currencyToPennies('($100 AUS)') == -10000
+     * encore.rxMisc.currencyToPennies('$1.10') == 110
+     * encore.rxMisc.currencyToPennies(['$0.01', '($100 AUS)', '$150.14']) == [1, -10000, 15014]
+     * ```
+     */
+    currencyToPennies: function (currencyStringOrArray) {
+        var convert = function (currencyString) {
+            var resFloat = parseFloat(currencyString.split(' ')[0].replace(/[,$()]/g, '').trim());
+
+            // Negative number
+            if (_.first(currencyString) === '(' &amp;&amp; _.last(currencyString) === ')') {
+                resFloat = -resFloat;
+            }
+
+            return parseInt(Math.round(resFloat * 100), 10);
+        };
+
+        if (typeof currencyStringOrArray === 'string') {
+            return convert(currencyStringOrArray);
+        } else if (Array.isArray(currencyStringOrArray)) {
+            return _.map(currencyStringOrArray, convert);
+        }
+    },
+
+    /**
+       A convenience function to pass to `.then` when a date is needed from text.
+       If there is any manipulation of the text needed to render a valid date in
+       javascript, then you shouldn't use this function. If that is the case,
+       please see http://rackerlabs.github.io/encore-ui/#/styleguide/basics#date-formatting.
+       There should be no need to manipulate a date's text to create a valid date object
+       if you are following the styleguide.
+       @param {String} dateText - Text that represents the date object in the UI.
+       @returns {Date} A date object, returned from `new Date(dateText)`.
+       @example
+       ```js
+       // instead of doing this
+       startDate: {
+           get: function () {
+               return element(by.binding('startDate')).getText().then(function (text) {
+                   return new Date(text);
+               });
+           }
+       },
+
+       // use this instead
+       endDate: {
+           get: function () {
+               return element(by.binding('endDate')).getText().then(encore.rxMisc.newDate);
+           }
+       }
+       ```
+     */
+    newDate: function (dateText) {
+        return new Date(dateText);
+    },
+
+    /**
+       A list of common strings that appear in the UI that represent `null` to a page object.
+       Add to this list yourself or create a new one in this namespace for your application.
+       @constant
+       @example
+       ```js
+       it('should return null for the user email preferences', function () {
+           encore.rxMisc.nullValueMatches.push('Unregistered'); // this is permanent for the test run
+           // this element's inner text is "Unregistered", triggering a `null` response
+           expect(userPage.emailPreferences).to.eventually.be.null;
+       });
+       ```
+     */
+    nullValueMatches: [],
+
+    /**
+       If the `elem` is found, invoke `innerFn` on the resulting element's text.
+       If there is no element found (or displayed), return `null`.
+       If the element is found and displayed, but the text matches something in {@link rxMisc.nullValueMatches},
+       then return `null`.
+       This is useful when applications feature use of `ng-if` to control various messages to the user.
+       @function
+       @param {WebElement} elem - The web element that may or may not be present, or displayed, or valid.
+       @param {Function} [innerFn] - Function to call on the element should it be present, displayed, and valid.
+       @param {*} [fallbackReturnValue=null] - Returned if the web element is not present, or not displayed, or invalid.
+       @example
+       ```js
+       // given this html
+       &lt;span class="accent-text">
+         &lt;span ng-if="balance.currentBalance">
+           {{balance.currentBalance | currency }} {{balance.currency}}
+         &lt;/span>
+         &lt;span ng-if="!balance.currentBalance">
+           N/A
+         &lt;/span>
+       &lt;/span>
+
+       // this would be your page object
+       var balancePage = Page.create({
+           balance: {
+               get: function () {
+                   var balanceElement = element(by.binding('currentBalance'));
+                   // will return `null` if "N/A". Otherwise, will transform to Number.
+                   return encore.rxMisc.unless(balanceElement, function (elem) {
+                       return elem.getText().then(encore.rxMisc.currencyToPennies);
+                   });
+               }
+           }
+       });
+       ```
+     */
+    unless: function (elem, innerFn, fallbackReturnValue) {
+        if (fallbackReturnValue === undefined) {
+            fallbackReturnValue = null;
+        }
+
+        return elem.isPresent().then(function (present) {
+            if (present) {
+                return elem.isDisplayed().then(function (displayed) {
+                    if (displayed) {
+                        return elem.getText().then(function (text) {
+                            if (exports.rxMisc.nullValueMatches.indexOf(text.trim()) > -1) {
+                                return fallbackReturnValue;
+                            }
+                            return innerFn === undefined ? text : innerFn(elem);
+                        });
+                    }
+                    // not displayed
+                    return fallbackReturnValue;
+                });
+            }
+            // not present
+            return fallbackReturnValue;
+        });
+    },
+
+    /**
+       See https://github.com/Droogans/node-timing.js#sample-output-of-timinggettimes for details.
+       @function
+       @param {String|Array} [keys] - Key to get (string), keys to get (Array), or all (`undefined`).
+       @returns {Object} An object of timings that can be used to infer browser render performance
+       @example
+       ```js
+       it('should have loaded the page in less than two seconds', function () {
+           expect(encore.rxMisc.getPerformanceMetrics('loadTime')).to.eventually.be.under(2000);
+       });
+       ```
+     */
+    getPerformanceMetrics: function (keys) {
+        return browser.driver.executeScript(require('node-timing.js').getTimes).then(function (times) {
+            if (_.isString(keys)) {
+                return times[keys];
+            } else if (_.isArray(keys)) {
+                return _.pick(times, keys);
+            } else {
+                return times;
+            }
+        });
+    },
+
+    /**
+     * Accepts an ElementArrayFinder, which can have several locations. Should the
+     * list of elements be stacked vertically (say, in a list of table rows),
+     * the element with the smallest Y coordinate will be scrolled to.
+     * @function
+     * @param {WebElement} elem An element, or a list of elements to scroll to
+     * @returns {undefined}
+     */
+    scrollToElement: function (elem) {
+        return elem.getLocation().then(function (loc) {
+            if (_.isArray(loc)) {
+                loc = _.min(loc, 'y');
+            }
+
+            var command = ['window.scrollTo(0, ', loc.y.toString(), ');'].join('');
+            browser.executeScript(command);
+        });
+    },
+
+    /**
+     * @function
+     * @param {WebElement} e1 First element to compare Y locations against.
+     * @param {WebElement} e2 Second element to compare Y locations against.
+     * @returns {Boolean} Whether or not `e1` and `e2` have the same Y coordinates.
+     */
+    compareYLocations: function (e1, e2) {
+        return this.compareLocations(e1, e2, 'y');
+    },
+
+    /**
+     * @function
+     * @param {WebElement} e1 First element to compare X locations against.
+     * @param {WebElement} e2 Second element to compare X locations against.
+     * @returns {Boolean} Whether or not `e1` and `e2` have the same X coordinates.
+     */
+    compareXLocations: function (e1, e2) {
+        return this.compareLocations(e1, e2, 'x');
+    },
+
+    /**
+     * @function
+     * @description
+     * Unify input from either a location object or a web element into a promise
+     * representing the location attribute (x or y) of either input.
+     * Both `transformLocation($('.element'), 'y')` and `transformLocation({x: 20, y: 0}, 'y')`
+     * return a promise representing the y value of the resulting (or provided) location object.
+     */
+    transformLocation: function (elementOrLocation, attribute) {
+        if (_.isFunction(elementOrLocation.getLocation)) {
+            var elem = elementOrLocation;
+            return elem.getLocation().then(function (loc) {
+                return loc[attribute];
+            });
+        } else {
+            var location = elementOrLocation;
+            if (_.has(location, attribute)) {
+                return protractor.promise.fulfilled(location[attribute]);
+            } else {
+                return protractor.promise.fulfilled(location);
+            }
+        }
+    },
+
+    /**
+     * @private
+     * @function
+     * @param {WebElement} e1 First element to compare locations against.
+     * @param {WebElement} e2 Second element to compare locations against.
+     * @param {String} attribute attribute to compare ('x' or 'y')
+     */
+    compareLocations: function (e1, e2, attribute) {
+        var promises = [
+            this.transformLocation(e1, attribute),
+            this.transformLocation(e2, attribute)
+        ];
+
+        return protractor.promise.all(promises).then(function (locations) {
+            return locations[0] === locations[1];
+        });
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jan 06 2016 16:16:28 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
