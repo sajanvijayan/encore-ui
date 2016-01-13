@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants devicepaths elements environment filter filters hotkeys molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl rxnestedelement rxpromisenotifications rxsortemptytop rxsortutil rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
+      "keywords": "api atoms constants devicepaths elements environment errorformatter filter filters hotkeys identity molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxnestedelement rxnotify rxpromisenotifications rxsortemptytop rxsortutil rxstatusmappings rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
     },
     {
       "section": "api",
@@ -203,12 +203,48 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:Identity",
+      "shortName": "Identity",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "This is a component designed to aid interaction with Rackspace&#39;s Identity API.",
+      "keywords": "$resource aid api component designed errorcallback identity interaction login loginwithjson password promise quarks rackspace returns service successcallback"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxBreadcrumbsSvc",
       "shortName": "rxBreadcrumbsSvc",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
       "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path quarks relative reuse rxbreadcrumbssvc second service sethome takes url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxDOMHelper",
+      "shortName": "rxDOMHelper",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A small set of functions to provide some functionality",
+      "keywords": "angularjs api arguments dom-related element elements functionality functions isn jquery-lite methods org provide quarks service set small wrapped"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxFeedbackSvc",
+      "shortName": "rxFeedbackSvc",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "rxFeedbackSvc service supports rxFeedback directive functionality.  A custom endpoint may be set to override",
+      "keywords": "api custom default directive endpoint functionality override quarks rxfeedback rxfeedbacksvc service set supports"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxFormUtils",
+      "shortName": "rxFormUtils",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Set of utility functions used by rxForm to access form data.",
+      "keywords": "access api data fieldid form functions getselectedoptionfortable getselectedoptionfortabset option quarks returns rowid rxform rxformoptiontable selected service set tableid tabset tabsetid utility"
     },
     {
       "section": "api",
@@ -227,6 +263,15 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Manages displaying messages for a promise.",
       "keywords": "_failure_ _success_ action add api attach call common created deferred depending display displaying error html loading manages message messages method msgs pattern promise quarks rejection requested requests resolve result rxpromisenotifications service showing stack success successful unresolved"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxScreenshotSvc",
+      "shortName": "rxScreenshotSvc",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Captures a screenshot for rxFeedback submission form.",
+      "keywords": "api captures default encoreui form framework quarks required rxfeedback rxscreenshotsvc screenshot service submission"
     },
     {
       "section": "api",
@@ -541,7 +586,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "rxAuth",
       "shortDescription": "Service which provides an entire solution for authenticating, user session management",
-      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise re-use returns role roles rxauth rxidentity rxpermission rxsession service services session smaller solution stored stores storetoken successcallback token true ui user valid wrapper"
+      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise quarks re-use returns role roles rxauth rxpermission rxsession service services session smaller solution stored stores storetoken successcallback token true ui user valid wrapper"
     },
     {
       "section": "api",
@@ -778,24 +823,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxFeedback.service:rxFeedbackSvc",
-      "shortName": "rxFeedbackSvc",
-      "type": "service",
-      "moduleName": "rxFeedback",
-      "shortDescription": "rxFeedbackSvc service supports rxFeedback directive functionality.  A custom endpoint may be set to override",
-      "keywords": "api custom default directive endpoint functionality override rxfeedback rxfeedbacksvc service set supports"
-    },
-    {
-      "section": "api",
-      "id": "rxFeedback.service:rxScreenshotSvc",
-      "shortName": "rxScreenshotSvc",
-      "type": "service",
-      "moduleName": "rxFeedback",
-      "shortDescription": "Captures a screenshot for rxFeedback submission form.",
-      "keywords": "api captures default encore form framework html2canvas requires rxfeedback screenshot service submission"
-    },
-    {
-      "section": "api",
       "id": "rxFloatingHeader",
       "shortName": "rxFloatingHeader",
       "type": "overview",
@@ -819,7 +846,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxForm",
       "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component components conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxformutils rxhelptext rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections service services set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
+      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component components conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
     },
     {
       "section": "api",
@@ -931,33 +958,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxForm.service:rxFormUtils",
-      "shortName": "rxFormUtils",
-      "type": "service",
-      "moduleName": "rxForm",
-      "shortDescription": "Set of utility functions used by rxForm to access form data",
-      "keywords": "access api data fieldid form functions getselectedoptionfortable getselectedoptionfortabset option returns rowid rxform rxformoptiontable selected service set tableid tabset tabsetid utility"
-    },
-    {
-      "section": "api",
-      "id": "rxIdentity",
-      "shortName": "rxIdentity",
-      "type": "overview",
-      "moduleName": "rxIdentity",
-      "shortDescription": "rxIdentity Component",
-      "keywords": "aid api component designed identity interaction overview rackspace rxidentity service services"
-    },
-    {
-      "section": "api",
-      "id": "rxIdentity.service:Identity",
-      "shortName": "Identity",
-      "type": "service",
-      "moduleName": "rxIdentity",
-      "shortDescription": "This is a component designed to aid interaction with Rackspace&#39;s Identity API.",
-      "keywords": "$resource aid api component designed errorcallback identity interaction login loginwithjson password promise rackspace returns rxidentity service successcallback"
-    },
-    {
-      "section": "api",
       "id": "rxInfoPanel",
       "shortName": "rxInfoPanel",
       "type": "overview",
@@ -1044,7 +1044,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMisc",
       "shortDescription": "rxMisc Component",
-      "keywords": "api component components framework functionality module overview rxautosave rxdomhelper rxmisc service services shared"
+      "keywords": "api component components framework functionality module overview rxautosave rxmisc service services shared"
     },
     {
       "section": "api",
@@ -1054,15 +1054,6 @@ NG_DOCS={
       "moduleName": "rxMisc",
       "shortDescription": "A factory that controllers can use to help automatically save and load",
       "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxmisc save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users val values var variable visits watch watched won write"
-    },
-    {
-      "section": "api",
-      "id": "rxMisc.service:rxDOMHelper",
-      "shortName": "rxDOMHelper",
-      "type": "service",
-      "moduleName": "rxMisc",
-      "shortDescription": "A small set of functions to provide some functionality",
-      "keywords": "angular api arguments dom-related elements functionality functions isn jquery-lite methods provide rxmisc service set small wrapped"
     },
     {
       "section": "api",
