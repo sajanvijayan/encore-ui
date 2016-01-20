@@ -37,8 +37,6 @@ angular.module('demoApp')
 });
 
 
-
-
 angular.module('demoApp')
 .controller('layoutController', function ($scope) {
     $scope.layout = 'row';
@@ -822,19 +820,6 @@ angular.module('encore.ui.rxForm')
 
 
 
-angular.module('demoApp')
-.controller('rxLocalStorageCtrl', function ($scope, $window, LocalStorage) {
-    $scope.setSideKick = function () {
-        LocalStorage.setObject('joker', { name: 'Harley Quinn' });
-    };
-
-    $scope.getSideKick = function () {
-        var sidekick = LocalStorage.getObject('joker');
-        $window.alert(sidekick.name);
-    };
-});
-
-
 
 
 /*jshint unused:false*/
@@ -990,6 +975,10 @@ angular.module('demoApp')
     $scope.routeChange = function (stack) {
         $rootScope.$broadcast('$routeChangeStart', {});
         $rootScope.$broadcast('$routeChangeSuccess', {});
+
+        rxNotify.add('Route Changed', {
+            stack: stack
+        });
     };
 
     $scope.add = function (stack) {
@@ -1025,16 +1014,6 @@ angular.module('demoApp')
         stack: 'custom'
     });
 
-    // stuff for rxPromiseNotifications
-    $scope.addPromise = function () {
-        $scope.deferred = $q.defer();
-
-        var promiseScope = rxPromiseNotifications.add($scope.deferred.promise, {
-            loading: 'Loading Message',
-            success: 'Success Message',
-            error: 'Error Message'
-        }, 'demo');
-    };
 });
 
 
@@ -1596,6 +1575,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {
     $scope.setSideKick = function () {
@@ -1606,6 +1587,8 @@ angular.module('demoApp')
         $window.alert(SessionStorage.getItem('Batman'));
     };
 });
+
+
 
 
 
@@ -1638,6 +1621,8 @@ angular.module('demoApp')
 });
 
 
+
+
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxAgeCtrl', function ($scope) {
@@ -1647,6 +1632,60 @@ angular.module('demoApp')
     $scope.ageMonths = new Date((Date.now() - (day * 40.2))).toString();
     $scope.ageYears = new Date((Date.now() - (day * 380.1))).toString();
 });
+
+
+angular.module('demoApp')
+.controller('rxAutoSaveSimpleCtrl', function ($scope, $timeout, $q, rxNotify, rxAutoSave) {
+    $scope.formData = {
+        checkbox: false,
+        name: '',
+        description: '',
+        sensitive: ''
+    };
+
+    var autosave = rxAutoSave($scope, 'formData', {
+        exclude: ['sensitive'],
+        ttl: 86400000
+    });
+
+    $scope.status = {
+        loading: false,
+        disable: false,
+        deferredLoading: false,
+        deferredDisable: false
+    };
+
+    var clearMsg = [
+        'rxAutoSave data has been cleared!',
+        'Navigate away and return, and the form will not be auto-populated'
+    ].join(' ');
+
+    // Clear with an explicit autosave.clear() call
+    $scope.clearStorage = function () {
+        $scope.status.loading = true;
+        $timeout(function () {
+            $scope.status.loading = false;
+            autosave.clear();
+            rxNotify.add(clearMsg, { type: 'success' });
+        }, 1000);
+    };
+
+    // Clear by resolving the associated promise
+    $scope.deferredClear = function () {
+        var deferred = $q.defer();
+
+        autosave.clearOnSuccess(deferred.promise);
+        $scope.status.deferredLoading = true;
+
+        $timeout(function () {
+            $scope.status.deferredLoading = false;
+            deferred.resolve();
+            rxNotify.add(clearMsg, { type: 'success' });
+        }, 1000);
+    };
+});
+
+
 
 
 
@@ -1679,6 +1718,21 @@ angular.module('demoApp')
 });
 
 
+
+
+
+
+angular.module('demoApp')
+.controller('rxLocalStorageSimpleCtrl', function ($scope, $window, rxLocalStorage) {
+    $scope.setSideKick = function () {
+        rxLocalStorage.setObject('joker', { name: 'Harley Quinn' });
+    };
+
+    $scope.getSideKick = function () {
+        var sidekick = rxLocalStorage.getObject('joker');
+        $window.alert(sidekick.name);
+    };
+});
 
 
 
@@ -1754,6 +1808,8 @@ angular.module('demoApp')
         },
     ];
 });
+
+
 
 
 

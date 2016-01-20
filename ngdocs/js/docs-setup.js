@@ -23,24 +23,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "configs",
-      "shortName": "configs",
-      "type": "overview",
-      "moduleName": "configs",
-      "shortDescription": "configs Component",
-      "keywords": "allow api app automatically case common component config configs configuration configured constant customurl depending documenting encore encore-ui-nav environment example file find folder framework hascustomurl intended js json live local main mynav null override overview people point provider pull reason repository requests routescdnpath routescdnpathprovider service services set stuff submitting test true url users versions"
-    },
-    {
-      "section": "api",
-      "id": "configs.service:routesCdnPath",
-      "shortName": "routesCdnPath",
-      "type": "service",
-      "moduleName": "configs",
-      "shortDescription": "[TBD]",
-      "keywords": "api configs service"
-    },
-    {
-      "section": "api",
       "id": "layout",
       "shortName": "layout",
       "type": "overview",
@@ -82,7 +64,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants devicepaths elements environment errorformatter filter filters hotkeys identity molecules non-visual overview quarks rxage rxbreadcrumbssvc rxcapitalize rxdisksize rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxnestedelement rxnotify rxpromisenotifications rxsortemptytop rxsortutil rxstatusmappings rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
+      "keywords": "api atoms constants devicepaths elements environment errorformatter filter filters hotkeys identity molecules non-visual overview quarks rxage rxautosave rxbreadcrumbssvc rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxlocalstorage rxnestedelement rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatusmappings rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.constant:feedbackApi",
+      "shortName": "feedbackApi",
+      "type": "parameters",
+      "moduleName": "quarks",
+      "shortDescription": "Provides the feedback URL.",
+      "keywords": "api constant feedback parameters quarks url"
     },
     {
       "section": "api",
@@ -176,6 +167,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.object:rxStatusColumnIcons",
+      "shortName": "rxStatusColumnIcons",
+      "type": "object",
+      "moduleName": "quarks",
+      "shortDescription": "Mapping of internal statuses to FontAwesome icons.",
+      "keywords": "api defined fontawesome icons internal map mapping names object quarks rxstatuscolumn statuses"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:Environment",
       "shortName": "Environment",
       "type": "service",
@@ -212,12 +212,57 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:LocalStorage",
+      "shortName": "LocalStorage",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "NOTICE: This service has be deprecated in favor of the ",
+      "keywords": "api deprecated favor quarks rxlocalstorage service"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:NotifyProperties",
+      "shortName": "NotifyProperties",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
+      "keywords": "_numselected abstracting allowing api call called calling change changes child complete control controller directive directives element example exposed factory function functionality integer live ll method modified notification notificationfunction notifications notified notifyproperties numselected oldvalue parent plain properties property quarks register registered registerfornumselected registers registrationfn require scope service set sets stats track user"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:routesCdnPath",
+      "shortName": "routesCdnPath",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "routesCdnPath is configured as a .provider. This is to allow users to override the URL used when in a",
+      "keywords": "allow api app automatically case config configuration configured customurl depending documenting encore-ui-nav environment example file find folder framework hascustomurl intended js json live local main mynav null override people point provider pull quarks reason repository requests routescdnpath routescdnpathprovider service set stuff submitting test true url users versions"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxAutoSave",
+      "shortName": "rxAutoSave",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A factory that controllers can use to help automatically save and load",
+      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided quarks receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users val values var variable visits watch watched won write"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxBreadcrumbsSvc",
       "shortName": "rxBreadcrumbsSvc",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
       "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path quarks relative reuse rxbreadcrumbssvc second service sethome takes url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxBulkSelectUtils",
+      "shortName": "rxBulkSelectUtils",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Selects or deselects all visible rows. Support function for rxBulkSelect.",
+      "keywords": "api deselects function quarks rows rxbulkselect selects service support visible"
     },
     {
       "section": "api",
@@ -248,12 +293,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxLocalStorage",
+      "shortName": "rxLocalStorage",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A simple wrapper for injecting the global variable localStorage",
+      "keywords": "$document $window angular api batman browser clear functions getitem getobject global helper hero html https includes injecting key local localstorage object objects org provided quarks removeitem return returns robin rxlocalstorage service services setitem setobject setting simple spec specification storage storing values variable w3c whatwg works wrapper"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxNestedElement",
       "shortName": "rxNestedElement",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "Helper function to aid in the creation of boilerplate DDO definitions",
       "keywords": "aid angular api boilerplate child childelement creation custom ddo default defined definition definitions directive element elements function helper merge module myapp nested nestedelement object options opts parent parentelement quarks required return rxnestedelement service validate"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxNotify",
+      "shortName": "rxNotify",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Manages page messages for an application.",
+      "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property quarks queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user values warning watch work"
     },
     {
       "section": "api",
@@ -613,7 +676,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxBulkSelect",
       "shortDescription": "rxBulkSelect Component",
-      "keywords": "action api atoms component directive directives items multiple notifyproperties overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectutils rxbulkselectvalidate service services table"
+      "keywords": "action api atoms component directive directives items multiple overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectvalidate table"
     },
     {
       "section": "api",
@@ -668,24 +731,6 @@ NG_DOCS={
       "moduleName": "rxBulkSelect",
       "shortDescription": "A directive used to validate rxBulkSelect in a form. The directive should be placed",
       "keywords": "api directive element form invalid item items rxbulkselect selected valid validate"
-    },
-    {
-      "section": "api",
-      "id": "rxBulkSelect.service:NotifyProperties",
-      "shortName": "NotifyProperties",
-      "type": "service",
-      "moduleName": "rxBulkSelect",
-      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
-      "keywords": "_numselected abstracting allowing api call called change changes child complete control controller directive directives element example exposted factory function functionality integer live ll method modified notification notificationfunction notifications notified notifyproperties numselected oldvalue parent plain properties property register registered registerfornumselected registrationfn require rxbulkselect scope service sets stats track"
-    },
-    {
-      "section": "api",
-      "id": "rxBulkSelect.service:rxBulkSelectUtils",
-      "shortName": "rxBulkSelectUtils",
-      "type": "service",
-      "moduleName": "rxBulkSelect",
-      "shortDescription": "[TBD]",
-      "keywords": "api rxbulkselect service"
     },
     {
       "section": "api",
@@ -801,7 +846,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxFeedback",
       "shortDescription": "rxFeedback Component",
-      "keywords": "accept add adding allows altered angular api application argument attribute automatically behaviour cf1 changeorigin changes component configurations configured context controller create custom default define definition dependencies dependency depending describe description details development directive directives email encore encore-service-pillar encore-ui-svcs encorefeedback encoreui endinject endpoint ensure false feature features feedback field function gathers generator gulp host html http https include initialized inject injected integration internal js label latest list logic mailing managed manually module myapplication ngresource ngroute object on-submit open override overriding overview parameter perform placeholder points port prism product product-specific production project prompt protocol proxy purposes r46 rackcdn rackspace redirect redirecting request requests routes rxfeedback rxfeedbacksvc rxscreenshotsvc script selects sending sends service services set setendpoint single specifiable src ssl staging structure submission supports svcs tasks text true type ui update updating user user-submitted version website window"
+      "keywords": "accept add adding allows altered angular api application argument attribute automatically behaviour cf1 changeorigin changes component configurations configured context controller create custom default define definition dependencies dependency depending describe description details development directive directives email encore encore-service-pillar encore-ui-svcs encorefeedback encoreui endinject endpoint ensure false feature features feedback field function gathers generator gulp host html http https include initialized inject injected integration internal js label latest list logic mailing managed manually module myapplication ngresource ngroute object on-submit open override overriding overview parameter perform placeholder points port prism product product-specific production project prompt protocol proxy purposes r46 rackcdn rackspace redirect redirecting request requests routes rxfeedback rxfeedbacksvc script selects sending sends service set setendpoint single specifiable src ssl staging structure submission supports svcs tasks text true type ui update updating user user-submitted version website window"
     },
     {
       "section": "api",
@@ -976,24 +1021,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxLocalStorage",
-      "shortName": "rxLocalStorage",
-      "type": "overview",
-      "moduleName": "rxLocalStorage",
-      "shortDescription": "rxLocalStorage Component",
-      "keywords": "api browser component global interacting local localstorage object overview rxlocalstorage service services session simple storage wrapper"
-    },
-    {
-      "section": "api",
-      "id": "rxLocalStorage.service:LocalStorage",
-      "shortName": "LocalStorage",
-      "type": "service",
-      "moduleName": "rxLocalStorage",
-      "shortDescription": "A simple wrapper for injecting the global variable localStorage",
-      "keywords": "$document $window angular api batman browser clear functions getitem getobject global helper hero http includes injecting key local localstorage object objects org provided removeitem return returns robin rxlocalstorage service services setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
-    },
-    {
-      "section": "api",
       "id": "rxLogout",
       "shortName": "rxLogout",
       "type": "overview",
@@ -1044,16 +1071,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMisc",
       "shortDescription": "rxMisc Component",
-      "keywords": "api component components framework functionality module overview rxautosave rxmisc service services shared"
-    },
-    {
-      "section": "api",
-      "id": "rxMisc.service:rxAutoSave",
-      "shortName": "rxAutoSave",
-      "type": "service",
-      "moduleName": "rxMisc",
-      "shortDescription": "A factory that controllers can use to help automatically save and load",
-      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxmisc save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users val values var variable visits watch watched won write"
+      "keywords": "api component components deprecation marked overview quarks refactored rxmisc"
     },
     {
       "section": "api",
@@ -1134,7 +1152,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxNotify",
       "shortDescription": "rxNotify Component",
-      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview queue recommend reference required rxnotification rxnotifications rxnotify service services situations stack status styling supported true type username var variable views warning window"
+      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview quarks queue recommend reference required rxnotification rxnotifications rxnotify service situations stack status styling supported true type username var variable views warning window"
     },
     {
       "section": "api",
@@ -1153,15 +1171,6 @@ NG_DOCS={
       "moduleName": "rxNotify",
       "shortDescription": "Displays all messages in a stack.",
       "keywords": "api associate directive displays message messages mycustomstack rxnotify stack"
-    },
-    {
-      "section": "api",
-      "id": "rxNotify.service:rxNotify",
-      "shortName": "rxNotify",
-      "type": "service",
-      "moduleName": "rxNotify",
-      "shortDescription": "Manages page messages for an application.",
-      "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user values warning watch work"
     },
     {
       "section": "api",
@@ -1215,7 +1224,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxPaginate",
       "shortDescription": "rxPaginate Component",
-      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service services set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
+      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull quarks re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service services set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
     },
     {
       "section": "api",
@@ -1395,7 +1404,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "rxSession",
       "shortDescription": "Service for managing user session in encore-ui.",
-      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing returns rxlocalstorage rxsession service session stored stores storetoken token true user valid"
+      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing quarks returns rxsession service session stored stores storetoken token true user valid"
     },
     {
       "section": "api",
@@ -1467,7 +1476,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxStatusColumn",
       "shortDescription": "rxStatusColumn Component",
-      "keywords": "api columns component directive directives object objects overview putting rxstatuscolumn rxstatuscolumnicons rxstatusheader status styles tables"
+      "keywords": "api columns component directive directives overview putting rxstatuscolumn rxstatusheader status styles tables"
     },
     {
       "section": "api",
@@ -1486,15 +1495,6 @@ NG_DOCS={
       "moduleName": "rxStatusColumn",
       "shortDescription": "Place this attribute directive on the &lt;th&gt; for the status columns. It",
       "keywords": "add api attribute column columns coming component correct defined demo directive ensures example note place predicate property referring representing reverse row rx-status-header rxsortablecolumn rxstatuscolumn server sort sort-method sort-property sortable sortcol sorting status styling text things"
-    },
-    {
-      "section": "api",
-      "id": "rxStatusColumn.object:rxStatusColumnIcons",
-      "shortName": "rxStatusColumnIcons",
-      "type": "object",
-      "moduleName": "rxStatusColumn",
-      "shortDescription": "Mapping of internal statuses to FontAwesome icons.",
-      "keywords": "api defined fontawesome icons internal map mapping names object rxstatuscolumn statuses"
     },
     {
       "section": "api",
