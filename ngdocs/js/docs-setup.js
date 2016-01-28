@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "atoms",
       "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building directive elements overview quarks rxcheckbox ui"
+      "keywords": "api atoms basic blocks building directive elements overview quarks rxcheckbox rxfavicon ui"
     },
     {
       "section": "api",
@@ -20,6 +20,15 @@ NG_DOCS={
       "moduleName": "atoms",
       "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
       "keywords": "api atoms attribute behave checkbox chkdemo class code complexity control css decendents demo demovalue determines directive directives disabled display element highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
+    },
+    {
+      "section": "api",
+      "id": "atoms.directive:rxFavicon",
+      "shortName": "rxFavicon",
+      "type": "directive",
+      "moduleName": "atoms",
+      "shortDescription": "This updates the href of an element, and replaces it with the path to a different image based on the environment.",
+      "keywords": "api atoms based congifuration defines directive element environment favicon file href icon image local local-favicon object path png rel replaces rx-favicon rxfavicon staging staging-favicon type updates"
     },
     {
       "section": "api",
@@ -64,7 +73,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constants devicepaths elements environment errorformatter filter filters hotkeys identity molecules non-visual overview quarks rxage rxautosave rxbreadcrumbssvc rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxlocalstorage rxnestedelement rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatusmappings rxunsaferemovehtml selectfilter service services sessionstorage support titleize values xor"
+      "keywords": "api atoms constant constants devicepaths elements environment errorformatter feedbackapi filter filters hotkeys identity molecules non-visual notifyproperties object overview quarks routescdnpath rxage rxautosave rxbreadcrumbssvc rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxformutils rxlocalstorage rxnestedelement rxnotify rxpagetitle rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxunsaferemovehtml service services support titleize values xor"
     },
     {
       "section": "api",
@@ -317,6 +326,15 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Manages page messages for an application.",
       "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property quarks queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user values warning watch work"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxPageTitle",
+      "shortName": "rxPageTitle",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "rxPageTitle service manages page titles.",
+      "keywords": "alert api arbitrary caveats correctly danger html js listed manages methods note null onerror pass passed quarks raw result rxpagetitle second service sets setting settitle settitleunsafestriphtml simply source src string stripped strips tags title titles trusted valid"
     },
     {
       "section": "api",
@@ -823,24 +841,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxFavicon",
-      "shortName": "rxFavicon",
-      "type": "overview",
-      "moduleName": "rxFavicon",
-      "shortDescription": "rxFavicon Component",
-      "keywords": "allows api component custom directive directives environments favicons local overview production rxfavicon staging"
-    },
-    {
-      "section": "api",
-      "id": "rxFavicon.directive:rxFavicon",
-      "shortName": "rxFavicon",
-      "type": "directive",
-      "moduleName": "rxFavicon",
-      "shortDescription": "This updates the href of an element, and replaces it with the path to a different image based on the environment.",
-      "keywords": "api based congifuration defines directive element environment favicon file href icon image local local-favicon object path png rel replaces rx-favicon rxfavicon staging staging-favicon type updates"
-    },
-    {
-      "section": "api",
       "id": "rxFeedback",
       "shortName": "rxFeedback",
       "type": "overview",
@@ -1198,24 +1198,6 @@ NG_DOCS={
       "moduleName": "rxOptionTable",
       "shortDescription": "This directive is used to build a table of radio/checkbox inputs.",
       "keywords": "allowed alongside angularjs api array attribute attributes base build callback checkbox checkboxes checked column columns data default demonstration determine directive disable-fn disabled disableoption display empty empty-message example excluded expressions falsevalue field-id fieldid function generated identifiers include initial input inputs key label load markup match message model ng-required object objects option optional parameters passed populate preselected preselection preseleted-values properties radio radios required rowid rxoptiontable samples selected table tableid tie true type unique values"
-    },
-    {
-      "section": "api",
-      "id": "rxPageTitle",
-      "shortName": "rxPageTitle",
-      "type": "overview",
-      "moduleName": "rxPageTitle",
-      "shortDescription": "rxPageTitle Component",
-      "keywords": "api component manages overview rxpagetitle service services titles"
-    },
-    {
-      "section": "api",
-      "id": "rxPageTitle.service:rxPageTitle",
-      "shortName": "rxPageTitle",
-      "type": "service",
-      "moduleName": "rxPageTitle",
-      "shortDescription": "rxPageTitle service manages page titles.",
-      "keywords": "alert api arbitrary caveats correctly danger html js listed manages methods note null onerror pass passed raw result rxpagetitle second service sets setting settitle settitleunsafestriphtml simply source src string stripped strips tags title titles trusted valid"
     },
     {
       "section": "api",

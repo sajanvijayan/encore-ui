@@ -37,6 +37,8 @@ angular.module('demoApp')
 });
 
 
+
+
 angular.module('demoApp')
 .controller('layoutController', function ($scope) {
     $scope.layout = 'row';
@@ -539,15 +541,6 @@ angular.module('demoApp')
 angular.module('demoApp')
 .controller('rxEnvironmentCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
-});
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxFaviconCtrl', function ($scope, Environment) {
-    $scope.setEnvironment = function (environment) {
-        // TODO allow overriding the current environment to show how the favicon changes
-    };
 });
 
 
@@ -1090,21 +1083,6 @@ angular.module('demoApp')
     $scope.disableOption = function (tableId, fieldId, rowId) {
         return rowId === 'option4';
     };
-});
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxPageTitleCtrl', function ($scope, rxPageTitle) {
-    $scope.changeTitle = function () {
-        rxPageTitle.setTitle($scope.newTitle);
-    };
-
-    $scope.refreshTitle = function () {
-        $scope.pageTitle = rxPageTitle.getTitle();
-    };
-
-    $scope.refreshTitle();
 });
 
 
@@ -1737,6 +1715,20 @@ angular.module('demoApp')
 
 
 
+
+
+angular.module('demoApp')
+.controller('rxPageTitleSimpleCtrl', function ($scope, rxPageTitle) {
+    $scope.changeTitle = function () {
+        rxPageTitle.setTitle($scope.newTitle);
+    };
+
+    $scope.refreshTitle = function () {
+        $scope.pageTitle = rxPageTitle.getTitle();
+    };
+
+    $scope.refreshTitle();
+});
 
 
 angular.module('demoApp')
