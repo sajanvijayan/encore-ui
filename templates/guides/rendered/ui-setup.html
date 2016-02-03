@@ -39,6 +39,11 @@
 <h3  id="running-encoreui">Running EncoreUI</h3><p>Run the following command:</p>
 <p><code>grunt server</code></p>
 <p>You can then open <code>http://localhost:9001</code> in a new browser and view the demo app. The page will automatically refresh when the code is updated.</p>
+<h3  id="running-browser-sync">Running Browser Sync</h3><p>It&#39;s important to develop new components while looking at both Firefox and Chrome. You can make this task much easier by running <a href="https://browsersync.io/">browser sync</a> in a new terminal window after starting the local development server.</p>
+<pre><code>grunt browserSync
+</code></pre><p>This will allow you to visit <a href="http://localhost:3000/">http://localhost:3000/</a> in both Firefox and Chrome at the same time (as well as any other browser you wish to sync, including your phone or tablet).</p>
+<p>When you scroll in one browser, or device, all other connected browsers or devices will also scroll. This also includes clicking elements, visiting links, etc.</p>
+<p>This tool is designed to forward all traffic from the typical development server located at <a href="http://localhost:9001">http://localhost:9001</a> and sync it at the new location on port 3000. You can still visit the original development server without any side effects. Use of this tool is completely optional, but strongly recommended.</p>
 <h4  id="warning-emfile-too-many-open-files-39src39">Warning: EMFILE, too many open files &#39;src&#39;</h4><p>If you see the following <a href="https://github.com/gruntjs/grunt-contrib-copy/issues/21#issuecomment-46194402">error when running <code>grunt server</code></a>:</p>
 <pre><code>Running &quot;watch&quot; task
 Waiting...

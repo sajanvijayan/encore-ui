@@ -302,6 +302,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxHideIfUkAccount",
+      "shortName": "rxHideIfUkAccount",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Check if account number in the URL is of UK origin.",
+      "keywords": "account api check false matches number origin pattern quarks rxhideifukaccount service uk url visibility"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxLocalStorage",
       "shortName": "rxLocalStorage",
       "type": "service",
@@ -374,12 +383,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxVisibility",
+      "shortName": "rxVisibility",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Provides an interface for adding new visibility methods for nav menus.  Methods added via addMethod should ",
+      "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed quarks second service somemethodname visibility"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:SelectFilter",
       "shortName": "SelectFilter",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
       "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public quarks relying requirement selected selectfilter server-side service single source stated strict subsets three time tracks var watched year"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:Session",
+      "shortName": "Session",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Service for managing user session in encore-ui.",
+      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing quarks returns service session stored stores storetoken token true user valid"
     },
     {
       "section": "api",
@@ -460,7 +487,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxApp",
       "shortDescription": "rxApp Component",
-      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreroutes encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxhideifukaccount rxpage rxstatustag rxstatustags rxticketsearch rxvisibility rxvisibilitypathparams scope separate service services set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage view views wrap"
+      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreroutes encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxpage rxstatustag rxstatustags rxticketsearch rxvisibilitypathparams scope separate service services set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage view views wrap"
     },
     {
       "section": "api",
@@ -572,30 +599,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxApp.service:rxHideIfUkAccount",
-      "shortName": "rxHideIfUkAccount",
-      "type": "service",
-      "moduleName": "rxApp",
-      "shortDescription": "Check if account number in URL is of the UK origin",
-      "keywords": "account api check false matches number origin pattern rxapp rxhideifukaccount service uk url visibility"
-    },
-    {
-      "section": "api",
       "id": "rxApp.service:rxStatusTags",
       "shortName": "rxStatusTags",
       "type": "service",
       "moduleName": "rxApp",
       "shortDescription": "This provider is primarily used for applications to specify custom status",
       "keywords": "api applications attributes breadcrumb config custom framework gettag hastag methods needed objects provider rarely rx-page rxapp service status tags time"
-    },
-    {
-      "section": "api",
-      "id": "rxApp.service:rxVisibility",
-      "shortName": "rxVisibility",
-      "type": "service",
-      "moduleName": "rxApp",
-      "shortDescription": "Provides an interface for adding new visibility methods for nav menus.",
-      "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed rxapp second service somemethodname visibility"
     },
     {
       "section": "api",
@@ -1369,24 +1378,6 @@ NG_DOCS={
       "moduleName": "rxSelectFilter",
       "shortDescription": "Automatically creates the appropriate dropdowns to manage a filter object.",
       "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter selectfilter set usage validation"
-    },
-    {
-      "section": "api",
-      "id": "rxSession",
-      "shortName": "rxSession",
-      "type": "overview",
-      "moduleName": "rxSession",
-      "shortDescription": "rxSession Component",
-      "keywords": "api component manages overview rxsession service services session user"
-    },
-    {
-      "section": "api",
-      "id": "rxSession.service:Session",
-      "shortName": "Session",
-      "type": "service",
-      "moduleName": "rxSession",
-      "shortDescription": "Service for managing user session in encore-ui.",
-      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing quarks returns rxsession service session stored stores storetoken token true user valid"
     },
     {
       "section": "api",

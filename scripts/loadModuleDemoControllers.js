@@ -1260,14 +1260,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxSessionCtrl', function ($scope, $window, Session) {
-    $scope.isAuthenticated = function () {
-        $window.alert(Session.isAuthenticated());
-    };
-});
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxSortableColumnCtrl', function ($scope, PageTracking, rxSortUtil) {
@@ -1509,7 +1501,7 @@ angular.module('demoApp')
 
 angular.module('demoApp')
 .controller('rxDatePickerSimpleCtrl', function ($scope) {
-    $scope.dateModel = '2015-11-17';
+    $scope.dateModel = new Date().toISOString().split('T')[0];
 });
 
 
@@ -1553,6 +1545,14 @@ angular.module('demoApp')
 
 
 
+
+
+angular.module('demoApp')
+.controller('SessionSimpleCtrl', function ($scope, $window, Session) {
+    $scope.isAuthenticated = function () {
+        $window.alert(Session.isAuthenticated());
+    };
+});
 
 
 angular.module('demoApp')
@@ -1700,6 +1700,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('rxLocalStorageSimpleCtrl', function ($scope, $window, rxLocalStorage) {
     $scope.setSideKick = function () {
@@ -1839,6 +1841,8 @@ angular.module('demoApp')
 .controller('rxUnsafeRemoveHTMLSimpleCtrl', function ($scope) {
     $scope.sample = 'Sample string <strong>without</strong> <span>HTML tags</span>.';
 });
+
+
 
 
 angular.module('demoApp')
