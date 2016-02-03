@@ -57,11 +57,11 @@
 // # Text colors
 @app-headers-text-color: @gray-900;
 @app-body-text-color: @gray-800;
-@disabled-background-color: @gray-300;
-@disabled-text-color: @gray-600;
+@app-disabled-background-color: @gray-300;
+@app-disabled-text-color: @gray-600;
 @app-disabled-icon-color: @gray-600;
-@link-color: @blue-700;
-@link-hover-color: saturate(@link-color, 15%);
+@app-link-text-color: @blue-700;
+@app-link-hover-text-color: saturate(@app-link-text-color, 15%);
 
 // # App Global Form Vars
 @app-label-font-size:12px;
@@ -99,8 +99,8 @@
 @app-info-alert-background-color: @blue-100;
 @app-info-alert-text-color: @gray-950;
 @app-info-alert-icon-color: @gray-950;
-@app-disabled-alert-background-color: @disabled-background-color;
-@app-disabled-alert-text-color: @disabled-text-color;
+@app-disabled-alert-background-color: @app-disabled-background-color;
+@app-disabled-alert-text-color: @app-disabled-text-color;
 @app-disabled-alert-icon-color: @app-disabled-icon-color;
 
 // # Fonts
@@ -113,11 +113,16 @@
 @app-body-font-family: @app-sans-serif-font-family;
 
 // # PreProd warnings
-@preprodBackground: #aa161c;
-@preprodBorderTop: #bd1b22;
-@preprodBorderBottom: #991016;
-@preprodBackgroundFocus: #be1c22;
-@preprodActiveBackground: #d41f26;
+@preprod-background-color: @red-700;
+@preprod-border-top-color: @red-500;
+@preprod-border-bottom-color: darken(@preprod-background-color, 10%);
+@preprod-focus-background-color: desaturate(@preprod-background-color, 25%);
+@preprod-focus-border-top-color: darken(@preprod-background-color, 10%);
+@preprod-focus-border-bottom-color: darken(@preprod-background-color, 10%);
+@preprod-active-menu-background-color: @red-500;
+@preprod-active-item-background-color: @orange-500;
+@preprod-active-item-text-color: @black;
+@preprod-active-item-arrow-color: @orange-500;
 
 // ## Tables
 @tableHeaderBg: @gray-200;
@@ -204,6 +209,11 @@
 @rxButton-disabled-text-color: @gray-600;
 @rxButton-disabled-background-color: @gray-300;
 @rxButton-spinner-background-color: @white;
+@rxButton-finish-text-color: @blue-700;
+@rxButton-finish-hover-text-color: lighten(@rxButton-finish-text-color, 10%);
+@rxButton-finish-background-color: @white;
+@rxButton-finish-outline-color: @blue-700; // Color of Inset Line For Button
+@rxButton-finish-hover-outline-color: lighten(@rxButton-finish-outline-color, 10%);
 
 /*
  * Button Groups (rxButton)
@@ -265,8 +275,8 @@
 @rxSelect-color: @rxForm-input-text-color;
 @rxSelect-background: @rxForm-input-background-color;
 @rxSelect-trigger-background: @rxForm-input-background-color;
-@rxSelect-color-disabled: @disabled-text-color;
-@rxSelect-background-disabled: @disabled-background-color;
+@rxSelect-color-disabled: @app-disabled-text-color;
+@rxSelect-background-disabled: @app-disabled-background-color;
 @rxSelect-border-color: @rxForm-input-border-color;
 @rxSelect-border-color-invalid: @rxForm-input-border-color-invalid;
 @rxSelect-border-color-disabled: @rxForm-input-border-color;
@@ -290,10 +300,10 @@
 @rxSearchBox-min-height: @rxForm-input-min-height;
 @rxSearchBox-width: @rxForm-input-width;
 @rxSearchBox-color: @rxForm-input-text-color;
-@rxSearchBox-color-disabled: @disabled-text-color;
+@rxSearchBox-color-disabled: @app-disabled-text-color;
 @rxSearchBox-color-icon: @gray-500;
 @rxSearchBox-background: @rxForm-input-background-color;
-@rxSearchBox-background-disabled: @disabled-background-color;
+@rxSearchBox-background-disabled: @app-disabled-background-color;
 @rxSearchBox-border: 1px solid @rxForm-input-border-color;
 @rxSearchBox-padding-vertical: 3px;
 @rxSearchBox-padding-horizontal: 5px;
@@ -425,8 +435,20 @@
 @appLineHeight: @app-line-height;
 @appFontSize: @app-font-size;
 
+// # PreProd warnings
+// deprecated
+@preprodBackground: @preprod-background-color;
+@preprodBorderTop: @preprod-border-top-color;
+@preprodBorderBottom: @preprod-border-bottom-color;
+@preprodBackgroundFocus: @preprod-focus-background-color;
+@preprodActiveBackground: @preprod-active-menu-background-color;
+
 // # Text Colors
 // deprecated
+@disabled-background-color: @app-disabled-background-color;
+@disabled-text-color: @app-disabled-text-color;
+@link-color: @app-link-text-color;
+@link-hover-color: saturate(@link-color, 15%);
 @linkColor: @link-color;
 @linkColorHover: @link-hover-color;
 
@@ -469,8 +491,8 @@
 
 // # Input Colors
 // deprecated
-@inputColorDisabled: #999999; // replaced by @disabled-text-color (used on more than just inputs)
-@inputBackgroundDisabled: @disabled-gray; // replaced by @disabled-background-color (used on more than just inputs)
+@inputColorDisabled: #999999; // replaced by @app-disabled-text-color (used on more than just inputs)
+@inputBackgroundDisabled: @disabled-gray; // replaced by @app-disabled-background-color (used on more than just inputs)
 @inputColor: @appTextColor; // replaced by @rxForm-input-text-color
 @inputBorderColor: #cccccc; // replaced by @rxForm-input-border-color
 @inputBorderColorInvalid: #ff2400; // replaced by @rxForm-input-border-color-invalid
@@ -544,7 +566,7 @@
  * rxRadio
  */
  // deprecated
-@rxRadio-color-disabled: @disabled-background-color;
+@rxRadio-color-disabled: @app-disabled-background-color;
 
 /*
  * rxCheckbox

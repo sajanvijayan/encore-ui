@@ -1,5 +1,5 @@
 <a name="2.0.0-0"></a>
-### 2.0.0-0 (2016-01-22)
+## 2.0.0-0
 
 
 #### Bug Fixes
@@ -7,6 +7,60 @@
 * **midways:** fix broken midways ([c89fb672](git@github.com:rackerlabs/encore-ui/commit/c89fb6727c84c64c7faab0b0b262d9f376f2217a))
 * **rxDatePicker:** fix spec ([c5ec2042](git@github.com:rackerlabs/encore-ui/commit/c5ec204240931d41186d15ba3cb27f83e04c8408))
 * **scope:** rxMultiSelect ([071df5c6](git@github.com:rackerlabs/encore-ui/commit/071df5c610463efc138adcb1d100dcb3cad5f5a8))
+
+
+<a name="1.45.0"></a>
+## 1.45.0 (2016-02-03)
+
+
+<a name="1.45.0-0"></a>
+### 1.45.0-0 (2016-02-03)
+
+
+#### Features
+
+* **browserSync:** Include simple FF/Chrome syncing ([8711e756](git@github.com:rackerlabs/encore-ui/commit/8711e7565634309416b5129b16e91f677203515e))
+
+
+<a name="1.44.2"></a>
+### 1.44.2 (2016-01-28)
+
+
+<a name="1.44.2-4"></a>
+### 1.44.2-4 (2016-01-28)
+
+
+#### Bug Fixes
+
+* **grunt:** fix deploy tasks ([302f991e](git@github.com:rackerlabs/encore-ui/commit/302f991ec5c974892f38a0e33c5b61d36d88541e))
+
+
+<a name="1.44.2-3"></a>
+### 1.44.2-3 (2016-01-28)
+
+
+<a name="1.44.2-2"></a>
+### 1.44.2-2 (2016-01-28)
+
+
+<a name="1.44.2-1"></a>
+### 1.44.2-1 (2016-01-28)
+
+
+<a name="1.44.2-0"></a>
+### 1.44.2-0 (2016-01-28)
+
+
+<a name="1.44.1"></a>
+### 1.44.1 (2016-01-28)
+
+
+<a name="1.44.1-1"></a>
+### 1.44.1-1 (2016-01-28)
+
+
+<a name="1.44.1-0"></a>
+### 1.44.1-0 (2016-01-27)
 
 
 <a name="1.44.0"></a>
