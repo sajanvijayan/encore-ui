@@ -73,7 +73,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constant constants devicepaths elements environment errorformatter feedbackapi filter filters hotkeys identity molecules non-visual notifyproperties object overview quarks routescdnpath rxage rxautosave rxbreadcrumbssvc rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxformutils rxlocalstorage rxnestedelement rxnotify rxpagetitle rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxunsaferemovehtml service services support titleize values xor"
+      "keywords": "api atoms constant constants devicepaths elements environment errorformatter feedbackapi filter filters hotkeys identity molecules non-visual notifyproperties object overview quarks routescdnpath rxage rxautosave rxbreadcrumbssvc rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxnestedelement rxnotify rxpagetitle rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxunsaferemovehtml rxvisibility service services session support titleize values xor"
     },
     {
       "section": "api",
@@ -92,6 +92,24 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Used to apply an instance of SelectFilter to an array.",
       "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat quarks selectfilter service"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:Page",
+      "shortName": "Page",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
+      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination quarks service"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:Paginate",
+      "shortName": "Paginate",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "This is the pagination filter that is used to calculate the division in the",
+      "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging quarks service sliced"
     },
     {
       "section": "api",
@@ -185,6 +203,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:encoreRoutes",
+      "shortName": "encoreRoutes",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Creates a shared instance of AppRoutes that is used for the Encore App nav.",
+      "keywords": "allows api app approutes apps creates encore encoreroutes fetchroutes instance method nav quarks rxapproutes service shared updates"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:Environment",
       "shortName": "Environment",
       "type": "service",
@@ -239,12 +266,39 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:PageTracking",
+      "shortName": "PageTracking",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
+      "keywords": "api conjunction createinstance data display items itemsperpage objects pagetracking pagination quarks service store tables true"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:Permission",
+      "shortName": "Permission",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Simple service for accessing roles and permissions for a user.",
+      "keywords": "_every_ _one_ accessing api array associated check checks exact false fetch format getroles hasallroles hasrole list method permission permissions quarks role roles service session simple tied token true user"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:routesCdnPath",
       "shortName": "routesCdnPath",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "routesCdnPath is configured as a .provider. This is to allow users to override the URL used when in a",
       "keywords": "allow api app automatically case config configuration configured customurl depending documenting encore-ui-nav environment example file find folder framework hascustomurl intended js json live local main mynav null override people point provider pull quarks reason repository requests routescdnpath routescdnpathprovider service set stuff submitting test true url users versions"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxAppRoutes",
+      "shortName": "rxAppRoutes",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Manages page routes, building urls and marking them as active on route change.",
+      "keywords": "active api building change manages marking quarks route routes service urls"
     },
     {
       "section": "api",
@@ -347,6 +401,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxPaginateUtils",
+      "shortName": "rxPaginateUtils",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A few utilities to calculate first, last, and number of items.",
+      "keywords": "api calculate items number quarks service utilities"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxPromiseNotifications",
       "shortName": "rxPromiseNotifications",
       "type": "service",
@@ -383,12 +446,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxStatusTags",
+      "shortName": "rxStatusTags",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "This provider is primarily used for applications to specify custom status",
+      "keywords": "api applications attributes breadcrumb config custom framework gettag hastag methods needed objects provider quarks rarely rx-page service status tags time"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxVisibility",
       "shortName": "rxVisibility",
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "Provides an interface for adding new visibility methods for nav menus.  Methods added via addMethod should ",
       "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed quarks second service somemethodname visibility"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:rxVisibilityPathParams",
+      "shortName": "rxVisibilityPathParams",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Returns an object with name and method params that can",
+      "keywords": "addmethod api check current default js l22 menu method nav object param params passed quarks register returns route routescdnpath rxpathparams service someparamname username visibility"
     },
     {
       "section": "api",
@@ -416,6 +497,33 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
       "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided quarks removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:TokenInterceptor",
+      "shortName": "TokenInterceptor",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Simple $http injector which will intercept http request and inject the",
+      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push quarks rackspace request rxsession service simple token tokeninterceptor ui"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:UnauthorizedInterceptor",
+      "shortName": "UnauthorizedInterceptor",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
+      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push quarks redirects response responses returned service simple ui unauthorizedinterceptor"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:urlUtils",
+      "shortName": "urlUtils",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Set of utility functions to break apart/compare URLs.",
+      "keywords": "apart api break functions quarks service set urls utility"
     },
     {
       "section": "api",
@@ -487,7 +595,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxApp",
       "shortDescription": "rxApp Component",
-      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreroutes encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxpage rxstatustag rxstatustags rxticketsearch rxvisibilitypathparams scope separate service services set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage view views wrap"
+      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property quarks re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxpage rxstatustag rxticketsearch scope separate service set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage view views wrap"
     },
     {
       "section": "api",
@@ -587,60 +695,6 @@ NG_DOCS={
       "moduleName": "rxApp",
       "shortDescription": "Used to search tickets for Ticket Queues",
       "keywords": "api directive queues rxapp search ticket tickets"
-    },
-    {
-      "section": "api",
-      "id": "rxApp.service:encoreRoutes",
-      "shortName": "encoreRoutes",
-      "type": "service",
-      "moduleName": "rxApp",
-      "shortDescription": "Creates a shared instance of AppRoutes that is used for the Encore App nav.",
-      "keywords": "allows api app approutes apps creates encore encoreroutes fetchroutes instance method nav rxapp rxapproutes service shared updates"
-    },
-    {
-      "section": "api",
-      "id": "rxApp.service:rxStatusTags",
-      "shortName": "rxStatusTags",
-      "type": "service",
-      "moduleName": "rxApp",
-      "shortDescription": "This provider is primarily used for applications to specify custom status",
-      "keywords": "api applications attributes breadcrumb config custom framework gettag hastag methods needed objects provider rarely rx-page rxapp service status tags time"
-    },
-    {
-      "section": "api",
-      "id": "rxApp.service:rxVisibilityPathParams",
-      "shortName": "rxVisibilityPathParams",
-      "type": "service",
-      "moduleName": "rxApp",
-      "shortDescription": "Returns an object with name and method params that can",
-      "keywords": "addmethod api check current default menu method nav object param params passed register returns route routescdnpath rxapp rxpathparams rxvisibility service someparamname username visibility"
-    },
-    {
-      "section": "api",
-      "id": "rxAppRoutes",
-      "shortName": "rxAppRoutes",
-      "type": "overview",
-      "moduleName": "rxAppRoutes",
-      "shortDescription": "rxAppRoutes Component",
-      "keywords": "api app component manage overview routes rxapproutes service services urlutils"
-    },
-    {
-      "section": "api",
-      "id": "rxAppRoutes.service:rxAppRoutes",
-      "shortName": "rxAppRoutes",
-      "type": "service",
-      "moduleName": "rxAppRoutes",
-      "shortDescription": "Manages page routes, building urls and marking them as active on route change",
-      "keywords": "active api building change manages marking route routes rxapproutes service urls"
-    },
-    {
-      "section": "api",
-      "id": "rxAppRoutes.service:urlUtils",
-      "shortName": "urlUtils",
-      "type": "service",
-      "moduleName": "rxAppRoutes",
-      "shortDescription": "Set of utility functions used by rxAppRoutes to break apart/compare URLs",
-      "keywords": "apart api break functions rxapproutes service set urls utility"
     },
     {
       "section": "api",
@@ -1215,7 +1269,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxPaginate",
       "shortDescription": "rxPaginate Component",
-      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull quarks re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service services set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
+      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull quarks re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
     },
     {
       "section": "api",
@@ -1237,24 +1291,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxPaginate.filter:Page",
-      "shortName": "Page",
-      "type": "filter",
-      "moduleName": "rxPaginate",
-      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
-      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination rxpaginate service"
-    },
-    {
-      "section": "api",
-      "id": "rxPaginate.filter:Paginate",
-      "shortName": "Paginate",
-      "type": "filter",
-      "moduleName": "rxPaginate",
-      "shortDescription": "This is the pagination filter that is used to calculate the division in the",
-      "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging rxpaginate service sliced"
-    },
-    {
-      "section": "api",
       "id": "rxPaginate.filter:PaginatedItemsSummary",
       "shortName": "PaginatedItemsSummary",
       "type": "filter",
@@ -1264,30 +1300,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxPaginate.service:PageTracking",
-      "shortName": "PageTracking",
-      "type": "service",
-      "moduleName": "rxPaginate",
-      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
-      "keywords": "api conjunction createinstance data display items itemsperpage objects pagetracking pagination rxpaginate service store tables true"
-    },
-    {
-      "section": "api",
-      "id": "rxPaginate.service:rxPaginateUtils",
-      "shortName": "rxPaginateUtils",
-      "type": "service",
-      "moduleName": "rxPaginate",
-      "shortDescription": "A few utilities to calculate first, last, and number of items.",
-      "keywords": "api calculate items number rxpaginate service utilities"
-    },
-    {
-      "section": "api",
       "id": "rxPermission",
       "shortName": "rxPermission",
       "type": "overview",
       "moduleName": "rxPermission",
       "shortDescription": "rxPermission Component",
-      "keywords": "api based checks component content directive directives dom encoreui excluding existing functionality overview perform permission permissions roles rxpermission service services user working"
+      "keywords": "api based checks component content directive directives dom encoreui excluding existing functionality overview perform permission permissions quarks roles rxpermission service user working"
     },
     {
       "section": "api",
@@ -1297,15 +1315,6 @@ NG_DOCS={
       "moduleName": "rxPermission",
       "shortDescription": "Simple directive which will show or hide content based on whether or not the user has the specified role. See",
       "keywords": "api based component content demo directive example hide required role rxpermission service simple user"
-    },
-    {
-      "section": "api",
-      "id": "rxPermission.service:Permission",
-      "shortName": "Permission",
-      "type": "service",
-      "moduleName": "rxPermission",
-      "shortDescription": "Simple service for accessing roles and permissions for a user.",
-      "keywords": "_every_ _one_ accessing api array associated check checks exact false fetch format getroles hasallroles hasrole list method permission permissions role roles rxpermission rxsession service session simple tied token true user"
     },
     {
       "section": "api",
@@ -1522,42 +1531,6 @@ NG_DOCS={
       "moduleName": "rxToggleSwitch",
       "shortDescription": "Displays an on/off switch toggle",
       "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays evaluate evaluated expression false false-value foo function indicates initialization input model ng-model note operation passed performs post-hook prevent property rxtoggleswitch scope set switch takes time toggle toggled toggles true true-value values written"
-    },
-    {
-      "section": "api",
-      "id": "rxTokenInterceptor",
-      "shortName": "rxTokenInterceptor",
-      "type": "overview",
-      "moduleName": "rxTokenInterceptor",
-      "shortDescription": "rxTokenInterceptor Component",
-      "keywords": "access adds allows api authenticated authorization component http overview requests rxtokeninterceptor service services system token tokeninterceptor users"
-    },
-    {
-      "section": "api",
-      "id": "rxTokenInterceptor.service:TokenInterceptor",
-      "shortName": "TokenInterceptor",
-      "type": "service",
-      "moduleName": "rxTokenInterceptor",
-      "shortDescription": "Simple $http injector which will intercept http request and inject the",
-      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push rackspace request rxsession rxtokeninterceptor service simple token tokeninterceptor ui"
-    },
-    {
-      "section": "api",
-      "id": "rxUnauthorizedInterceptor",
-      "shortName": "rxUnauthorizedInterceptor",
-      "type": "overview",
-      "moduleName": "rxUnauthorizedInterceptor",
-      "shortDescription": "rxUnauthorizedInterceptor Component",
-      "keywords": "api authentication component fails login overview redirects request rxunauthorizedinterceptor service services system unauthorizedinterceptor user users"
-    },
-    {
-      "section": "api",
-      "id": "rxUnauthorizedInterceptor.service:UnauthorizedInterceptor",
-      "shortName": "UnauthorizedInterceptor",
-      "type": "service",
-      "moduleName": "rxUnauthorizedInterceptor",
-      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
-      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push redirects response responses returned rxsession rxunauthorizedinterceptor service simple ui unauthorizedinterceptor"
     },
     {
       "section": "api",

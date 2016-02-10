@@ -392,8 +392,6 @@ angular.module('demoApp')
 });
 
 
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxAttributesCtrl', function ($scope) {
@@ -1457,10 +1455,6 @@ angular.module('demoApp')
 
 
 
-
-
-
-
 /* jshint unused:false */
 angular.module('demoApp')
 .controller('tooltipsCtrl', function ($scope) {
@@ -1547,6 +1541,14 @@ angular.module('demoApp')
 
 
 
+
+
+
+
+
+
+
+
 angular.module('demoApp')
 .controller('SessionSimpleCtrl', function ($scope, $window, Session) {
     $scope.isAuthenticated = function () {
@@ -1565,6 +1567,12 @@ angular.module('demoApp')
         $window.alert(SessionStorage.getItem('Batman'));
     };
 });
+
+
+
+
+
+
 
 
 
@@ -1610,6 +1618,8 @@ angular.module('demoApp')
     $scope.ageMonths = new Date((Date.now() - (day * 40.2))).toString();
     $scope.ageYears = new Date((Date.now() - (day * 380.1))).toString();
 });
+
+
 
 
 angular.module('demoApp')
@@ -1733,6 +1743,8 @@ angular.module('demoApp')
 });
 
 
+
+
 angular.module('demoApp')
 .controller('rxPromiseNotificationsSimpleCtrl', function ($scope, rxNotify, rxPromiseNotifications, $q) {
 
@@ -1837,6 +1849,8 @@ angular.module('demoApp')
 });
 
 
+
+
 angular.module('demoApp')
 .controller('rxUnsafeRemoveHTMLSimpleCtrl', function ($scope) {
     $scope.sample = 'Sample string <strong>without</strong> <span>HTML tags</span>.';
@@ -1845,10 +1859,14 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('titleizeSimpleCtrl', function ($scope) {
     $scope.sample = 'HELLO_welcome TO ENCore FRamework!';
 });
+
+
 
 
 

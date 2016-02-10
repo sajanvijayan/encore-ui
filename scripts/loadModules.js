@@ -265,7 +265,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxApp/rxApp.module.js",
-            "src/components/rxApp/scripts/encoreRoutes.js",
             "src/components/rxApp/scripts/rxAccountSearch.js",
             "src/components/rxApp/scripts/rxAccountUsers.js",
             "src/components/rxApp/scripts/rxApp.js",
@@ -276,9 +275,7 @@ angular.module('demoApp')
             "src/components/rxApp/scripts/rxBillingSearch.js",
             "src/components/rxApp/scripts/rxPage.js",
             "src/components/rxApp/scripts/rxStatusTag.js",
-            "src/components/rxApp/scripts/rxStatusTags.js",
-            "src/components/rxApp/scripts/rxTicketSearch.js",
-            "src/components/rxApp/scripts/rxVisibilityPathParams.js"
+            "src/components/rxApp/scripts/rxTicketSearch.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [
@@ -297,32 +294,6 @@ angular.module('demoApp')
             "html": "<div ng-controller=\"rxAppCtrl\">\n    <h3>Standard rxApp</h3>\n    <rx-app id=\"standard-rxApp\">\n        <rx-page title=\"'Standard Page Title'\">\n            <p class=\"clear\">This is my page content</p>\n            <button ng-click=\"changeRoutes()\" class=\"button\">Change Routes</button>\n        </rx-page>\n    </rx-app>\n\n    <h3>Customized rxApp (collapsible)</h3>\n    <rx-app collapsible-nav=\"true\" site-title=\"My App\" id=\"custom-rxApp\" menu=\"customMenu\" new-instance=\"true\" hide-feedback=\"true\">\n    <rx-page unsafe-html-title=\"'Customized Page <a href=&quot;http://rackspace.com&quot;>Title</a>'\" subtitle=\"subtitle\" status=\"alpha\"\n        account-number=\"12345\">\n            <p class=\"clear\">Click a link in the menu to see the active state change</p>\n            <p>Click the toggle to hide the menu</p>\n            <button ng-click=\"changeSubtitle()\" class=\"changeSubtitle button\">Change Subtitle</button>\n        </rx-page>\n    </rx-app>\n</div>\n\n<!--\nYou'll likely want to implement your HTML in your index.html file as:\n<div ng-app=\"sampleApp\">\n    <rx-app ng-view></rx-app>\n</div>\n\nAnd the template for each view/page will be something like:\n<rx-page title=\"'Example Page'\">\n    Example content\n</rx-page>\n-->\n",
             "less": "/*\n * Common\n */\n@import url(\"https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic\");\n@import url(\"https://fonts.googleapis.com/css?family=Roboto+Mono:400,100,100italic,300,300italic,400italic,700,700italic\");\n@import \"vars\";\n@import (inline) \"normalize.css\";\n\n// Resets for HTML elements\nhtml,\nbody {\n  height: 100%;\n  font-size: @app-font-size;\n  color: @gray-900;\n  font-family: @app-font;\n}\n\n// Resets for form inputs\ninput,\ntextarea,\nselect {\n  box-shadow: none;\n}\n\n// Set default font\nbutton,\ninput,\nselect,\n.pure-g [class *= \"pure-u\"],\n.pure-g-r [class *= \"pure-u\"] {\n  font-family: @app-font;\n}\n\n// Remove default margin/padding/etc\nheader,\nnav,\nol,\nul,\nli,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nfieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font: inherit;\n  font-size: 100%;\n  vertical-align: baseline;\n}\n\n// No list styles for lists\nol,\nul,\nli {\n  list-style: none;\n}\n\n// We want a little bit more line-spacing in paragraphs\np {\n  line-height: @app-line-height;\n}\n\n// Link Styles\na {\n  text-decoration: none;\n  color: @app-link-text-color;\n}\na:hover,\na:focus {\n  text-decoration: underline;\n  color: @app-link-hover-text-color;\n}\n\n// Table Styles\ntable {\n  clear: both;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  border-collapse: collapse;\n  td,\n  th {\n    border: 1px solid @tableBorder;\n    padding: @tableCellPadding;\n    color: @tableCellText;\n  }\n  thead th {\n    text-align: left;\n    font-weight: 500;\n    background: @tableHeaderBg;\n    color: @tableHeaderText;\n    border: 1px solid @tableHeaderBorder;\n    &.actions {\n      width: 15px;\n    }\n  }\n  tr {\n    background: @tableBg;\n  }\n  &.table-striped {\n    tr:nth-child(even),\n    tbody:nth-child(odd) > tr {\n      background: @tableBgAlt;\n    }\n  }\n  td.double-chevron-cell {\n    width: 10px;\n    padding: 0 10px;\n    .double-chevron {\n      cursor: pointer;\n      &::after {\n        display: inline-block;\n        color: @gray-700;\n        font-size: 20px;\n        .chevron-mixin;\n      }\n    }\n  }\n  td.expanded {\n    background-color: @tableHeaderBg;\n    border-bottom-color: @tableHeaderBg;\n    .double-chevron::after {\n      color: @white;\n      .chevron-mixin(-1);\n    }\n  }\n  .fa-times.delete-x {\n    color: @gray-700;\n    cursor: pointer;\n  }\n  .fa-times.delete-x:hover {\n    color: saturate(@red-700, 15%);\n    cursor: pointer;\n  }\n}\n\n.expanded-container {\n  padding: 0 3px 20px 3px;\n  background-color: @tableHeaderBg;\n\n  & > * {\n    margin-left: 2%;\n    width: 98%;\n  }\n\n  table.subtable {\n    table-layout: fixed;\n\n    th:first-child {\n      border-left-width: 0;\n    }\n\n    th:last-child {\n      border-right-width: 0;\n    }\n\n    th {\n      border-color: @tableHeaderBorder;\n      background-color: @tableHeaderBg;\n      color: @tableHeaderText;\n      border-top: 0;\n      border-bottom: 0;\n    }\n  }\n  .expanded-content {\n    background-color: @white;\n    margin-top: 3px;\n    .metadata {\n      padding: 5px 10px;\n    }\n  }\n}\n\n/* ===== HEADINGS ===== */\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  margin: 1em 0;\n\n  &.subdued {\n    color: @gray-700;\n  }\n}\n\nh1 {\n  // same as .title.xl\n  font-size: 28px;\n}\nh2 {\n  // same as .title.lg\n  font-size: 22px;\n}\nh3 {\n  // same as .title\n  font-size: 18px;\n}\nh4 {\n  // same as .title.sm\n  font-size: 16px;\n}\nh5 {\n  // same as .title.xs\n  font-size: 13px;\n}\nh6 {\n  // no legacy equivalent\n  font-size: 10px;\n}\n\n// Heading/Title Styles\n.title {\n  margin: 1em 0;\n\n  // Sizing\n  &.xl { // h1\n    font-size: 28px;\n  }\n  &.lg { // h2\n    font-size: 22px;\n  }\n  & { // h3\n    font-size: 18px;\n  }\n  &.sm { // h4\n    font-size: 16px;\n  }\n  &.xs { // h5\n    font-size: 13px;\n  }\n\n  // Colors\n  &.subdued {\n    color: @gray-700;\n  }\n}//.title\n\n// Statuses\n.link-action,\n.link-action a,\n.link-warn,\n.link-warn a {\n  font-size: 1.2em;\n  cursor: pointer;\n}\n\n.link-action:before,\n.link-action a:before {\n  content: \"+ \";\n}\n\n.link-warn:before,\n.link-warn a:before {\n  content: \"- \";\n}\n\n.action-separator {\n  font-size: 1.1em;\n  color: @subduedText;\n}\n\n.msg-action,\n.msg-action a {\n  color: @green-700;\n  &:hover,\n  &:focus {\n    color: saturate(@green-700, 15%);\n  }\n}\n\n.msg-warn,\n.msg-warn a {\n  color: @red-700;\n  &:hover,\n  &:focus {\n    color: saturate(@red-700, 15%);\n  }\n}\n\n.msg-info,\n.msg-info a {\n  color: @orange-700;\n  &:hover,\n  &:focus {\n    color: saturate(@orange-700, 15%);\n  }\n}\n\n.msg-info-blue,\n.msg-info-blue a {\n  color: @blue-700;\n  &:hover,\n  &:focus {\n    color: saturate(@blue-700, 15%);\n  }\n}\n\n// Lists\n.list {\n  li,\n  .item {\n    display: list-item;\n    margin: 5px 0 0 30px;\n  }\n\n  ul&,\n  &.bulleted {\n    li,\n    .item {\n      list-style: disc;\n    }\n  }\n\n  ol&,\n  &.decimal {\n    li,\n    .item {\n      list-style: decimal;\n    }\n  }\n}\n\n// Wells\n.well {\n  background: @gray-100;\n  padding: 40px 50px;\n  box-shadow: 0 0 0 10px white inset;\n\n  p {\n    line-height: 1.5em;\n    color: @gray-700;\n  }\n\n  ul {\n    display: inline-block;\n    text-align: left;\n  }\n\n  h2 {\n    color: @gray-700;\n  }\n}\n\n.modal-well {\n  background-color: @gray-100;\n  padding: 20px 30px;\n\n  h2 {\n    font-size: 14px;\n  }\n}\n\n// Other Stuff\n.subdued {\n  color: @gray-700;\n}\n\n// Add hover style if a link or inside a link\na.subdued:hover,\na.subdued:focus,\na:hover .subdued,\na:focus .subdued {\n  color: @subduedTextHover;\n}\n\n// Hidden content\n.hidden {\n  visibility: hidden;\n}\n\n// Used to hide content visually but let them still be read\n// by screen readers (removed from the page spacing)\n.visually-hidden {\n  position: absolute !important;\n  clip: rect(1px, 1px, 1px, 1px);\n  padding: 0 !important;\n  border: 0 !important;\n  height: 1px !important;\n  width: 1px !important;\n  overflow: hidden;\n}\nbody:hover .visually-hidden a,\nbody:hover .visually-hidden input,\nbody:hover .visually-hidden button {\n  display: none;\n}\n\n// Clearing Floats\n.clearfix:before,\n.clearfix:after {\n  content: \" \"; /* 1 */\n  display: table; /* 2 */\n}\n\n.clearfix:after {\n  clear: both;\n}\n\n// Clearing siblings\n.clear {\n  clear: both;\n}\n.clear-left {\n  clear: left;\n}\n.clear-right {\n  clear: right;\n}\n\n// Marks content as full width (e.g. to give a button full width).\n// Requires 'display' to be defined as `inline-block` or `block`\n.full-width {\n  width: 100%;\n}\n\n// Center content\n// Requires 'display' to be defined as `inline-block` or `block`\n.centered {\n  text-align: center;\n}\n\n\n/*\n * PLACEHOLDER TEXT STYLING\n * https://css-tricks.com/snippets/css/style-placeholder-text/\n */\n::-webkit-input-placeholder { // Chrome\n  color: @inputPlaceholderColor;\n  font-weight: 300;\n  font-style: italic;\n}\n::-moz-placeholder { // Firefox 19+\n  color: @inputPlaceholderColor;\n  font-weight: 400;\n  font-style: italic;\n}\n\n//DEPRECATED: A \"filter\" style rxSearchBox\n.filter-box {\n  font-style: italic;\n}\n\n@import 'vars';\n@import 'mixins';\n\n.account-users {\n  box-sizing: border-box;\n}\n\n.rx-app {\n  @navTransitionDuration: .2s;\n  @appMenuWidth: 300px;\n\n  min-height: 100%;\n  display: flex;\n  flex-direction: row;\n  background: @gray-50;\n\n  .rx-app-content {\n    flex: 1 1 0;\n  }\n\n  .rx-app-menu {\n    flex: 0 0 @appMenuWidth;\n    color: @white;\n    font-size: 15px;\n    font-weight: 300;\n    background: @gray-975;\n    line-height: @app-line-height;\n    padding-bottom: 10em;\n    position: relative;\n\n    .site-title,\n    .nav-section-title {\n      margin: 0;\n      font-size: inherit;\n    }\n  }\n\n  .site-branding {\n    border-top: 1px solid @blue-700;\n    border-bottom: 1px solid @blue-700;\n    padding: 5px 20px;\n    overflow: hidden;\n    background: @blue-900;\n    position: relative;\n\n    .site-title {\n      float: left;\n    }\n    .site-options {\n      float: right;\n      font-size: .8em;\n      margin-top: 1px;\n\n      .site-option {\n        color: @blue-100;\n        display: inline-block;\n        margin-left: 1em;\n        &:hover,\n        &:focus {\n          color: @white;\n        }\n      }\n    }\n\n    .collapsible-toggle {\n      position: absolute;\n      text-align: center;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      width: 2em;\n      border-left: 1px solid darken(@blue-900, 10%);\n      &:hover {\n        background: lighten(@blue-900, 10%);\n      }\n    }\n\n    .double-chevron {\n      font-size: 20px;\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n\n      &::before {\n        color: @blue-100;\n        content: \"\\00bb\";\n      }\n\n      &.double-chevron-left::before {\n        content: \"\\00ab\";\n      }\n\n      &:hover &::before {\n        color: @white;\n      }\n    }\n  }\n\n  &.collapsible {\n    .site-branding {\n      padding-right: calc(~\"2em + 20px\");\n    }\n  }\n\n  &.collapsed {\n    .rx-app-menu {\n      flex: 0 0 25px;\n      padding-bottom: 0;\n      position: relative;\n    }\n\n    .site-branding,\n    .collapsible-toggle {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      padding: 0;\n      width: 100%;\n    }\n\n    .site-title,\n    .site-options,\n    .rx-app-nav,\n    .rx-app-help {\n      display: none;\n    }\n\n    .page-body {\n      & > .rx-notifications {\n        left: 25px;\n      }\n    }\n  }\n\n  &.warning-bar {\n    position: absolute;\n    margin-top: 3em;\n    width: 100%;\n  }\n\n  &.warning-bar.preprod {\n    .rx-app-menu {\n      background: @preprod-background-color;\n    }\n    .rx-app-nav-item {\n      .item-link {\n        background: @preprod-background-color;\n        border-top: 1px solid @preprod-border-top-color;\n        border-bottom: 1px solid @preprod-border-bottom-color;\n        &:hover,\n        &:focus {\n          background: @preprod-focus-background-color;\n          border-top: 1px solid @preprod-focus-border-top-color;\n          border-bottom: 1px solid @preprod-focus-border-bottom-color;\n        }\n      }\n\n      // active nav, no children (orange/yellow bg, arrow right)\n      &.active:not(.has-children) > .item-link {\n        border-color: transparent;\n        background: @preprod-active-item-background-color;\n        color: @preprod-active-item-text-color;\n        &:after {\n          right: -6px;\n          border-left-color: @preprod-active-item-arrow-color;\n        }\n      }\n\n      // active nav, w/children (double arrow up, gray bg)\n      &.active.has-children > .item-link {\n        border-top-color: @preprod-border-top-color;\n        // used to show BG of arrow (because :after is rotated)\n        &:before {\n          background: @preprod-active-menu-background-color;\n        }\n        .item-content {\n          border-bottom: 1px solid @black;\n        }\n      }\n\n      .item-content {\n        background: @preprod-active-menu-background-color;\n      }\n    }\n  }\n\n  .rx-app-nav {\n    clear: both;\n\n    .nav-section {\n      padding-left: 5px;\n    }\n\n    .nav-section-title {\n      padding: 5px 15px;\n      font-size: 13px;\n    }\n\n    .nav-section-all {\n      background: @green-700;\n      border-top: 1px solid @green-500;\n    }\n\n    .nav-section-highlight {\n      background: @blue-500;\n      border-top: 1px solid lighten(@blue-500, 10%);\n    }\n\n    .nav-section-no-title {\n      background: transparent;\n      padding: 0;\n      margin: 0;\n\n      & > .nav-section-title {\n        display: none;\n      }\n    }\n  }\n\n  .rx-app-nav-item {\n    clear: both;\n\n    // common nav styles (inactive nav, no children)\n    .item-link {\n      background: @gray-975;\n      border-top: 1px solid @gray-950;\n      border-bottom: 1px solid @black;\n      padding: 10px 4em 10px 15px;\n      display: block;\n      color: @white;\n      text-decoration: none;\n      -webkit-transition: background @navTransitionDuration;\n      transition: background @navTransitionDuration;\n      position: relative;\n      &:hover,\n      &:focus {\n        background: @gray-950;\n        border-top: 1px solid @gray-900;\n        border-bottom: 1px solid @black;\n      }\n      &:before,\n      &:after {\n        content: '';\n        position: absolute;\n      }\n      &:after {\n        -webkit-transition: all @navTransitionDuration;\n        transition: all @navTransitionDuration;\n      }\n    }\n\n    &:not(.has-children) > .item-link:after {\n      right: 0;\n      top: 0;\n      border: transparent solid;\n      border-width: calc(~\"5px + 1em\") 6px;\n      border-right: 0;\n    }\n\n    // active nav, no children (blue bg, arrow right)\n    &.active:not(.has-children) > .item-link {\n      border-color: transparent;\n      background: @blue-700;\n      &:after {\n        right: -6px;\n        border-left-color: @blue-700;\n      }\n    }\n\n    // inactive nav, w/children (double arrow down)\n    &.has-children > .item-link:after {\n      font-size: 2em;\n      content: \"\\00bb\"; // angle quotation mark, right (&raquo;)\n      -webkit-transform: rotate(90deg) scaleX(1);\n      transform: rotate(90deg) scaleX(1);\n      top: 50%;\n      line-height: 0;\n      right: .45em;\n    }\n\n    // active nav, w/children (double arrow up, gray bg)\n    &.active.has-children > .item-link {\n      border-top-color: @gray-900;\n      border-bottom-width: 0;\n      // used to show BG of arrow (because :after is rotated)\n      &:before {\n        width: 3em;\n        right: 0;\n        top: 0;\n        bottom: 0;\n        background: @gray-950;\n      }\n      &:after {\n        // flip arrow around\n        -webkit-transform: rotate(90deg) scaleX(-1);\n        transform: rotate(90deg) scaleX(-1);\n      }\n      .item-content {\n        border-bottom: 1px solid @black;\n      }\n    }\n\n    .item-content {\n      background: @gray-950;\n      padding: 10px;\n    }\n\n    .item-directive:not(.ng-hide) + .item-children {\n      margin-top: 10px;\n    }\n\n    .item-children {\n      padding: 10px;\n      background: @gray-900;\n    }\n\n    .child-header {\n      margin-bottom: 1em;\n    }\n\n    .current-search {\n      text-transform: uppercase;\n      font-weight: bold;\n      color: @gray-600;\n      font-size: 10px;\n      display: block;\n    }\n\n    .current-result {\n      color: @gray-400;\n      font-size: 18px;\n    }\n\n    // Legacy select elements in navigation\n    // TODO: Deprecated\n    .field-select {\n      select {\n        background: #404140;\n        border: 1px solid #3a3a3a;\n      }\n      &:before {\n        background: #404140;\n      }\n      &:after {\n        right: 10px;\n        top: 5px;\n      }\n    }\n\n    // User select element in Account section of nav\n    // TODO: Update to 2.0 Color Variables\n    .account-users {\n      float: right;\n      width: 50%;\n\n      .rxSelect {\n        background: #404140;\n        color: #d5d5d3; // same as .current-result above\n\n        .fake-select {\n          border-color: #3a3a3a;\n\n          .select-trigger {\n            background: #404140; // same as .rxSelect bg\n          }\n        }\n      }\n    }\n  }\n\n  .rx-app-nav-level-2 {\n    .item-link {\n      background: @gray-800;\n      border-top-color: @gray-700;\n      border-bottom-color: @gray-900;\n      font-size: 13px;\n\n      &:hover,\n      &:focus {\n        background: @gray-900;\n        border-top: 1px solid @gray-700;\n        border-bottom: 1px solid @gray-900;\n      }\n    }\n    .active:not(.has-children) > .item-link {\n      margin-right: -10px;\n    }\n    .active.has-children > .item-link {\n      background: @gray-975;\n      border-color: transparent;\n    }\n\n    .item-content {\n      background: @gray-975;\n      padding: 0 0 4px 4px;\n    }\n\n    .item-children {\n      padding: 0;\n    }\n  }\n\n  .rx-app-nav-level-3 .item-link {\n    background: @gray-950;\n    border-color: transparent;\n    padding: 5px 15px;\n\n    &:hover,\n    &:focus {\n      background: @gray-900;\n      border-color: transparent;\n    }\n  }\n  .rx-app-nav-level-3 .rx-app-nav-item {\n    &:first-child {\n      border-top: 3px solid @gray-950;\n    }\n    .item-link:after {\n      border-top-width: 1em;\n      border-bottom-width: 1em;\n    }\n  }\n\n  .rx-app-search {\n    position: relative;\n    font-size: 14px;\n    color: @gray-500;\n\n    fieldset {\n      position: relative;\n    }\n\n    // NOTE: We have to have this duplication because CSS doesn't like combining the placholder selectors\n    .placeholder() {\n      font-style: italic;\n      text-overflow: ellipsis;\n    }\n\n    ::-webkit-input-placeholder {\n      .placeholder();\n    }\n    ::-moz-placeholder {\n      .placeholder();\n    }\n    :-ms-input-placeholder {\n      .placeholder();\n    }\n\n    .search-input {\n      .box-sizing(border-box);\n      background: @gray-900;\n      border: 0;\n      width: 100%;\n      padding: 9px;\n      padding-right: 30px;\n      margin: 0;\n    }\n\n    .search-input.ng-invalid:focus {\n      outline-color: @red-700;\n    }\n\n    .search-action {\n      position: absolute;\n      top: 0;\n      right: 0;\n      width: 30px;\n      height: 100%;\n      background: url(images/magnifying-glass.png) no-repeat 50% 50%;\n      border: 0;\n      opacity: 0.2;\n    }\n\n    .search-option {\n      margin-top: 10px;\n    }\n  }\n\n  .rx-app-help {\n    position: fixed;\n    bottom: 0;\n    left: 0;\n    width: @appMenuWidth;\n    background: @gray-950;\n    border-top: 1px solid @gray-900;\n    line-height: 3em;\n    padding-bottom: 1px;\n    font-size: .8em;\n    text-shadow: 1px 1px 0px rgba(26, 26, 26, 0.2);\n\n    .rx-feedback .modal-link {\n      background: url(\"images/icon-feedback.png\") no-repeat 20px calc(~\"50% + 1px\");\n      vertical-align: middle;\n      color: @orange-500;\n      padding: 0 21px 0 41px;\n      float: right;\n    }\n  }\n\n  // Page Styles\n  // TODO: Update to 2.0 Color Variables\n  .page-header {\n    background: linear-gradient(to bottom, #e7e7e7 0%, #d6d6d6 100%);\n    border-bottom: 1px solid #bbb;\n  }\n\n  .page-body {\n    padding: 20px 30px 50px;\n    clear: both;\n\n    .page-titles {\n      float: left;\n\n      .page-title {\n        margin: 0;\n        position: relative;\n        word-break: break-all;\n      }\n\n      .page-subtitle {\n        margin-top: 0;\n        word-break: break-all;\n      }\n    }\n\n    & > .rx-notifications {\n      position:fixed;\n      z-index: 20;  // accommodate rxSelect .fake-select class\n      top: 0px;\n      left: 300px;\n      right: 100px;\n      opacity: 0.95;\n      .rx-notification {\n        width: 100%;\n      }\n    }\n\n    .page-actions {\n      float: right;\n      margin: 0 0 2em 2em;\n    }\n  }\n}\n\n.warning-bar.rx-notifications {\n  position: fixed;\n  z-index: 3;\n  width: 100%;\n  margin-bottom: 0;\n}\n\n.status-tag {\n  &.alpha-status, &.beta-status {\n    margin-left: 10px;\n    text-transform: uppercase;\n    font-size: 9px;\n    border: 1px solid;\n    padding: 1px 2px;\n    .border-radius(2px);\n    top: 9px;\n    color: @blue-900;\n  }\n}\n\n/* Disabled link styles */\n.link-disabled {\n  pointer-events: none;\n  a {\n    color: @gray-600;\n  }\n  .rx-spinner {\n    margin-left: 10px;\n    border-bottom-color: @gray-600;\n    border-right-color: @gray-600;\n  }\n}\n\na.disabled {\n  color: #d5d3d3;\n  cursor: default;\n  pointer-events: none;\n  text-decoration: none;\n}\n",
             "midway": "describe('rxApp', function () {\n    var rxAppCustom, rxAppStandard;\n\n    before(function () {\n        demoPage.go('#/components/rxApp');\n        rxAppCustom = encore.rxApp.initialize($('#custom-rxApp'));\n        rxAppStandard = encore.rxApp.initialize($('#standard-rxApp'));\n    });\n\n    it('should show element', function () {\n        expect(rxAppCustom.rootElement.isDisplayed()).to.eventually.be.true;\n    });\n\n    it('should have a title', function () {\n        expect(rxAppCustom.title).to.eventually.equal('My App');\n    });\n\n    it('should have a section title', function () {\n        expect(rxAppCustom.sectionTitle).to.eventually.equal('Example Menu');\n    });\n\n    it('should logout', function () {\n        rxAppCustom.logout();\n        expect(demoPage.currentUrl).to.eventually.contain('login');\n        demoPage.go('#/components/rxApp');\n    });\n\n    describe('with collapsible navigation', function () {\n        it('should have a collapsible navigation menu', function () {\n            expect(rxAppCustom.isCollapsible()).to.eventually.be.true;\n        });\n\n        it('should be expanded by default', function () {\n            expect(rxAppCustom.isExpanded()).to.eventually.be.true;\n        });\n\n        it('should collapse the navigation', function () {\n            rxAppCustom.collapse();\n            expect(rxAppCustom.isCollapsed()).to.eventually.be.true;\n        });\n\n        it.skip('should expand the navigation', function () {\n            rxAppCustom.expand();\n            expect(rxAppCustom.isExpanded()).to.eventually.be.true;\n        });\n    });\n\n    describe('without collapsible navigation', function () {\n        it('should not support a toggle show/hide button', function () {\n            expect(rxAppStandard.isCollapsible()).to.eventually.be.false;\n        });\n\n        it('should throw an error if you attempt to expand and unsupported', function () {\n            expect(rxAppStandard.expand()).to.be.rejectedWith('Encore');\n        });\n    });\n});\n\ndescribe('rxPage', function () {\n    var standardPage, customPage;\n\n    before(function () {\n        demoPage.go('#/components/rxApp');\n        standardPage = encore.rxPage.initialize($('#standard-rxApp .rx-page'));\n        customPage = encore.rxPage.initialize($('#custom-rxApp .rx-page'));\n    });\n\n    it('should show element', function () {\n        expect(customPage.rootElement.isDisplayed()).to.eventually.eq.true;\n    });\n\n    it('should have a title', function () {\n        expect(standardPage.title).to.eventually.equal('Standard Page Title');\n    });\n\n    it('should return a null if no tag is found', function () {\n        expect(standardPage.titleTag).to.eventually.be.null;\n    });\n\n    it('should return a null if no subtitle is found', function () {\n        expect(standardPage.subtitle).to.eventually.be.null;\n    });\n\n    it('should have a subtitle', function () {\n        expect(customPage.subtitle).to.eventually.equal('With a subtitle');\n    });\n\n    it('should have a custom title', function () {\n        expect(customPage.title).to.eventually.equal('Customized Page Title');\n    });\n\n    it('should have a status tag', function () {\n        expect(customPage.titleTag).to.eventually.equal('ALPHA');\n    });\n\n    it('should update page subtitle dynamically', function () {\n        $('button.changeSubtitle').click();\n        expect(customPage.subtitle).to.eventually.contain('With a new subtitle at 1');\n    });\n\n    describe('main title', function () {\n\n        before(function () {\n            demoPage.go('#/quarks/titleize');\n        });\n\n        it('should grab the main title', function () {\n            expect(encore.rxPage.main.title).to.eventually.equal('titleize');\n        });\n\n    });\n});\n// this component's exercise.js file, if it exists, is below\n"
-        }
-    },
-    {
-        "displayName": "rxAppRoutes",
-        "stability": "unstable",
-        "description": "Manage application routes and states of routes",
-        "isLegacy": true,
-        "keywords": [],
-        "name": "rxAppRoutes",
-        "moduleName": "'encore.ui.rxAppRoutes'",
-        "category": "components",
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/components/rxAppRoutes/rxAppRoutes.module.js",
-            "src/components/rxAppRoutes/scripts/rxAppRoutes.js",
-            "src/components/rxAppRoutes/scripts/urlUtils.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "<p>A component to manage app routes and states of routes</p>\n",
-            "js": "",
-            "html": "",
-            "less": "",
-            "midway": "// this component's exercise.js file, if it exists, is below\n"
         }
     },
     {
@@ -458,9 +429,9 @@ angular.module('demoApp')
         "docs": {
             "md": "<p><code>rxButton</code> is used to create buttons based on the dynamic state of the application.  There are several styles of buttons available, and they are documented in the <a href=\"#/styles/buttons\">Encore Framework Styleguide</a>.</p>\n",
             "js": "/*jshint unused:false*/\nangular.module('demoApp')\n.controller('rxButtonCtrl', function ($scope, $timeout) {\n    $scope.status = {\n        loading: false,\n        disable: true\n    };\n\n    $scope.login = function () {\n        $scope.status.loading = true;\n\n        $timeout(function () {\n            $scope.status.loading = false;\n        }, 4000);\n    };\n});\n",
-            "html": "<!-- Sample HTML goes here as a live example of how to the component can be used -->\n<h3>Typical Usage</h3>\n<div ng-controller=\"rxButtonCtrl\">\n    <rx-button toggle-msg=\"Authenticating\" default-msg=\"Login\"\n        toggle=\"status.loading\" ng-click=\"login()\">\n    </rx-button>\n</div>\n\n<h3>Using the <code>disable</code> attribute</h3>\n<div ng-controller=\"rxButtonCtrl\">\n    <rx-button default-msg=\"Toggle enabled/disabled of 'Login'\"\n        rx-toggle=\"status.disable\">\n    </rx-button>\n    <rx-button classes=\"positive\" toggle-msg=\"Authenticating\" default-msg=\"Login\"\n        toggle=\"status.loading\" disable=\"status.disable\" ng-click=\"login()\">\n    </rx-button>\n</div>\n",
+            "html": "<h3>Typical Usage</h3>\n<div ng-controller=\"rxButtonCtrl\">\n  <rx-button\n    id=\"demo-ui-rx-button\"\n    toggle-msg=\"Authenticating\"\n    default-msg=\"Login\"\n    toggle=\"status.loading\"\n    ng-click=\"login()\">\n  </rx-button>\n</div>\n\n<h3>Using the <code>disable</code> attribute</h3>\n<div ng-controller=\"rxButtonCtrl\">\n  <rx-button\n    default-msg=\"Toggle enabled/disabled of 'Login'\"\n    rx-toggle=\"status.disable\">\n  </rx-button>\n  <rx-button\n    classes=\"positive\"\n    toggle-msg=\"Authenticating\"\n    default-msg=\"Login\"\n    toggle=\"status.loading\"\n    disable=\"status.disable\"\n    ng-click=\"login()\">\n  </rx-button>\n</div>\n",
             "less": "/*\n * rxButton\n */\n@import \"vars\";\n\n.button {\n  display: inline-block;\n  background: @rxButton-default-background-color;\n  color: @rxButton-default-text-color;\n  border: 0;\n  font-size: 14px;\n  padding: 7px 13px;\n  margin-bottom: 10px;\n  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275);\n\n  &:hover,\n  &:focus {\n    background: @rxButton-default-hover-background-color;\n    cursor: pointer;\n    // in case the buttons are created using the <a> tag\n    color: @rxButton-default-text-color;\n    text-decoration: none;\n  }\n\n  // Size Variations\n  &.xl {\n    font-size: 16px;\n    padding: 20px 30px;\n  }\n\n  &.lg {\n    font-size: 15px;\n    padding: 15px 26px;\n  }\n\n  &.sm {\n    padding: 5px 10px;\n    font-size: 13px;\n  }\n\n  &.xs {\n    padding: 3px 7px;\n    margin-bottom: 5px;\n    font-size: 12px;\n  }\n\n  // Color Variations\n  &.positive,\n  &.submit {\n    background: @rxButton-positive-background-color;\n\n    &:hover,\n    &:focus {\n      background: @rxButton-positive-hover-background-color;\n    }\n  }\n\n  &.negative {\n    background: @rxButton-negative-background-color;\n\n    &:hover,\n    &:focus {\n      background: @rxButton-negative-hover-background-color;\n    }\n  }\n\n  &.finish {\n    background: @rxButton-finish-background-color;\n    color: @rxButton-finish-text-color;\n    // Inset line is created with .box-shadow instead of border property, because it avoids changing button height.\n    .box-shadow(inset 0 0 0 2px @rxButton-finish-outline-color);\n\n    &:hover,\n    &:focus {\n      color: @rxButton-finish-hover-text-color;\n      .box-shadow(inset 0 0 0 2px @rxButton-finish-hover-outline-color);\n    }\n  }\n\n  &.cancel {\n    background: @rxButton-cancel-background-color;\n\n    &:hover,\n    &:focus {\n      background: @rxButton-cancel-hover-background-color;\n    }\n  }\n\n  // Disabled styles should always come last in the cascade for color\n  // variations styles, or else they won't override other colors properly.\n  &[disabled],\n  &[disabled]:hover {\n    cursor: not-allowed;\n    color: @rxButton-disabled-text-color;\n    background: @rxButton-disabled-background-color;\n  }\n\n  &.inline {\n    vertical-align: middle;\n  }\n\n  // Spinner styles\n  .spinner {\n    display: inline-block;\n    position: relative;\n    left: 3px;\n\n    i {\n      width: 5px;\n      height: 5px;\n      background: @rxButton-spinner-background-color;\n\n      .border-radius(100%);\n      display: inline-block;\n      -webkit-animation: bouncedelay 1.4s infinite ease-in-out;\n      animation: bouncedelay 1.4s infinite ease-in-out;\n      /* Prevent first frame from flickering when animation starts */\n      -webkit-animation-fill-mode: both;\n      animation-fill-mode: both;\n\n      &.pos1 {\n        -webkit-animation-delay: -0.32s;\n        animation-delay: -0.32s;\n      }\n\n      &.pos2 {\n        -webkit-animation-delay: -0.16s;\n        animation-delay: -0.16s;\n      }\n    }\n  }\n\n  @-webkit-keyframes bouncedelay {\n    0%,\n    80%,\n    100% {\n      -webkit-transform: scale(0.0)\n    }\n    40% {\n      -webkit-transform: scale(1.0)\n    }\n  }\n\n  @keyframes bouncedelay {\n    0%,\n    80%,\n    100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    }\n    40% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n}//.button\n\n// Make buttons look like plain links\n.btn-link {\n  color: @app-link-text-color;\n  background: none;\n  border: 0;\n  padding: 0;\n  cursor: pointer;\n  font-size: inherit;\n\n  &:hover,\n  &:focus {\n    text-decoration: underline;\n  }\n\n  &[disabled],\n  &[disabled]:hover {\n    cursor: not-allowed;\n    color: @rxButton-disabled-background-color;\n  }\n}\n\nthead th .btn-link {\n  color: @tableHeaderText;\n  &:hover,\n  &:focus {\n    color: @tableHeaderText;\n  }\n}\n\n.button-group {\n  display: flex;\n  border: @rxButton-button-group-border;\n  border-radius: @rxButton-button-group-border-radius + 2;\n  font-size: 1.1em;\n\n  input {\n    display: none;\n  }\n\n  label {\n    flex: 1;\n    text-align: center;\n    padding: 7px 13px;\n    color: @gray-700;\n\n    &:first-of-type {\n      border-top-left-radius: @rxButton-button-group-border-radius;\n      border-bottom-left-radius: @rxButton-button-group-border-radius;\n    }\n\n    &:last-of-type {\n      border-top-right-radius: @rxButton-button-group-border-radius;\n      border-bottom-right-radius: @rxButton-button-group-border-radius;\n    }\n\n    &:not(:last-of-type) {\n      border-right: @rxButton-button-group-border;\n    }\n\n    &:hover,\n    &:focus {\n      cursor: pointer;\n      color: @white;\n      background: @rxButton-cancel-hover-background-color;\n    }\n  }//label\n\n  input:checked + label {\n    color: @white;\n    background: @gray-700;\n  }\n}//.button-group\n",
-            "midway": "var rxButtonPage = encore.rxButton;\n\ndescribe('rxButton', function () {\n    var rxButton;\n\n    before(function () {\n        demoPage.go('#/components/rxButton');\n        rxButton = rxButtonPage.initialize($('rx-button'));\n    });\n\n    it('should show element', function () {\n        expect(rxButton.rootElement.isDisplayed()).to.eventually.be.true;\n    });\n});\n// this component's exercise.js file, if it exists, is below\n"
+            "midway": "describe('rxButton', function () {\n    var rxButton;\n\n    before(function () {\n        demoPage.go('#/components/rxButton');\n        rxButton = encore.rxButton.initialize($('#demo-ui-rx-button'));\n    });\n\n    it('should show element', function () {\n        expect(rxButton.rootElement.isDisplayed()).to.eventually.be.true;\n    });\n});\n// this component's exercise.js file, if it exists, is below\n"
         }
     },
     {
@@ -896,13 +867,9 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxPaginate/rxPaginate.module.js",
-            "src/components/rxPaginate/scripts/Page.js",
-            "src/components/rxPaginate/scripts/PageTracking.js",
-            "src/components/rxPaginate/scripts/Paginate.js",
             "src/components/rxPaginate/scripts/PaginatedItemsSummary.js",
             "src/components/rxPaginate/scripts/rxLoadingOverlay.js",
-            "src/components/rxPaginate/scripts/rxPaginate.js",
-            "src/components/rxPaginate/scripts/rxPaginateUtils.js"
+            "src/components/rxPaginate/scripts/rxPaginate.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [
@@ -911,9 +878,9 @@ angular.module('demoApp')
         "docs": {
             "md": "<p>The rxPaginate component adds pagination to a table.</p>\n<p>Two different forms of pagination are supported:</p>\n<ol>\n<li>UI-based pagination, where all items are retrieved at once, and paginated in the UI</li>\n<li>Server-side pagination, where the pagination directive works with a paginated API</li>\n</ol>\n",
             "js": "/*jshint unused:false*/\nangular.module('demoApp')\n.controller('rxPaginateCtrl', function ($scope, $q, $timeout, $filter, rxPaginateUtils,\n                                        PageTracking, rxSortUtil, SelectFilter) {\n    $scope.pager = PageTracking.createInstance({ itemsPerPage: 3 });\n\n    var os = ['Ubuntu 12.04', 'Red Hat Enterprise Linux 6.4', 'CentOS 6.4', 'Ubuntu 13.04'];\n    var makeServers = function (serverCount) {\n        var servers = [];\n        for (var i = 1; i < serverCount + 1; i++) {\n            var server = {\n                id: i,\n                name: 'Server ' + i,\n                os: os[i % os.length]\n            };\n            servers.push(server);\n        }\n        return servers;\n    };\n\n    $scope.servers = makeServers(21);\n\n    $scope.removeServers = function () {\n        if ($scope.servers.length > 2) {\n            $scope.servers = $scope.servers.splice(2);\n        }\n    };\n\n    $scope.addServers = function () {\n        $scope.servers = $scope.servers.concat(makeServers(2));\n    };\n\n    var allLazyServers = makeServers(701);\n\n    var serverInterface = {\n        getItems: function (pageNumber, itemsPerPage, params) {\n            var deferred = $q.defer();\n            var filterText = params.filterText;\n            var sortColumn = params.sortColumn;\n            var sortDirection = params.sortDirection;\n\n            if (sortColumn === 'name') {\n                sortColumn = 'id';\n            }\n\n            if (sortDirection === 'DESCENDING') {\n                sortColumn = '-' + sortColumn;\n            }\n\n            $timeout(function () {\n                var first = pageNumber * itemsPerPage;\n                var added = first + itemsPerPage;\n                var last = (added > allLazyServers.length) ? allLazyServers.length : added;\n\n                var filteredServers = $filter('filter')(allLazyServers, filterText);\n                filteredServers = $scope.osFilter.applyTo(filteredServers);\n                filteredServers = $filter('orderBy')(filteredServers, sortColumn);\n\n                // Return 100 items more than the user's `itemsPerPage`. i.e. if the\n                // user is asking for 25 items per page, return 125 in total\n                var lazyServers = filteredServers.slice(first, last + 100);\n\n                var response = {\n                    items: lazyServers,\n                    pageNumber: pageNumber,\n                    totalNumberOfItems: filteredServers.length\n                };\n\n                if (filterText === 'error') {\n                    deferred.reject();\n                } else {\n                    deferred.resolve(response);\n                }\n            }, 300);\n            return deferred.promise;\n        }\n    };\n\n    $scope.sort = rxSortUtil.getDefault('name', false);\n    $scope.sortCol = function (predicate) {\n        return rxSortUtil.sortCol($scope, predicate);\n    };\n    $scope.data = { searchText: '' };\n    $scope.clearFilter = function () {\n        $scope.data.searchText = '';\n    };\n    $scope.osFilter = SelectFilter.create({\n        properties: ['os'],\n        available: {\n            os: os\n        }\n    });\n    $scope.serverInterface = serverInterface;\n    $scope.pagedServers = PageTracking.createInstance({ itemsPerPage: 25 });\n});\n",
-            "html": "<div ng-controller=\"rxPaginateCtrl\">\n    <h3>UI-Based Pagination</h3>\n    <table class=\"table-striped demo-ui-pagination\">\n        <thead>\n            <tr>\n                <th class=\"column-title\" style=\"width:10em;\">Name</th>\n                <th class=\"column-title\">OS</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"server in servers | orderBy: sorter.predicate:sorter.reverse | Paginate:pager \">\n                <td>\n                    {{server.name}}\n                </td>\n                <td>{{server.os}}</td>\n            </tr>\n        </tbody>\n        <tfoot>\n            <tr class=\"paginate-area\">\n                <td colspan=\"2\">\n                    <rx-paginate page-tracking=\"pager\"></rx-paginate>\n                </td>\n            </tr>\n        </tfoot>\n    </table>\n\n    <p>Use these buttons to adjust the number of pages displayed. The pagination will hide when there is only one page available.</p>\n    <p>\n        <button ng-click=\"removeServers()\" class=\"button sm negative\">Remove first 2 servers</button>\n        <button ng-click=\"addServers()\" class=\"button sm positive\">Add 2 servers</button>\n    </p>\n\n    <h3>API-Based Pagination</h3>\n    <p>The API used by this demo is returning 100 items more than the user's selected <code>itemsPerPage</code>. If the user's <code>itemsPerPage</code> is 25, then the API will return 125 items on each request. This means with the default <code>itemsPerPage</code> of 25, five pages of results are coming back at a time. You should be able to click through pages 1-5 without a loading message, and then the loading message will appear for page 6.</p>\n\n    <p>Click the \"Refresh\" button to see how the current page can be reloaded without the user interacting with the <code>&lt;rx-paginate&gt;</code> buttons.</p>\n\n    <p>Enter a search string of \"error\" to see the default error handling.</p>\n\n    <button ng-click=\"pagedServers.refresh()\" class=\"button sm\">Refresh</button>\n    <table rx-floating-header rx-loading-overlay class=\"table-striped demo-api-pagination\">\n        <thead>\n            <tr>\n                <th colspan=\"2\" class=\"filter-header\">\n                    <form rx-form>\n                        <rx-form-section controlled-width>\n                            <rx-field>\n                                <rx-field-name> Filter Data </rx-field-name>\n                                <rx-field-content>\n                                    <rx-input>\n                                        <rx-search-box rx-placeholder=\"'Filter by any...'\" ng-model=\"data.searchText\"></rx-search-box>\n                                    </rx-input>\n                                </rx-field-content>\n                            </rx-field>\n                            <rx-select-filter filter=\"osFilter\"></rx-select-filter>\n                        </rx-form-section>\n                    </form>\n                </th>\n            </tr>\n            <tr>\n                <th class=\"column-title\" style=\"width:10em;\">\n                    <rx-sortable-column\n                        sort-method=\"sortCol(property)\"\n                        sort-property=\"name\"\n                        predicate=\"sort.predicate\"\n                        reverse=\"sort.reverse\">\n                        Name\n                    </rx-sortable-column>\n                </th>\n                <th class=\"column-title\">\n                    <rx-sortable-column\n                        sort-method=\"sortCol(property)\"\n                        sort-property=\"os\"\n                        predicate=\"sort.predicate\"\n                        reverse=\"sort.reverse\">\n                        OS\n                    </rx-sortable-column>\n                </th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr ng-repeat=\"server in pagedServers.items\">\n                <td>\n                    {{server.name}}\n                </td>\n                <td>{{server.os}}</td>\n            </tr>\n        </tbody>\n        <tfoot>\n            <tr class=\"paginate-area\">\n                <td colspan=\"2\">\n                    <rx-paginate\n                        page-tracking=\"pagedServers\"\n                        server-interface=\"serverInterface\"\n                        error-message=\"Error loading page!\"\n                        filter-text=\"data.searchText\"\n                        selections=\"osFilter.selected\"\n                        sort-column=\"sort.predicate\"\n                        sort-direction=\"sort.reverse\">\n                    </rx-paginate>\n                </td>\n            </tr>\n        </tfoot>\n    </table>\n</div>\n",
+            "html": "<div ng-controller=\"rxPaginateCtrl\">\n  <h3>UI-Based Pagination</h3>\n  <table class=\"table-striped demo-ui-pagination\">\n    <thead>\n      <tr>\n        <th class=\"column-title\" style=\"width:10em;\">Name</th>\n        <th class=\"column-title\">OS</th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr ng-repeat=\"server in servers | orderBy: sorter.predicate:sorter.reverse | Paginate:pager \">\n        <td>{{server.name}}</td>\n        <td>{{server.os}}</td>\n      </tr>\n    </tbody>\n    <tfoot>\n      <tr class=\"paginate-area\">\n        <td colspan=\"2\">\n          <rx-paginate page-tracking=\"pager\"></rx-paginate>\n        </td>\n      </tr>\n    </tfoot>\n  </table>\n\n  <p>\n    Use these buttons to adjust the number of pages displayed. The pagination will hide when there is only one page\n    available.\n  </p>\n  <p>\n    <button ng-click=\"removeServers()\" class=\"button sm negative\">Remove first 2 servers</button>\n    <button ng-click=\"addServers()\" class=\"button sm positive\">Add 2 servers</button>\n  </p>\n\n  <h3>API-Based Pagination</h3>\n  <p>\n    The API used by this demo is returning 100 items more than the user's selected <code>itemsPerPage</code>. If the \n    user's <code>itemsPerPage</code> is 25, then the API will return 125 items on each request. This means with the \n    default <code>itemsPerPage</code> of 25, five pages of results are coming back at a time. You should be able to \n    click through pages 1-5 without a loading message, and then the loading message will appear for page 6.\n  </p>\n\n  <p>\n    Click the \"Refresh\" button to see how the current page can be reloaded without the user interacting with the\n    <code>&lt;rx-paginate&gt;</code> buttons.\n  </p>\n\n  <p>Enter a search string of \"error\" to see the default error handling.</p>\n\n  <button ng-click=\"pagedServers.refresh()\" class=\"button sm\">Refresh</button>\n  <table rx-floating-header rx-loading-overlay class=\"table-striped demo-api-pagination\">\n    <thead>\n      <tr>\n        <th colspan=\"2\" class=\"filter-header\">\n          <form rx-form>\n            <rx-form-section controlled-width>\n              <rx-field>\n                <rx-field-name> Filter Data </rx-field-name>\n                <rx-field-content>\n                  <rx-input>\n                    <rx-search-box\n                      rx-placeholder=\"'Filter by any...'\" \n                      ng-model=\"data.searchText\">\n                    </rx-search-box>\n                  </rx-input>\n                </rx-field-content>\n              </rx-field>\n              <rx-select-filter filter=\"osFilter\"></rx-select-filter>\n            </rx-form-section>\n          </form>\n        </th>\n      </tr>\n      <tr>\n        <th class=\"column-title\" style=\"width:10em;\">\n          <rx-sortable-column\n            sort-method=\"sortCol(property)\"\n            sort-property=\"name\"\n            predicate=\"sort.predicate\"\n            reverse=\"sort.reverse\">\n            Name\n          </rx-sortable-column>\n        </th>\n        <th class=\"column-title\">\n          <rx-sortable-column\n            sort-method=\"sortCol(property)\"\n            sort-property=\"os\"\n            predicate=\"sort.predicate\"\n            reverse=\"sort.reverse\">\n            OS\n          </rx-sortable-column>\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr ng-repeat=\"server in pagedServers.items\">\n        <td>{{server.name}}</td>\n        <td>{{server.os}}</td>\n      </tr>\n    </tbody>\n    <tfoot>\n      <tr class=\"paginate-area\">\n        <td colspan=\"2\">\n          <rx-paginate\n            page-tracking=\"pagedServers\"\n            server-interface=\"serverInterface\"\n            error-message=\"Error loading page!\"\n            filter-text=\"data.searchText\"\n            selections=\"osFilter.selected\"\n            sort-column=\"sort.predicate\"\n            sort-direction=\"sort.reverse\">\n          </rx-paginate>\n        </td>\n      </tr>\n    </tfoot>\n  </table>\n</div>\n",
             "less": "/*\n * rxPaginate\n */\n\n.paginate-area {\n  text-align: center;\n  td {\n    padding: 0;\n    background: @white;\n  }\n}\n\n.rx-paginate {\n  .pagination {\n    display: flex;\n    flex-flow: row nowrap;\n    padding-left: 0;\n    width: 100%;\n  }\n\n  .pagination li {\n    display: inline;\n  }\n\n  .pagination li a {\n    cursor: pointer;\n  }\n\n  .pagination li a,\n  .pagination li span {\n    position: relative;\n    float: left;\n    padding: 6px 12px;\n    margin-left: -1px;\n    text-decoration: none;\n    background: @white;\n    border-top: 2px solid transparent;\n    color: @rxPaginate-pagination-text-color;\n  }\n\n  .pagination > li:first-child {\n    order: 1;\n  }\n\n  .pagination > li:first-child > a,\n  .pagination > li:first-child > span {\n    padding-left: 30px;\n    color: @blue-700;\n    background: transparent;\n    &:before {\n      content: \".\";\n      width: 0;\n      height: 0;\n      font-size: 0;\n      display: block;\n      position: absolute;\n      border: 6px solid transparent;\n      border-bottom-color: @blue-700;\n      border-top: 0;\n      left: 10px;\n      top: 55%;\n      margin-top: -4px;\n    }\n  }\n\n  .pagination > li:nth-child(2) {\n    order: 2;\n    padding: 6px 12px;\n    border-top: 2px solid transparent;\n    color: @rxPaginate-pagination-text-color;\n  }\n\n  .pagination > .page-links {\n    order: 3;\n    margin: auto;\n    align-self: center;\n  }\n\n  .pagination > li:last-child {\n    order: 4;\n    border-top: 2px solid transparent;\n    padding: 6px 12px;\n    color: @rxPaginate-pagination-text-color;\n    button[disabled] {\n      color: @rxPaginate-pagination-text-color;\n    }\n  }\n\n  .pagination > li > div > ul {\n    float: right;\n    padding-left: 5px;\n    button {\n      padding: 0;\n      border: 0;\n      background: transparent;\n      color: @blue-700;\n    }\n    span {\n      float: none;\n      background: transparent;\n    }\n    & li + li::before {\n      content: \" | \";\n      margin: 0 1em;\n    }\n  }\n\n  .pagination > li:last-child > a,\n  .pagination > li:last-child > span {\n  }\n\n  .pagination > .page-links > li > a:hover,\n  .pagination > .page-links > li > span:hover,\n  .pagination > .page-links > li > a:focus,\n  .pagination > .page-links > li > span:focus {\n    border-top: 2px solid @gray-300;\n\n  }\n\n  .pagination > .page-links > .active > a,\n  .pagination > .page-links > .active > span,\n  .pagination > .page-links > .active > a:hover,\n  .pagination > .page-links > .active > span:hover,\n  .pagination > .page-links > .active > a:focus,\n  .pagination > .page-links > .active > span:focus {\n    cursor: default;\n    border-top-color: @black;\n    color: @black;\n    background: @white;\n  }\n\n  .pagination .disabled > span,\n  .pagination .disabled > span:hover,\n  .pagination .disabled > span:focus,\n  .pagination .disabled > a,\n  .pagination .disabled > a:hover,\n  .pagination .disabled > a:focus {\n    visibility: hidden;\n  }\n\n  .pagination-lg > li > a,\n  .pagination-lg > li > span {\n    padding: 10px 16px;\n    font-size: 18px;\n  }\n\n  .pagination-sm > li > a,\n  .pagination-sm > li > span {\n    padding: 5px 10px;\n    font-size: 12px;\n  }\n}\n\n.loading-overlay {\n  z-index: 100;\n  position: absolute;\n  top: -1px;\n  left: -1px;\n  width: ~\"calc(100% + 2px)\";\n  height: ~\"calc(100% + 2px)\";\n  background: rgba(250, 250, 250, 0.8); // == @gray-25 at 80%\n  .loading-text-wrapper {\n    width: 100px;\n    margin: 20% auto;\n  }\n  .loading-text {\n    font-size: 18px;\n    margin-top: 15%;\n    text-align: center;\n    color: @gray-700;\n  }\n  i {\n    font-size: 30px;\n    margin-left: 25px;\n    color: @gray-700;\n  }\n}\n",
-            "midway": "var Page = require('astrolabe').Page;\n\n// rowFromElement and table are anonymous page objects to assist with table data\nvar rowFromElement = function (rowElement) {\n    return Page.create({\n\n        name: {\n            get: function () {\n                return rowElement.element(by.binding('name')).getText();\n            }\n        },\n\n        os: {\n            get: function () {\n                return rowElement.element(by.binding('os')).getText();\n            }\n        },\n    });\n};\n\nvar repeaterString = 'server in pagedServers.items';\nvar tableSelector = '.demo-api-pagination';\nvar table = Page.create({\n\n    tblResults: {\n        get: function () {\n            return element.all(by.repeater(repeaterString));\n        }\n    },\n\n    count: {\n        value: function () {\n            return this.tblResults.count();\n        }\n    },\n\n    row: {\n        value: function (rowIndex) {\n            return rowFromElement(this.tblResults.get(rowIndex));\n        }\n    },\n\n    column: {\n        value: function (columnName) {\n            var column = element(by.cssContainingText(tableSelector + ' rx-sortable-column', columnName));\n            return encore.rxSortableColumn.initialize(column, repeaterString);\n        }\n    },\n\n    textFilter: {\n        get: function () {\n            return encore.rxSearchBox.main.term;\n        },\n        set: function (filterTerm) {\n            encore.rxSearchBox.main.term = filterTerm;\n        }\n    },\n\n    selectFilter: {\n        value: function (filterData) {\n            encore.rxSelectFilter.main.apply(filterData);\n        }\n    },\n\n    pagination: {\n        get: function () {\n            return encore.rxPaginate.initialize($('.demo-api-pagination .rx-paginate'));\n        }\n    }\n\n});\n\ndescribe('rxPaginate', function () {\n\n    before(function () {\n        demoPage.go('#/components/rxPaginate');\n    });\n\n    describe('UI pagination exercises', encore.exercise.rxPaginate({\n        pageSizes: [3, 50, 200, 350, 500],\n        defaultPageSize: 3,\n        cssSelector: '.demo-ui-pagination .rx-paginate'\n    }));\n\n    describe('API pagination exercises', encore.exercise.rxPaginate({\n        pageSizes: [25, 50, 200, 350, 500],\n        defaultPageSize: 25,\n        pages: 30,\n        instance: table.pagination\n    }));\n\n    describe('Filter and sort tests', function () {\n        var nameColumn = table.column('Name');\n        var osColumn = table.column('OS');\n\n        beforeEach(function () {\n            encore.rxFloatingHeader.scrollToElement(table.tblResults);\n            table.textFilter = '';\n            table.selectFilter({\n                Os: { All: true }\n            });\n            nameColumn.sortAscending();\n        });\n\n        it('should get new items when filter text is entered', function () {\n            table.textFilter = 'Ubuntu';\n            expect(table.row(0).name).to.eventually.equal('Server 3');\n            expect(table.row(0).os).to.eventually.equal('Ubuntu 13.04');\n        });\n\n        it('should get new items when the select filter is used', function () {\n            table.selectFilter({\n                Os: {\n                    All: false,\n                    Centos: true\n                }\n            });\n            expect(table.row(0).name).to.eventually.equal('Server 2');\n            expect(table.row(0).os).to.eventually.equal('CentOS 6.4');\n        });\n\n        it('should sort the Name column descending', function () {\n            nameColumn.sortDescending();\n            expect(table.row(0).name).to.eventually.equal('Server 701');\n        });\n\n        it('should sort the OS column descending', function () {\n            osColumn.sortDescending();\n            expect(table.row(0).os).to.eventually.equal('Ubuntu 13.04');\n        });\n\n    });\n});\n// this component's exercise.js file, if it exists, is below\nvar _ = require('lodash');\n\nvar rxPaginate = require('./rxPaginate.page').rxPaginate;\n\n/**\n   rxPaginate exercises.\n   @exports encore.exercise.rxPaginate\n   @param {Object} [options=] - Test options. Used to build valid tests.\n   @param {rxPaginate} [options.instance=] - Component to exercise.\n   @param {string} [options.cssSelector=] - DEPRECATED: Fallback selector string to initialize widget with.\n   @param {string} [options.pages=6] - Estimated page size in the pagination widget.\n   @param {number[]} [options.pageSizes=50, 200, 350, 500] - Page sizes to validate.\n   @param {number} [options.defaultPageSize=50] - Default page size on page load.\n   @param {number} [options.invalidPageSize=45] - For testing resizing pagination to invalid items per page.\n   @example\n   ```js\n   describe('default exercises', encore.exercise.rxPaginate({\n       instance: myPage.pagination, // select one of many pagination instances from your page objects\n       pages: 20 // will exercise full functionality at 6, limited functionality at 2\n   }));\n   ```\n */\nexports.rxPaginate = function (options) {\n    if (options === undefined) {\n        options = {};\n    }\n\n    options = _.defaults(options, {\n        pages: 6,\n        pageSizes: [50, 200, 350, 500],\n        defaultPageSize: 50,\n        invalidPageSize: 45\n    });\n\n    return function () {\n        var pagination;\n\n        before(function () {\n            if (options.instance !== undefined) {\n                pagination = options.instance;\n            } else {\n                pagination = rxPaginate.main;\n            }\n\n            if (options.cssSelector !== undefined) {\n                console.warn('Deprecated exercise option `cssSelector` will be removed in favor of `instance`');\n                pagination = rxPaginate.initialize($(options.cssSelector));\n            }\n        });\n\n        if (options.pages > 1) {\n            it('should navigate forward one page at a time', function () {\n                pagination.next();\n                expect(pagination.page).to.eventually.equal(2);\n            });\n\n            it('should navigate backwards one page at a time', function () {\n                pagination.previous();\n                expect(pagination.page).to.eventually.equal(1);\n            });\n\n            it('should navigate to the last page', function () {\n                pagination.page.then(function (page) {\n                    var firstPage = page;\n                    pagination.last();\n                    expect(pagination.page).to.eventually.be.above(firstPage);\n                    pagination.first();\n                });\n            });\n        }\n\n        if (options.pages > 5) {\n            it('should jump forward to page 6 using pagination', function () {\n                pagination.page = 6;\n                expect(pagination.page).to.eventually.equal(6);\n            });\n\n            it('should jump backward to page 2 using pagination', function () {\n                pagination.page = 2;\n                expect(pagination.page).to.eventually.equal(2);\n                pagination.page = 1;\n            });\n        }\n\n        it('should not allow navigating `next` the last page', function () {\n            expect(pagination.next).to.throw(pagination.NoSuchPageException);\n        });\n\n        it('should allow attempting to navigate to the last page when already on the last page', function () {\n            pagination.last();\n            pagination.page.then(function (page) {\n                pagination.last();\n                expect(pagination.page).to.eventually.equal(page);\n            });\n        });\n\n        it('should navigate to the first page', function () {\n            pagination.first();\n            expect(pagination.page).to.eventually.equal(1);\n        });\n\n        it('should not allow navigating `prev` the first page', function () {\n            expect(pagination.previous).to.throw(pagination.NoSuchPageException);\n        });\n\n        it('should allow attempting to navigate to the first page when already on the first page', function () {\n            pagination.first();\n            expect(pagination.page).to.eventually.equal(1);\n        });\n\n        it('should have all available page sizes', function () {\n            expect(pagination.pageSizes).to.eventually.eql(options.pageSizes);\n        });\n\n        it('should highlight the current items per page selection', function () {\n            expect(pagination.pageSize).to.eventually.equal(options.defaultPageSize);\n        });\n\n        it('should list the lower bounds of the shown items currently in the table', function () {\n            expect(pagination.shownItems.first).to.eventually.equal(1);\n        });\n\n        it('should list the upper bounds of the shown items currently in the table', function () {\n            expect(pagination.shownItems.last).to.eventually.not.be.above(options.defaultPageSize);\n        });\n\n        it('should know the total number of pages without visiting it', function () {\n            pagination.totalPages.then(function (totalPages) {\n                pagination.last();\n                expect(pagination.page).to.eventually.equal(totalPages);\n                pagination.first();\n            });\n        });\n\n        if (options.pageSizes.length > 1) {\n\n            it('should switch to a different items per page', function () {\n                pagination.pageSize = options.pageSizes[1];\n                expect(pagination.pageSize).to.eventually.equal(options.pageSizes[1]);\n                pagination.pageSize = options.pageSizes[0];\n            });\n\n            if (options.pages > 1) {\n                it('should put the user back on the first page after resizing the items per page', function () {\n                    pagination.page = 2;\n                    pagination.pageSize = options.pageSizes[1];\n                    expect(pagination.page).to.eventually.equal(1);\n                    pagination.pageSize = options.pageSizes[0];\n                });\n            }\n\n        }\n\n        it('should not fail to match the lower bounds of the shown items even if not displayed', function () {\n            expect(pagination.shownItems.first).to.eventually.equal(1);\n        });\n\n        // execute only if the greatest items per page setting can contain all items\n        if (_.first(options.pageSizes) * options.pages < _.last(options.pageSizes)) {\n\n            it('should not fail to match the upper bounds of the shown items even if not displayed', function () {\n                pagination.pageSize = _.last(options.pageSizes);\n                pagination.shownItems.total.then(function (totalItems) {\n                    expect(pagination.shownItems.last).to.eventually.equal(totalItems);\n                    pagination.pageSize = options.defaultPageSize;\n                });\n            });\n        }\n\n        if (options.invalidPageSize) {\n\n            it('should not allow selecting an unavailable items per page', function () {\n                var fn = function () {\n                    var pageSizeFn = pagination.__lookupSetter__('pageSize');\n                    return protractor.promise.fulfilled(pageSizeFn.call(pagination, options.invalidPageSize));\n                };\n                expect(fn()).to.be.rejectedWith(pagination.NoSuchItemsPerPage);\n            });\n\n        }\n\n    };\n};\n"
+            "midway": "var Page = require('astrolabe').Page;\n\n// rowFromElement and table are anonymous page objects to assist with table data\nvar rowFromElement = function (rowElement) {\n    return Page.create({\n\n        name: {\n            get: function () {\n                return rowElement.element(by.binding('name')).getText();\n            }\n        },\n\n        os: {\n            get: function () {\n                return rowElement.element(by.binding('os')).getText();\n            }\n        },\n    });\n};\n\nvar repeaterString = 'server in pagedServers.items';\nvar tableSelector = '.demo-api-pagination';\nvar table = Page.create({\n\n    tblResults: {\n        get: function () {\n            return element.all(by.repeater(repeaterString));\n        }\n    },\n\n    count: {\n        value: function () {\n            return this.tblResults.count();\n        }\n    },\n\n    row: {\n        value: function (rowIndex) {\n            return rowFromElement(this.tblResults.get(rowIndex));\n        }\n    },\n\n    column: {\n        value: function (columnName) {\n            var column = element(by.cssContainingText(tableSelector + ' rx-sortable-column', columnName));\n            return encore.rxSortableColumn.initialize(column, repeaterString);\n        }\n    },\n\n    textFilter: {\n        get: function () {\n            return encore.rxSearchBox.main.term;\n        },\n        set: function (filterTerm) {\n            encore.rxSearchBox.main.term = filterTerm;\n        }\n    },\n\n    selectFilter: {\n        value: function (filterData) {\n            encore.rxSelectFilter.main.apply(filterData);\n        }\n    },\n\n    pagination: {\n        get: function () {\n            return encore.rxPaginate.initialize($('.demo-api-pagination .rx-paginate'));\n        }\n    }\n\n});\n\ndescribe('rxPaginate', function () {\n\n    before(function () {\n        demoPage.go('#/components/rxPaginate');\n    });\n\n    describe('UI pagination exercises', encore.exercise.rxPaginate({\n        pageSizes: [3, 50, 200, 350, 500],\n        defaultPageSize: 3,\n        instance: encore.rxPaginate.initialize($('.demo-ui-pagination .rx-paginate'))\n    }));\n\n    describe('API pagination exercises', encore.exercise.rxPaginate({\n        pageSizes: [25, 50, 200, 350, 500],\n        defaultPageSize: 25,\n        pages: 30,\n        instance: table.pagination\n    }));\n\n    describe('Filter and sort tests', function () {\n        var nameColumn = table.column('Name');\n        var osColumn = table.column('OS');\n\n        beforeEach(function () {\n            encore.rxMisc.scrollToElement(table.tblResults);\n            table.textFilter = '';\n            table.selectFilter({\n                Os: { All: true }\n            });\n            nameColumn.sortAscending();\n        });\n\n        it('should get new items when filter text is entered', function () {\n            table.textFilter = 'Ubuntu';\n            expect(table.row(0).name).to.eventually.equal('Server 3');\n            expect(table.row(0).os).to.eventually.equal('Ubuntu 13.04');\n        });\n\n        it('should get new items when the select filter is used', function () {\n            table.selectFilter({\n                Os: {\n                    All: false,\n                    Centos: true\n                }\n            });\n            expect(table.row(0).name).to.eventually.equal('Server 2');\n            expect(table.row(0).os).to.eventually.equal('CentOS 6.4');\n        });\n\n        it('should sort the Name column descending', function () {\n            nameColumn.sortDescending();\n            expect(table.row(0).name).to.eventually.equal('Server 701');\n        });\n\n        it('should sort the OS column descending', function () {\n            osColumn.sortDescending();\n            expect(table.row(0).os).to.eventually.equal('Ubuntu 13.04');\n        });\n\n    });\n});\n// this component's exercise.js file, if it exists, is below\nvar _ = require('lodash');\n\nvar rxPaginate = require('./rxPaginate.page').rxPaginate;\n\n/**\n   rxPaginate exercises.\n   @exports encore.exercise.rxPaginate\n   @param {Object} [options=] - Test options. Used to build valid tests.\n   @param {rxPaginate} [options.instance=] - Component to exercise.\n   @param {string} [options.cssSelector=] - DEPRECATED: Fallback selector string to initialize widget with.\n   @param {string} [options.pages=6] - Estimated page size in the pagination widget.\n   @param {number[]} [options.pageSizes=50, 200, 350, 500] - Page sizes to validate.\n   @param {number} [options.defaultPageSize=50] - Default page size on page load.\n   @param {number} [options.invalidPageSize=45] - For testing resizing pagination to invalid items per page.\n   @example\n   ```js\n   describe('default exercises', encore.exercise.rxPaginate({\n       instance: myPage.pagination, // select one of many pagination instances from your page objects\n       pages: 20 // will exercise full functionality at 6, limited functionality at 2\n   }));\n   ```\n */\nexports.rxPaginate = function (options) {\n    if (options === undefined) {\n        options = {};\n    }\n\n    options = _.defaults(options, {\n        pages: 6,\n        pageSizes: [50, 200, 350, 500],\n        defaultPageSize: 50,\n        invalidPageSize: 45\n    });\n\n    return function () {\n        var pagination;\n\n        before(function () {\n            if (options.instance !== undefined) {\n                pagination = options.instance;\n            } else {\n                pagination = rxPaginate.main;\n            }\n\n            if (options.cssSelector !== undefined) {\n                console.warn('Deprecated exercise option `cssSelector` will be removed in favor of `instance`');\n                pagination = rxPaginate.initialize($(options.cssSelector));\n            }\n        });\n\n        if (options.pages > 1) {\n            it('should navigate forward one page at a time', function () {\n                pagination.next();\n                expect(pagination.page).to.eventually.equal(2);\n            });\n\n            it('should navigate backwards one page at a time', function () {\n                pagination.previous();\n                expect(pagination.page).to.eventually.equal(1);\n            });\n\n            it('should navigate to the last page', function () {\n                pagination.page.then(function (page) {\n                    var firstPage = page;\n                    pagination.last();\n                    expect(pagination.page).to.eventually.be.above(firstPage);\n                    pagination.first();\n                });\n            });\n        }\n\n        if (options.pages > 5) {\n            it('should jump forward to page 6 using pagination', function () {\n                pagination.page = 6;\n                expect(pagination.page).to.eventually.equal(6);\n            });\n\n            it('should jump backward to page 2 using pagination', function () {\n                pagination.page = 2;\n                expect(pagination.page).to.eventually.equal(2);\n                pagination.page = 1;\n            });\n        }\n\n        it('should not allow navigating `next` the last page', function () {\n            expect(pagination.next).to.throw(pagination.NoSuchPageException);\n        });\n\n        it('should allow attempting to navigate to the last page when already on the last page', function () {\n            pagination.last();\n            pagination.page.then(function (page) {\n                pagination.last();\n                expect(pagination.page).to.eventually.equal(page);\n            });\n        });\n\n        it('should navigate to the first page', function () {\n            pagination.first();\n            expect(pagination.page).to.eventually.equal(1);\n        });\n\n        it('should not allow navigating `prev` the first page', function () {\n            expect(pagination.previous).to.throw(pagination.NoSuchPageException);\n        });\n\n        it('should allow attempting to navigate to the first page when already on the first page', function () {\n            pagination.first();\n            expect(pagination.page).to.eventually.equal(1);\n        });\n\n        it('should have all available page sizes', function () {\n            expect(pagination.pageSizes).to.eventually.eql(options.pageSizes);\n        });\n\n        it('should highlight the current items per page selection', function () {\n            expect(pagination.pageSize).to.eventually.equal(options.defaultPageSize);\n        });\n\n        it('should list the lower bounds of the shown items currently in the table', function () {\n            expect(pagination.shownItems.first).to.eventually.equal(1);\n        });\n\n        it('should list the upper bounds of the shown items currently in the table', function () {\n            expect(pagination.shownItems.last).to.eventually.not.be.above(options.defaultPageSize);\n        });\n\n        it('should know the total number of pages without visiting it', function () {\n            pagination.totalPages.then(function (totalPages) {\n                pagination.last();\n                expect(pagination.page).to.eventually.equal(totalPages);\n                pagination.first();\n            });\n        });\n\n        if (options.pageSizes.length > 1) {\n\n            it('should switch to a different items per page', function () {\n                pagination.pageSize = options.pageSizes[1];\n                expect(pagination.pageSize).to.eventually.equal(options.pageSizes[1]);\n                pagination.pageSize = options.pageSizes[0];\n            });\n\n            if (options.pages > 1) {\n                it('should put the user back on the first page after resizing the items per page', function () {\n                    pagination.page = 2;\n                    pagination.pageSize = options.pageSizes[1];\n                    expect(pagination.page).to.eventually.equal(1);\n                    pagination.pageSize = options.pageSizes[0];\n                });\n            }\n\n        }\n\n        it('should not fail to match the lower bounds of the shown items even if not displayed', function () {\n            expect(pagination.shownItems.first).to.eventually.equal(1);\n        });\n\n        // execute only if the greatest items per page setting can contain all items\n        if (_.first(options.pageSizes) * options.pages < _.last(options.pageSizes)) {\n\n            it('should not fail to match the upper bounds of the shown items even if not displayed', function () {\n                pagination.pageSize = _.last(options.pageSizes);\n                pagination.shownItems.total.then(function (totalItems) {\n                    expect(pagination.shownItems.last).to.eventually.equal(totalItems);\n                    pagination.pageSize = options.defaultPageSize;\n                });\n            });\n        }\n\n        if (options.invalidPageSize) {\n\n            it('should not allow selecting an unavailable items per page', function () {\n                var fn = function () {\n                    var pageSizeFn = pagination.__lookupSetter__('pageSize');\n                    return protractor.promise.fulfilled(pageSizeFn.call(pagination, options.invalidPageSize));\n                };\n                expect(fn()).to.be.rejectedWith(pagination.NoSuchItemsPerPage);\n            });\n\n        }\n\n    };\n};\n"
         }
     },
     {
@@ -929,7 +896,6 @@ angular.module('demoApp')
         "isCategory": false,
         "srcFiles": [
             "src/components/rxPermission/rxPermission.module.js",
-            "src/components/rxPermission/scripts/Permission.js",
             "src/components/rxPermission/scripts/rxPermission.js"
         ],
         "tplFiles": [],
@@ -1234,56 +1200,6 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "rxTokenInterceptor",
-        "stability": "unstable",
-        "description": "",
-        "isLegacy": true,
-        "keywords": [],
-        "name": "rxTokenInterceptor",
-        "moduleName": "'encore.ui.rxTokenInterceptor'",
-        "category": "components",
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/components/rxTokenInterceptor/rxTokenInterceptor.module.js",
-            "src/components/rxTokenInterceptor/scripts/TokenInterceptor.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "<p>The rxTokenInterceptor component adds an authorization token to all http requests.  This allows access to system services for authenticated users.</p>\n",
-            "js": "",
-            "html": "<pre>\n    <code>\n        angular.module('encoreApp', ['encore.ui'])\n            .config(function ($httpProvider) {\n                $httpProvider.interceptors.push('TokenInterceptor');\n            });\n    </code>\n</pre>\n",
-            "less": "",
-            "midway": "// this component's exercise.js file, if it exists, is below\n"
-        }
-    },
-    {
-        "displayName": "rxUnauthorizedInterceptor",
-        "stability": "unstable",
-        "description": "",
-        "isLegacy": true,
-        "keywords": [],
-        "name": "rxUnauthorizedInterceptor",
-        "moduleName": "'encore.ui.rxUnauthorizedInterceptor'",
-        "category": "components",
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/components/rxUnauthorizedInterceptor/rxUnauthorizedInterceptor.module.js",
-            "src/components/rxUnauthorizedInterceptor/scripts/UnauthorizedInterceptor.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "<p>The rxUnauthorizedInterceptor component redirects users to the login page, when user authentication fails during a system service request.</p>\n",
-            "js": "",
-            "html": "<pre>\n    <code>\n        angular.module('encoreApp', ['encore.ui'])\n            .config(function ($httpProvider) {\n                $httpProvider.interceptors.push('UnauthorizedInterceptor');\n            });\n    </code>\n</pre>\n",
-            "less": "",
-            "midway": "// this component's exercise.js file, if it exists, is below\n"
-        }
-    },
-    {
         "displayName": "tabs",
         "stability": "unstable",
         "description": "",
@@ -1531,6 +1447,106 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "Page",
+        "stability": "stable",
+        "description": "Pagination filter that is used to limit the number of pages shown.",
+        "api": "filter:Page",
+        "keywords": [],
+        "name": "Page",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/Page/scripts/Page.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Pagination filter that is used to limit the number of pages shown.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "PageTracking",
+        "stability": "stable",
+        "description": "Used with pagination objects to store/control page display of data tables and other items.",
+        "api": "service:PageTracking",
+        "keywords": [],
+        "name": "PageTracking",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/PageTracking/scripts/PageTracking.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Used with pagination objects to store/control page display of data tables and other items.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "Paginate",
+        "stability": "stable",
+        "description": "Pagination filter that is used to calculate the division in the items list for the paging.",
+        "api": "filter:Paginate",
+        "keywords": [],
+        "name": "Paginate",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/Paginate/scripts/Paginate.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Pagination filter that is used to calculate the division in the items list for the paging.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "Permission",
+        "stability": "unstable",
+        "description": "Simple service for accessing roles and permissions for a user.",
+        "api": "service:Permission",
+        "keywords": [],
+        "name": "Permission",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/Permission/scripts/Permission.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Simple service for accessing roles and permissions for a user.\n</p>\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "SelectFilter",
         "stability": "experimental",
         "description": "A prototype for creating objects that can be used for filtering arrays.",
@@ -1605,6 +1621,56 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "TokenInterceptor",
+        "stability": "unstable",
+        "description": "Adds an authorization token to all HTTP requests, which allows access to system services.",
+        "api": "service:TokenInterceptor",
+        "keywords": [],
+        "name": "TokenInterceptor",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/TokenInterceptor/scripts/TokenInterceptor.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Adds an authorization token to all HTTP requests.  This allows access to system services for\n  authenticated users.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "UnauthorizedInterceptor",
+        "stability": "unstable",
+        "description": "Redirects users to the login page, when user authentication fails during a system service request.",
+        "api": "service:UnauthorizedInterceptor",
+        "keywords": [],
+        "name": "UnauthorizedInterceptor",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/UnauthorizedInterceptor/scripts/UnauthorizedInterceptor.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Redirects users to the login page, when user authentication fails during a system service request.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "devicePaths",
         "stability": "stable",
         "description": "Device Paths configuration",
@@ -1625,6 +1691,31 @@ angular.module('demoApp')
             "md": "",
             "js": "",
             "html": "<p>\n  Provides configuration for device paths.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "encoreRoutes",
+        "stability": "unstable",
+        "description": "Allows apps to make updates to the navigation.",
+        "api": "service:encoreRoutes",
+        "keywords": [],
+        "name": "encoreRoutes",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/encoreRoutes/scripts/encoreRoutes.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Allows apps to make updates to the navigation.\n</p>",
             "less": "",
             "midway": "// this component's exercise.js file, if it exists, is below\n"
         }
@@ -1727,6 +1818,31 @@ angular.module('demoApp')
             "html": "<p>\n  <code>rxAge</code> provides several filters to parse dates.\n</p>\n\n<rx-example name=\"rxAge.demo\"></rx-example>\n",
             "less": "",
             "midway": "var _ = require('lodash');\nvar moment = require('moment');\n\nvar rxAge = encore.rxAge;\n\ndescribe('rxAge', function () {\n    var momentsTable, isoString;\n    var oneHour = 1000 * 60 * 60;\n    var ageStrings = [\n        '10h 26m',\n        '1d 12h',\n        '40d 4h',\n        '380d 2h',\n        '10 hours, 26 minutes',\n        '1 day, 12 hours',\n        '40 days, 4 hours',\n        '380 days, 2 hours',\n        '10 hours',\n        '1 day, 12 hours',\n        '40 days, 4 hours, 48 minutes',\n        '380 days, 2 hours, 24 minutes'\n    ];\n\n    before(function () {\n        demoPage.go('#/quarks/rxAge');\n        momentsTable = $$('#rxAge-demo ol li');\n    });\n\n    _.forEach(ageStrings, function (testData, index) {\n        it('should still have ' + testData + ' as test data on the page', function () {\n            momentsTable.get(index).getText().then(function (text) {\n                var onPage = text.split('→')[1].trim();\n                expect(onPage).to.equal(testData);\n            });\n        });\n\n        it('should convert ' + testData + ' accurate within the hour', function () {\n            momentsTable.get(index).getText().then(function (text) {\n                isoString = new Date(text.split('→')[0].trim());\n                expect(rxAge.toMoment(testData).valueOf()).to.be.closeTo(moment(isoString).valueOf(), oneHour);\n            });\n        });\n    });\n});\n// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "rxAppRoutes",
+        "stability": "unstable",
+        "description": "Manage application routes and states of routes.",
+        "api": "service:rxAppRoutes",
+        "keywords": [],
+        "name": "rxAppRoutes",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxAppRoutes/scripts/rxAppRoutes.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Mmanages app routes and states of routes.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
         }
     },
     {
@@ -2109,6 +2225,31 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxPaginateUtils",
+        "stability": "stable",
+        "description": "A few utilities to calculate first, last, and number of items.",
+        "api": "service:rxPaginateUtils",
+        "keywords": [],
+        "name": "rxPaginateUtils",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxPaginateUtils/scripts/rxPaginateUtils.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  A few utilities to calculate first, last, and number of items.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "rxPromiseNotifications",
         "stability": "stable",
         "description": "Manages displaying messages for a notification promise.",
@@ -2259,6 +2400,31 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxStatusTags",
+        "stability": "unstable",
+        "description": "Primarily used for applications to specify custom status tags.",
+        "api": "service:rxStatusTags",
+        "keywords": [],
+        "name": "rxStatusTags",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxStatusTags/scripts/rxStatusTags.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Primarily used for applications to specify custom status tags.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "rxUnsafeRemoveHTML",
         "stability": "stable",
         "description": "Removes all HTML tags from a string.",
@@ -2309,6 +2475,31 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxVisibilityPathParams",
+        "stability": "unstable",
+        "description": "Returns an object with name and method params that can be passed to rxVisibility.addMethod().",
+        "api": "service:rxVisibilityPathParams",
+        "keywords": [],
+        "name": "rxVisibilityPathParams",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/rxVisibilityPathParams/scripts/rxVisibilityPathParams.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Returns an object with name and method params that can be passed to <a href=\"#/quarks/rxVisibility\">rxVisibility</a>.\n</p>",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
         "displayName": "titleize",
         "stability": "unstable",
         "description": "Convert a string to title case, stripping out underscores and all uppercase words.",
@@ -2329,6 +2520,31 @@ angular.module('demoApp')
             "md": "",
             "js": "angular.module('demoApp')\n.controller('titleizeSimpleCtrl', function ($scope) {\n    $scope.sample = 'HELLO_welcome TO ENCore FRamework!';\n});\n",
             "html": "<p>\n  Convert a string to title case, stripping out underscores and all uppercase words.\n</p>\n\n<rx-example name=\"titleize.simple\"></rx-example>\n\n",
+            "less": "",
+            "midway": "// this component's exercise.js file, if it exists, is below\n"
+        }
+    },
+    {
+        "displayName": "urlUtils",
+        "stability": "unstable",
+        "description": "Set of utility functions to break apart/compare URLs.",
+        "api": "service:urlUtils",
+        "keywords": [],
+        "name": "urlUtils",
+        "moduleName": "'encore.ui.quarks'",
+        "category": "quarks",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/quarks/urlUtils/scripts/urlUtils.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Set of utility functions to break apart/compare URLs.\n</p>",
             "less": "",
             "midway": "// this component's exercise.js file, if it exists, is below\n"
         }
