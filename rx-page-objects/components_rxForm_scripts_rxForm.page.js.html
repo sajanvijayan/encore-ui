@@ -11,6 +11,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
 </head>
 
 <body>
@@ -26,8 +27,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
-var Page = require('astrolabe').Page;
+            <pre class="prettyprint source linenums"><code>var Page = require('astrolabe').Page;
 var _ = require('lodash');
 
 /**
@@ -48,8 +48,9 @@ var rxFieldName = {
 
     /**
      * @function
+     * @instance
+     * @description Whether or not a required field currently displays a red asterisk next to it.
      * @returns {Boolean}
-     *   True if field name displays as required (symbol is currently displayed).
      */
     isSymbolVisible: {
         value: function () {
@@ -59,7 +60,9 @@ var rxFieldName = {
 
     /**
      * @function
-     * @returns {Boolean} Whether the required symbol is present in the DOM.
+     * @instance
+     * @description Whether the required symbol is present in the DOM.
+     * @returns {Boolean}
      */
     isSymbolPresent: {
         value: function () {
@@ -69,7 +72,9 @@ var rxFieldName = {
 
     /**
      * @function
-     * @returns {Boolean} Whether the root element is currently displayed.
+     * @instance
+     * @description Whether the field is currently displayed.
+     * @returns {Boolean}
      */
     isDisplayed: {
         value: function () {
@@ -79,7 +84,9 @@ var rxFieldName = {
 
     /**
      * @function
-     * @returns {Boolean} Whether the root element is present on the page.
+     * @instance
+     * @description Whether the field is currently present on the page.
+     * @returns {Boolean}
      */
     isPresent: {
         value: function () {
@@ -89,7 +96,7 @@ var rxFieldName = {
 };//rxFieldName
 
 /**
- * @exports encore.rxForm
+ * @namespace rxForm
  */
 exports.rxForm = {
     /**
@@ -101,11 +108,10 @@ exports.rxForm = {
          * @description
          * Generates a getter and a setter for a text field on your page.
          * Text fields include text boxes, text areas, anything that responds to `.clear()` and `.sendKeys()`.
-         * @param {WebElement} elem - The WebElement for the text field.
+         * @param {ElementFinder} elem - The WebElement for the text field.
          * @returns {Object} A getter and a setter to be applied to a text field in a page object.
          *
          * @example
-         * ```js
          * var yourPage = Page.create({
          *     plainTextbox: rxForm.textField.generateAccessor(element(by.model('username')));
          * });
@@ -114,7 +120,6 @@ exports.rxForm = {
          *     yourPage.plainTextbox = 'My Username'; // setter
          *     expect(yourPage.plainTextbox).to.eventually.equal('My Username'); // getter
          * });
-         * ```
          */
         generateAccessor: function (elem) {
             return {
@@ -150,18 +155,39 @@ exports.rxForm = {
      * @param {Object} formData - Key-value pairs of deeply-nested form items, and their values to fill.
      *
      * @example
-     * ```js
      * var yourPage = Page.create({
      *     form: {
      *         set: function (formData) {
      *             rxForm.fill(this, formData);
      *         }
+     *     },
+     *
+     *     aTextbox: encore.rxForm.textField.generateAccessor(element(by.model('textbox'))),
+     *
+     *     aRadioButton: encore.rxRadio.generateAccessor(element(by.model('radioButton'))),
+     *     anotherRadioButton: encore.rxRadio.generateAccessor(element(by.model('radioButton_1'))),
+     *
+     *     aSelectDropdown: encore.rxSelect.generateAccessor(element(by.model('dropdown')));
+     *
+     *     aModule: {
+     *         // this is now a namespace within your page object
+     *         get hasMethods() {
+     *             return encore.rxForm.textField.generateAccessor(element(by.model('internalTextbox')))
+     *         },
+     *
+     *         deepNesting: {
+     *             // namespace within a namespace
+     *             get might() {
+     *                 return encore.rxForm.textField.generateAccessor(element(by.model('nested')))
+     *             }
+     *         }
      *     }
+     *
      * });
      *
      * yourPage.form = {
      *     aTextbox: 'My Name',
-     *     aRadioButton: 'Second Option'
+     *     aRadioButton: true,
      *     aSelectDropdown: 'My Choice'
      *     aModule: {
      *         hasMethods: 'Can Accept Input Too',
@@ -170,7 +196,7 @@ exports.rxForm = {
      *         }
      *     }
      * };
-     * ```
+     * // executing the above would execute all `setter` methods of your form to equal the values listed above.
      */
     fill: function (reference, formData) {
         var next = this;
@@ -193,7 +219,7 @@ exports.rxForm = {
     fieldName: {
         /**
          * @function
-         * @param {WebElement} rxFieldNameElement - WebElement to be transformed into an rxFieldNameElement object.
+         * @param {ElementFinder} rxFieldNameElement - WebElement to be transformed into an rxFieldNameElement object.
          * @returns {rxFieldName} Page object representing the rxFieldName object.
          */
         initialize: function (rxFieldNameElement) {
@@ -205,10 +231,9 @@ exports.rxForm = {
     },
 
     /**
-     * @namespace
-     * @deprecated
-     * @description
-     * **ALIASED** Directly uses &lt;a href="#encore.module_rxCheckbox">encore.rxCheckbox&lt;/a>.
+     * @description **ALIASED**: Directly uses {@link rxCheckbox}.
+     * @property {Function} initialize - {@link rxCheckbox.initialize}
+     * @property {Function} generateAccessor - {@link rxCheckbox.generateAccessor}
      */
     checkbox: {
         get initialize() { return exports.rxCheckbox.initialize; },
@@ -216,9 +241,9 @@ exports.rxForm = {
     },
 
     /**
-     * @namespace
-     * @description
-     * **ALIASED** Directly uses &lt;a href="#encore.module_rxRadio">encore.rxRadio&lt;/a>.
+     * @description **ALIASED**: Directly uses {@link rxRadio}.
+     * @property {Function} initialize - {@link rxRadio.initialize}
+     * @property {Function} generateAccessor - {@link rxRadio.generateAccessor}
      */
     radioButton: {
         get initialize() { return exports.rxRadio.initialize; },
@@ -226,9 +251,9 @@ exports.rxForm = {
     },
 
     /**
-     * @namespace
-     * @description
-     * **ALIASED** Directly uses &lt;a href="#encore.module_rxSelect">encore.rxSelect&lt;/a>.
+     * @description **ALIASED**: Directly uses {@link rxDropdown}.
+     * @property {Function} initialize - {@link rxDropdown.initialize}
+     * @property {Function} generateAccessor - {@link rxDropdown.generateAccessor}
      */
     dropdown: {
         get initialize() { return exports.rxSelect.initialize; },
@@ -237,6 +262,7 @@ exports.rxForm = {
 
     /**
      * @deprecated
+     * @function
      * @description
      * **ALIASED**: Please use {@link rxMisc.currencyToPennies} instead.
      * This function will be removed in a future release of the EncoreUI framework.
@@ -247,6 +273,7 @@ exports.rxForm = {
 
     /**
      * @deprecated
+     * @function
      * @description
      * **ALIASED**: Please use {@link rxMisc.slowClick} instead.
      * This function will be removed in a future release of the EncoreUI framework.
@@ -265,13 +292,13 @@ exports.rxForm = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
-<br class="clear">
+<br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 10 2016 16:45:44 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:07:12 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

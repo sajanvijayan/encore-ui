@@ -11,6 +11,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
 </head>
 
 <body>
@@ -28,13 +29,26 @@
         <article>
             <pre class="prettyprint source linenums"><code>var _ = require('lodash');
 
+/**
+ * @namespace
+ * @description Utilities for getting the current or original environment. Can compare either to a list of default
+ * environment names, or custom ones of your choosing.
+ */
 exports.rxEnvironment = {
     /**
-      Return the current environment the user sees.
-      The default is set to something simple and reasonable,
-      but should you find a need to supply your own environments, be
-      sure to have `environments` defined in your protractor conf's params section.
-    */
+     * @function
+     * @description The current environment the user sees. The default is set to something simple and reasonable,
+     * but should you find a need to supply your own environments, be sure to have `environments` defined in
+     * your protractor conf's params section.
+     * @returns {String}
+     * @example
+     * browser.get('localhost:9000/home');
+     * expect(encore.rxEnvironment.current()).to.eventually.equal('localhost');
+     * browser.get('staging.encore.rackspace.com/home');
+     * expect(encore.rxEnvironment.current()).to.eventually.equal('staging');
+     * browser.get('encore.rackspace.com/home');
+     * expect(encore.rxEnvironment.current()).to.eventually.equal('production');
+     */
     current: function () {
         var component = this;
         return browser.getCurrentUrl().then(function (url) {
@@ -43,13 +57,30 @@ exports.rxEnvironment = {
     },
 
     /**
-      Return the original environment, as defined in the current protractor conf file.
-      Returns a promise to keep the usage consistent with `rxEnvironment.current`.
-    */
+     * @function
+     * @description The original environment, as defined in the current protractor conf file.
+     * Returns a promise to keep the usage consistent with {@link rxEnvironment.current}.
+     * @example
+     * browser.get('localhost:9000/home');
+     * expect(encore.rxEnvironment.original()).to.eventually.equal('localhost');
+     * browser.get('staging.encore.rackspace.com/home');
+     * expect(encore.rxEnvironment.original()).to.eventually.equal('localhost');
+     */
     original: function () {
         return protractor.promise.fulfilled(this.compare(browser.baseUrl));
     },
 
+    /**
+     * @private
+     * @function
+     * @see rxEnvironment.environments
+     * @description Compare the url passed in to the list of environments that exist. This is either the hard coded
+     * defaults found in {@link rxEnvironment.environments}, or the ones you choose to include in your conf file
+     * under `browser.params.environments`.
+     * Many parts of this documentation implicitly accept and return promises, since they are so commonly used.
+     * This is not one of those. This needs a string, not a promise. Resolve your own promise first before calling this.
+     * @param {String} url - The url, as a string.
+     */
     compare: function (url) {
         return _.find(this.environments, function findEnvironment (envName, env) {
             if (_.contains(url, env)) {
@@ -58,40 +89,89 @@ exports.rxEnvironment = {
         }) || 'production';
     },
 
-    // Clones the environments param before filling in any missing entries with the defaults below.
+    /**
+     * @type {Object}
+     * @description The default environments used in nearly all encore applications. You can provide your own
+     * environments by setting your own in your protractor configuration file as `browser.params.environments`.
+     * This object clones the environments found there before filling in any missing entries with reasonable defaults.
+     * @property {String} localhost - 'localhost'
+     * @property {String} staging - 'staging'
+     * @property {String} preprod - 'preprod'
+     * @example
+     * // protractor.conf.js
+     * params: {
+     *     environments: { staging: 'http://198.51.100.24' }
+     * }
+     * // test.js
+     * browser.get('http://198.51.100.24/home');
+     * expect(rxEnvironment.isStaging()).to.eventually.be.true;
+     */
     environments: _.extend({
-        'localhost': 'localhost',
-        'staging': 'staging',
-        'preprod': 'preprod'
+        localhost: 'localhost',
+        staging: 'staging',
+        preprod: 'preprod'
     }, browser.params.environments),
 
-    isLocalhost: function (namedParams) {
-        return this.confirmEnvironment(namedParams, 'localhost');
-    },
-
-    isStaging: function (namedParams) {
-        return this.confirmEnvironment(namedParams, 'staging');
-    },
-
-    isPreprod: function (namedParams) {
-        return this.confirmEnvironment(namedParams, 'preprod');
-    },
-
-    isProd: function (namedParams) {
-        return this.confirmEnvironment(namedParams, 'production');
+    /**
+     * @function
+     * @description Whether or not the current environment is in a localhost environment.
+     * @param {Object} [options] - Named arguments.
+     * @param {Boolean} [options.useBaseUrl=false] - Set this to `true` to not use the browser's current
+     * environment when comparing, instead it will compare it to `protractor.baseUrl`.
+     * @returns {Boolean}
+     */
+    isLocalhost: function (options) {
+        return this.confirmEnvironment(options, 'localhost');
     },
 
     /**
-      `namedParams` only supports { useBaseUrl: true }. If { useBaseUrl: false }, just leave undefined.
-    */
-    confirmEnvironment: function (namedParams, environment) {
+     * @function
+     * @description Whether or not the current environment is in a staging environment.
+     * @param {Object} [options] - Named arguments.
+     * @param {Boolean} [options.useBaseUrl=false] - Set this to `true` to not use the browser's current
+     * environment when comparing, instead it will compare it to `protractor.baseUrl`.
+     * @returns {Boolean}
+     */
+    isStaging: function (options) {
+        return this.confirmEnvironment(options, 'staging');
+    },
+
+    /**
+     * @function
+     * @description Whether or not the current environment is in a preproduction environment.
+     * @param {Object} [options] - Named arguments.
+     * @param {Boolean} [options.useBaseUrl=false] - Set this to `true` to not use the browser's current
+     * environment when comparing, instead it will compare it to `protractor.baseUrl`.
+     * @returns {Boolean}
+     */
+    isPreprod: function (options) {
+        return this.confirmEnvironment(options, 'preprod');
+    },
+
+    /**
+     * @function
+     * @description Whether or not the current environment is in a production environment.
+     * @param {Object} [options] - Named arguments.
+     * @param {Boolean} [options.useBaseUrl=false] - Set this to `true` to not use the browser's current
+     * environment when comparing, instead it will compare it to `protractor.baseUrl`.
+     * @returns {Boolean}
+     */
+    isProd: function (options) {
+        return this.confirmEnvironment(options, 'production');
+    },
+
+    /**
+     * @private
+     * @description `options` only supports { useBaseUrl: true }. If { useBaseUrl: false }, just leave undefined.
+     */
+    confirmEnvironment: function (options, environment) {
         var component = this;
-        if (namedParams === undefined) {
-            namedParams = { useBaseUrl: false };
+        if (options === undefined) {
+            options = { useBaseUrl: false };
         }
 
         return browser.getCurrentUrl().then(function (url) {
-            return _.isEqual(component.compare(namedParams.useBaseUrl ? protractor.baseUrl : url), environment);
+            return _.isEqual(component.compare(options.useBaseUrl ? protractor.baseUrl : url), environment);
         });
     }
 };
@@ -105,13 +185,13 @@ exports.rxEnvironment = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
-<br class="clear">
+<br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 10 2016 16:45:44 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:07:12 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

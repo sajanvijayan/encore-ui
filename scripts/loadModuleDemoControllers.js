@@ -400,18 +400,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxAuthCtrl', function ($scope, $window, Auth) {
-    $scope.hasRole = function () {
-        $window.alert('Has "superhero" Role? : ' + Auth.hasRole('superhero'));
-    };
-
-    $scope.isAuthenticated = function () {
-        $window.alert('Is Authenticated? : ' + Auth.isAuthenticated());
-    };
-});
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxBreadcrumbsCtrl', function ($scope, rxBreadcrumbsSvc) {
@@ -1304,61 +1292,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxStatusCtrl', function ($scope, $rootScope, Status) {
-    Status.setScope($scope);
-
-    $scope.triggerRouteChangeSuccess = function () {
-        $rootScope.$broadcast('$routeChangeSuccess');
-    };
-
-    $scope.clear = function () {
-        Status.clear();
-        $scope.notify = undefined;
-    };
-
-    $scope.setLoading = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setLoading(msg);
-    };
-
-    $scope.setSuccess = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setSuccess(msg);
-    };
-
-    $scope.setSuccessNext = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setSuccessNext(msg);
-    };
-
-    $scope.setSuccessImmediate = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setSuccessImmediate(msg);
-    };
-
-    $scope.setWarning = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setWarning(msg);
-    };
-
-    $scope.setInfo = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setInfo(msg);
-    };
-
-    $scope.setError = function (msg) {
-        Status.clear();
-        $scope.notify = Status.setError(msg);
-    };
-
-    $scope.dismiss = function () {
-        $scope.notify && Status.dismiss($scope.notify);
-        $scope.notify = undefined;
-    };
-});
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxStatusColumnCtrl', function ($scope, rxStatusMappings, rxSortUtil) {
@@ -1519,6 +1452,18 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('AuthSimpleCtrl', function ($scope, $window, Auth) {
+    $scope.hasRole = function () {
+        $window.alert('Has "superhero" Role? : ' + Auth.hasRole('superhero'));
+    };
+
+    $scope.isAuthenticated = function () {
+        $window.alert('Is Authenticated? : ' + Auth.isAuthenticated());
+    };
+});
+
+
+angular.module('demoApp')
 .controller('EnvironmentSimpleCtrl', function ($scope, Environment) {
     var environment = Environment.get();
     $scope.url = environment.url;
@@ -1533,6 +1478,8 @@ angular.module('demoApp')
         $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);
     };
 });
+
+
 
 
 
@@ -1567,6 +1514,65 @@ angular.module('demoApp')
         $window.alert(SessionStorage.getItem('Batman'));
     };
 });
+
+
+angular.module('demoApp')
+.controller('StatusSimpleCtrl', function ($scope, $rootScope, Status) {
+    Status.setScope($scope);
+
+    $scope.triggerRouteChangeSuccess = function () {
+        $rootScope.$broadcast('$routeChangeSuccess');
+    };
+
+    $scope.clear = function () {
+        Status.clear();
+        $scope.notify = undefined;
+    };
+
+    $scope.setLoading = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setLoading(msg);
+    };
+
+    $scope.setSuccess = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setSuccess(msg);
+    };
+
+    $scope.setSuccessNext = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setSuccessNext(msg);
+    };
+
+    $scope.setSuccessImmediate = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setSuccessImmediate(msg);
+    };
+
+    $scope.setWarning = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setWarning(msg);
+    };
+
+    $scope.setInfo = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setInfo(msg);
+    };
+
+    $scope.setError = function (msg) {
+        Status.clear();
+        $scope.notify = Status.setError(msg);
+    };
+
+    $scope.dismiss = function () {
+        $scope.notify && Status.dismiss($scope.notify);
+        $scope.notify = undefined;
+    };
+});
+
+
+
+
 
 
 
@@ -1678,6 +1684,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('rxCapitalizeCtrl', function ($scope) {
     $scope.hello = 'hello world this is my text.';
@@ -1712,6 +1720,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('rxLocalStorageSimpleCtrl', function ($scope, $window, rxLocalStorage) {
     $scope.setSideKick = function () {
@@ -1723,6 +1733,10 @@ angular.module('demoApp')
         $window.alert(sidekick.name);
     };
 });
+
+
+
+
 
 
 

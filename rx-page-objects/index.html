@@ -11,6 +11,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
 </head>
 
 <body>
@@ -42,6 +43,63 @@
 
 
 
+    <section>
+        <article><h1 id="rx-page-objects">rx-page-objects</h1>
+<h3 id="end-to-end-testing-utilities-for-encore-applications-">End to end testing utilities for Encore applications.</h3>
+<p>Provides high-level access to components in the Encore-UI library through Protractor.</p>
+<p>You can use it directly in your test code, without using any abstractions at all.</p>
+<pre class="prettyprint source"><code>it('should have all breadcrumbs present', function () {
+    expect(encore.rxBreadcrumbs.initialize().names).to.eventually.eql(['Home', 'Feature', 'Details']);
+});</code></pre><h3 id="construct-page-objects-faster-">Construct page objects faster.</h3>
+<p>Assemble many of the reusable components from rx-page-objects into a easy to maintain page object.</p>
+<p>Great for when you already use page objects, and want to benefit from using pre-fabricated components.</p>
+<pre class="prettyprint source lang-js"><code>var myHomePage = {
+    get breadcrumbs() { return encore.rxBreadcrumbs.initialize(); },
+    get pagination() { return encore.rxPaginate.initialize($('#myTable rx-paginate')); },
+};
+
+it('should have all breadcrumbs present', function () {
+    expect(myHomePage.breadcrumbs.names).to.eventually.eql(['Home', 'Feature', 'Details']);
+});</code></pre><h3 id="use-exercises-to-generate-basic-tests-">Use exercises to generate basic tests.</h3>
+<p>Describe your component at a high level, and let rx-page-objects run a set of simple tests for you.</p>
+<pre class="prettyprint source lang-js"><code>describe('Default Pagination Tests', encore.exercise.rxPaginate({
+    instance: myHomePage.pagination,
+    pages: 8,
+    defaultPageSize: 20,
+    pageSizes: [5, 10, 20, 25, 50]
+}));</code></pre><p>From just those few lines of code, the following is tested.</p>
+<pre class="prettyprint source"><code>  ✓ should navigate forward one page at a time
+  ✓ should navigate backwards one page at a time
+  ✓ should navigate to the last page
+  ✓ should jump forward to page 6 using pagination
+  ✓ should jump backward to page 2 using pagination
+  ✓ should not allow navigating `next` the last page
+  ✓ should allow attempting to navigate to the last page when already on the last page
+  ✓ should navigate to the first page
+  ✓ should not allow navigating `prev` the first page
+  ✓ should allow attempting to navigate to the first page when already on the first page
+  ✓ should have all available page sizes
+  ✓ should highlight the current items per page selection
+  ✓ should list the lower bounds of the shown items currently in the table
+  ✓ should list the upper bounds of the shown items currently in the table
+  ✓ should know the total number of pages without visiting it
+  ✓ should switch to a different items per page
+  ✓ should put the user back on the first page after resizing the items per page
+  ✓ should not fail to match the lower bounds of the shown items even if not displayed
+  ✓ should not fail to match the upper bounds of the shown items even if not displayed
+  ✓ should not allow selecting an unavailable items per page</code></pre><p>Exercises are designed to test the basics quickly. It contains no app-specific business logic.</p>
+<p>It will always put your app in the same state it found it in when it started.</p>
+<h2 id="setting-up">Setting up</h2>
+<p><em>command line</em></p>
+<pre class="prettyprint source"><code>npm install --save-dev rx-page-objects</code></pre><p><em>protractor.conf.js</em></p>
+<pre class="prettyprint source lang-js"><code>onPrepare: function () {
+    encore = require('rx-page-objects');
+},</code></pre><p><em>.jshintrc</em></p>
+<pre class="prettyprint source lang-js"><code>&quot;globals&quot;: {
+    encore: true
+}</code></pre></article>
+    </section>
+
 
 
 
@@ -50,13 +108,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
-<br class="clear">
+<br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 10 2016 16:45:44 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:07:12 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

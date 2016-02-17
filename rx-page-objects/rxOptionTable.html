@@ -11,6 +11,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
 </head>
 
 <body>
@@ -70,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line135">line 135</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line165">line 165</a>
     </li></ul></dd>
     
 
@@ -108,12 +109,101 @@
 
         
             
-<h4 class="name" id=".columnNames"><span class="type-signature">(static) </span>columnNames<span class="type-signature"></span></h4>
+<h4 class="name" id=".main"><span class="type-signature">(static) </span>main<span class="type-signature"> :<a href="rxOptionTable.html">rxOptionTable</a></span></h4>
+
+
+
+
+<div class="description">
+    <p><strong>DEPRECATED</strong>: Use <a href="rxOptionTable.html#.initialize">rxOptionTable.initialize</a> without arguments instead.
+Will return a page object representing the <em>first</em> rxOptionTable object found on the page.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="rxOptionTable.html">rxOptionTable</a></span>
+
+
+        </li>
+    </ul>
 
 
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line572">line 572</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="columnNames"><span class="type-signature"></span>columnNames<span class="type-signature"> :Array.&lt;String></span></h4>
+
+
+
+
+<div class="description">
+    <p>Every column heading's text, as an array.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;String></span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -148,7 +238,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line213">line 213</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line292">line 292</a>
     </li></ul></dd>
     
 
@@ -163,16 +253,24 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should have every column present in the option table', function () {
+    var table = encore.rxOptionTable.initialize();
+    expect(table.columnNames).to.eventually.equal(['Name', 'Role', 'Hire Date']);
+});</code></pre>
+
+
 
         
             
-<h4 class="name" id=".disabledOptions"><span class="type-signature">(static) </span>disabledOptions<span class="type-signature"></span></h4>
+<h4 class="name" id="disabledOptions"><span class="type-signature"></span>disabledOptions<span class="type-signature"></span></h4>
 
 
 
 
 <div class="description">
-    Return a list of row indexes that are currently disabled.
+    <p>A list of row indexes that are currently disabled.</p>
 </div>
 
 
@@ -210,7 +308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line382">line 382</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line528">line 528</a>
     </li></ul></dd>
     
 
@@ -225,15 +323,42 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should have the first and last row disabled', function () {
+    var table = encore.rxOptionTable.initialize();
+    table.count().then(function (rowCount) {
+        expect(table.disabledOptions).to.eventually.eql([0, rowCount - 1]);
+    });
+});</code></pre>
+
+
 
         
             
-<h4 class="name" id=".emptyMessage"><span class="type-signature">(static) </span>emptyMessage<span class="type-signature"></span></h4>
+<h4 class="name" id="emptyMessage"><span class="type-signature"></span>emptyMessage<span class="type-signature"> :String|null</span></h4>
 
 
 
 
+<div class="description">
+    <p>The currently displayed empty message label text, or <code>null</code> if not present.</p>
+</div>
 
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">String</span>
+|
+
+<span class="param-type">null</span>
+
+
+        </li>
+    </ul>
 
 
 
@@ -268,7 +393,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line177">line 177</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line241">line 241</a>
     </li></ul></dd>
     
 
@@ -283,19 +408,785 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should not have any rows in the table', function () {
+    var table = encore.rxOptionTable.initialize();
+    expect(table.count()).to.eventually.equal(0);
+    expect(table.isEmpty()).to.eventually.be.true;
+    expect(table.emptyMessage).to.eventually.not.be.null;
+});</code></pre>
+
+
 
         
             
-<h4 class="name" id=".selectedRow"><span class="type-signature">(static) </span>selectedRow<span class="type-signature"></span></h4>
+<h4 class="name" id="selectedRow"><span class="type-signature"></span>selectedRow<span class="type-signature"> :<a href="rxOptionTable.row.html">rxOptionTable.row</a></span></h4>
 
 
 
 
 <div class="description">
-    Will default to the first selected row if many are selected.
+    <p>Will default to the first selected row if many are selected.
 Be certain you have a selected row before calling this, or a
-NoSuchElementError will be thrown.
+<code>NoSuchElementError</code> will be thrown.</p>
 </div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><a href="rxOptionTable.row.html">rxOptionTable.row</a></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line276">line 276</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should already have the row for "Texas" selected', function () {
+    var table = encore.rxOptionTable.initialize();
+    expect(table.selectedRow.cell('State')).to.eventually.equal('Texas');
+});</code></pre>
+
+
+
+        
+            
+<h4 class="name" id="selections"><span class="type-signature"></span>selections<span class="type-signature"> :Array.&lt;Number></span></h4>
+
+
+
+
+<div class="description">
+    <p>Return a list of row indexes that are currently selected.
+Get the row yourself if you need more information about the row's contents.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Array.&lt;Number></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line501">line 501</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should have every state the user has lived in already selected', function () {
+    var states = ['Florida', 'Indiana', 'Texas'];
+    var table = encore.rxOptionTable.initialize();
+    table.selections.then(function (selectedRows) {
+        expect(selectedRows.length).to.equal(3);
+        selectedRows.forEach(function (selectedRow) {
+            expect(table.row(selectedRow).cell('State')).to.eventually.be.oneOf(states);
+        });
+    });
+});</code></pre>
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".generateAccessor"><span class="type-signature">(static) </span>generateAccessor<span class="signature">(elem)</span><span class="type-signature"> &rarr; {<a href="rxOptionTable.html">rxOptionTable</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Generates a getter and a setter for an option table on your page, no matter if that
+rxOptionTable contains radio buttons or checkboxes. They will both function identically.
+This function is very much tied to the <a href="rxOptionTable.html">rxOptionTable</a> page object. When using this,
+consider exposing a raw rxOptionTable component on your page object as well. This
+provides users the ability to not only quickly get and set options in the rxOptionTable,
+but also get columns, query cells, and other useful functions exposed in the component.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elem</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ElementFinder</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The root element of the rxOptionTable.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line611">line 611</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A getter and a setter to be applied to an option form table in a page object.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="rxOptionTable.html">rxOptionTable</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var yourPage = Page.create({
+    paymentMethod: encore.rxOptionTable.generateAccessor(element(by.model('paymentMethod.primary')));
+
+    // you should still expose the optionTable as well, for greater usability in integration tests
+    paymentMethodTable: {
+        get: function () {
+            encore.rxOptionTable.initialize(element(by.model('paymentMethod.primary')));
+        }
+    }
+});
+
+it('should select the country', function () {
+    // select the card in the third row by `cardNumber`
+    yourPage.paymentMethod = [{cardNumber: '4111 1111 1111 1111'}]; // setter
+    expect(yourPage.paymentMethod).to.eventually.equal([2]); // getter
+    // include a raw option table object as well -- it will simplify more expressive tests
+    expect(yourPage.paymentMethodTable.row(2).cell('Card Type')).to.eventually.equal('Visa');
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".initialize"><span class="type-signature">(static) </span>initialize<span class="signature">(rxOptionTableElement<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {<a href="rxOptionTable.html">rxOptionTable</a>}</span></h4>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rxOptionTableElement</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">ElementFinder</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    $('rx-option-table')
+                
+                </td>
+            
+
+            <td class="description last"><p>ElementFinder to be transformed into an rxOptionTableElement object.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line554">line 554</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Page object representing the rxOptionTable object.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="rxOptionTable.html">rxOptionTable</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="columnData"><span class="type-signature"></span>columnData<span class="signature">(columnName, customFn<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*|Array.&lt;String>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Return the value of the cells found under <code>columnName</code>, using <code>getText</code> by default.
+For more control, pass in a <code>customFn</code>.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>columnName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>Column name containing the cell elements to be retrieved.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customFn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    getText()
+                
+                </td>
+            
+
+            <td class="description last"><p>Special work to be done on the column's cell elements.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line319">line 319</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Array of return values specified in <code>customFn</code>, or an array of strings from <code>getText()</code></p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+|
+
+<span class="param-type">Array.&lt;String></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// three rows, with ['$0.00', '$1.00', '$2.00'] in their cells, respectively.
+var penniesData = [0, 100, 200];
+var penniesFn = function (cellElements) {
+    return cellElements.getText().then(rxMisc.currencyToPennies);
+};
+
+// without the second argument, each cell will have `.getText()` called on it
+expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(penniesData);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="count"><span class="type-signature"></span>count<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>The number of rows in the table.</p>
+</div>
+
+
+
+
+
+
 
 
 
@@ -332,7 +1223,7 @@ NoSuchElementError will be thrown.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line204">line 204</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line193">line 193</a>
     </li></ul></dd>
     
 
@@ -348,18 +1239,117 @@ NoSuchElementError will be thrown.
 
 
 
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should have more than two rows', function () {
+    expect(encore.rxOptionTable.initialize().count()).to.eventually.be.above(2);
+});</code></pre>
+
+
+
         
             
-<h4 class="name" id=".selections"><span class="type-signature">(static) </span>selections<span class="type-signature"></span></h4>
 
+    
+
+    <h4 class="name" id="deselectByColumnText"><span class="type-signature"></span>deselectByColumnText<span class="signature">(columnName, columnText)</span><span class="type-signature"></span></h4>
+
+    
 
 
 
 <div class="description">
-    Return a list of row indexes that are currently selected.
-Get the row yourself if you need more information about the row's contents.
+    <p>Unselect a row by the <code>columnName</code> that contains <code>columnText</code>.
+This function uses cssContainingText, be certain your column name and text is unique.</p>
 </div>
 
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>columnName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Name of the column that contains the cell to select.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>columnText</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Cell text that uniquely identifies the selection.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -411,26 +1401,123 @@ Get the row yourself if you need more information about the row's contents.
 
 
 
-        
-    
 
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
     
-        <h3 class="subsection-title">Methods</h3>
+    <pre class="prettyprint"><code>it('should deselect the row that matches my dog\'s name', function () {
+    var dogList = encore.rxOptionTable.initialize($('#dog-list'));
+    dogList.deselectByColumnText('Name', 'Sebastian');
+    expect(dogList.selections).to.eventually.eql([]);
+});</code></pre>
+
+
 
         
             
 
     
 
-    <h4 class="name" id=".columnData"><span class="type-signature">(static) </span>columnData<span class="signature">(columnName, customFn<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*|Array.&lt;string>}</span></h4>
+    <h4 class="name" id="deselectByColumnText"><span class="type-signature"></span>deselectByColumnText<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Return the value of the cells found under `columnName`, using `getText` by default.
-For more control, pass in a `customFn`.
+    <p><strong>DEPRECATED</strong>: Use <a href="rxOptionTable.html#deselectByColumnText">rxOptionTable#deselectByColumnText</a> instead.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line380">line 380</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="deselectMany"><span class="type-signature"></span>deselectMany<span class="signature">(selections)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Deselect options where each <code>{ columnName: columnText }</code> in <code>selections</code> is passed to
+rxOptionTable#unselectByColumnText.</p>
 </div>
 
 
@@ -454,11 +1541,7 @@ For more control, pass in a `customFn`.
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -470,74 +1553,23 @@ For more control, pass in a `customFn`.
 
         <tr>
             
-                <td class="name"><code>columnName</code></td>
+                <td class="name"><code>selections</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Array.&lt;Object></span>
 
 
             
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last">Column name containing the cell elements to be retrieved.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>customFn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    getText()
-                
-                </td>
-            
-
-            <td class="description last">Special work to be done on the column's cell elements.</td>
+            <td class="description last"><p>Array of single key-value pairs to unselect.</p></td>
         </tr>
 
     
@@ -578,7 +1610,7 @@ For more control, pass in a `customFn`.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line244">line 244</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line406">line 406</a>
     </li></ul></dd>
     
 
@@ -604,10 +1636,6 @@ For more control, pass in a `customFn`.
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    Array of return values specified in `customFn`, or an array of strings from `getText()`
-</div>
-
 
 
 <dl>
@@ -616,10 +1644,7 @@ For more control, pass in a `customFn`.
     </dt>
     <dd>
         
-<span class="param-type">*</span>
-|
-
-<span class="param-type">Array.&lt;string></span>
+<span class="param-type">undefined</span>
 
 
     </dd>
@@ -630,18 +1655,16 @@ For more control, pass in a `customFn`.
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>```js
-// three rows, with ['$0.00', '$1.00', '$2.00'] in their cells, respectively.
-var penniesData = [0, 100, 200];
-var penniesFn = function (cellElements) {
-    return cellElements.map(function (cellElement) {
-        return cellElement.getText().then(rxMisc.currencyToPennies);
-    });
-};
-
-// without the second argument, each cell will have `.getText()` called on it
-expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(penniesData);
-```</code></pre>
+    <pre class="prettyprint"><code>it('should deselect the second item', function () {
+    var table = encore.rxOptionTable.initialize();
+    expect(table.selections).to.eventually.eql([0, 1]);
+    table.deselectMany(
+        [
+            { 'Name': 'Item 2' }
+        ]
+    );
+    expect(table.selections).to.eventually.eql([0]);
+});</code></pre>
 
 
 
@@ -650,11 +1673,15 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 
     
 
-    <h4 class="name" id=".isDisplayed"><span class="type-signature">(static) </span>isDisplayed<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id="isDisplayed"><span class="type-signature"></span>isDisplayed<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 
 
+
+<div class="description">
+    <p>Whether the root element is currently displayed.</p>
+</div>
 
 
 
@@ -697,7 +1724,7 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line158">line 158</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line205">line 205</a>
     </li></ul></dd>
     
 
@@ -723,10 +1750,6 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    Whether the root element is currently displayed.
-</div>
-
 
 
 <dl>
@@ -750,11 +1773,15 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 
     
 
-    <h4 class="name" id=".isEmpty"><span class="type-signature">(static) </span>isEmpty<span class="signature">()</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="isEmpty"><span class="type-signature"></span>isEmpty<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 
 
+
+<div class="description">
+    <p>Whether or not the table's empty message label is currently present.</p>
+</div>
 
 
 
@@ -797,7 +1824,165 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line168">line 168</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line223">line 223</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should not have any rows in the table', function () {
+    var table = encore.rxOptionTable.initialize();
+    expect(table.count()).to.eventually.equal(0);
+    expect(table.isEmpty()).to.eventually.be.true;
+});</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="row"><span class="type-signature"></span>row<span class="signature">(rowIndex)</span><span class="type-signature"> &rarr; {<a href="rxOptionTable.row.html">rxOptionTable.row</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Exposes a namespace of functions to interact with a row in an option table.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>rowIndex</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Index of the row in the table.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -824,7 +2009,7 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 
         
 <div class="param-desc">
-    Whether or not the table's  the empty message label is currently present.
+    <p>Page object representing a row.</p>
 </div>
 
 
@@ -835,7 +2020,7 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
     </dt>
     <dd>
         
-<span class="param-type">boolean</span>
+<span class="param-type"><a href="rxOptionTable.row.html">rxOptionTable.row</a></span>
 
 
     </dd>
@@ -850,15 +2035,15 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 
     
 
-    <h4 class="name" id=".selectByColumnText"><span class="type-signature">(static) </span>selectByColumnText<span class="signature">(columnName, columnText)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id="selectByColumnText"><span class="type-signature"></span>selectByColumnText<span class="signature">(columnName, columnText)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Select a row by the `columnName` that contains `columnText`.
-This function uses cssContainingText, be certain your column name and text is unique.
+    <p>Select a row by the <code>columnName</code> that contains <code>columnText</code>.
+This function uses cssContainingText, be certain your column name and text is unique.</p>
 </div>
 
 
@@ -910,7 +2095,7 @@ This function uses cssContainingText, be certain your column name and text is un
 
             
 
-            <td class="description last">Name of the column that contains the cell to select.</td>
+            <td class="description last"><p>Name of the column that contains the cell to select.</p></td>
         </tr>
 
     
@@ -933,7 +2118,7 @@ This function uses cssContainingText, be certain your column name and text is un
 
             
 
-            <td class="description last">Cell text that uniquely identifies the selection.</td>
+            <td class="description last"><p>Cell text that uniquely identifies the selection.</p></td>
         </tr>
 
     
@@ -974,7 +2159,7 @@ This function uses cssContainingText, be certain your column name and text is un
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line323">line 323</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line443">line 443</a>
     </li></ul></dd>
     
 
@@ -997,24 +2182,15 @@ This function uses cssContainingText, be certain your column name and text is un
 
 
 
-<h5>Returns:</h5>
-
-        
 
 
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
+    <h5>Example</h5>
     
+    <pre class="prettyprint"><code>it('should select the row that matches my dog\'s name', function () {
+    var dogList = encore.rxOptionTable.initialize($('#dog-list'));
+    dogList.selectByColumnText('Name', 'Sebastian');
+    expect(dogList.selections).to.eventually.eql([0]);
+});</code></pre>
 
 
 
@@ -1023,15 +2199,15 @@ This function uses cssContainingText, be certain your column name and text is un
 
     
 
-    <h4 class="name" id=".selectMany"><span class="type-signature">(static) </span>selectMany<span class="signature">(selections)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id="selectMany"><span class="type-signature"></span>selectMany<span class="signature">(selections)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Select options where each `{ columnName: columnText }` in `selections` is passed to
-<a href="rxOptionTable.html#.selectByColumnText">rxOptionTable.selectByColumnText</a>.
+    <p>Select options where each <code>{ columnName: columnText }</code> in <code>selections</code> is passed to
+<a href="rxOptionTable.html#selectByColumnText">rxOptionTable#selectByColumnText</a>.</p>
 </div>
 
 
@@ -1083,7 +2259,7 @@ This function uses cssContainingText, be certain your column name and text is un
 
             
 
-            <td class="description last">Array of single key-value pairs to select.</td>
+            <td class="description last"><p>Array of single key-value pairs to select.</p></td>
         </tr>
 
     
@@ -1124,55 +2300,50 @@ This function uses cssContainingText, be certain your column name and text is un
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line347">line 347</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line474">line 474</a>
     </li></ul></dd>
     
 
     
 
     
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
-
-
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="rxOptionTable.html#selectByColumnText">rxOptionTable#selectByColumnText</a></li>
+        </ul>
     </dd>
-</dl>
+    
 
     
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>```js
-selectMany([{ 'Name': 'Item 1' },
-            { 'Name': 'Item 2' }]);
-```</code></pre>
+    <pre class="prettyprint"><code>it('should select the first and second item', function () {
+    var table = encore.rxOptionTable.initialize();
+    table.selectMany(
+        [
+            { 'Name': 'Item 1' },
+            { 'Name': 'Item 2' }
+        ]
+    );
+    expect(table.selections).to.eventually.eql([0, 1]);
+});</code></pre>
 
 
 
@@ -1181,14 +2352,14 @@ selectMany([{ 'Name': 'Item 1' },
 
     
 
-    <h4 class="name" id=".unselectAll"><span class="type-signature">(static) </span>unselectAll<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id="unselectAll"><span class="type-signature"></span>unselectAll<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Unselects every row in the rxOptionTable.
+    <p>Unselects every row in the rxOptionTable.</p>
 </div>
 
 
@@ -1232,7 +2403,7 @@ selectMany([{ 'Name': 'Item 1' },
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line264">line 264</a>
+        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line339">line 339</a>
     </li></ul></dd>
     
 
@@ -1255,355 +2426,6 @@ selectMany([{ 'Name': 'Item 1' },
 
 
 
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".unselectByColumnText"><span class="type-signature">(static) </span>unselectByColumnText<span class="signature">(columnName, columnText)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Unselect a row by the `columnName` that contains `columnText`.
-This function uses cssContainingText, be certain your column name and text is unique.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>columnName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Name of the column that contains the cell to select.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>columnText</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Cell text that uniquely identifies the selection.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line281">line 281</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".unselectMany"><span class="type-signature">(static) </span>unselectMany<span class="signature">(selections)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Unselect options where each `{ columnName: columnText }` in `selections` is passed to
-<a href="rxOptionTable.html#.unselectByColumnText">rxOptionTable.unselectByColumnText</a>.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>selections</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;Object></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Array of single key-value pairs to unselect.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html">components/rxOptionTable/scripts/rxOptionTable.page.js</a>, <a href="components_rxOptionTable_scripts_rxOptionTable.page.js.html#line305">line 305</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>```js
-unselectMany([{ 'Name': 'Item 1' },
-              { 'Name': 'Item 2' }]);
-```</code></pre>
 
 
 
@@ -1623,13 +2445,13 @@ unselectMany([{ 'Name': 'Item 1' },
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
-<br class="clear">
+<br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 10 2016 16:45:44 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:07:13 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

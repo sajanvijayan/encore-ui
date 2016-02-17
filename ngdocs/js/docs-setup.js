@@ -73,7 +73,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "quarks",
       "shortDescription": "Quarks",
-      "keywords": "api atoms constant constants devicepaths elements environment errorformatter feedbackapi filter filters hotkeys identity molecules non-visual notifyproperties object overview quarks routescdnpath rxage rxautosave rxbreadcrumbssvc rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxnestedelement rxnotify rxpagetitle rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxunsaferemovehtml rxvisibility service services session support titleize values xor"
+      "keywords": "api atoms constant constants controller controllers devicepaths elements encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters hotkeys identity molecules non-visual notifyproperties object overview pagetracking paginate paginateditemssummary permission quarks routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil support titleize tokeninterceptor unauthorizedinterceptor urlutils values xor"
     },
     {
       "section": "api",
@@ -83,6 +83,33 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Provides the feedback URL.",
       "keywords": "api constant feedback parameters quarks url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.controller:rxBulkSelectController",
+      "shortName": "rxBulkSelectController",
+      "type": "controller",
+      "moduleName": "quarks",
+      "shortDescription": "Provides controller logic for rxBulkSelect.",
+      "keywords": "api controller logic quarks rxbulkselect"
+    },
+    {
+      "section": "api",
+      "id": "quarks.controller:rxFeedbackController",
+      "shortName": "rxFeedbackController",
+      "type": "controller",
+      "moduleName": "quarks",
+      "shortDescription": "Allows the customization of the feedback modal via $scope and $modalInstance.",
+      "keywords": "$modalinstance $scope allows api controller customization feedback modal quarks"
+    },
+    {
+      "section": "api",
+      "id": "quarks.controller:rxModalCtrl",
+      "shortName": "rxModalCtrl",
+      "type": "controller",
+      "moduleName": "quarks",
+      "shortDescription": "Provides a controller for rxModalAction to use.",
+      "keywords": "api controller quarks rxmodalaction"
     },
     {
       "section": "api",
@@ -110,6 +137,15 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "This is the pagination filter that is used to calculate the division in the",
       "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging quarks service sliced"
+    },
+    {
+      "section": "api",
+      "id": "quarks.filter:PaginatedItemsSummary",
+      "shortName": "PaginatedItemsSummary",
+      "type": "filter",
+      "moduleName": "quarks",
+      "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
+      "keywords": "active api createinstance displayed displaying filter instance items list numbers pager pagetracking quarks result return second service string"
     },
     {
       "section": "api",
@@ -203,6 +239,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:Auth",
+      "shortName": "Auth",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
+      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise quarks re-use returns role roles service services session smaller solution stored stores storetoken successcallback token true ui user valid wrapper"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:encoreRoutes",
       "shortName": "encoreRoutes",
       "type": "service",
@@ -226,7 +271,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "quarks",
       "shortDescription": "Provides a helper method to parse error objects for message and format them",
-      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing quarks referenceerror replace replacement replacements result rxstatus second service seterror specialized status string template user variable variables"
+      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing quarks referenceerror replace replacement replacements result second service seterror specialized status string template user variable variables"
     },
     {
       "section": "api",
@@ -374,6 +419,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxModalFooterTemplates",
+      "shortName": "rxModalFooterTemplates",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "A cache for storing the modal footer templates",
+      "keywords": "add api body cache calling direct dom flush footer html inserted internally modal preferred quarks registering returns rxmodalfooter rxmodalfootertemplates service step1 storing string templates"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxNestedElement",
       "shortName": "rxNestedElement",
       "type": "service",
@@ -500,6 +554,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:Status",
+      "shortName": "Status",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
+      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing quarks questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
+    },
+    {
+      "section": "api",
+      "id": "quarks.service:StatusUtil",
+      "shortName": "StatusUtil",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Manipulates required references to $scope input for proper notification functionality.",
+      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates notification proper quarks references required scope service set setscope status"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:TokenInterceptor",
       "shortName": "TokenInterceptor",
       "type": "service",
@@ -533,6 +605,15 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Provides configuration for device paths.",
       "keywords": "api configuration device parameters paths quarks"
+    },
+    {
+      "section": "api",
+      "id": "quarks.value:feedbackTypes",
+      "shortName": "feedbackTypes",
+      "type": "parameters",
+      "moduleName": "quarks",
+      "shortDescription": "Provides default feedback types with placeholder text. ",
+      "keywords": "api default feedback parameters placeholder quarks text types"
     },
     {
       "section": "api",
@@ -716,24 +797,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxAuth",
-      "shortName": "rxAuth",
-      "type": "overview",
-      "moduleName": "rxAuth",
-      "shortDescription": "rxAuth Component",
-      "keywords": "api authenticating component logic managing overview permissions rxauth service services sessions validating"
-    },
-    {
-      "section": "api",
-      "id": "rxAuth.service:Auth",
-      "shortName": "Auth",
-      "type": "service",
-      "moduleName": "rxAuth",
-      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
-      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise quarks re-use returns role roles rxauth rxpermission rxsession service services session smaller solution stored stores storetoken successcallback token true ui user valid wrapper"
-    },
-    {
-      "section": "api",
       "id": "rxBreadcrumbs",
       "shortName": "rxBreadcrumbs",
       "type": "overview",
@@ -891,7 +954,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxEnvironment",
       "shortDescription": "rxEnvironment Component",
-      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide quarks rackspace return running rxenvironment rxenvironmenturl service services set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
+      "keywords": "actions api assume assumption avoid avoided based building built call check checking code component consider current currently custom define defines deprecated detect dev directive directives discussed encore envcheck environment environments exclusive explicitly find full generate ghpages http https including instance islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local matching methods mind multiple mutually mynewproduct normal note older overlapping overview pattern preprod problems procedure prod products provide rackspace return running rxenvironment rxenvironmenturl service set special specific staging system true unified-preprod unified-prod url urls ve warning wrong"
     },
     {
       "section": "api",
@@ -910,15 +973,6 @@ NG_DOCS={
       "moduleName": "rxFeedback",
       "shortDescription": "rxFeedback Component",
       "keywords": "accept add adding allows altered angular api application argument attribute automatically behaviour cf1 changeorigin changes component configurations configured context controller create custom default define definition dependencies dependency depending describe description details development directive directives email encore encore-service-pillar encore-ui-svcs encorefeedback encoreui endinject endpoint ensure false feature features feedback field function gathers generator gulp host html http https include initialized inject injected integration internal js label latest list logic mailing managed manually module myapplication ngresource ngroute object on-submit open override overriding overview parameter perform placeholder points port prism product product-specific production project prompt protocol proxy purposes r46 rackcdn rackspace redirect redirecting request requests routes rxfeedback rxfeedbacksvc script selects sending sends service set setendpoint single specifiable src ssl staging structure submission supports svcs tasks text true type ui update updating user user-submitted version website window"
-    },
-    {
-      "section": "api",
-      "id": "rxFeedback.controller:rxFeedbackController",
-      "shortName": "rxFeedbackController",
-      "type": "controller",
-      "moduleName": "rxFeedback",
-      "shortDescription": "Allows the customization of the feedback modal via $scope and $modalInstance.",
-      "keywords": "$modalinstance $scope allows api controller customization feedback modal rxfeedback"
     },
     {
       "section": "api",
@@ -1143,7 +1197,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxModalAction",
       "shortDescription": "rxModalAction Component",
-      "keywords": "angular-ui api blank bootstrap build buttons component content dependency directive directives form github going hook included inside io link modal module open operations overview perform rxmodalaction rxmodalfooter rxmodalfootertemplates rxmodalform service services submit tie title webpage window"
+      "keywords": "angular-ui api blank bootstrap build buttons component content dependency directive directives form github going hook included inside io link modal module open operations overview perform rxmodalaction rxmodalfooter rxmodalform submit tie title webpage window"
     },
     {
       "section": "api",
@@ -1171,15 +1225,6 @@ NG_DOCS={
       "moduleName": "rxModalAction",
       "shortDescription": "Responsible for creating the HTML necessary for modal form",
       "keywords": "api autofocus button cancel common creating cursor default defaults directive element firsttabbable focus form format forms helpful html input inside is-loading keyboard mechanism modal modals move providing responsible return rxmodalaction spinner submit submit-text subtitle tabbable text title true window"
-    },
-    {
-      "section": "api",
-      "id": "rxModalAction.service:rxModalFooterTemplates",
-      "shortName": "rxModalFooterTemplates",
-      "type": "service",
-      "moduleName": "rxModalAction",
-      "shortDescription": "A cache for storing the modal footer templates",
-      "keywords": "add api body cache calling direct dom flush footer html inserted internally modal preferred registering returns rxmodalaction rxmodalfooter rxmodalfootertemplates service step1 storing string templates"
     },
     {
       "section": "api",
@@ -1288,15 +1333,6 @@ NG_DOCS={
       "moduleName": "rxPaginate",
       "shortDescription": "Directive that takes in the page tracking object and outputs a page",
       "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error fails filter getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based watch"
-    },
-    {
-      "section": "api",
-      "id": "rxPaginate.filter:PaginatedItemsSummary",
-      "shortName": "PaginatedItemsSummary",
-      "type": "filter",
-      "moduleName": "rxPaginate",
-      "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
-      "keywords": "active api createinstance displayed displaying filter instance items list numbers pager pagetracking result return rxpaginate second service string"
     },
     {
       "section": "api",
@@ -1423,33 +1459,6 @@ NG_DOCS={
       "moduleName": "rxSpinner",
       "shortDescription": "Renders a spinner animation on the provided element given the &#39;toggle&#39; attribute is truthy",
       "keywords": "adds animation api attribute class color controls default depicting directive display element extra extra-large large mini options provided renders rxspinner size small spinner toggle true truthy"
-    },
-    {
-      "section": "api",
-      "id": "rxStatus",
-      "shortName": "rxStatus",
-      "type": "overview",
-      "moduleName": "rxStatus",
-      "shortDescription": "rxStatus Component",
-      "keywords": "api component manages notifications overview rxnotify rxstatus service services status statusutil"
-    },
-    {
-      "section": "api",
-      "id": "rxStatus.service:Status",
-      "shortName": "Status",
-      "type": "service",
-      "moduleName": "rxStatus",
-      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
-      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify rxstatus screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
-    },
-    {
-      "section": "api",
-      "id": "rxStatus.service:StatusUtil",
-      "shortName": "StatusUtil",
-      "type": "service",
-      "moduleName": "rxStatus",
-      "shortDescription": "Manipulates references to needed $scope input for proper notification functionality",
-      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates needed notification proper references rxstatus scope service set setscope setutil status"
     },
     {
       "section": "api",

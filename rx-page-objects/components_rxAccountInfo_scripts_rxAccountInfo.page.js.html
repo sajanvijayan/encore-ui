@@ -11,6 +11,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
 </head>
 
 <body>
@@ -26,21 +27,21 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/*jshint node:true*/
-var Page = require('astrolabe').Page;
+            <pre class="prettyprint source linenums"><code>var Page = require('astrolabe').Page;
 
 /**
-   The specific information about a single badge.
-   Returned from {@link rxAccountInfo.badge}
-   @namespace rxAccountInfo.badge.badge
+ * @description Properties around a single badge, or a collection of badges.
+ * Can be accessed via functions in {@link rxAccountInfo#badge}
+ * @namespace rxAccountInfo.badge
  */
 var badge = function (rootElement) {
     return Page.create({
 
         /**
-           A link to the image source for the badge.
-           @memberof rxAccountInfo.badge.badge
-           @returns {String} The attribute under `ng-src` for the badge.
+         * @instance
+         * @description The attribute under `ng-src` for a single badge.
+         * @memberof rxAccountInfo.badge
+         * @type {String}
          */
         src: {
             get: function () {
@@ -49,9 +50,10 @@ var badge = function (rootElement) {
         },
 
         /**
-           Will get the `data-name` attribute from the badge.
-           @memberof rxAccountInfo.badge.badge
-           @returns {String} The name of the badge.
+         * @instance
+         * @description The `data-name` attribute from a single badge.
+         * @memberof rxAccountInfo.badge
+         * @type {String}
          */
         name: {
             get: function () {
@@ -60,9 +62,10 @@ var badge = function (rootElement) {
         },
 
         /**
-           Will get the `data-description` attribute from the badge.
-           @memberof rxAccountInfo.badge.badge
-           @returns {String} The description of the badge.
+         * @instance
+         * @description Will get the `data-description` attribute from a single badge.
+         * @memberof rxAccountInfo.badge
+         * @type {String}
          */
         description: {
             get: function () {
@@ -74,7 +77,7 @@ var badge = function (rootElement) {
 };
 
 /**
-   @namespace
+   @namespace rxAccountInfo
  */
 var rxAccountInfo = {
 
@@ -91,8 +94,10 @@ var rxAccountInfo = {
     },
 
     /**
-       @function
-       @returns {Boolean} Whether the root element is currently displayed.
+     * @function
+     * @instance
+     * @description Whether or not the account info element is displayed.
+     * @returns {Boolean}
      */
     isDisplayed: {
         value: function () {
@@ -101,7 +106,9 @@ var rxAccountInfo = {
     },
 
     /**
-       @returns {String} The name of the account.
+     * @instance
+     * @description The name of the account.
+     * @type {String}
      */
     name: {
         get: function () {
@@ -110,7 +117,9 @@ var rxAccountInfo = {
     },
 
     /**
-       @returns {String} The account number.
+     * @instance
+     * @description The account number.
+     * @type {String}
      */
     number: {
         get: function () {
@@ -119,7 +128,9 @@ var rxAccountInfo = {
     },
 
     /**
-       @returns {String} The account access policy.
+     * @instance
+     * @description The account access policy.
+     * @type {String}
      */
     accessPolicy: {
         get: function () {
@@ -128,9 +139,9 @@ var rxAccountInfo = {
     },
 
     /**
-       The resulting status is lowercased so that it is easy to use with
-       &lt;a href="#encore.module_rxAccountInfo.statuses">encore.rxAccountInfo.statuses&lt;/a>.
-       @returns {String} The account status, to lower case.
+     * @description The resulting status is lowercased so that it is easy to use with {@link rxAccountInfo.statuses}.
+     * @instance
+     * @type {String}
      */
     status: {
         get: function () {
@@ -141,10 +152,10 @@ var rxAccountInfo = {
     },
 
     /**
-       Parses a class name from the DOM to determine what the status of the account is.
-       Designed to be easily compared with
-       &lt;a href="#encore.module_rxAccountInfo.statusTypes">encore.rxAccountInfo.statusTypes&lt;/a>.
-       @returns {String} The status type of the account.
+     * @description Parses a class name from the DOM to determine what the status of the account is.
+     * Designed to be easily compared with {@link rxAccountInfo.statusTypes}.
+     * @instance
+     * @type {String}
      */
     statusType: {
         get: function () {
@@ -156,7 +167,9 @@ var rxAccountInfo = {
     },
 
     /**
-       @namespace rxAccountInfo.badge
+     * @description Methods for interacting with a collection of badges.
+     * @see rxAccountInfo.badge
+     * @instance
      */
     badge: {
         get: function () {
@@ -164,10 +177,11 @@ var rxAccountInfo = {
             return Page.create({
 
                 /**
-                   @function
-                   @param {Number} index - The badge to return at position `index`.
-                   @memberof rxAccountInfo.badge
-                   @returns {rxAccountInfo.badge.badge} A single badge object at position `index`.
+                 * @function
+                 * @instance
+                 * @param {Number} index - The badge to return at position `index`.
+                 * @memberof rxAccountInfo.badge
+                 * @returns {rxAccountInfo.badge} A single badge object at position `index`.
                  */
                 byIndex: {
                     value: function (index) {
@@ -176,10 +190,12 @@ var rxAccountInfo = {
                 },
 
                 /**
-                   @function
-                   @param {String} badgeName - The name of the badge to check if present.
-                   @memberof rxAccountInfo.badge
-                   @returns {Boolean} Whether or not the badge `badgeName` is present.
+                 * @function
+                 * @instance
+                 * @description Whether or not the badge `badgeName` is present.
+                 * @param {String} badgeName - The name of the badge to check if present.
+                 * @memberof rxAccountInfo.badge
+                 * @returns {Boolean}
                  */
                 exists: {
                     value: function (badgeName) {
@@ -188,11 +204,16 @@ var rxAccountInfo = {
                 },
 
                 /**
-                   Accepts a string for a fast, exact match only. Matches on the `img[data-name]` attribute.
-                   @function
-                   @memberof rxAccountInfo.badge
-                   @param {String} badgeName - Badge name to match against.
-                   @returns {rxAccountInfo.badge.badge} A single badge objects by name `badgeName`.
+                 * @function
+                 * @instance
+                 * @description A single badge object by name `badgeName`.
+                 * Accepts a string for a fast, exact match only. Matches on the `img[data-name]` attribute.
+                 * @memberof rxAccountInfo.badge
+                 * @param {String} badgeName - Badge name to match against.
+                 * @returns {rxAccountInfo.badge}
+                 * @example
+                 * var badge = encore.rxAccountInfo.initialize().badge.byName('Super Support');
+                 * expect(badge.name).to.eventually.equal('Super Support');
                  */
                 byName: {
                     value: function (badgeName) {
@@ -201,8 +222,13 @@ var rxAccountInfo = {
                 },
 
                 /**
-                   @memberof rxAccountInfo.badge
-                   @returns {String[]} All badge names.
+                 * @memberof rxAccountInfo.badge
+                 * @description All badge names.
+                 * @instance
+                 * @type {String[]}
+                 * @example
+                 * var names = encore.rxAccountInfo.initialize().badge.names;
+                 * expect(names).to.eventually.equal(['Super Support', 'Never Say Die SLA']);
                  */
                 names: {
                     get: function () {
@@ -213,8 +239,11 @@ var rxAccountInfo = {
                 },
 
                 /**
-                   @function
-                   @returns {Number} The total number of badges for the account.
+                 * @function
+                 * @instance
+                 * @description The total number of badges for the account.
+                 * @memberof rxAccountInfo.badge
+                 * @returns {Number}
                  */
                 count: {
                     value: function () {
@@ -249,17 +278,21 @@ var rxAccountInfo = {
 
 };
 
-/**
-   @exports encore.rxAccountInfo
- */
 exports.rxAccountInfo = {
 
     /**
-       @function
-       @param {WebElement} rxAccountInfoElement - WebElement to be transformed into an rxAccountInfoElement object
-       @returns {rxAccountInfo} Page object representing the rxAccountInfo object.
+     * @function
+     * @memberof rxAccountInfo
+     * @description Creates a page object from an `rx-account-info` DOM element.
+     * @param {ElementFinder} [rxAccountInfoElement=$('rx-account-info')] -
+     * ElementFinder to be transformed into an {@link rxAccountInfo} object.
+     * @returns {rxAccountInfo}
      */
     initialize: function (rxAccountInfoElement) {
+        if (rxAccountInfoElement === undefined) {
+            rxAccountInfoElement = $('rx-account-info');
+        }
+
         rxAccountInfo.rootElement = {
             get: function () { return rxAccountInfoElement; }
         };
@@ -267,7 +300,11 @@ exports.rxAccountInfo = {
     },
 
     /**
-       @returns {rxAccountInfo} Page object representing the _first_ rxAccountInfo object found on the page.
+     * @memberof rxAccountInfo
+     * @deprecated
+     * @description Page object representing the first {@link rxAccountInfo} object found on the page.
+     * DEPRECATED: Use {@link rxAccountInfo.initialize} (without arguments) instead.
+     * @returns {rxAccountInfo}
      */
     main: (function () {
         rxAccountInfo.rootElement = {
@@ -277,12 +314,21 @@ exports.rxAccountInfo = {
     })(),
 
     /**
-       @constant
-       @returns {Object} Lookup of account statuses from status text. Used for comparisons in tests.
-       @example
-       ```js
-       expect(encore.rxAccountInfo.main.status).to.eventually.equal(encore.rxAccountInfo.statuses.delinquent);
-       ```
+     * @description Lookup of account statuses from status text. Used for comparisons in tests.
+     * @memberof rxAccountInfo
+     * @type {Object}
+     * @property {String} statuses.approvalDenied - 'approval denied'
+     * @property {String} statuses.aupViolation - 'aup violation'
+     * @property {String} statuses.delinquent - 'delinquent'
+     * @property {String} statuses.pendingApproval - 'pending approval'
+     * @property {String} statuses.pendingMigration - 'pending migration'
+     * @property {String} statuses.suspended - 'suspended'
+     * @property {String} statuses.terminated - 'terminated'
+     * @property {String} statuses.testStatus - 'teststatus'
+     * @property {String} statuses.unverified - 'unverified'
+     * @example
+     * var accountInfo = encore.rxAccountInfo.initialize();
+     * expect(accountInfo.status).to.eventually.equal(accountInfo.statuses.delinquent);
      */
     statuses: {
         approvalDenied: 'approval denied',
@@ -297,12 +343,15 @@ exports.rxAccountInfo = {
     },
 
     /**
-       @constant
-       @returns {Object} Lookup of status types from a human-readable class name. Used for comparisons in tests.
-       @example
-       ```js
-       expect(encore.rxAccountInfo.main.statusType).to.eventually.equal(encore.rxAccountInfo.statusTypes.warning);
-       ```
+     * @description Lookup of status types from a human-readable class name. Used for comparisons in tests.
+     * @memberof rxAccountInfo
+     * @type {Object}
+     * @property {String} active - 'active'
+     * @property {String} info - 'info'
+     * @property {String} warning - 'warn'
+     * @example
+     * var accountInfo = encore.rxAccountInfo.initialize();
+     * expect(accountInfo.statusType).to.eventually.equal(accountInfo.statusTypes.warning);
      */
     statusTypes: {
         active: 'active',
@@ -321,13 +370,13 @@ exports.rxAccountInfo = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.exercise.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.exercise.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.exercise.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.exercise.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.exercise.module_rxFieldName.html">rxFieldName</a></li><li><a href="encore.exercise.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.exercise.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.exercise.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.exercise.module_rxPaginate.html">rxPaginate</a></li><li><a href="encore.exercise.module_rxRadio.html">rxRadio</a></li><li><a href="encore.exercise.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.exercise.module_rxSelect.html">rxSelect</a></li><li><a href="encore.exercise.module_rxTags.html">rxTags</a></li><li><a href="encore.exercise.module_rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="encore.module_rxAccountInfo.html">rxAccountInfo</a></li><li><a href="encore.module_rxActionMenu.html">rxActionMenu</a></li><li><a href="encore.module_rxBulkSelect.html">rxBulkSelect</a></li><li><a href="encore.module_rxCharacterCount.html">rxCharacterCount</a></li><li><a href="encore.module_rxCheckbox.html">rxCheckbox</a></li><li><a href="encore.module_rxCollapse.html">rxCollapse</a></li><li><a href="encore.module_rxDatePicker.html">rxDatePicker</a></li><li><a href="encore.module_rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="encore.module_rxForm.html">rxForm</a></li><li><a href="encore.module_rxMetadata.html">rxMetadata</a></li><li><a href="encore.module_rxModalAction.html">rxModalAction</a></li><li><a href="encore.module_rxMultiSelect.html">rxMultiSelect</a></li><li><a href="encore.module_rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="encore.module_rxOptionTable.html">rxOptionTable</a></li><li><a href="encore.module_rxRadio.html">rxRadio</a></li><li><a href="encore.module_rxSearchBox.html">rxSearchBox</a></li><li><a href="encore.module_rxSelect.html">rxSelect</a></li><li><a href="encore.module_rxSelectFilter.html">rxSelectFilter</a></li><li><a href="encore.module_rxSortableColumn.html">rxSortableColumn</a></li><li><a href="encore.module_rxStatusColumn.html">rxStatusColumn</a></li><li><a href="encore.module_rxTags.html">rxTags</a></li><li><a href="encore.module_rxToggleSwitch.html">rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="encore.module_rxForm.checkbox.html">checkbox</a></li><li><a href="encore.module_rxForm.dropdown.html">dropdown</a></li><li><a href="encore.module_rxForm.fieldName.html">fieldName</a></li><li><a href="encore.module_rxForm.radioButton.html">radioButton</a></li><li><a href="encore.module_rxForm.textField.html">textField</a></li><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">badge</a></li><li><a href="rxAccountInfo.badge.badge.html">badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">action</a></li><li><a href="rxActionMenu.action.action.html">action</a></li><li><a href="rxBulkSelectDefaultRowFn.html">rxBulkSelectDefaultRowFn</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxMultiSelect.option.html">option</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">row</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">option</a></li><li><a href="rxSelect.option.option.html">option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tag.html">tag</a></li></ul><h3>Global</h3><ul><li><a href="global.html#count">count</a></li><li><a href="global.html#currentSortDirection">currentSortDirection</a></li><li><a href="global.html#isOptionSelected">isOptionSelected</a></li><li><a href="global.html#rowNumberFromCell">rowNumberFromCell</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
-<br class="clear">
+<br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 10 2016 16:45:44 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:07:12 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>
