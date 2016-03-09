@@ -1,3 +1,23 @@
+<p><a name="1.46.0-0"></a></p>
+<h4  id="14600-20160309">1.46.0-0 (2016-03-09)</h4><h5  id="bug-fixes">Bug Fixes</h5><ul>
+<li><strong>less:</strong> apply lesshinting (<a href="git@github.com:rackerlabs/encore-ui/commit/a64cf6c195d264b120208474d46076e5f3afabd3">a64cf6c1</a>)</li>
+<li><strong>package:</strong> use SPDX licence expression (<a href="git@github.com:rackerlabs/encore-ui/commit/f90ba931e31ce83264f240c284785174d6941d20">f90ba931</a>)</li>
+<li><strong>rxAccountInfoBanner:</strong> apply null data pattern (<a href="git@github.com:rackerlabs/encore-ui/commit/4942729a3dda48d2417c22d72b60bcfbbc0c0e91">4942729a</a>)</li>
+<li><strong>rxApp:</strong> Drop all user id display and logout display (<a href="git@github.com:rackerlabs/encore-ui/commit/d4c00c3527779fb621d0a0b7b5b0df9abfbfd120">d4c00c35</a>)</li>
+<li><strong>rxSearchbox:</strong> FRMW-714 support undefined and null value (<a href="git@github.com:rackerlabs/encore-ui/commit/41398da0afc2bc3db712735d5e3f9b94d84651bd">41398da0</a>)</li>
+</ul>
+<h5  id="features">Features</h5><ul>
+<li><strong>rxTimePicker:</strong> add rxTimePicker molecule (<a href="git@github.com:rackerlabs/encore-ui/commit/1052967dadf716eb51002e79d0586fde4d11e532">1052967d</a>)</li>
+</ul>
+<h5  id="breaking-changes">Breaking Changes</h5><ul>
+<li>Anyone who is checking the rxApp page objects for the userId
+property will have their tests fail. This isn&#39;t a huge deal because part of the
+update to the new version of the framework will make those tests irrelevent. Just
+delete all tests exercising logout functionality and checking the currently logged
+in user from your end to end test suite to successfully migrate to the newest
+version of rx-page-objects.
+(<a href="git@github.com:rackerlabs/encore-ui/commit/d4c00c3527779fb621d0a0b7b5b0df9abfbfd120">d4c00c35</a>)</li>
+</ul>
 <p><a name="1.45.2"></a></p>
 <h4  id="1452-20160217">1.45.2 (2016-02-17)</h4><p><a name="1.45.2-0"></a></p>
 <h4  id="14520-20160217">1.45.2-0 (2016-02-17)</h4><h5  id="bug-fixes">Bug Fixes</h5><ul>

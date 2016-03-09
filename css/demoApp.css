@@ -32,7 +32,7 @@ pre code {
   width: 275px;
   margin: 10px;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: #ffffff;
   border: 1px solid #dededd;
   padding: 0;
   box-shadow: 0 3px 5px -2px #898989;
@@ -56,35 +56,35 @@ pre code {
 }
 .swatch .swatch-green {
   background-color: #24b56a;
-  color: #fff;
+  color: #ffffff;
 }
 .swatch .swatch-light-green {
   background-color: #c8e5bf;
-  color: #000;
+  color: #000000;
 }
 .swatch .swatch-blue {
   background-color: #4881c0;
-  color: #fff;
+  color: #ffffff;
 }
 .swatch .swatch-light-blue {
   background-color: #86cafd;
-  color: #000;
+  color: #000000;
 }
 .swatch .swatch-disabled-gray {
   background-color: #dededd;
-  color: #000;
+  color: #000000;
 }
 .swatch .swatch-cancel-gray {
   background-color: #898989;
-  color: #fff;
+  color: #ffffff;
 }
 .swatch .swatch-orange {
   background-color: #db7820;
-  color: #fff;
+  color: #ffffff;
 }
 .swatch .swatch-red {
   background-color: #fc0f1d;
-  color: #fff;
+  color: #ffffff;
 }
 .palette {
   width: 350px;
@@ -256,8 +256,8 @@ rx-example h6:first-of-type {
 }
 /* TODO: (deprecated) remove with last of components */
 .module-description {
-  border: 1px solid #aaa;
-  background: #fff;
+  border: 1px solid #aaaaaa;
+  background: #ffffff;
   padding: 10px;
   margin-bottom: 2em;
 }
@@ -271,12 +271,12 @@ rx-example h6:first-of-type {
 }
 .module-description h1 {
   font-size: 1.6em;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #333333;
   margin-top: 1.2em;
 }
 .module-description h2 {
   font-size: 1.4em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #cccccc;
   margin-top: 0.5em;
 }
 .module-description h3 {
@@ -286,7 +286,7 @@ rx-example h6:first-of-type {
 .module-description h4 {
   font-size: 1.1em;
   font-weight: bold;
-  color: #777;
+  color: #777777;
 }
 .module-description ul li,
 .module-description ol li {

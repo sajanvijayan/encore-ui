@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line7">line 7</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -147,7 +147,7 @@ Add to this list yourself or create a new one in this namespace for your applica
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line110">line 110</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -236,7 +236,7 @@ it('should return null for the user email preferences', function () {
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -259,7 +259,7 @@ it('should return null for the user email preferences', function () {
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -310,7 +310,7 @@ it('should return null for the user email preferences', function () {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line269">line 269</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line291">line 291</a>
     </li></ul></dd>
     
 
@@ -417,7 +417,7 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -440,7 +440,7 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -491,7 +491,7 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line252">line 252</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line274">line 274</a>
     </li></ul></dd>
     
 
@@ -658,7 +658,7 @@ NOTE: AngularJS representation of negative currency changes in
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line46">line 46</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -815,7 +815,7 @@ if you need many different timing metrics. If no parameter is used, all timing m
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line191">line 191</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line213">line 213</a>
     </li></ul></dd>
     
 
@@ -874,6 +874,174 @@ if you need many different timing metrics. If no parameter is used, all timing m
     <pre class="prettyprint"><code>it('should have loaded the page in less than two seconds', function () {
     expect(encore.rxMisc.getPerformanceMetrics('loadTime')).to.eventually.be.under(2000);
 });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".negate"><span class="type-signature">(static) </span>negate<span class="signature">(value)</span><span class="type-signature"> &rarr; {*}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Utility function to negate a value in a <code>.then</code> callback using shorthand.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The value to toggle. Runs the <code>!</code> operator on the value.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line113">line 113</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Whatever happens when you run <code>!value</code> on <code>value</code>. Use with caution!</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">*</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var myPage = {
+    someComponent: {
+        isOpen: function () {
+            return $('.opened-component').isPresent();
+        },
+
+        isClosed: function () {
+            return this.isOpen().then(encore.rxMisc.negate);
+        }
+    }
+};</code></pre>
 
 
 
@@ -987,7 +1155,7 @@ a date's text to create a valid date object if you are following the styleguide.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line92">line 92</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -1167,7 +1335,7 @@ the element with the smallest Y coordinate will be scrolled to.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line228">line 228</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line250">line 250</a>
     </li></ul></dd>
     
 
@@ -1272,7 +1440,7 @@ in other browsers.</p>
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -1282,7 +1450,7 @@ in other browsers.</p>
 
             
 
-            <td class="description last"><p>Web element to &quot;slow click&quot;.</p></td>
+            <td class="description last"><p>Element to &quot;slow click&quot;.</p></td>
         </tr>
 
     
@@ -1323,7 +1491,7 @@ in other browsers.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line25">line 25</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -1423,7 +1591,7 @@ This is useful when applications feature use of <code>ng-if</code> to control va
             <td class="type">
             
                 
-<span class="param-type">WebElement</span>
+<span class="param-type">ElementFinder</span>
 
 
             
@@ -1445,7 +1613,7 @@ This is useful when applications feature use of <code>ng-if</code> to control va
                 </td>
             
 
-            <td class="description last"><p>The web element that may or may not be present, or displayed, or valid.</p></td>
+            <td class="description last"><p>The ElementFinder that may or may not be present, or displayed, or valid.</p></td>
         </tr>
 
     
@@ -1523,7 +1691,7 @@ This is useful when applications feature use of <code>ng-if</code> to control va
                 </td>
             
 
-            <td class="description last"><p>Returned if the web element is not present, or not displayed, or invalid.</p></td>
+            <td class="description last"><p>Returned if the ElementFinder is not present, or not displayed, or invalid.</p></td>
         </tr>
 
     
@@ -1564,7 +1732,7 @@ This is useful when applications feature use of <code>ng-if</code> to control va
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line153">line 153</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line175">line 175</a>
     </li></ul></dd>
     
 
@@ -1637,13 +1805,13 @@ onPrepare: function () {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="encore.module_rxDatePicker.html">encore.rxDatePicker</a></li><li><a href="encore.module_rxDiskSize.html">encore.rxDiskSize</a></li><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Feb 17 2016 17:10:59 GMT-0600 (CST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 09 2016 16:51:01 GMT-0600 (CST)
 </footer>
 
 <script> prettyPrint(); </script>

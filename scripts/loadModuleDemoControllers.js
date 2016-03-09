@@ -6,6 +6,36 @@
 
 
 
+angular.module('demoApp')
+.controller('rxButtonDisableCtrl', function ($scope, $timeout) {
+    $scope.status = {
+        loading: false,
+        disable: true
+    };
+
+    $scope.login = function () {
+        $scope.status.loading = true;
+
+        $timeout(function () {
+            $scope.status.loading = false;
+        }, 4000);
+    };//login()
+});
+
+angular.module('demoApp')
+.controller('rxButtonSimpleCtrl', function ($scope, $timeout) {
+    $scope.isLoading = false;
+
+    $scope.login = function () {
+        $scope.isLoading = true;
+
+        $timeout(function () {
+            $scope.isLoading = false;
+        }, 4000);
+    };//login()
+});
+
+
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxCheckboxCtrl', function ($scope) {
@@ -266,7 +296,11 @@ angular.module('demoApp')
 
 /*jshint unused:false*/
 angular.module('demoApp')
-.controller('rxAppCtrl', function ($scope, $location, $rootScope, $window, encoreRoutes, rxVisibility) {
+.controller('rxAppCtrl', function ($scope, $location, $rootScope, $window, encoreRoutes, rxVisibility, Session) {
+    Session.getUserId = function () {
+        return 'bert3000';
+    };
+
     $scope.subtitle = 'With a subtitle';
 
     $scope.changeSubtitle = function () {
@@ -478,24 +512,6 @@ angular.module('demoApp')
     };
 
     $scope.cancel = $modalInstance.dismiss;
-});
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxButtonCtrl', function ($scope, $timeout) {
-    $scope.status = {
-        loading: false,
-        disable: true
-    };
-
-    $scope.login = function () {
-        $scope.status.loading = true;
-
-        $timeout(function () {
-            $scope.status.loading = false;
-        }, 4000);
-    };
 });
 
 
@@ -1433,6 +1449,22 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('rxTimePickerCtrl', function ($scope) {
+    $scope.enabledValid = '06:00-06:00';
+    $scope.disabledValid = '20:00+08:00';
+
+    $scope.enabledInvalid = '17:45+05:00';
+    $scope.disabledInvalid = '05:15+00:00';
+});
+
+angular.module('demoApp')
+.controller('rxTimePickerSimpleCtrl', function ($scope) {
+    $scope.emptyValue = '';
+    $scope.predefinedValue = '22:10-10:00';
+});
+
+
+angular.module('demoApp')
 .controller('ApplySimpleCtrl', function ($scope, SelectFilter) {
     $scope.filter = SelectFilter.create({
         properties: ['account', 'status'],
@@ -1569,6 +1601,8 @@ angular.module('demoApp')
         $scope.notify = undefined;
     };
 });
+
+
 
 
 
@@ -1861,6 +1895,8 @@ angular.module('demoApp')
     rxStatusMappings.addAPI('fooApi', { 'DELETING': 'PENDING' });
     rxStatusMappings.mapToPending('SomeApiSpecificStatus', 'fooApi');
 });
+
+
 
 
 

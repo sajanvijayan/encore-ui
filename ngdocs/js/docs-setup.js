@@ -14,6 +14,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "atoms.directive:rxButton",
+      "shortName": "rxButton",
+      "type": "directive",
+      "moduleName": "atoms",
+      "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
+      "keywords": "api applied atoms attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
+    },
+    {
+      "section": "api",
       "id": "atoms.directive:rxCheckbox",
       "shortName": "rxCheckbox",
       "type": "directive",
@@ -64,7 +73,16 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "molecules",
       "shortDescription": "Basic date picker.",
-      "keywords": "api basic compose conjunction datetime designed directive evaluates expression format formate generate iso iso8601 mentioned molecule molecules ngmodel notice picker portion returns standard string valid yyyy-mm-dd"
+      "keywords": "api basic compose conjunction datetime designed directive evaluates expression format generate iso mentioned molecule molecules ngmodel notice picker portion returns standard string valid yyyy-mm-dd"
+    },
+    {
+      "section": "api",
+      "id": "molecules.directive:rxTimePicker",
+      "shortName": "rxTimePicker",
+      "type": "directive",
+      "moduleName": "molecules",
+      "shortDescription": "Time Picker",
+      "keywords": "api atoms compose conjunction constant datetime designed directive evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion quarks returns service standard string time valid"
     },
     {
       "section": "api",
@@ -83,6 +101,15 @@ NG_DOCS={
       "moduleName": "quarks",
       "shortDescription": "Provides the feedback URL.",
       "keywords": "api constant feedback parameters quarks url"
+    },
+    {
+      "section": "api",
+      "id": "quarks.constant:UtcOffsets",
+      "shortName": "UtcOffsets",
+      "type": "parameters",
+      "moduleName": "quarks",
+      "shortDescription": "List of known UTC Offset Values",
+      "keywords": "api constant https list offset org parameters quarks utc values wikipedia"
     },
     {
       "section": "api",
@@ -509,6 +536,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "quarks.service:rxTimePickerUtil",
+      "shortName": "rxTimePickerUtil",
+      "type": "service",
+      "moduleName": "quarks",
+      "shortDescription": "Utility service used by rxTimePicker.",
+      "keywords": "api appropriate data directive fetch form format formatting function hh hour logic mask match method minutes model modelformat modeltoobject molecules object offset parse parsed parseutcoffset period picker populate property quarks rxtimepicker service string stringvalue time utc utility values view viewformat"
+    },
+    {
+      "section": "api",
       "id": "quarks.service:rxVisibility",
       "shortName": "rxVisibility",
       "type": "service",
@@ -878,24 +914,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxButton",
-      "shortName": "rxButton",
-      "type": "overview",
-      "moduleName": "rxButton",
-      "shortDescription": "rxButton Component",
-      "keywords": "api attribute button buttons classes component create directive directives documented dynamically-displayed elements framework indicator loading multiple overview passed replacement rxbutton scenarios styleguide styles styling"
-    },
-    {
-      "section": "api",
-      "id": "rxButton.directive:rxButton",
-      "shortName": "rxButton",
-      "type": "directive",
-      "moduleName": "rxButton",
-      "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
-      "keywords": "api applied attribute attributes behavior button call class classes clicked complete controlled default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed false handler instance loading loadingmsg matter message messages modified modify names ng-click ng-disabled normal operation passed process progress provided re-enable renders replaces rxbutton set text toggle toggle-msg toggled true variable"
-    },
-    {
-      "section": "api",
       "id": "rxCharacterCount",
       "shortName": "rxCharacterCount",
       "type": "overview",
@@ -1008,7 +1026,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxForm",
       "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component components conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
+      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
     },
     {
       "section": "api",
@@ -1084,6 +1102,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "rxForm.directive:rxInfix",
+      "shortName": "rxInfix",
+      "type": "directive",
+      "moduleName": "rxForm",
+      "shortDescription": "Structural element directive used to wrap content to be placed",
+      "keywords": "api block content control day directive element form hours html inline minutes number rx-form rxform rxinput rxprefix rxsuffix structural type wide wrap"
+    },
+    {
+      "section": "api",
       "id": "rxForm.directive:rxInlineError",
       "shortName": "rxInlineError",
       "type": "directive",
@@ -1107,7 +1134,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxForm",
       "shortDescription": "Structural element directive used to wrap content to be placed",
-      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinput rxsuffix structural type wide wrap"
+      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinfix rxinput rxsuffix structural type wide wrap"
     },
     {
       "section": "api",
@@ -1116,7 +1143,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxForm",
       "shortDescription": "Structural element directive used to wrap content to be placed",
-      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinput rxprefix structural type wide wrap"
+      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinfix rxinput rxprefix structural type wide wrap"
     },
     {
       "section": "api",
