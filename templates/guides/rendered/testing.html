@@ -56,13 +56,13 @@ INFO - Started org.openqa.jetty.jetty.Server@401363ff
 </code></pre><h4  id="convenience-page-objects">Convenience Page Objects</h4><p>In order to help developers more easily test their own apps/projects, each EncoreUI component should provide a page object file for itself. This file will provide convenience methods for the tester to use when writing midway tests for their app.</p>
 <p>The filename for these page objects follows the <code>componentName.page.js</code> convention, and will automatically be generated if you create a new EncoreUI component with the <a href="#/guides/ui-setup#component-scaffolding">Component Scaffolding</a></p>
 <p>On a build of EncoreUI, all page object files are concatenated and tarballed into the <code>dist</code> directory. They are then published either manually or via Travis. To use these page objects, developers should include the following dependency in their app&#39;s <code>package.json</code> file:</p>
-<pre><code>&quot;rx-page-objects&quot;: &quot;rx-page-objects-1.46.0.tgz&quot;
+<pre><code>&quot;rx-page-objects&quot;: &quot;rx-page-objects-1.46.1-0.tgz&quot;
 </code></pre><p>Alternatively, they can install the file using this command:</p>
 <pre><code>npm install --save-dev rx-page-objects@1.7.1
 </code></pre><p>Once installed, the page objects can be pulled in to any midway test via:</p>
 <pre><code class="lang-js">var someEncoreUIComponent = require(&#39;rx-page-objects&#39;).someEncoreUIComponent;
 // ...
-expect(someEncoreUIComponent.main.rootElement.isDisplayed()).to.eventually.be.true;
+expect(someEncoreUIComponent.initialize($(&#39;.my-component&#39;)).isDisplayed()).to.eventually.be.true;
 </code></pre>
 <p>Alternatively, you could place this helper library in the global scope of all tests. This is the recommended way. In your project&#39;s protractor config file, add this to your <code>onPrepare</code> section.</p>
 <pre><code class="lang-js">onPrepare: function () {
@@ -118,7 +118,12 @@ describe(&#39;Home Page&#39;, function () {
 <p>Each <code>it()</code> block describes an individual visual regression test. <code>screenshot.snap()</code> is used to grab an area of the screen, and compare it to the current visual baseline, checking for changes. Any detected change will cause a visual diff to be created, with a link to it automatically added to the PR.</p>
 <p>Here&#39;s an example of a basic visual regression test for a single component.</p>
 <pre><code class="lang-js">// utils/visual-regression/components/rxComponent.midway.js
-var rxComponent = exports.rxComponent;
+
+var myPage = {
+    get myComponent() {
+        return encore.rxComponent.initialize($(&#39;.my-component&#39;));
+    }
+};
 
 describe(&#39;demo component&#39;, function () {
 
@@ -132,9 +137,9 @@ describe(&#39;demo component&#39;, function () {
     });
 
     it(&#39;interactive&#39;, function () {
-        rxComponent.main.interactWith(); // trigger some click that expands something
+        myPage.myComponent.interactWith(); // trigger some click that expands something
         // this will capture the component in its current &quot;interacted&quot; state
-        screenshot.snap(this, rxComponent.main.rootElement));
+        screenshot.snap(this, myPage.myComponent.rootElement);
     });
 
 });

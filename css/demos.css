@@ -10,8 +10,8 @@
 .rxMultiSelect-demo .multi-select-container {
   width: 200px;
 }
-.rxMultiSelect-demo .status-filter .rxSelect {
-  width: 180px;
+.rxMultiSelect-demo table {
+  table-layout: fixed;
 }
 .rxSearchBox-demo .wide-search-box {
   width: 100%;

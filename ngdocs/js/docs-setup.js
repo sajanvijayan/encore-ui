@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "atoms",
       "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building directive elements overview quarks rxcheckbox rxfavicon ui"
+      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox rxfavicon ui utilities"
     },
     {
       "section": "api",
@@ -41,6 +41,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements",
+      "shortName": "elements",
+      "type": "overview",
+      "moduleName": "elements",
+      "shortDescription": "Elements",
+      "keywords": "api directives elements overview utilities visual"
+    },
+    {
+      "section": "api",
       "id": "layout",
       "shortName": "layout",
       "type": "overview",
@@ -64,7 +73,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "molecules",
       "shortDescription": "Molecules",
-      "keywords": "api atoms complex directive directives elements molecules overview quarks rxdatepicker"
+      "keywords": "api atoms complex directive directives elements molecules overview rxdatepicker rxtimepicker utilities"
     },
     {
       "section": "api",
@@ -82,574 +91,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "molecules",
       "shortDescription": "Time Picker",
-      "keywords": "api atoms compose conjunction constant datetime designed directive evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion quarks returns service standard string time valid"
-    },
-    {
-      "section": "api",
-      "id": "quarks",
-      "shortName": "quarks",
-      "type": "overview",
-      "moduleName": "quarks",
-      "shortDescription": "Quarks",
-      "keywords": "api atoms constant constants controller controllers devicepaths elements encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters hotkeys identity molecules non-visual notifyproperties object overview pagetracking paginate paginateditemssummary permission quarks routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil support titleize tokeninterceptor unauthorizedinterceptor urlutils values xor"
-    },
-    {
-      "section": "api",
-      "id": "quarks.constant:feedbackApi",
-      "shortName": "feedbackApi",
-      "type": "parameters",
-      "moduleName": "quarks",
-      "shortDescription": "Provides the feedback URL.",
-      "keywords": "api constant feedback parameters quarks url"
-    },
-    {
-      "section": "api",
-      "id": "quarks.constant:UtcOffsets",
-      "shortName": "UtcOffsets",
-      "type": "parameters",
-      "moduleName": "quarks",
-      "shortDescription": "List of known UTC Offset Values",
-      "keywords": "api constant https list offset org parameters quarks utc values wikipedia"
-    },
-    {
-      "section": "api",
-      "id": "quarks.controller:rxBulkSelectController",
-      "shortName": "rxBulkSelectController",
-      "type": "controller",
-      "moduleName": "quarks",
-      "shortDescription": "Provides controller logic for rxBulkSelect.",
-      "keywords": "api controller logic quarks rxbulkselect"
-    },
-    {
-      "section": "api",
-      "id": "quarks.controller:rxFeedbackController",
-      "shortName": "rxFeedbackController",
-      "type": "controller",
-      "moduleName": "quarks",
-      "shortDescription": "Allows the customization of the feedback modal via $scope and $modalInstance.",
-      "keywords": "$modalinstance $scope allows api controller customization feedback modal quarks"
-    },
-    {
-      "section": "api",
-      "id": "quarks.controller:rxModalCtrl",
-      "shortName": "rxModalCtrl",
-      "type": "controller",
-      "moduleName": "quarks",
-      "shortDescription": "Provides a controller for rxModalAction to use.",
-      "keywords": "api controller quarks rxmodalaction"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:Apply",
-      "shortName": "Apply",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
-      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat quarks selectfilter service"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:Page",
-      "shortName": "Page",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
-      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination quarks service"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:Paginate",
-      "shortName": "Paginate",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "This is the pagination filter that is used to calculate the division in the",
-      "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging quarks service sliced"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:PaginatedItemsSummary",
-      "shortName": "PaginatedItemsSummary",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
-      "keywords": "active api createinstance displayed displaying filter instance items list numbers pager pagetracking quarks result return second service string"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxAge",
-      "shortName": "rxAge",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Several filters are available to parse dates.",
-      "keywords": "abbreviated allow amounts api argument aug combine component dates days default digit digits display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes mulitple multiple ng-controller number parse pass provided quarks representation requires rxage rxagectrl second sep sun third thu true truncates tue units usage word"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxCapitalize",
-      "shortName": "rxCapitalize",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "The rxCapitalize filter capitalizes the first word in a string via an Angular filter.",
-      "keywords": "angular api capitalizes filter quarks rxcapitalize string word"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxDiskSize",
-      "shortName": "rxDiskSize",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Converts GB disk size into a more readable format (e.g. GBs, TBs, PBs)",
-      "keywords": "api converts disk filter format gb gbs pb pbs quarks readable size tb tbs"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxEnvironmentMatch",
-      "shortName": "rxEnvironmentMatch",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Checks if current environment matches target environment",
-      "keywords": "api checks current environment false filter matches production quarks returns rxenvironmentmatch target true"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxEnvironmentUrl",
-      "shortName": "rxEnvironmentUrl",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Builds a URL based on current environment.",
-      "keywords": "api based builds cbs cloudatlas current encore environment filter isn note object passed path quarks rackspace renders return rxenvironmenturl simply staging tld url"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxSortEmptyTop",
-      "shortName": "rxSortEmptyTop",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Filter that moves rows with an empty predicate to the top of the column in",
-      "keywords": "adam api ascending bottom column descending empty emptysort filter firstname moves null nullsort order predicate quarks rows rxsortemptytop sort top var"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:rxUnsafeRemoveHTML",
-      "shortName": "rxUnsafeRemoveHTML",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Given a string, it removes all HTML tags from the string, using the",
-      "keywords": "answer api browser cleaned content details engine filter html htmlstring http inside parsing quarks remove removes stackoverflow string tags text"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:titleize",
-      "shortName": "titleize",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
-      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js quarks result simple simple_string string stripping title titleize titleized underscores version"
-    },
-    {
-      "section": "api",
-      "id": "quarks.filter:xor",
-      "shortName": "xor",
-      "type": "filter",
-      "moduleName": "quarks",
-      "shortDescription": "Returns the exclusive or of two arrays.",
-      "keywords": "api array arrays elements excluded exclusive filter input quarks returns second unique"
-    },
-    {
-      "section": "api",
-      "id": "quarks.object:rxStatusColumnIcons",
-      "shortName": "rxStatusColumnIcons",
-      "type": "object",
-      "moduleName": "quarks",
-      "shortDescription": "Mapping of internal statuses to FontAwesome icons.",
-      "keywords": "api defined fontawesome icons internal map mapping names object quarks rxstatuscolumn statuses"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Auth",
-      "shortName": "Auth",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
-      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise quarks re-use returns role roles service services session smaller solution stored stores storetoken successcallback token true ui user valid wrapper"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:encoreRoutes",
-      "shortName": "encoreRoutes",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Creates a shared instance of AppRoutes that is used for the Encore App nav.",
-      "keywords": "allows api app approutes apps creates encore encoreroutes fetchroutes instance method nav quarks rxapproutes service shared updates"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Environment",
-      "shortName": "Environment",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
-      "keywords": "add adding additional allows api application based basegithuburl build current defining demo didn encore environment environments example friendly ghpages github https io local location matched matches object path pattern preprod properties quarks rackspace regex retrieving return rxenvironmenturl service string takes three url urls"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:ErrorFormatter",
-      "shortName": "ErrorFormatter",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Provides a helper method to parse error objects for message and format them",
-      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing quarks referenceerror replace replacement replacements result second service seterror specialized status string template user variable variables"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:hotkeys",
-      "shortName": "hotkeys",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "hotkeys",
-      "keywords": "account actions allows angular angular-hotkeys api app apps avoid best browsers choosing chosen collapse combination config conflicts consider controller creates ctrl currently define defined defining deletes description design difficult directive encore encoreui end-users example find github global good guidance guide help helper hotkeys identified identify identifying integration io isn key keybinding keystroke keystrokes leaving letter letters library list ll long main menu modifier mousetrap multiple official operating pattern plugin practice presses provide provided quark quarks reference route rxapp selected service set shortcut shortcuts simple simply single solution specific standard systems user views ways window"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Identity",
-      "shortName": "Identity",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "This is a component designed to aid interaction with Rackspace&#39;s Identity API.",
-      "keywords": "$resource aid api component designed errorcallback identity interaction login loginwithjson password promise quarks rackspace returns service successcallback"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:LocalStorage",
-      "shortName": "LocalStorage",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "NOTICE: This service has be deprecated in favor of the ",
-      "keywords": "api deprecated favor quarks rxlocalstorage service"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:NotifyProperties",
-      "shortName": "NotifyProperties",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
-      "keywords": "_numselected abstracting allowing api call called calling change changes child complete control controller directive directives element example exposed factory function functionality integer live ll method modified notification notificationfunction notifications notified notifyproperties numselected oldvalue parent plain properties property quarks register registered registerfornumselected registers registrationfn require scope service set sets stats track user"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:PageTracking",
-      "shortName": "PageTracking",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
-      "keywords": "api conjunction createinstance data display items itemsperpage objects pagetracking pagination quarks service store tables true"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Permission",
-      "shortName": "Permission",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Simple service for accessing roles and permissions for a user.",
-      "keywords": "_every_ _one_ accessing api array associated check checks exact false fetch format getroles hasallroles hasrole list method permission permissions quarks role roles service session simple tied token true user"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:routesCdnPath",
-      "shortName": "routesCdnPath",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "routesCdnPath is configured as a .provider. This is to allow users to override the URL used when in a",
-      "keywords": "allow api app automatically case config configuration configured customurl depending documenting encore-ui-nav environment example file find folder framework hascustomurl intended js json live local main mynav null override people point provider pull quarks reason repository requests routescdnpath routescdnpathprovider service set stuff submitting test true url users versions"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxAppRoutes",
-      "shortName": "rxAppRoutes",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Manages page routes, building urls and marking them as active on route change.",
-      "keywords": "active api building change manages marking quarks route routes service urls"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxAutoSave",
-      "shortName": "rxAutoSave",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A factory that controllers can use to help automatically save and load",
-      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided quarks receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users val values var variable visits watch watched won write"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxBreadcrumbsSvc",
-      "shortName": "rxBreadcrumbsSvc",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
-      "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path quarks relative reuse rxbreadcrumbssvc second service sethome takes url"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxBulkSelectUtils",
-      "shortName": "rxBulkSelectUtils",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Selects or deselects all visible rows. Support function for rxBulkSelect.",
-      "keywords": "api deselects function quarks rows rxbulkselect selects service support visible"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxDOMHelper",
-      "shortName": "rxDOMHelper",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A small set of functions to provide some functionality",
-      "keywords": "angularjs api arguments dom-related element elements functionality functions isn jquery-lite methods org provide quarks service set small wrapped"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxFeedbackSvc",
-      "shortName": "rxFeedbackSvc",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "rxFeedbackSvc service supports rxFeedback directive functionality.  A custom endpoint may be set to override",
-      "keywords": "api custom default directive endpoint functionality override quarks rxfeedback rxfeedbacksvc service set supports"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxFormUtils",
-      "shortName": "rxFormUtils",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Set of utility functions used by rxForm to access form data.",
-      "keywords": "access api data fieldid form functions getselectedoptionfortable getselectedoptionfortabset option quarks returns rowid rxform rxformoptiontable selected service set tableid tabset tabsetid utility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxHideIfUkAccount",
-      "shortName": "rxHideIfUkAccount",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Check if account number in the URL is of UK origin.",
-      "keywords": "account api check false matches number origin pattern quarks rxhideifukaccount service uk url visibility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxLocalStorage",
-      "shortName": "rxLocalStorage",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A simple wrapper for injecting the global variable localStorage",
-      "keywords": "$document $window angular api batman browser clear functions getitem getobject global helper hero html https includes injecting key local localstorage object objects org provided quarks removeitem return returns robin rxlocalstorage service services setitem setobject setting simple spec specification storage storing values variable w3c whatwg works wrapper"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxModalFooterTemplates",
-      "shortName": "rxModalFooterTemplates",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A cache for storing the modal footer templates",
-      "keywords": "add api body cache calling direct dom flush footer html inserted internally modal preferred quarks registering returns rxmodalfooter rxmodalfootertemplates service step1 storing string templates"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxNestedElement",
-      "shortName": "rxNestedElement",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Helper function to aid in the creation of boilerplate DDO definitions",
-      "keywords": "aid angular api boilerplate child childelement creation custom ddo default defined definition definitions directive element elements function helper merge module myapp nested nestedelement object options opts parent parentelement quarks required return rxnestedelement service validate"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxNotify",
-      "shortName": "rxNotify",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Manages page messages for an application.",
-      "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property quarks queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user values warning watch work"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxPageTitle",
-      "shortName": "rxPageTitle",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "rxPageTitle service manages page titles.",
-      "keywords": "alert api arbitrary caveats correctly danger html js listed manages methods note null onerror pass passed quarks raw result rxpagetitle second service sets setting settitle settitleunsafestriphtml simply source src string stripped strips tags title titles trusted valid"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxPaginateUtils",
-      "shortName": "rxPaginateUtils",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A few utilities to calculate first, last, and number of items.",
-      "keywords": "api calculate items number quarks service utilities"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxPromiseNotifications",
-      "shortName": "rxPromiseNotifications",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Manages displaying messages for a promise.",
-      "keywords": "_failure_ _success_ action add api attach call common created deferred depending display displaying error html loading manages message messages method msgs pattern promise quarks rejection requested requests resolve result rxpromisenotifications service showing stack success successful unresolved"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxScreenshotSvc",
-      "shortName": "rxScreenshotSvc",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Captures a screenshot for rxFeedback submission form.",
-      "keywords": "api captures default encoreui form framework quarks required rxfeedback rxscreenshotsvc screenshot service submission"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxSortUtil",
-      "shortName": "rxSortUtil",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Service which provided utility methods for sorting collections.",
-      "keywords": "api based collection collections default getdefault methods object predicate provided quarks returns rxsortutil service sort sortcol sorting sorts utility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxStatusMappings",
-      "shortName": "rxStatusMappings",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A set of methods for creating mappings between a product&#39;s notion",
-      "keywords": "_could_ accommodate active addapi addglobal advantage angular api apiname apis argument array attribute based basic blocked call calls chance check code constant convert create creating cumbersome declare define defined defines defining directive easily eliminates encoreui equivalent error errors example factory failed failure fall find foo forced framework full function getinternalmapping globally group grouped help identifiers includes individual info instances intended internal leaving list map mapped mapping mappings maptoactive maptodisabled maptoerror maptoinfo maptopending maptowarning method methods misassigning misspelling mistyping notion object optional pair parameter pass passed physically product provide provided quarks receives registered repetition required return returns room rules running rx-status-column rxstatusmappings second separately service set shorter shutdown single specific standby status statuses statusstring stopping string sufficient suspended takes template three transformation type utility values warning"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxStatusTags",
-      "shortName": "rxStatusTags",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "This provider is primarily used for applications to specify custom status",
-      "keywords": "api applications attributes breadcrumb config custom framework gettag hastag methods needed objects provider quarks rarely rx-page service status tags time"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxTimePickerUtil",
-      "shortName": "rxTimePickerUtil",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Utility service used by rxTimePicker.",
-      "keywords": "api appropriate data directive fetch form format formatting function hh hour logic mask match method minutes model modelformat modeltoobject molecules object offset parse parsed parseutcoffset period picker populate property quarks rxtimepicker service string stringvalue time utc utility values view viewformat"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxVisibility",
-      "shortName": "rxVisibility",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Provides an interface for adding new visibility methods for nav menus.  Methods added via addMethod should ",
-      "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed quarks second service somemethodname visibility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:rxVisibilityPathParams",
-      "shortName": "rxVisibilityPathParams",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Returns an object with name and method params that can",
-      "keywords": "addmethod api check current default js l22 menu method nav object param params passed quarks register returns route routescdnpath rxpathparams service someparamname username visibility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:SelectFilter",
-      "shortName": "SelectFilter",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
-      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public quarks relying requirement selected selectfilter server-side service single source stated strict subsets three time tracks var watched year"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Session",
-      "shortName": "Session",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Service for managing user session in encore-ui.",
-      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing quarks returns service session stored stores storetoken token true user valid"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:SessionStorage",
-      "shortName": "SessionStorage",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
-      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided quarks removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing values variable w3 w3c works wrapper"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:Status",
-      "shortName": "Status",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
-      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing quarks questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:StatusUtil",
-      "shortName": "StatusUtil",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Manipulates required references to $scope input for proper notification functionality.",
-      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates notification proper quarks references required scope service set setscope status"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:TokenInterceptor",
-      "shortName": "TokenInterceptor",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Simple $http injector which will intercept http request and inject the",
-      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push quarks rackspace request rxsession service simple token tokeninterceptor ui"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:UnauthorizedInterceptor",
-      "shortName": "UnauthorizedInterceptor",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
-      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push quarks redirects response responses returned service simple ui unauthorizedinterceptor"
-    },
-    {
-      "section": "api",
-      "id": "quarks.service:urlUtils",
-      "shortName": "urlUtils",
-      "type": "service",
-      "moduleName": "quarks",
-      "shortDescription": "Set of utility functions to break apart/compare URLs.",
-      "keywords": "apart api break functions quarks service set urls utility"
-    },
-    {
-      "section": "api",
-      "id": "quarks.value:devicePaths",
-      "shortName": "devicePaths",
-      "type": "parameters",
-      "moduleName": "quarks",
-      "shortDescription": "Provides configuration for device paths.",
-      "keywords": "api configuration device parameters paths quarks"
-    },
-    {
-      "section": "api",
-      "id": "quarks.value:feedbackTypes",
-      "shortName": "feedbackTypes",
-      "type": "parameters",
-      "moduleName": "quarks",
-      "shortDescription": "Provides default feedback types with placeholder text. ",
-      "keywords": "api default feedback parameters placeholder quarks text types"
+      "keywords": "api atoms compose conjunction constant datetime designed directive evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion returns service standard string time utilities valid"
     },
     {
       "section": "api",
@@ -712,7 +154,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxApp",
       "shortDescription": "rxApp Component",
-      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property quarks re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxpage rxstatustag rxticketsearch scope separate service set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage view views wrap"
+      "keywords": "$root $rootscope $route ability access accessing account-level action add api app apps attribute base based breadcrumbs browsers building builds built changed check childvisibility classes common component consistent content control controller create creating css current custom data default defined defines demo details directive directives docs don dynamically encore encorenav encoreui entirely example exposed file font fonts function github gl google googleapis help helpful helps href html https include included includes including inside io items layout left-hand level linktext ll loaded main menu menus myapp mykey myupdatedroute navigation ng-app ng-view options overview params pass path point pretty properties property re-using reference rel resource responsible roboto route routes rules runtime rx-app rx-page rxaccountsearch rxaccountusers rxapp rxappnav rxappnavitem rxapproutes rxappsearch rxatlassearch rxbillingsearch rxpage rxstatustag rxticketsearch scope separate service set setroutebykey setting simple simpler source specific starting styles stylesheet styling text titles tool type update updating usage utilities view views wrap"
     },
     {
       "section": "api",
@@ -847,7 +289,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxBreadcrumbs",
       "shortDescription": "Responsible for drawing the breadcrumbs for a page",
-      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing inside leverages marked method passed precedence quarks receive responsible rxapp rxbreadcrumbs rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag"
+      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing inside leverages marked method passed precedence receive responsible rxapp rxbreadcrumbs rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag utilities"
     },
     {
       "section": "api",
@@ -981,7 +423,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxEnvironment",
       "shortDescription": "Show or hide content based on environment name",
-      "keywords": "api based content directive environment hide prod quarks rx-if-environment rxenvironment service staging unified-preprod"
+      "keywords": "api based content directive environment hide prod rx-if-environment rxenvironment service staging unified-preprod utilities"
     },
     {
       "section": "api",
@@ -1016,7 +458,7 @@ NG_DOCS={
       "shortName": "rxFloatingHeader",
       "type": "directive",
       "moduleName": "rxFloatingHeader",
-      "shortDescription": "rxFloatingHeader is an attribute directive that turns a tableheader into a floating persistent header so that names ",
+      "shortDescription": "rxFloatingHeader is an attribute directive that turns a tableheader into a floating persistent header so that names",
       "keywords": "add api attribute based colspan columns common compatible directive directly displayed element example filter floating fully header http inside items match names ng-model number pattern persistent place placing products restrict rx-floating-header rx-placeholder rxfloatingheader rxpaginate rxsortablecolumn scrolls searchtext set support table tableheader top turns user visible"
     },
     {
@@ -1215,7 +657,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMisc",
       "shortDescription": "rxMisc Component",
-      "keywords": "api component components deprecation marked overview quarks refactored rxmisc"
+      "keywords": "api component components deprecation marked overview refactored rxmisc utilities"
     },
     {
       "section": "api",
@@ -1260,7 +702,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxMultiSelect",
       "shortDescription": "rxMultiSelect Component",
-      "keywords": "api apis applicable checkboxes component components directive directives dropdown header issue links multi-select multiple option overview provided replacement rxmultiselect rxselectoption service services space table"
+      "keywords": "api checkboxes component directive directives dropdown header issue multi-select multiple option overview replacement rxmultiselect rxselectoption space table"
     },
     {
       "section": "api",
@@ -1278,7 +720,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxMultiSelect",
       "shortDescription": "A single option for use within rxMultiSelect.",
-      "keywords": "api attribute content defaults directive disabled element label option provided rxmultiselect single text titleized transcluded version"
+      "keywords": "api atoms attribute content defaults directive disabled element label option provided rxmultiselect single text titleized transcluded version"
     },
     {
       "section": "api",
@@ -1287,7 +729,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxNotify",
       "shortDescription": "rxNotify Component",
-      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview quarks queue recommend reference required rxnotification rxnotifications rxnotify service situations stack status styling supported true type username var variable views warning window"
+      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview queue recommend reference required rxnotification rxnotifications rxnotify service situations stack status styling supported true type username utilities var variable views warning window"
     },
     {
       "section": "api",
@@ -1341,7 +783,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxPaginate",
       "shortDescription": "rxPaginate Component",
-      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull quarks re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
+      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based api-paginated apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes button buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated compoent component controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete demo descending described details determine direction directive directives directly display don draw dropdowns dynamic element ensure entered enters entire equates error error-message errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially instance instances intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching meets messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number object offset option optional options opts orderby overview page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxloadingoverlay rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utilities utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
     },
     {
       "section": "api",
@@ -1368,7 +810,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxPermission",
       "shortDescription": "rxPermission Component",
-      "keywords": "api based checks component content directive directives dom encoreui excluding existing functionality overview perform permission permissions quarks roles rxpermission service user working"
+      "keywords": "api based checks component content directive directives dom encoreui excluding existing functionality overview perform permission permissions roles rxpermission service user utilities working"
     },
     {
       "section": "api",
@@ -1594,6 +1036,573 @@ NG_DOCS={
       "moduleName": "typeahead",
       "shortDescription": "typeahead Component",
       "keywords": "add allowempty angular-ui api attribute bootstrap case component configuration demo demoed dependency docs empty encoreui exact example feature filter filtered focus github gl guidance included input io list options overview parameter plugin receives site styles typeahead usage"
+    },
+    {
+      "section": "api",
+      "id": "utilities",
+      "shortName": "utilities",
+      "type": "overview",
+      "moduleName": "utilities",
+      "shortDescription": "Utilities",
+      "keywords": "api application business constant constants control controller controllers convenience devicepaths directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
+    },
+    {
+      "section": "api",
+      "id": "utilities.constant:feedbackApi",
+      "shortName": "feedbackApi",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "shortDescription": "Provides the feedback URL.",
+      "keywords": "api constant feedback parameters url utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.constant:UtcOffsets",
+      "shortName": "UtcOffsets",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "shortDescription": "List of known UTC Offset Values",
+      "keywords": "api constant https list offset org parameters utc utilities values wikipedia"
+    },
+    {
+      "section": "api",
+      "id": "utilities.controller:rxBulkSelectController",
+      "shortName": "rxBulkSelectController",
+      "type": "controller",
+      "moduleName": "utilities",
+      "shortDescription": "Provides controller logic for rxBulkSelect.",
+      "keywords": "api controller logic rxbulkselect utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.controller:rxFeedbackController",
+      "shortName": "rxFeedbackController",
+      "type": "controller",
+      "moduleName": "utilities",
+      "shortDescription": "Allows the customization of the feedback modal via $scope and $modalInstance.",
+      "keywords": "$modalinstance $scope allows api controller customization feedback modal utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.controller:rxModalCtrl",
+      "shortName": "rxModalCtrl",
+      "type": "controller",
+      "moduleName": "utilities",
+      "shortDescription": "Provides a controller for rxModalAction to use.",
+      "keywords": "api controller rxmodalaction utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:Apply",
+      "shortName": "Apply",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
+      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat selectfilter service utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:Page",
+      "shortName": "Page",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
+      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination service utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:Paginate",
+      "shortName": "Paginate",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "This is the pagination filter that is used to calculate the division in the",
+      "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging service sliced utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:PaginatedItemsSummary",
+      "shortName": "PaginatedItemsSummary",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
+      "keywords": "active api createinstance displayed displaying filter instance items list numbers pager pagetracking result return second service string utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxAge",
+      "shortName": "rxAge",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Several filters are available to parse dates.",
+      "keywords": "abbreviated allow amounts api argument aug combine component dates days default digit digits display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes mulitple multiple ng-controller number parse pass provided representation requires rxage rxagectrl second sep sun third thu true truncates tue units usage utilities word"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxCapitalize",
+      "shortName": "rxCapitalize",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "The rxCapitalize filter capitalizes the first word in a string via an Angular filter.",
+      "keywords": "angular api capitalizes filter rxcapitalize string utilities word"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxDiskSize",
+      "shortName": "rxDiskSize",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts GB disk size into a more readable format (e.g. GBs, TBs, PBs)",
+      "keywords": "api converts disk filter format gb gbs pb pbs readable size tb tbs utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxEnvironmentMatch",
+      "shortName": "rxEnvironmentMatch",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Checks if current environment matches target environment",
+      "keywords": "api checks current environment false filter matches production returns rxenvironmentmatch target true utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxEnvironmentUrl",
+      "shortName": "rxEnvironmentUrl",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Builds a URL based on current environment.",
+      "keywords": "api based builds cbs cloudatlas current encore environment filter isn note object passed path rackspace renders return rxenvironmenturl simply staging tld url utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxSortEmptyTop",
+      "shortName": "rxSortEmptyTop",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Filter that moves rows with an empty predicate to the top of the column in",
+      "keywords": "adam api ascending bottom column descending empty emptysort filter firstname moves null nullsort order predicate rows rxsortemptytop sort top utilities var"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxUnsafeRemoveHTML",
+      "shortName": "rxUnsafeRemoveHTML",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Given a string, it removes all HTML tags from the string, using the",
+      "keywords": "answer api browser cleaned content details engine filter html htmlstring http inside parsing remove removes stackoverflow string tags text utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:titleize",
+      "shortName": "titleize",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
+      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js result simple simple_string string stripping title titleize titleized underscores utilities version"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:xor",
+      "shortName": "xor",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Returns the exclusive or of two arrays.",
+      "keywords": "api array arrays elements excluded exclusive filter input returns second unique utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.object:rxStatusColumnIcons",
+      "shortName": "rxStatusColumnIcons",
+      "type": "object",
+      "moduleName": "utilities",
+      "shortDescription": "Mapping of internal statuses to FontAwesome icons.",
+      "keywords": "api defined fontawesome icons internal map mapping names object rxstatuscolumn statuses utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Auth",
+      "shortName": "Auth",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
+      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise re-use returns role roles service services session smaller solution stored stores storetoken successcallback token true ui user utilities valid wrapper"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:encoreRoutes",
+      "shortName": "encoreRoutes",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Creates a shared instance of AppRoutes that is used for the Encore App nav.",
+      "keywords": "allows api app approutes apps creates encore encoreroutes fetchroutes instance method nav rxapproutes service shared updates utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Environment",
+      "shortName": "Environment",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
+      "keywords": "add adding additional allows api application based basegithuburl build current defining demo didn encore environment environments example friendly ghpages github https io local location matched matches object path pattern preprod properties rackspace regex retrieving return rxenvironmenturl service string takes three url urls utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:ErrorFormatter",
+      "shortName": "ErrorFormatter",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Provides a helper method to parse error objects for message and format them",
+      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing referenceerror replace replacement replacements result second service seterror specialized status string template user utilities variable variables"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:hotkeys",
+      "shortName": "hotkeys",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "hotkeys",
+      "keywords": "account actions allows angular angular-hotkeys api app apps avoid best browsers choosing chosen collapse combination config conflicts consider controller creates ctrl currently define defined defining deletes description design difficult directive encore encoreui end-users example find github global good guidance guide help helper hotkeys identified identify identifying integration io isn key keybinding keystroke keystrokes leaving letter letters library list ll long main menu modifier mousetrap multiple official operating pattern plugin practice presses provide provided reference route rxapp selected service set shortcut shortcuts simple simply single solution specific standard systems user utilities utility views ways window"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Identity",
+      "shortName": "Identity",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This is a component designed to aid interaction with Rackspace&#39;s Identity API.",
+      "keywords": "$resource aid api component designed errorcallback identity interaction login loginwithjson password promise rackspace returns service successcallback utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:LocalStorage",
+      "shortName": "LocalStorage",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "NOTICE: This service has be deprecated in favor of the",
+      "keywords": "api deprecated favor rxlocalstorage service utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:NotifyProperties",
+      "shortName": "NotifyProperties",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
+      "keywords": "_numselected abstracting allowing api call called calling change changes child complete control controller directive directives element example exposed factory function functionality integer live ll method modified notification notificationfunction notifications notified notifyproperties numselected oldvalue parent plain properties property register registered registerfornumselected registers registrationfn require scope service set sets stats track user utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:PageTracking",
+      "shortName": "PageTracking",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
+      "keywords": "api conjunction createinstance data display items itemsperpage objects pagetracking pagination service store tables true utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Permission",
+      "shortName": "Permission",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Simple service for accessing roles and permissions for a user.",
+      "keywords": "_every_ _one_ accessing api array associated check checks exact false fetch format getroles hasallroles hasrole list method permission permissions role roles service session simple tied token true user utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:routesCdnPath",
+      "shortName": "routesCdnPath",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "routesCdnPath is configured as a .provider. This is to allow users to override the URL used when in a",
+      "keywords": "allow api app automatically case config configuration configured customurl depending documenting encore-ui-nav environment example file find folder framework hascustomurl intended js json live local main mynav null override people point provider pull reason repository requests routescdnpath routescdnpathprovider service set stuff submitting test true url users utilities versions"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxAppRoutes",
+      "shortName": "rxAppRoutes",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manages page routes, building urls and marking them as active on route change.",
+      "keywords": "active api building change manages marking route routes service urls utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxAutoSave",
+      "shortName": "rxAutoSave",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A factory that controllers can use to help automatically save and load",
+      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users utilities val values var variable visits watch watched won write"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxBreadcrumbsSvc",
+      "shortName": "rxBreadcrumbsSvc",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "rxBreadcrumbsSvc provides various methods to manipulate breadcrumbs.",
+      "keywords": "api app argument breadcrumb breadcrumbs breadcrumbsservice changed default display don function html manipulate method methods pass path relative reuse rxbreadcrumbssvc second service sethome takes url utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxBulkSelectUtils",
+      "shortName": "rxBulkSelectUtils",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Selects or deselects all visible rows. Support function for rxBulkSelect.",
+      "keywords": "api deselects function rows rxbulkselect selects service support utilities visible"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxDOMHelper",
+      "shortName": "rxDOMHelper",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A small set of functions to provide some functionality",
+      "keywords": "angularjs api arguments dom-related element elements functionality functions isn jquery-lite methods org provide service set small utilities wrapped"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxFeedbackSvc",
+      "shortName": "rxFeedbackSvc",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "rxFeedbackSvc service supports rxFeedback directive functionality.  A custom endpoint may be set to override",
+      "keywords": "api custom default directive endpoint functionality override rxfeedback rxfeedbacksvc service set supports utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxFormUtils",
+      "shortName": "rxFormUtils",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Set of utility functions used by rxForm to access form data.",
+      "keywords": "access api data fieldid form functions getselectedoptionfortable getselectedoptionfortabset option returns rowid rxform rxformoptiontable selected service set tableid tabset tabsetid utilities utility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxHideIfUkAccount",
+      "shortName": "rxHideIfUkAccount",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Check if account number in the URL is of UK origin.",
+      "keywords": "account api check false matches number origin pattern rxhideifukaccount service uk url utilities visibility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxLocalStorage",
+      "shortName": "rxLocalStorage",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A simple wrapper for injecting the global variable localStorage",
+      "keywords": "$document $window angular api batman browser clear functions getitem getobject global helper hero html https includes injecting key local localstorage object objects org provided removeitem return returns robin rxlocalstorage service services setitem setobject setting simple spec specification storage storing utilities values variable w3c whatwg works wrapper"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxModalFooterTemplates",
+      "shortName": "rxModalFooterTemplates",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A cache for storing the modal footer templates",
+      "keywords": "add api body cache calling direct dom flush footer html inserted internally modal preferred registering returns rxmodalfooter rxmodalfootertemplates service step1 storing string templates utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxNestedElement",
+      "shortName": "rxNestedElement",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Helper function to aid in the creation of boilerplate DDO definitions",
+      "keywords": "aid angular api boilerplate child childelement creation custom ddo default defined definition definitions directive element elements function helper merge module myapp nested nestedelement object options opts parent parentelement required return rxnestedelement service utilities validate"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxNotify",
+      "shortName": "rxNotify",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manages page messages for an application.",
+      "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user utilities values warning watch work"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxPageTitle",
+      "shortName": "rxPageTitle",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "rxPageTitle service manages page titles.",
+      "keywords": "alert api arbitrary caveats correctly danger html js listed manages methods note null onerror pass passed raw result rxpagetitle second service sets setting settitle settitleunsafestriphtml simply source src string stripped strips tags title titles trusted utilities valid"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxPaginateUtils",
+      "shortName": "rxPaginateUtils",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A few utilities to calculate first, last, and number of items.",
+      "keywords": "api calculate items number service utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxPromiseNotifications",
+      "shortName": "rxPromiseNotifications",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manages displaying messages for a promise.",
+      "keywords": "_failure_ _success_ action add api attach call common created deferred depending display displaying error html loading manages message messages method msgs pattern promise rejection requested requests resolve result rxpromisenotifications service showing stack success successful unresolved utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxScreenshotSvc",
+      "shortName": "rxScreenshotSvc",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Captures a screenshot for rxFeedback submission form.",
+      "keywords": "api captures default encoreui form framework required rxfeedback rxscreenshotsvc screenshot service submission utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxSortUtil",
+      "shortName": "rxSortUtil",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Service which provided utility methods for sorting collections.",
+      "keywords": "api based collection collections default getdefault methods object predicate provided returns rxsortutil service sort sortcol sorting sorts utilities utility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxStatusMappings",
+      "shortName": "rxStatusMappings",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A set of methods for creating mappings between a product&#39;s notion",
+      "keywords": "_could_ accommodate active addapi addglobal advantage angular api apiname apis argument array attribute based basic blocked call calls chance check code constant convert create creating cumbersome declare define defined defines defining directive easily eliminates encoreui equivalent error errors example factory failed failure fall find foo forced framework full function getinternalmapping globally group grouped help identifiers includes individual info instances intended internal leaving list map mapped mapping mappings maptoactive maptodisabled maptoerror maptoinfo maptopending maptowarning method methods misassigning misspelling mistyping notion object optional pair parameter pass passed physically product provide provided receives registered repetition required return returns room rules running rx-status-column rxstatusmappings second separately service set shorter shutdown single specific standby status statuses statusstring stopping string sufficient suspended takes template three transformation type utilities utility values warning"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxStatusTags",
+      "shortName": "rxStatusTags",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This provider is primarily used for applications to specify custom status",
+      "keywords": "api applications attributes breadcrumb config custom framework gettag hastag methods needed objects provider rarely rx-page service status tags time utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxTimePickerUtil",
+      "shortName": "rxTimePickerUtil",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Utility service used by rxTimePicker.",
+      "keywords": "api appropriate data directive fetch form format formatting function hh hour logic mask match method minutes model modelformat modeltoobject molecules object offset parse parsed parseutcoffset period picker populate property rxtimepicker service string stringvalue time utc utilities utility values view viewformat"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxVisibility",
+      "shortName": "rxVisibility",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Provides an interface for adding new visibility methods for nav menus.  Methods added via addMethod should",
+      "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed second service somemethodname utilities visibility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxVisibilityPathParams",
+      "shortName": "rxVisibilityPathParams",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Returns an object with name and method params that can",
+      "keywords": "addmethod api check current default js l22 menu method nav object param params passed register returns route routescdnpath rxpathparams service someparamname username utilities visibility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:SelectFilter",
+      "shortName": "SelectFilter",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
+      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public relying requirement selected selectfilter server-side service single source stated strict subsets three time tracks utilities var watched year"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Session",
+      "shortName": "Session",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Service for managing user session in encore-ui.",
+      "keywords": "api encore-ui expired gettoken isauthenticated iscurrent logout logs managing returns service session stored stores storetoken token true user utilities valid"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:SessionStorage",
+      "shortName": "SessionStorage",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
+      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing utilities values variable w3 w3c works wrapper"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:Status",
+      "shortName": "Status",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
+      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:StatusUtil",
+      "shortName": "StatusUtil",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manipulates required references to $scope input for proper notification functionality.",
+      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates notification proper references required scope service set setscope status utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:TokenInterceptor",
+      "shortName": "TokenInterceptor",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Simple $http injector which will intercept http request and inject the",
+      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push rackspace request rxsession service simple token tokeninterceptor ui utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:UnauthorizedInterceptor",
+      "shortName": "UnauthorizedInterceptor",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
+      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push redirects response responses returned service simple ui unauthorizedinterceptor utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:urlUtils",
+      "shortName": "urlUtils",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Set of utility functions to break apart/compare URLs.",
+      "keywords": "apart api break functions service set urls utilities utility"
+    },
+    {
+      "section": "api",
+      "id": "utilities.value:devicePaths",
+      "shortName": "devicePaths",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "shortDescription": "Provides configuration for device paths.",
+      "keywords": "api configuration device parameters paths utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.value:feedbackTypes",
+      "shortName": "feedbackTypes",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "shortDescription": "Provides default feedback types with placeholder text.",
+      "keywords": "api default feedback parameters placeholder text types utilities"
     }
   ],
   "apis": {

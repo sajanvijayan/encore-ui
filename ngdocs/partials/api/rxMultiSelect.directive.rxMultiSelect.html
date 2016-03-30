@@ -1,4 +1,4 @@
-<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/components/rxMultiSelect/scripts/rxMultiSelect.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/76bc2ee/src/components/rxMultiSelect/scripts/rxMultiSelect.js#L42" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">rxMultiSelect</code>
+<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/components/rxMultiSelect/scripts/rxMultiSelect.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/7427b71/src/components/rxMultiSelect/scripts/rxMultiSelect.js#L44" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">rxMultiSelect</code>
 <div><span class="hint">directive in module <code ng:non-bindable="">rxMultiSelect</code>
 </span>
 </div>
@@ -12,11 +12,12 @@ The options for the control can be specified by passing an array of strings
 directive, or using <code>&lt;rx-select-option&gt;</code>s. An &#39;All&#39; option is automatically
 set as the first option for the dropdown, which allows all options to be
 toggled at once.</p>
-<p>The following two dropdowns are equivalent.
+<p>The following two dropdowns are equivalent:
 <pre class="prettyprint linenums">
 &lt;!-- $scope.available = [2014, 2015] --&gt;
 &lt;rx-multi-select ng-model="selected" options="available"&gt;&lt;/rx-multi-select&gt;
-
+</pre>
+<pre class="prettyprint linenums">
 &lt;rx-multi-select ng-model="selected"&gt;
   &lt;rx-select-option value="2014"&gt;&lt;/rx-select-option&gt;
   &lt;rx-select-option value="2015"&gt;&lt;/rx-select-option&gt;
@@ -33,6 +34,10 @@ array of the selected options.</p>
 <li>If all items are selected, show &quot;All Selected&quot;.</li>
 </ul>
 </div></div>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/rxMultiSelect.directive:rxSelectOption">rxSelectOption</a></code>
+</li>
+</ul>
 <h2 id="usage">Usage</h2>
 <div class="usage">as element:<pre class="prettyprint linenums">&lt;rx-multi-select
        ng-model="{String}"

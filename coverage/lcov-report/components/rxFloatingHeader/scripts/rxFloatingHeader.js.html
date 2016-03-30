@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">components/rxFloatingHeader/scripts/rxFloatingHeader.js</span></h1>
     <h2>
-        Statements: <span class="metric">87.8% <small>(72 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">88.89% <small>(80 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">60.53% <small>(23 / 38)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">78.95% <small>(15 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">87.8% <small>(72 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">88.89% <small>(80 / 90)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">components/rxFloatingHeader/scripts/</a> &#187; rxFloatingHeader.js</div>
@@ -278,8 +278,7 @@
 251
 252
 253
-254
-255</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+254</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -350,27 +349,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3</span>
@@ -539,21 +537,21 @@
  * @name rxFloatingHeader.directive:rxFloatingHeader
  * @restrict A
  * @description
- * 
- *`rxFloatingHeader` is an attribute directive that turns a tableheader into a floating persistent header so that names 
- * of columns are still visible, even as a user scrolls down the page. This is based off of the example at 
+ *
+ *`rxFloatingHeader` is an attribute directive that turns a tableheader into a floating persistent header so that names
+ * of columns are still visible, even as a user scrolls down the page. This is based off of the example at
  * http://css-tricks.com/persistent-headers/
  *
  * * To use it, add an `rx-floating-header` attribute to a `table` element.
  *
  * * A common pattern in our products is to place an `&lt;input&gt;` filter at the top of the table, to restrict the items
- * that are displayed. We support this as well, by placing the `&lt;input&gt;` directly inside of the `&lt;thead&gt;` in its 
+ * that are displayed. We support this as well, by placing the `&lt;input&gt;` directly inside of the `&lt;thead&gt;` in its
  * own `&lt;tr&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;`.
  *
  * * Make sure you set the `colspan` attribute on the filter's `&lt;th&gt;`, to match the number of columns you have.
  *
  * * `rxFloatingHeader` is also fully compatible with {@link rxSortableColumn} and {@link rxPaginate}.
- * 
+ *
  * @example
  * &lt;pre&gt;
  * &lt;table rx-floating-header&gt;
@@ -603,27 +601,26 @@
 <span class="cstat-no" title="statement not covered" >                        clone.remove();</span>
                     });
                 }
-                state = 'fixed',
-                seenFirstScroll = false,
+                state = 'fixed';
+                seenFirstScroll = false;
 &nbsp;
                 // The original &lt;tr&gt; elements
-                trs = [],
+                trs = [];
 &nbsp;
                 // The original &lt;th&gt; elements
-                ths = [],
+                ths = [];
 &nbsp;
                 // All &lt;th&gt; elements that are the *only* &lt;th&gt; in their row
-                singleThs = [],
+                singleThs = [];
 &nbsp;
                 // The maximum width we could find for a &lt;th&gt;
-                maxThWidth = 0,
+                maxThWidth = 0;
 &nbsp;
                 // Clones of the &lt;tr&gt; elements
-                clones = [],
+                clones = [];
 &nbsp;
                 // any &lt;input&gt; elements in the &lt;thead&gt;
-                inputs = [],
-                maxHeight,
+                inputs = [];
                 header = angular.element(table.find('thead'));
 &nbsp;
                 // Are we currently floating?
@@ -792,7 +789,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 09 2016 16:53:28 GMT-0600 (CST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Mar 30 2016 16:36:16 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>
