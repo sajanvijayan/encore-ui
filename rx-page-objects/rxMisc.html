@@ -177,6 +177,174 @@ it('should return null for the user email preferences', function () {
 
 
         
+            
+<h4 class="name" id=".scrollPosition"><span class="type-signature">(static) </span>scrollPosition<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>The current scroll location, given as an <em>immediate</em> object (not a promise of an object)
+with members <code>x</code>/<code>y</code>, which are coordinates that <em>are</em> returned as promises.</p>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>x</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Promise.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of pixels from the left edge of the current scroll location.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>y</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Promise.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The number of pixels from the upper edge of the current scroll location.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line329">line 329</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY">https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollY</a></li>
+        
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollX">https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollX</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>it('should scroll down a bit', function () {
+    expect(encore.rxMisc.scrollPosition.x).to.eventually.equal(0);
+    expect(encore.rxMisc.scrollPosition.y).to.eventually.equal(0);
+    encore.rxMisc.scrollToElement($('.footer'));
+    expect(encore.rxMisc.scrollPosition.x).to.eventually.equal(0);
+    expect(encore.rxMisc.scrollPosition.y).to.eventually.equal(841);
+});</code></pre>
+
+
+
+        
     
 
     
@@ -237,6 +405,9 @@ it('should return null for the user email preferences', function () {
             
                 
 <span class="param-type">ElementFinder</span>
+|
+
+<span class="param-type">ElementArrayFinder</span>
 
 
             
@@ -260,6 +431,9 @@ it('should return null for the user email preferences', function () {
             
                 
 <span class="param-type">ElementFinder</span>
+|
+
+<span class="param-type">ElementArrayFinder</span>
 
 
             
@@ -310,7 +484,7 @@ it('should return null for the user email preferences', function () {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line291">line 291</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line369">line 369</a>
     </li></ul></dd>
     
 
@@ -418,6 +592,9 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
             
                 
 <span class="param-type">ElementFinder</span>
+|
+
+<span class="param-type">ElementArrayFinder</span>
 
 
             
@@ -441,6 +618,9 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
             
                 
 <span class="param-type">ElementFinder</span>
+|
+
+<span class="param-type">ElementArrayFinder</span>
 
 
             
@@ -491,7 +671,7 @@ expect(encore.rxMisc.compareXLocations(firstThing, lastThing)).to.eventually.be.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line274">line 274</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line352">line 352</a>
     </li></ul></dd>
     
 
@@ -1230,7 +1410,7 @@ endDate: {
 
     
 
-    <h4 class="name" id=".scrollToElement"><span class="type-signature">(static) </span>scrollToElement<span class="signature">(elem)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".scrollToElement"><span class="type-signature">(static) </span>scrollToElement<span class="signature">(elem, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -1263,7 +1443,11 @@ the element with the smallest Y coordinate will be scrolled to.</p>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1291,10 +1475,179 @@ the element with the smallest Y coordinate will be scrolled to.</p>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last"><p>An element, or a list of elements to scroll to.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>The options for scrolling to the element.</p>
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>elementTargetPoint</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    'top'
+                
+                </td>
+            
+
+            <td class="description last"><p>Which point in the element to position when scrolling to it.</p>
+<ul>
+<li><strong>top</strong> : targets the top of the element</li>
+<li><strong>middle</strong> : targets the middle of the element</li>
+<li><strong>bottom</strong> : targets the bottom of the element</li>
+</ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>positionOnScreen</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    'top'
+                
+                </td>
+            
+
+            <td class="description last"><p>Where to place the point in the element on the screen when scrolling to it.</p>
+<ul>
+<li><strong>top</strong>: position the element target point at the top of the screen</li>
+<li><strong>middle</strong> : position the element target point in the middle of the screen</li>
+<li><strong>bottom</strong> : position the element target point at the bottom of the screen</li>
+</ul></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -1335,7 +1688,7 @@ the element with the smallest Y coordinate will be scrolled to.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line250">line 250</a>
+        <a href="components_rxMisc_scripts_rxMisc.page.js.html">components/rxMisc/scripts/rxMisc.page.js</a>, <a href="components_rxMisc_scripts_rxMisc.page.js.html#line269">line 269</a>
     </li></ul></dd>
     
 
@@ -1363,13 +1716,17 @@ the element with the smallest Y coordinate will be scrolled to.</p>
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>var tablePage = {
-    get tblRows() { return element.all(by.repeater('row in rows')); },
+    get tblRows() {
+        return element.all(by.repeater('row in rows'));
+    },
+
     isLoading: function () {
         return $('.infinite-scrolling.loading');
     },
 
     triggerLoad: function () {
-        encore.rxMisc.scrollToElement(this.tblRows.get(-1));
+        // will attempt to put the top of the last row in the middle of the screen
+        encore.rxMisc.scrollToElement(this.tblRows.get(-1), { positionOnScreen: 'middle' });
     }
 };
 
@@ -1811,7 +2168,7 @@ onPrepare: function () {
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Mar 30 2016 16:39:50 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Apr 06 2016 17:52:30 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>

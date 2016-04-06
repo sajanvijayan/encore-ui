@@ -553,18 +553,18 @@ angular.module('demoApp')
 .controller('rxFloatingHeaderCtrl', function ($scope) {
     $scope.searchText = '';
     $scope.data = [
-        { name: 'A', value: 1 },
-        { name: 'B', value: 2 },
-        { name: 'C', value: 3 },
-        { name: 'D', value: 4 },
-        { name: 'E', value: 5 },
         { name: 'First', value: 1 },
+        { name: 'A', value: 2 },
+        { name: 'B', value: 3 },
+        { name: 'C', value: 4 },
+        { name: 'D', value: 5 },
+        { name: 'E', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
+        { name: 'Middle', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
         { name: 'F', value: 1 },
@@ -574,7 +574,7 @@ angular.module('demoApp')
         { name: 'I', value: 4 },
         { name: 'J', value: 5 },
         { name: 'K', value: 1 },
-        { name: 'L', value: 2 },
+        { name: 'Last', value: 2 }
     ];
 
     $scope.clearFilter = function () {
@@ -1417,6 +1417,105 @@ angular.module('demoApp')
         'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Republic of Dawood',
         'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
         'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+});
+
+
+angular.module('demoApp')
+.controller('tableFilteringExampleCtrl', function ($scope) {
+    $scope.people = [
+        { name: 'Patrick Deuley', occupation: 'Design Chaplain' },
+        { name: 'Hussam Dawood', occupation: 'Cat Lover' },
+        { name: 'Kevin Lamping', occupation: 'Framework Father' },
+        { name: 'Glynnis Ritchie', occupation: 'Serif Sheriff' },
+        { name: 'Freddy Knuth', occupation: 'Venezuelan Hurricane' },
+        { name: 'Chris Cantu', occupation: 'Texan Tornado' },
+    ];
+});
+
+angular.module('demoApp')
+.controller('tableFilteringCollapsibleExampleCtrl', function ($scope) {
+    $scope.filter = { region: '' };
+
+    $scope.regions = [
+        { name: 'DFW', city: 'Dallas-Fort Worth' }, { name: 'ORD', city: 'Chicago' },
+        { name: 'IAD', city: 'Northern Virginia' }, { name: 'LON', city: 'London' },
+        { name: 'HKG', city: 'Hong Kong' }, { name: 'SYD', city: 'Sydney' }
+    ];
+
+    $scope.servers = [
+        { name: 'General1-1', ram: '1 GB', cpu: 1, disk: '20GB SSD', region: 'DFW' },
+        { name: 'General1-2', ram: '2 GB', cpu: 2, disk: '40GB SSD', region: 'ORD' },
+        { name: 'General1-4', ram: '4 GB', cpu: 4, disk: '80GB SSD', region: 'IAD' },
+        { name: 'General1-8', ram: '8 GB', cpu: 8, disk: '160GB SSD', region: 'LON' },
+        { name: 'I/O1-15', ram: '15 GB', cpu: 4, disk: '40GB SSD', region: 'HKG' },
+        { name: 'I/O1-30', ram: '30 GB', cpu: 8, disk: '40GB SSD', region: 'SYD' }
+    ];
+});
+
+angular.module('demoApp')
+.controller('tableNestedMetadataExampleCtrl', function ($scope) {
+    $scope.people = [
+        {
+            name: 'Patrick Deuley',
+            occupation: 'Design Chaplain',
+            pet: {
+                name: 'Shelly',
+                animal: 'Turtle',
+                age: 1
+            }
+        },
+        {
+            name: 'Hussam Dawood',
+            occupation: 'Cat Lover',
+            pet: {
+                name: 'Sassy',
+                animal: 'Cat',
+                age: 6
+            }
+        }
+    ];
+});
+
+angular.module('demoApp')
+.controller('tableNestedTableExampleCtrl', function ($scope) {
+    $scope.people = [
+        {
+            name: 'Patrick Deuley',
+            occupation: 'Design Chaplain',
+            pets: [
+                {
+                    name: 'Shelly',
+                    animal: 'Turtle',
+                    age: 1
+                },
+                {
+                    name: 'Spike',
+                    animal: 'Porcupine',
+                    age: 10
+                }
+            ]
+        },
+        {
+            name: 'Hussam Dawood',
+            occupation: 'Cat Lover',
+            pets: [
+                {
+                    name: 'Sassy',
+                    animal: 'Cat',
+                    age: 6
+                }
+            ]
+        }
+    ];
+});
+
+angular.module('demoApp')
+.controller('tablePaginateExampleController', function ($scope, PageTracking) {
+    $scope.pager = PageTracking.createInstance();
+    $scope.people = [
+        { name: 'Patrick Deuley', occupation: 'Design Chaplain' },
+        { name: 'Hussam Dawood', occupation: 'Cat Lover' }
+    ];
 });
 
 
