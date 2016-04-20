@@ -14,15 +14,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "atoms.directive:rxButton",
-      "shortName": "rxButton",
-      "type": "directive",
-      "moduleName": "atoms",
-      "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
-      "keywords": "api applied atoms attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
-    },
-    {
-      "section": "api",
       "id": "atoms.directive:rxCheckbox",
       "shortName": "rxCheckbox",
       "type": "directive",
@@ -46,7 +37,16 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "elements",
       "shortDescription": "Elements",
-      "keywords": "api directives elements overview utilities visual"
+      "keywords": "api directive directives elements overview rxbutton utilities visual"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxButton",
+      "shortName": "rxButton",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
+      "keywords": "api applied attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
     },
     {
       "section": "api",
@@ -82,7 +82,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "molecules",
       "shortDescription": "Basic date picker.",
-      "keywords": "api basic compose conjunction datetime designed directive evaluates expression format generate iso mentioned molecule molecules ngmodel notice picker portion returns standard string valid yyyy-mm-dd"
+      "keywords": "api basic calculated compose conjunction datetime designed directive evaluates expression format generate iso mentioned molecule molecules ngmodel notice picker portion range returns rxdatepicker selected standard string today user valid yyyy-mm-dd"
     },
     {
       "section": "api",
@@ -91,7 +91,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "molecules",
       "shortDescription": "Time Picker",
-      "keywords": "api atoms compose conjunction constant datetime designed directive evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion returns service standard string time utilities valid"
+      "keywords": "api compose conjunction constant datetime designed directive elements evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion returns service standard string time utilities valid"
     },
     {
       "section": "api",
@@ -801,7 +801,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxPaginate",
       "shortDescription": "Directive that takes in the page tracking object and outputs a page",
-      "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error fails filter getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based watch"
+      "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error fails filter getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based utilities watch"
     },
     {
       "section": "api",
@@ -1296,7 +1296,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "This is the data service that can be used in conjunction with the pagination",
-      "keywords": "api conjunction createinstance data display items itemsperpage objects pagetracking pagination service store tables true utilities"
+      "keywords": "$scope allowing alter api appropriate attribute behaviour change choose configuration conjunction controls createinstance customize data default determine directive display displayed encore generate globally inserted instance intended items itemsizelist itemsperpage list method number numbers object objects optional options ot page-tracking pager pagers pagestoshow pagetracking pagination passed persisted persistitemsperpage place rxpaginate service set showall store table tables takes true user utilities values"
     },
     {
       "section": "api",

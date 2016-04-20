@@ -8,36 +8,6 @@
 
 
 
-angular.module('demoApp')
-.controller('rxButtonDisableCtrl', function ($scope, $timeout) {
-    $scope.status = {
-        loading: false,
-        disable: true
-    };
-
-    $scope.login = function () {
-        $scope.status.loading = true;
-
-        $timeout(function () {
-            $scope.status.loading = false;
-        }, 4000);
-    };//login()
-});
-
-angular.module('demoApp')
-.controller('rxButtonSimpleCtrl', function ($scope, $timeout) {
-    $scope.isLoading = false;
-
-    $scope.login = function () {
-        $scope.isLoading = true;
-
-        $timeout(function () {
-            $scope.isLoading = false;
-        }, 4000);
-    };//login()
-});
-
-
 /*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxCheckboxCtrl', function ($scope) {
@@ -406,6 +376,9 @@ angular.module('demoApp')
             }
         ]
     }];
+
+    // Load docs homepage ('Overview')
+    $scope.embedUrl = $location.absUrl().split('#')[0];
 });
 
 
@@ -1417,6 +1390,56 @@ angular.module('demoApp')
         'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Republic of Dawood',
         'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
         'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+});
+
+
+angular.module('demoApp')
+.controller('buttonAnimatedExampleCtrl', function ($scope, $timeout) {
+    $scope.status = {
+        loading: false,
+        disable: false
+    };
+
+    $scope.clickMe = function () {
+        $scope.status.loading = true;
+        $timeout(function () {
+            $scope.status.loading = false;
+        }, 4000);
+    };
+});
+
+angular.module('demoApp')
+.controller('buttonGroupExampleCtrl', function ($scope) {
+    $scope.status = 'off';
+});
+
+angular.module('demoApp')
+.controller('rxButtonDisableCtrl', function ($scope, $timeout) {
+    $scope.status = {
+        loading: false,
+        disable: true
+    };
+
+    $scope.login = function () {
+        $scope.status.loading = true;
+
+        $timeout(function () {
+            $scope.status.loading = false;
+        }, 4000);
+    };//login()
+});
+
+angular.module('demoApp')
+.controller('rxButtonSimpleCtrl', function ($scope, $timeout) {
+    $scope.isLoading = false;
+
+    $scope.login = function () {
+        $scope.isLoading = true;
+
+        $timeout(function () {
+            $scope.isLoading = false;
+        }, 4000);
+    };//login()
 });
 
 

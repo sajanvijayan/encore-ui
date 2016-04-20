@@ -254,28 +254,16 @@ rx-example h5:first-of-type,
 rx-example h6:first-of-type {
   margin-top: 0;
 }
-.permalink {
-  border-bottom: 2px solid transparent;
-  color: inherit;
+rx-permalink .permalink .icon {
+  visibility: hidden;
+  color: #757575;
+}
+rx-permalink .permalink:hover .icon {
+  visibility: visible;
+}
+rx-permalink .permalink:hover .icon:hover {
+  color: #0075de;
   cursor: pointer;
-  position: relative;
-}
-.permalink:before {
-  color: #bdbdbd;
-  content: '#';
-  display: block;
-  padding-right: 3px;
-  position: absolute;
-  right: 100%;
-  top: 0;
-}
-.permalink:hover {
-  border-bottom-color: #424242;
-  color: inherit;
-  text-decoration: none;
-}
-.permalink:hover:before {
-  color: inherit;
 }
 /* TODO: (deprecated) remove with last of components */
 .module-description {
