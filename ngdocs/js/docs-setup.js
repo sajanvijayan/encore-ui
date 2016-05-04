@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "atoms",
       "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox rxfavicon ui utilities"
+      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox ui utilities"
     },
     {
       "section": "api",
@@ -20,15 +20,6 @@ NG_DOCS={
       "moduleName": "atoms",
       "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
       "keywords": "api atoms attribute behave checkbox chkdemo class code complexity control css decendents demo demovalue determines directive directives disabled display element highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
-    },
-    {
-      "section": "api",
-      "id": "atoms.directive:rxFavicon",
-      "shortName": "rxFavicon",
-      "type": "directive",
-      "moduleName": "atoms",
-      "shortDescription": "This updates the href of an element, and replaces it with the path to a different image based on the environment.",
-      "keywords": "api atoms based congifuration defines directive element environment favicon file href icon image local local-favicon object path png rel replaces rx-favicon rxfavicon staging staging-favicon type updates"
     },
     {
       "section": "api",
@@ -1044,7 +1035,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "utilities",
       "shortDescription": "Utilities",
-      "keywords": "api application business constant constants control controller controllers convenience devicepaths directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
+      "keywords": "api application business constant constants control controller controllers convenience devicepaths directive directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfavicon rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
     },
     {
       "section": "api",
@@ -1090,6 +1081,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Provides a controller for rxModalAction to use.",
       "keywords": "api controller rxmodalaction utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.directive:rxFavicon",
+      "shortName": "rxFavicon",
+      "type": "directive",
+      "moduleName": "utilities",
+      "shortDescription": "This updates the href of an element, and replaces it with the path to a different image based on the environment.",
+      "keywords": "api based congifuration defines directive element environment favicon file href icon image local local-favicon object path png rel replaces rx-favicon rxfavicon staging staging-favicon type updates utilities"
     },
     {
       "section": "api",

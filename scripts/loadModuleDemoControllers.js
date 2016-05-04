@@ -39,8 +39,6 @@ angular.module('demoApp')
 });
 
 
-
-
 angular.module('demoApp')
 .controller('layoutController', function ($scope) {
     $scope.layout = 'row';
@@ -1444,6 +1442,57 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('formsAutoSaveExampleController', function ($scope, rxAutoSave) {
+    $scope.forms = { autosave: '' };
+    rxAutoSave($scope, 'forms');
+});
+
+angular.module('demoApp')
+.controller('formsDisabledExamplesCtrl', function ($scope) {
+    $scope.txtDisabled = 'Disabled Text Input';
+    $scope.selDisabled = 'disabled';
+    $scope.radDisabled = 1;
+    $scope.chkDisabledOne = true;
+    $scope.chkDisabledTwo = false;
+    $scope.togDisabledOn = true;
+    $scope.togDisabledOff = false;
+    $scope.txtAreaDisabled = 'Disabled Textarea';
+});
+
+angular.module('demoApp')
+.controller('formsManualSaveExampleController', function ($scope, $timeout, rxNotify) {
+    $scope.saving = false;
+    $scope.save = function () {
+        $scope.saving = true;
+        rxNotify.clear('page');
+        $timeout(function () {
+            $scope.saving = false;
+            $scope.lastSaved = Date.now();
+            rxNotify.add('Data successfully saved!', {
+                type: 'success'
+            });
+        }, 1000);
+    };
+});
+
+angular.module('demoApp')
+.controller('formsInvalidExamplesCtrl', function ($scope) {
+    $scope.txtInvalid = 'Invalid text input';
+    $scope.selInvalid = 'invalid';
+    $scope.radInvalid = 1;
+    $scope.chkInvalidOne = true;
+    $scope.chkInvalidTwo = false;
+    $scope.togInvalidOn = true;
+    $scope.togInvalidOff = false;
+    $scope.txtAreaInvalid = 'Invalid Value';
+});
+
+
+
+
+
+
+angular.module('demoApp')
 .controller('tableFilteringExampleCtrl', function ($scope) {
     $scope.people = [
         { name: 'Patrick Deuley', occupation: 'Design Chaplain' },
@@ -1562,7 +1611,7 @@ angular.module('demoApp')
 
 angular.module('demoApp')
 .controller('rxDatePickerSimpleCtrl', function ($scope) {
-    $scope.dateModel = new Date().toISOString().split('T')[0];
+    $scope.dateModel = moment(new Date()).format('YYYY-MM-DD');
 });
 
 
@@ -1864,6 +1913,8 @@ angular.module('demoApp')
 .controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
+
+
 
 
 
