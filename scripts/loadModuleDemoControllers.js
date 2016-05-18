@@ -4,41 +4,6 @@
 
 
 
-
-
-
-
-/*jshint unused:false*/
-angular.module('demoApp')
-.controller('rxCheckboxCtrl', function ($scope) {
-    $scope.chkValidEnabledOne = true;
-    $scope.chkValidEnabledTwo = false;
-    $scope.chkValidDisabledOne = true;
-    $scope.chkValidDisabledTwo = false;
-    $scope.chkValidNgDisabledOne = true;
-    $scope.chkValidNgDisabledTwo = false;
-
-    $scope.chkInvalidEnabledOne = true;
-    $scope.chkInvalidEnabledTwo = false;
-    $scope.chkInvalidDisabledOne = true;
-    $scope.chkInvalidDisabledTwo = false;
-    $scope.chkInvalidNgDisabledOne = true;
-    $scope.chkInvalidNgDisabledTwo = false;
-});
-
-angular.module('demoApp')
-.controller('rxCheckboxShowHideCtrl', function ($scope) {
-    $scope.amSure = false;
-    $scope.amReallySure = false;
-
-    $scope.$watch('amSure', function (newVal) {
-        if (newVal === false) {
-            $scope.amReallySure = false;
-        }
-    });
-});
-
-
 angular.module('demoApp')
 .controller('layoutController', function ($scope) {
     $scope.layout = 'row';
@@ -222,7 +187,6 @@ angular.module('encore.ui.rxAccountInfo')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxActionMenuCtrl', function ($scope, rxNotify) {
     $scope.add = function () {
@@ -245,7 +209,6 @@ angular.module('demoApp')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxAppCtrl', function ($scope, $location, $rootScope, $window, encoreRoutes, rxVisibility, Session) {
     Session.getUserId = function () {
@@ -380,7 +343,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxAttributesCtrl', function ($scope) {
     $scope.customStyles = 'color: red; font-weight: bold;';
@@ -388,7 +350,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxBreadcrumbsCtrl', function ($scope, rxBreadcrumbsSvc) {
     rxBreadcrumbsSvc.set([{
@@ -400,8 +361,6 @@ angular.module('demoApp')
     }]);
 });
 
-
-/*jshint unused:false*/
 
 // This file is used to help build the 'demo' documentation page and should be updated with example code
 angular.module('demoApp')
@@ -469,7 +428,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxCharacterCountCtrl', function ($scope) {
     $scope.data = {
@@ -485,7 +443,6 @@ angular.module('demoApp')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxCompileCtrl', function ($scope) {
     $scope.world = 'wrrrld';
@@ -493,14 +450,12 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxEnvironmentCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxFeedbackCtrl', function ($scope, rxNotify) {
     $scope.alwaysSucceed = function () {
@@ -519,7 +474,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxFloatingHeaderCtrl', function ($scope) {
     $scope.searchText = '';
@@ -771,7 +725,6 @@ angular.module('encore.ui.rxForm')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxMetadataCtrl', function ($scope) {
     $scope.someDate = new Date('January 6 1989');
@@ -831,7 +784,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxModalActionCtrl', function ($scope, rxNotify) {
     $scope.password = 'guest';
@@ -904,10 +856,9 @@ angular.module('demoApp')
     $scope.invalidEnabled = 'D';
     $scope.invalidDisabled = '';
 
- });
+});
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxNotifyCtrl', function ($rootScope, $scope, $window, rxNotify) {
     $scope.message = 'My message';
@@ -973,7 +924,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxOptionTableCtrl', function ($scope) {
     $scope.radioValue = 0;
@@ -1049,7 +999,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxPaginateCtrl', function ($scope, $q, $timeout, $filter, rxPaginateUtils,
                                         PageTracking, rxSortUtil, SelectFilter) {
@@ -1169,7 +1118,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxRadioCtrl', function ($scope) {
     $scope.validEnabled = 1;
@@ -1192,7 +1140,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxSelectCtrl', function ($scope) {
     $scope.radCreateDestroy = 'destroyed';
@@ -1209,7 +1156,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxSelectFilterCtrl', function ($scope, SelectFilter) {
     $scope.filter = SelectFilter.create({
@@ -1229,12 +1175,9 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
-.controller('rxSortableColumnCtrl', function ($scope, PageTracking, rxSortUtil) {
-    $scope.sort = rxSortUtil.getDefault('name');
+.controller('rxSortableColumnCtrl', function ($scope, rxSortUtil) {
     $scope.sort = rxSortUtil.getDefault('name', false);
-    $scope.pager = PageTracking.createInstance();
 
     $scope.sortCol = function (predicate) {
         return rxSortUtil.sortCol($scope, predicate);
@@ -1268,14 +1211,12 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxSpinnerCtrl', function ($scope) {
     $scope.loading = true;
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxStatusColumnCtrl', function ($scope, rxStatusMappings, rxSortUtil) {
     $scope.servers = [
@@ -1309,7 +1250,6 @@ angular.module('demoApp')
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxTagsCtrl', function ($scope) {
     $scope.tagOptions = [
@@ -1324,7 +1264,6 @@ angular.module('demoApp')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxToggleSwitchCtrl', function ($scope, $timeout, rxNotify) {
     $scope.toggle3 = true;
@@ -1369,16 +1308,12 @@ angular.module('demoApp')
 });
 
 
-
-
-/* jshint unused:false */
 angular.module('demoApp')
 .controller('tooltipsCtrl', function ($scope) {
     $scope.dynamicTooltip = 'I was defined in the controller!';
 });
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('typeaheadCtrl', function ($scope) {
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
@@ -1442,6 +1377,41 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('rxCheckboxCtrl', function ($scope) {
+    $scope.chkValidEnabledOne = true;
+    $scope.chkValidEnabledTwo = false;
+    $scope.chkValidDisabledOne = true;
+    $scope.chkValidDisabledTwo = false;
+    $scope.chkValidNgDisabledOne = true;
+    $scope.chkValidNgDisabledTwo = false;
+
+    $scope.chkInvalidEnabledOne = true;
+    $scope.chkInvalidEnabledTwo = false;
+    $scope.chkInvalidDisabledOne = true;
+    $scope.chkInvalidDisabledTwo = false;
+    $scope.chkInvalidNgDisabledOne = true;
+    $scope.chkInvalidNgDisabledTwo = false;
+});
+
+angular.module('demoApp')
+.controller('rxDatePickerCtrl', function ($scope) {
+    $scope.enabledValid = '2015-12-15';
+    $scope.disabledValid = '2015-12-15';
+
+    $scope.enabledInvalid = '2015-12-15';
+    $scope.disabledInvalid = '2015-12-15';
+});
+
+angular.module('demoApp')
+.controller('rxTimePickerCtrl', function ($scope) {
+    $scope.enabledValid = '06:00-06:00';
+    $scope.disabledValid = '20:00+08:00';
+
+    $scope.enabledInvalid = '17:45+05:00';
+    $scope.disabledInvalid = '05:15+00:00';
+});
+
+angular.module('demoApp')
 .controller('formsAutoSaveExampleController', function ($scope, rxAutoSave) {
     $scope.forms = { autosave: '' };
     rxAutoSave($scope, 'forms');
@@ -1485,6 +1455,36 @@ angular.module('demoApp')
     $scope.togInvalidOn = true;
     $scope.togInvalidOff = false;
     $scope.txtAreaInvalid = 'Invalid Value';
+});
+
+angular.module('demoApp')
+.controller('rxCheckboxShowHideCtrl', function ($scope) {
+    $scope.amSure = false;
+    $scope.amReallySure = false;
+
+    $scope.$watch('amSure', function (newVal) {
+        if (newVal === false) {
+            $scope.amReallySure = false;
+        }
+    });
+});
+
+angular.module('demoApp')
+.controller('rxDatePickerEmptyCtrl', function ($scope) {
+    $scope.emptyDate = '';
+
+    $scope.undefinedDate = undefined;
+});
+
+angular.module('demoApp')
+.controller('rxDatePickerSimpleCtrl', function ($scope) {
+    $scope.dateModel = moment(new Date()).format('YYYY-MM-DD');
+});
+
+angular.module('demoApp')
+.controller('rxTimePickerSimpleCtrl', function ($scope) {
+    $scope.emptyValue = '';
+    $scope.predefinedValue = '22:10-10:00';
 });
 
 
@@ -1593,42 +1593,6 @@ angular.module('demoApp')
 
 
 
-angular.module('demoApp')
-.controller('rxDatePickerCtrl', function ($scope) {
-    $scope.enabledValid = '2015-12-15';
-    $scope.disabledValid = '2015-12-15';
-
-    $scope.enabledInvalid = '2015-12-15';
-    $scope.disabledInvalid = '2015-12-15';
-});
-
-angular.module('demoApp')
-.controller('rxDatePickerEmptyCtrl', function ($scope) {
-    $scope.emptyDate = '';
-
-    $scope.undefinedDate = undefined;
-});
-
-angular.module('demoApp')
-.controller('rxDatePickerSimpleCtrl', function ($scope) {
-    $scope.dateModel = moment(new Date()).format('YYYY-MM-DD');
-});
-
-
-angular.module('demoApp')
-.controller('rxTimePickerCtrl', function ($scope) {
-    $scope.enabledValid = '06:00-06:00';
-    $scope.disabledValid = '20:00+08:00';
-
-    $scope.enabledInvalid = '17:45+05:00';
-    $scope.disabledInvalid = '05:15+00:00';
-});
-
-angular.module('demoApp')
-.controller('rxTimePickerSimpleCtrl', function ($scope) {
-    $scope.emptyValue = '';
-    $scope.predefinedValue = '22:10-10:00';
-});
 
 
 angular.module('demoApp')
@@ -1786,7 +1750,6 @@ angular.module('demoApp')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('hotkeysVolumeCtrl', function ($scope, hotkeys) {
     $scope.volume = 5;
@@ -1816,7 +1779,6 @@ angular.module('demoApp')
 
 
 
-/*jshint unused:false*/
 angular.module('demoApp')
 .controller('rxAgeCtrl', function ($scope) {
     var day = 1000 * 60 * 60 * 24;
@@ -1885,6 +1847,14 @@ angular.module('demoApp')
 
 
 
+
+
+angular.module('demoApp')
+.controller('rxBytesConvertCtrl', function ($scope) {
+    $scope.sizeGB = 42e10; // 420 GB
+    $scope.sizeTB = 125e12; // 125 TB
+    $scope.sizePB = 17134e13; // 171.34 PB
+});
 
 
 angular.module('demoApp')

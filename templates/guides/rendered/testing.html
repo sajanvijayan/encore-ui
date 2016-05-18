@@ -56,7 +56,7 @@ INFO - Started org.openqa.jetty.jetty.Server@401363ff
 </code></pre><h4  id="convenience-page-objects">Convenience Page Objects</h4><p>In order to help developers more easily test their own apps/projects, each EncoreUI component should provide a page object file for itself. This file will provide convenience methods for the tester to use when writing midway tests for their app.</p>
 <p>The filename for these page objects follows the <code>componentName.page.js</code> convention, and will automatically be generated if you create a new EncoreUI component with the <a href="#/guides/ui-setup#component-scaffolding">Component Scaffolding</a></p>
 <p>On a build of EncoreUI, all page object files are concatenated and tarballed into the <code>dist</code> directory. They are then published either manually or via Travis. To use these page objects, developers should include the following dependency in their app&#39;s <code>package.json</code> file:</p>
-<pre><code>&quot;rx-page-objects&quot;: &quot;rx-page-objects-1.47.3.tgz&quot;
+<pre><code>&quot;rx-page-objects&quot;: &quot;rx-page-objects-1.48.0-0.tgz&quot;
 </code></pre><p>Alternatively, they can install the file using this command:</p>
 <pre><code>npm install --save-dev rx-page-objects@1.7.1
 </code></pre><p>Once installed, the page objects can be pulled in to any midway test via:</p>

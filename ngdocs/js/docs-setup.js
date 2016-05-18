@@ -5,30 +5,12 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
-      "id": "atoms",
-      "shortName": "atoms",
-      "type": "overview",
-      "moduleName": "atoms",
-      "shortDescription": "Atoms",
-      "keywords": "api atoms basic blocks building directive elements overview rxcheckbox ui utilities"
-    },
-    {
-      "section": "api",
-      "id": "atoms.directive:rxCheckbox",
-      "shortName": "rxCheckbox",
-      "type": "directive",
-      "moduleName": "atoms",
-      "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
-      "keywords": "api atoms attribute behave checkbox chkdemo class code complexity control css decendents demo demovalue determines directive directives disabled display element highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
-    },
-    {
-      "section": "api",
       "id": "elements",
       "shortName": "elements",
       "type": "overview",
       "moduleName": "elements",
       "shortDescription": "Elements",
-      "keywords": "api directive directives elements overview rxbutton utilities visual"
+      "keywords": "api directive directives elements overview rxbutton rxcheckbox rxtimepicker utilities visual"
     },
     {
       "section": "api",
@@ -38,6 +20,33 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
       "keywords": "api applied attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxCheckbox",
+      "shortName": "rxCheckbox",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Attribute directive that wraps a native checkbox element in markup required for styling purposes.",
+      "keywords": "api attribute behave checkbox chkdemo class code complexity control css decendents demo demovalue determines directive directives disabled display element elements highly inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes recommend recommended required rx-checkbox rxcheckbox scope style styling unnecessary wrapper wraps"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxDatePicker",
+      "shortName": "rxDatePicker",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Basic date picker.",
+      "keywords": "api basic calculated compose conjunction datetime designed directive element elements evaluates expression format generate iso mentioned ngmodel notice picker portion range returns rxdatepicker selected standard string today user valid yyyy-mm-dd"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxTimePicker",
+      "shortName": "rxTimePicker",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Time Picker",
+      "keywords": "api compose conjunction constant datetime designed directive element elements evaluates expression format generate hh iso match mentioned ngmodel notice picker portion returns service standard string time utilities valid"
     },
     {
       "section": "api",
@@ -56,33 +65,6 @@ NG_DOCS={
       "moduleName": "metadata",
       "shortDescription": "metadata Component",
       "keywords": "api component metadata overview rxmetadata"
-    },
-    {
-      "section": "api",
-      "id": "molecules",
-      "shortName": "molecules",
-      "type": "overview",
-      "moduleName": "molecules",
-      "shortDescription": "Molecules",
-      "keywords": "api atoms complex directive directives elements molecules overview rxdatepicker rxtimepicker utilities"
-    },
-    {
-      "section": "api",
-      "id": "molecules.directive:rxDatePicker",
-      "shortName": "rxDatePicker",
-      "type": "directive",
-      "moduleName": "molecules",
-      "shortDescription": "Basic date picker.",
-      "keywords": "api basic calculated compose conjunction datetime designed directive evaluates expression format generate iso mentioned molecule molecules ngmodel notice picker portion range returns rxdatepicker selected standard string today user valid yyyy-mm-dd"
-    },
-    {
-      "section": "api",
-      "id": "molecules.directive:rxTimePicker",
-      "shortName": "rxTimePicker",
-      "type": "directive",
-      "moduleName": "molecules",
-      "shortDescription": "Time Picker",
-      "keywords": "api compose conjunction constant datetime designed directive elements evaluates expression format generate hh iso match mentioned molecule molecules ngmodel notice picker portion returns service standard string time utilities valid"
     },
     {
       "section": "api",
@@ -289,7 +271,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxBulkSelect",
       "shortDescription": "rxBulkSelect Component",
-      "keywords": "action api atoms component directive directives items multiple overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectvalidate table"
+      "keywords": "action api component directive directives elements items multiple overview perform rxbatchactions rxbulkselect rxbulkselectheadercheck rxbulkselectrow rxbulkselectvalidate table"
     },
     {
       "section": "api",
@@ -459,7 +441,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxForm",
       "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk atoms attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
+      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
     },
     {
       "section": "api",
@@ -558,7 +540,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxForm",
       "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api atoms control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxform rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
+      "keywords": "api control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxform rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
     },
     {
       "section": "api",
@@ -711,7 +693,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxMultiSelect",
       "shortDescription": "A single option for use within rxMultiSelect.",
-      "keywords": "api atoms attribute content defaults directive disabled element label option provided rxmultiselect single text titleized transcluded version"
+      "keywords": "api attribute content defaults directive disabled element elements label option provided rxmultiselect single text titleized transcluded version"
     },
     {
       "section": "api",
@@ -1003,15 +985,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "tabs",
-      "shortName": "tabs",
-      "type": "overview",
-      "moduleName": "tabs",
-      "shortDescription": "tabs Component",
-      "keywords": "angular-ui api bootstrap component configuration currently default demo demoed dependency disclaimer docs encoreui exact github guidance horizontal included io justified overview pills plugin site styles supported tabs unsupported usage vertical"
-    },
-    {
-      "section": "api",
       "id": "tooltips",
       "shortName": "tooltips",
       "type": "overview",
@@ -1053,7 +1026,7 @@ NG_DOCS={
       "type": "parameters",
       "moduleName": "utilities",
       "shortDescription": "List of known UTC Offset Values",
-      "keywords": "api constant https list offset org parameters utc utilities values wikipedia"
+      "keywords": "api constant directive elements https list offset org parameters rxtimepicker service utc utilities utility values wikipedia"
     },
     {
       "section": "api",
@@ -1135,6 +1108,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Several filters are available to parse dates.",
       "keywords": "abbreviated allow amounts api argument aug combine component dates days default digit digits display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes mulitple multiple ng-controller number parse pass provided representation requires rxage rxagectrl second sep sun third thu true truncates tue units usage utilities word"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxByteSize",
+      "shortName": "rxByteSize",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts Byte disk size into a more readable format (e.g. MBs, GBs, TBs, PBs)",
+      "keywords": "api byte converts disk filter format gbs kb mb mbs pbs readable size tbs utilities"
     },
     {
       "section": "api",
@@ -1494,7 +1476,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Utility service used by rxTimePicker.",
-      "keywords": "api appropriate data directive fetch form format formatting function hh hour logic mask match method minutes model modelformat modeltoobject molecules object offset parse parsed parseutcoffset period picker populate property rxtimepicker service string stringvalue time utc utilities utility values view viewformat"
+      "keywords": "api appropriate data directive elements fetch form format formatting function hh hour logic mask match method minutes model modelformat modeltoobject object offset parse parsed parseutcoffset period picker populate property rxtimepicker service string stringvalue time utc utilities utility values view viewformat"
     },
     {
       "section": "api",

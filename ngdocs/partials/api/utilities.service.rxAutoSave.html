@@ -1,4 +1,4 @@
-<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/utilities/rxAutoSave/scripts/rxAutoSave.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/990b6a2/src/utilities/rxAutoSave/scripts/rxAutoSave.js#L350" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">rxAutoSave</code>
+<h1><code ng:non-bindable="">rxAutoSave</code>
 <div><span class="hint">service in module <code ng:non-bindable="">utilities</code>
 </span>
 </div>
@@ -225,9 +225,21 @@ just returns the original calculated key.</p>
 <h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>scope</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p>scope to apply a <code>$watch</code> expression</p>
 </div></td></tr><tr><td>variable</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p>variable name corresponding to an object on the given scope</p>
 </div></td></tr><tr><td>options <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p>usage options</p>
-</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>clearOnSuccess</td><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+</div></td></tr><tr><td>options.clearOnSuccess</td><td><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
 Clear saved data on successful resolution of given promise.</p>
-</div> <p><em>(default: null)</em></p></td></tr><tr><td>ttl</td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+</div> <p><em>(default: null)</em></p></td></tr><tr><td>[options.keyShaping]</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p>Sometimes, it may be necessary to change how a key is formed for the specified
+<code>storageBackend</code>.  Keys are calculated by prepending <code>&#39;rxAutoSave::&#39;</code> before the
+url. Your custom <code>keyShaping</code> function will take one parameter (<code>key</code>), to which
+you may modify to your specific needs.</p>
+<p>The below example will ignore any caching flags in the url.
+<pre class="prettyprint linenums">
+var autosave = rxAutoSave($scope, 'formData', {
+    keyShaping: function (key) {
+        return key.replace('?cache=false', '');
+    }
+});
+</pre>
+</div></td></tr><tr><td>options.ttl</td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
 Time to Live (in seconds) - defaults to 2 days</p>
 <p>Whenever data changes in the watched variable, the expiry time will be freshly set
 In addition, we freshly set the expiry time whenever the data is loaded. If the data
@@ -246,17 +258,23 @@ an appropriate time by using one of the following:</p>
 <li><code>clear()</code></li>
 <li><code>clearOnSuccess()</code></li>
 </ul>
-</div> <p><em>(default: 172800)</em></p></td></tr><tr><td>load</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+</div> <p><em>(default: 172800)</em></p></td></tr><tr><td>options.load</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
 If false, will prevent data from being automatically loaded onto the scope.</p>
 <p>You may use a promise that resolves to a boolean, if desired.</p>
-</div> <p><em>(default: true)</em></p></td></tr><tr><td>save</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>options.save</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a><a href="" class="label type-hint type-hint-promise">Promise</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
 If false, will prevent data from being automatically saved on change.</p>
 <p>You may use a promise that resolves to a boolean, if desired.</p>
-</div> <p><em>(default: true)</em></p></td></tr><tr><td>storageBackend</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>[options.exclude]</td><td><a href="" class="label type-hint type-hint-string">String[]</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
+A string of property names to exclude from automatic save. This is useful to
+exclude saving any sensitive information like passwords, credit card numbers, etc.</p>
+<p><pre>
+var autosave = rxAutoSave($scope, &#39;formData&#39;, { exclude: [&#39;password&#39;] });
+</pr></p>
+</div></td></tr><tr><td>options.storageBackend</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="utilities-service-page utilities-service-rxautosave-page"><p><em>optional</em> -
 Must be an object which has <code>getObject(key)</code> and <code>setObject(key, val)</code> methods.
 <code>rxLocalStorage</code> and <code>SessionStorage</code> are both provided by EncoreUI, and support
 this interface.</p>
 <p>You can use your own custom backends as well, as long as it supports <code>getObject(key)</code>
 and <code>setObject(key, val)</code>.</p>
-</div> <p><em>(default: rxLocalStorage)</em></p></td></tr></tbody></table></td></tr></tbody></table></div>
+</div> <p><em>(default: rxLocalStorage)</em></p></td></tr></tbody></table></div>
 </div>

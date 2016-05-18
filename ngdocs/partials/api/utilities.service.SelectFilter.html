@@ -1,4 +1,4 @@
-<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/utilities/SelectFilter/scripts/SelectFilter.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/990b6a2/src/utilities/SelectFilter/scripts/SelectFilter.js#L96" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">SelectFilter</code>
+<h1><code ng:non-bindable="">SelectFilter</code>
 <div><span class="hint">service in module <code ng:non-bindable="">utilities</code>
 </span>
 </div>
@@ -91,9 +91,9 @@ var filteredArray = filter.applyTo([{
 properties, so that they can be watched or changed.</p>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><a href="https://github.com/rackerlabs/encore-ui/blob/990b6a2/src/utilities/SelectFilter/scripts/SelectFilter.js#L137" class="view-source icon-eye-open"> </a><h3 id="methods_create">create(options)</h3>
+<ul class="methods"><li><h3 id="methods_create">create(options)</h3>
 <div class="create"><h5 id="methods_create_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>options</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>Options object</p>
-</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>properties</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>A list of the properties to create a filter control. Assuming the
+</div></td></tr><tr><td>options.properties</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>A list of the properties to create a filter control. Assuming the
 source data is an array of objects, a property is equivalent to an
 object&#39;s key.
 <pre class="prettyprint linenums">
@@ -101,7 +101,7 @@ SelectFilter.create({
      properties: ['year']
 });
 </pre>
-</div></td></tr><tr><td>available <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>An object that tracks which options are available for a property.
+</div></td></tr><tr><td>options.available <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>An object that tracks which options are available for a property.
 <pre class="prettyprint linenums">
 SelectFilter.create({
     // other options...
@@ -110,7 +110,7 @@ SelectFilter.create({
       }
 });
 </pre>
-</div></td></tr><tr><td>selected <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>An object that tracks which options are selected for a property.
+</div></td></tr><tr><td>options.selected <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="create-page"><p>An object that tracks which options are selected for a property.
 It has the same form as the <code>available</code> object, but the arrays indicate
 which options are selected, and as such are strict subsets of their
 <code>available</code> counterparts.
@@ -122,7 +122,7 @@ SelectFilter.create({
       }
 });
 </pre>
-</div></td></tr></tbody></table></td></tr></tbody></table></div>
+</div></td></tr></tbody></table></div>
 </li>
 </ul>
 </div>

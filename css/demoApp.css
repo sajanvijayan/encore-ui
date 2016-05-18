@@ -1,9 +1,17 @@
 /* Code Styles */
-/* Remove background color from syntax highlighted code (prism.css) */
+/* Prism style overrides */
+pre[class*="language-"] {
+  font-size: 12px;
+}
+pre[class*="language-"]:before,
+pre[class*="language-"]:after {
+  content: none;
+}
 pre[class*="language-"],
 pre[class*="language-"] code {
-  background: transparent;
   border: 0;
+  margin: 0;
+  border-radius: 0;
 }
 /* Custom Coloring (outside of prism syntax-highlighting) */
 pre,
@@ -25,6 +33,7 @@ pre code {
   padding: 0;
   margin: 0;
   border-radius: 0;
+  white-space: pre-wrap;
 }
 .swatch {
   flex: 0 0 auto;
@@ -245,6 +254,9 @@ pre code {
 rx-example {
   display: block;
   margin-top: 2em;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  background-color: #ffffff;
 }
 rx-example h1:first-of-type,
 rx-example h2:first-of-type,
@@ -254,12 +266,80 @@ rx-example h5:first-of-type,
 rx-example h6:first-of-type {
   margin-top: 0;
 }
+rx-example pre,
+rx-example code {
+  background-color: transparent;
+  border: 0;
+}
+rx-example .demo-wrapper {
+  margin-bottom: 20px;
+}
+rx-example .source-code-wrapper {
+  max-height: 189px;
+  overflow: hidden;
+}
+rx-example .source-code-wrapper.expanded {
+  max-height: none;
+}
+rx-example .source-tabset .nav-tabs {
+  font-size: 12px;
+  border: 0;
+}
+rx-example .source-tabset .nav-tabs li {
+  background: transparent;
+}
+rx-example .source-tabset .nav-tabs a {
+  background: transparent;
+  color: #757575;
+  padding: 4px 10px;
+  border-bottom: 3px solid transparent;
+}
+rx-example .source-tabset .nav-tabs a:hover:not(.active),
+rx-example .source-tabset .nav-tabs a:focus:not(.active) {
+  color: #0d74d1;
+}
+rx-example .source-tabset .nav-tabs .active a {
+  background: transparent;
+  color: #0d74d1;
+  border-bottom-color: #0d74d1;
+}
+rx-example .source-tabset .tab-content {
+  border: 0;
+}
+rx-example .source-tabset .tab-content .tab-pane {
+  border: 0;
+  padding: 0;
+}
+rx-example .source-tabset .tab-content .tab-pane .source-code-wrapper {
+  border: 1px solid #0d74d1;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand {
+  display: block;
+  padding: 15px;
+  text-align: center;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand:hover {
+  cursor: pointer;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand .fa-expand {
+  display: inline-block;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand .fa-compress {
+  display: none;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand.expanded .fa-expand {
+  display: none;
+}
+rx-example .source-tabset .tab-content .tab-pane .toggle-expand.expanded .fa-compress {
+  display: inline-block;
+}
 rx-permalink .permalink .icon {
   visibility: hidden;
   color: #757575;
 }
 rx-permalink .permalink:hover .icon {
   visibility: visible;
+  text-decoration: none;
 }
 rx-permalink .permalink:hover .icon:hover {
   color: #0075de;
@@ -367,37 +447,37 @@ p {
 .align-right {
   text-align: right;
 }
-.example {
+.example-case {
   border-style: solid;
   border-width: 9px 2px 2px 2px;
-  padding: 0 10px;
+  padding: 0 10px 10px;
   background: #ffffff;
   width: 600px;
   margin: 25px 0;
 }
-.example img {
+.example-case img {
   max-width: 100%;
 }
-.example h4 {
+.example-case h4 {
   font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
 }
-.example.do {
+.example-case.do {
   border-color: #4caf51;
 }
-.example.do h4 {
+.example-case.do h4 {
   color: #2e7d32;
 }
-.example.exception {
+.example-case.exception {
   border-color: #ffc107;
 }
-.example.exception h4 {
+.example-case.exception h4 {
   color: #d14904;
 }
-.example.avoid {
+.example-case.avoid {
   border-color: #f44336;
 }
-.example.avoid h4 {
+.example-case.avoid h4 {
   color: #d32f2f;
 }
