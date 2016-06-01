@@ -56,24 +56,31 @@ Warning: EMFILE, too many open files &#39;src&#39;
 ├── README.md
 ├── docs
 │   ├── rxSearchBox.html
-│   ├── rxSearchBox.js
-│   └── rxSearchBox.midway.js
-├── rxSearchBox.exercise.js
+│   └── rxSearchBox.js
 ├── rxSearchBox.js
 ├── rxSearchBox.less
-├── rxSearchBox.page.js
 ├── rxSearchBox.spec.js
 └── templates
     └── rxSearchBox.html
-</code></pre><p>If you are going to add a new module to EncoreUI, it must follow this structure. And not only is there an expected file, but some of these files have required &quot;boilerplate&quot; that must be present. The <a href="" ng-click="vm.scrollTo('component-scaffolding')">Component Scaffolding</a> not only generates these files, but also inserts the necessary boilerplate into them.</p>
-<p>Make sure that you&#39;ve added the necessary tests (to the <code>.midway.js</code> and <code>.spec.js</code> files), run the tests, and verify that your changes haven&#39;t broken anything. Please see our <a href="#/guides/testing">EncoreUI Testing guide</a> guide for more details.</p>
+</code></pre><p>Once you&#39;ve created your new component, you can also generate the complementary test code as well. This is covered in the <a href="" ng-click="vm.scrollTo('component-scaffolding')">Component Scaffolding</a> section below. It populates the following tree into the <code>utils/rx-page-objects/</code> directory:</p>
+<pre><code>src/
+├── rxSearchBox.page.js
+└── rxSearchBox.exercise.js
+test/
+└── rxSearchBox.midway.js
+</code></pre><p>These files are used to help you create a page object, default tests, and the integration tests used to prove that your new component behaves as expected during end to end testing in our CI pipeline.</p>
+<p>If you are going to add a new module to EncoreUI, it must follow this structure. And not only is there an expected file, but some of these files have required &quot;boilerplate&quot; that must be present. The <a href="" ng-click="vm.scrollTo('component-scaffolding')">Component Scaffolding</a> not only generates these files, but also inserts the necessary boilerplate into them.</p>
+<p>Make sure that you&#39;ve added the necessary tests (to the <code>.spec.js</code> files), run the tests, and verify that your changes haven&#39;t broken anything. Please see our <a href="#/guides/testing">EncoreUI Testing guide</a> guide for more details.</p>
 <h4  id="component-scaffolding">Component Scaffolding</h4><p>In order to promote consistency between components, and make it easier to create them, we use Grunt to provide scaffolding for new components.</p>
 <p>In order to take advantage of the scaffolding, you need to install grunt-init globally:</p>
-<p><code>npm install -g grunt-init</code></p>
-<p>With grunt-init now installed, navigate to the <code>src</code> directory in EncoreUI.</p>
+<pre><code>npm install -g grunt-init
+</code></pre><p>With grunt-init now installed, navigate to the <code>src</code> directory in EncoreUI.</p>
 <p>Then create a new component folder and navigate into it, <strong>with the name of your component in camelCase</strong>. (e.g. <code>mkdir myTestComponent &amp;&amp; cd myTestComponent</code>)</p>
 <p>Once created, from that folder, run <code>grunt-init ../../grunt-tasks/component-template/</code></p>
 <p>Answer the questions prompted, let the task complete, and your new component folder should be ready for you to start coding away at. That&#39;s it.</p>
+<p>To create your page object/exercise/end to end test code, go the root of the project directory, and run this.</p>
+<pre><code>grunt-init grunt-tasks/page-object-template
+</code></pre><p>Because page objects can be named whatever they want, and be as granular as they want, you must specify the name of the component at the command line as the only prompt. Typically, it will match the same as your new directory you just created. Other times, such as in the case with rxForm, it makes more sense to break the page objects up into smaller chunks, such as checkboxes, dropdowns, instead of exposing one very large <code>rxForm</code> object with an enormous API surface.</p>
 <h3  id="modifying-existing-modules">Modifying Existing Modules</h3><p>If you are planning on modifying an existing module, either to add functionality or to fix a bug, keep the following in mind:</p>
 <ul>
 <li><a href="#/guides/testing">Add tests!</a> Any new functionality needs corresponding tests, and a bug fix should first have a new test written that illustrates the error</li>

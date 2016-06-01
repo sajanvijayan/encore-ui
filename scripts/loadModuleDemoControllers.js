@@ -726,13 +726,6 @@ angular.module('encore.ui.rxForm')
 
 
 angular.module('demoApp')
-.controller('rxMetadataCtrl', function ($scope) {
-    $scope.someDate = new Date('January 6 1989');
-    $scope.someAmount = 192.68;
-});
-
-
-angular.module('demoApp')
 .controller('rxMiscCtrl', function ($scope, $timeout, $q, rxNotify, rxAutoSave) {
     $scope.formData = {
         checkbox: false,
@@ -1490,6 +1483,13 @@ angular.module('demoApp')
 
 
 
+
+
+angular.module('demoApp')
+.controller('metadataSimpleExampleCtrl', function ($scope) {
+    $scope.someDate = new Date('January 6 1989');
+    $scope.someAmount = 192.68;
+});
 
 
 angular.module('demoApp')

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: rxToggleSwitch.exercise.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: rxToggleSwitch.exercise.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var _ = require('lodash');
+var rxToggleSwitch = require('./rxToggleSwitch.page').rxToggleSwitch;
+
+/**
+ * @description rxToggleSwitch exercises.
+ * @see rxToggleSwitch
+ * @exports exercise/rxToggleSwitch
+ * @param {Object} [options] - Test options. Used to build valid tests.
+ * @param {rxToggleSwitch} [options.instance=rxToggleSwitch.initialize()] - Component to exercise.
+ * @param {String} [options.cssSelector] - DEPRECATED: Fallback selector string to initialize widget with.
+ * @param {Boolean} [options.disabled=false] - Determines if the switch can be toggled.
+ * @param {Boolean} [options.enabledAtStart=null] -
+ * Beginning state of toggle switch. The value will be detected automatically if not given.
+ * @param {Boolean} [options.enabledAtEnd=null]
+ * End state of toggle switch. The value will be detected automatically if not given.
+ * @example
+ * describe('default exercises', encore.exercise.rxToggleSwitch({
+ *     instance: myPage.emailPreference // select one of many widgets from your page objects
+ * }));
+ */
+exports.rxToggleSwitch = function (options) {
+    if (options === undefined) {
+        options = {};
+    }
+
+    options = _.defaults(options, {
+        disabled: false,
+        enabledAtStart: null, // begins 'OFF'
+        enabledAtEnd: null // ends 'ON'
+    });
+
+    return function () {
+        var component;
+        var enabledAtStart;
+        var enabledAtEnd;
+
+        var getText = function (isEnabled) {
+            return isEnabled ? 'ON' : 'OFF';
+        };
+
+        var toggle = function () {
+            return component.isEnabled().then(function (enabled) {
+                enabled ? component.disable() : component.enable();
+            });
+        };
+
+        before(function () {
+            if (options.instance !== undefined) {
+                component = options.instance;
+            } else {
+                component = rxToggleSwitch.main;
+            }
+
+            if (options.cssSelector !== undefined) {
+                console.warn('Deprecated exercise option `cssSelector` will be removed in favor of `instance`');
+                component = rxToggleSwitch.initialize($(options.cssSelector));
+            }
+
+            component.isEnabled().then(function (isEnabled) {
+                // use option if available, otherwise use detected state
+                enabledAtStart = _.isNull(options.enabledAtStart) ? isEnabled : options.enabledAtStart;
+
+                // use option if available, otherwise use inverse of enabledAtStart
+                enabledAtEnd = _.isNull(options.enabledAtEnd) ? !enabledAtStart : options.enabledAtEnd;
+            });
+        });
+
+        it('should show the element', function () {
+            expect(component.isDisplayed()).to.eventually.be.true;
+        });
+
+        if (options.disabled) {
+            it('does not change state when clicked', function () {
+                toggle();
+                expect(component.isEnabled()).to.eventually.equal(enabledAtStart);
+                expect(component.text).to.eventually.equal(getText(enabledAtStart));
+            });
+        } else {
+            it('begins in the ' + getText(enabledAtStart) + ' state', function () {
+                expect(component.text).to.eventually.equal(getText(enabledAtStart));
+            });
+
+            it('changes to ' + getText(enabledAtEnd) + ' when clicked', function () {
+                toggle();
+                expect(component.isEnabled()).to.eventually.equal(enabledAtEnd);
+                expect(component.text).to.eventually.equal(getText(enabledAtEnd));
+            });
+
+            it('returns to the ' + getText(enabledAtStart) + ' when clicked again', function () {
+                toggle();
+                expect(component.isEnabled()).to.eventually.equal(enabledAtStart);
+                expect(component.text).to.eventually.equal(getText(enabledAtStart));
+            });
+        }
+
+    };
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 01 2016 16:47:55 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

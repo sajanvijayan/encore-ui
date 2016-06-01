@@ -41,6 +41,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxMeta",
+      "shortName": "rxMeta",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "",
+      "keywords": "adjacent anunseeminglyunbreakablewordthatcouldoverflowtothenextcolumn api break class column content css data definition degraded directive element elements fit force-word-break html label long maintenance metadata naturally overflowing parent prevent rxmetadata status super system values width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxMetadata",
+      "shortName": "rxMetadata",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Parent directive used for styling and arranging metadata information.",
+      "keywords": "accommodate api arranging blocks columns container degraded directive element elements enought example field highly html isn label maintenance metadata parent purposes recommended row rxmeta sections single stack status styling system vertically wide width wrap"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxTimePicker",
       "shortName": "rxTimePicker",
       "type": "directive",
@@ -64,7 +82,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "metadata",
       "shortDescription": "metadata Component",
-      "keywords": "api component metadata overview rxmetadata"
+      "keywords": "api component directive elements metadata overview rxmetadata"
     },
     {
       "section": "api",
@@ -595,33 +613,6 @@ NG_DOCS={
       "moduleName": "rxLogout",
       "shortDescription": "Adds logout functionality to an element.",
       "keywords": "adds api custom directive element functionality location logging logout redirect rx-logout rxlogout url"
-    },
-    {
-      "section": "api",
-      "id": "rxMetadata",
-      "shortName": "rxMetadata",
-      "type": "overview",
-      "moduleName": "rxMetadata",
-      "shortDescription": "rxMetadata Component",
-      "keywords": "adjacent anunseeminglyunbreakablewordthatcouldoverflowtothenextcolumn api break class column columns component consistent container content css data directive directives display element elements fit fixed force-word-break highly intensive label level long metadata metastatus naturally organizing overflowing overview prevent provide rcn recommended row rxmeta rxmetadata separate service set single status styling super sysops type values width wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxMetadata.directive:rxMeta",
-      "shortName": "rxMeta",
-      "type": "directive",
-      "moduleName": "rxMetadata",
-      "shortDescription": "",
-      "keywords": "api definition degraded directive element html label maintenance metadata parent rxmetadata status system width"
-    },
-    {
-      "section": "api",
-      "id": "rxMetadata.directive:rxMetadata",
-      "shortName": "rxMetadata",
-      "type": "directive",
-      "moduleName": "rxMetadata",
-      "shortDescription": "Parent directive used for styling and arranging metadata information.",
-      "keywords": "accommodate api arranging blocks columns container degraded directive element enought example field highly html isn label maintenance metadata parent purposes recommended row rxmeta rxmetadata sections single stack status styling system vertically wide width wrap"
     },
     {
       "section": "api",

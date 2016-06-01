@@ -48,17 +48,17 @@ INFO - Started org.openqa.jetty.jetty.Server@401363ff
 <p>In other words, to run the tests, you need a total of <em>three</em> terminal windows.</p>
 <ul>
 <li>One terminal running the Selenium server</li>
-<li>One terminal running <code>./node_modules/.bin/protractor</code></li>
 <li>One terminal running <code>grunt server</code></li>
+<li>One terminal running <code>./node_modules/.bin/protractor</code></li>
 </ul>
 <h5  id="testing-individual-components">Testing Individual Components</h5><p>When developing a specific component, it&#39;s much quicker to run tests only for that component (rather than run through the entire suite every time). To do this, pass in path to the file as a &#39;specs&#39; option in your protractor command. For example:</p>
 <pre><code>./node_modules/.bin/protractor --specs=src/rxComponent/docs/rxComponent.midway.js
 </code></pre><h4  id="convenience-page-objects">Convenience Page Objects</h4><p>In order to help developers more easily test their own apps/projects, each EncoreUI component should provide a page object file for itself. This file will provide convenience methods for the tester to use when writing midway tests for their app.</p>
 <p>The filename for these page objects follows the <code>componentName.page.js</code> convention, and will automatically be generated if you create a new EncoreUI component with the <a href="#/guides/ui-setup#component-scaffolding">Component Scaffolding</a></p>
 <p>On a build of EncoreUI, all page object files are concatenated and tarballed into the <code>dist</code> directory. They are then published either manually or via Travis. To use these page objects, developers should include the following dependency in their app&#39;s <code>package.json</code> file:</p>
-<pre><code>&quot;rx-page-objects&quot;: &quot;rx-page-objects-1.48.0.tgz&quot;
+<pre><code>&quot;rx-page-objects&quot;: &quot;^1.0.0&quot;
 </code></pre><p>Alternatively, they can install the file using this command:</p>
-<pre><code>npm install --save-dev rx-page-objects@1.7.1
+<pre><code>npm install --save-dev rx-page-objects@1
 </code></pre><p>Once installed, the page objects can be pulled in to any midway test via:</p>
 <pre><code class="lang-js">var someEncoreUIComponent = require(&#39;rx-page-objects&#39;).someEncoreUIComponent;
 // ...
@@ -70,15 +70,6 @@ expect(someEncoreUIComponent.initialize($(&#39;.my-component&#39;)).isDisplayed(
 }
 </code></pre>
 <p>Keep in mind you&#39;ll need to register a global variable declaration in your linting file (<code>.jshintrc</code>, etc.).</p>
-<h4  id="some-odd-patterns-in-the-page-object-source-code">Some odd patterns in the page object source code...</h4><p>If you see a page object asking for another component, it will do so using this.</p>
-<pre><code class="lang-js">var otherComponent = exports.otherComponent.initialize(/*...*/);
-</code></pre>
-<p>It does this because as a part of the publishing step of the rx-page-objects module, all files in <code>src/**/*/page.js</code> are concatenated together, meaning the <code>exports</code> call will be valid during end to end test runs. The reason this is done this way is because <em>in the past</em>, requiring a component in a page object meant traversing the library&#39;s directory to find the component.</p>
-<pre><code class="lang-js">// Old way of requiring a component
-var otherComponent = require(&#39;../../otherComponent/otherComponent.page&#39;).otherComponent;
-</code></pre>
-<p>Not only is this very verbose, it lead to errors when end to end tests would pass during development (the directory structure is there to support this if you develop on the component library) but would fail when another team would pull in rx-page-objects into their project! Now, all end to end test runs (even local ones during development) rely on the concatenated version of the rx-page-objects module. If you see the global <code>encore</code> variable used throughout the midway tests, this is because the concatenated file is pulled into this global variable. Use it when referring to anything that should be tested in your midways. In almost all cases, it&#39;s best to follow the existing <a href="https://github.com/rackerlabs/encore-ui/blob/master/grunt-tasks/component-template/root/docs/component.midway.js">component-template</a> when creating new midway tests.</p>
-<p>Speaking of concatenating all page object files together, the code located at the top of the <a href="https://github.com/rackerlabs/encore-ui/blob/master/grunt-tasks/options/concat.js">grunt concat</a> task includes a list of third-party node modules used throughout the page objects and exercises. When requiring a new dependency into a page object or exercise, check that list and make sure it is included! It will make sure that the <code>index.js</code> and <code>exercise.js</code> files that get published by <code>grunt rxPageObjects</code> does not have duplicate <code>require</code> calls scattered throughout it.</p>
 <h4  id="convenience-page-object-exercises">Convenience Page Object Exercises</h4><p>Convenience page objects exist to abstract away many of the tedious commands needed to direct a component during tests that prove high-level business functionality in your tests. However, many tests should still be run to ensure that your app&#39;s encore-ui components were &quot;wired up&quot; correctly. They should respond to activities that many users will exercise during normal operation. Instead of duplicating these tests in every instance of a component in your app, you can include that page object&#39;s exercise using this pattern:</p>
 <pre><code class="lang-js">// assuming you&#39;ve included `encore = require(&#39;rx-page-objects&#39;)` in your protractor conf&#39;s onPrepare step
 describe(&#39;Home Page&#39;, function () {
