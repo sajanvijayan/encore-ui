@@ -34,14 +34,14 @@ demo shows the use of HTML tags.</p>
 <code>unsafe-html-title</code>, all HTML tags will be stripped before setting the document
 title.</p>
 <h5 id="description_account-info-below-breadcrumbs">Account Info below Breadcrumbs</h5>
-<p><code>rxPage</code> integrates with the <a href="#/api/rxAccountInfo">rxAccountInfo</a> component,
+<p><code>rxPage</code> integrates with the <a href="#/api/elements.directive:rxAccountInfo">rxAccountInfo</a> component,
 to draw the Account Info box directly underneath the <code>rxBreadcrumbs</code>.
 This is opt-in. By default, it will not appear. To enable it, pass the
 <code>account-number=&quot;...&quot;</code> attribute to <code>&lt;rx-page&gt;</code> in your template, i.e</p>
 <pre class="prettyprint linenums">
 &lt;rx-page account-number="{{ accountNumber }}"&gt;
 </pre>
-<p>As noted in <a href="#/api/rxAccountInfo">rxAccountInfo</a>, this
+<p>As noted in <a href="#/api/elements.directive:rxAccountInfo">rxAccountInfo</a>, this
 directive requires that <code>SupportAccount</code>, <code>Encore</code> and <code>Teams</code> services are
 available to the Angular Dependency Injection system. These are <em>not</em> provided
 by EncoreUI, but are available in an internal Rackspace repository.</p>
@@ -73,7 +73,7 @@ rxStatusTagsProvider.addStatus({
 same way as our <code>&quot;alpha&quot;</code> status tag is styled. You can also define your own
 CSS style in your application and use those instead, passing it as the <code>class</code>
 value to <code>addStatus()</code>.</p>
-<p>All the tags are accessible inside of <a href="#/api/rxBreadcrumbs">rxBreadcrumbs</a>
+<p>All the tags are accessible inside of <a href="#/api/elements.directive:rxBreadcrumbs">rxBreadcrumbs</a>
 as well. Any breadcrumb that was created with <code>useStatusTag: true</code> will automatically
 receive the same status tag as you passed to <code>&lt;rx-page&gt;</code>.</p>
 <h5 id="description_page-actions">.page-actions</h5>

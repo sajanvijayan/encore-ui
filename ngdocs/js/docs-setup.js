@@ -10,7 +10,34 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "elements",
       "shortDescription": "Elements",
-      "keywords": "api directive directives elements overview rxbutton rxcheckbox rxtimepicker utilities visual"
+      "keywords": "api directive directives elements overview rxaccountinfo rxactionmenu rxbutton rxcheckbox rxdatepicker rxmetadata rxtimepicker utilities visual"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxAccountInfo",
+      "shortName": "rxAccountInfo",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "This element is used to draw an account info box at the top of each page,",
+      "keywords": "account account-info-banner account-number accountnumber accountstatusgroup activate additional allow api appears badges box breadcrumbs change cloud data defaults design directive directly draw drop-down element elements encore errors info integrates intended intention internal load loading notifications number optional parameters pass passing products project provided racker rackspace repository requires retrieve route rxapp rxpage selector services set sitting stack style styles supportaccount supported team teams template theoretically time top true under-the-breadcrumbs underneath user user-selection"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxActionMenu",
+      "shortName": "rxActionMenu",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Component to add a clickable cog which brings up a menu of configurable actions.",
+      "keywords": "actions add api attribute brings clickable clicking cog component configurable directive disabled dismissable elements false global-dismiss menu optional passing"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxBreadcrumbs",
+      "shortName": "rxBreadcrumbs",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Responsible for drawing the breadcrumbs for a page.",
+      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing elements inside leverages marked method passed precedence receive responsible rxapp rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag utilities"
     },
     {
       "section": "api",
@@ -38,6 +65,15 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Basic date picker.",
       "keywords": "api basic calculated compose conjunction datetime designed directive element elements evaluates expression format generate iso mentioned ngmodel notice picker portion range returns rxdatepicker selected standard string today user valid yyyy-mm-dd"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxFeedback",
+      "shortName": "rxFeedback",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "rxFeedback Component",
+      "keywords": "accept add adding allows altered angular api application argument attribute automatically behaviour cf1 changeorigin changes component configurations configured context controller create custom default define definition dependencies dependency depending describe description details development directive elements email encore encore-service-pillar encore-ui-svcs encorefeedback encoreui endinject endpoint ensure false feature features feedback field function gathers generator gulp host html http https include initialized inject injected integration internal js json label latest list logic mailing managed manually module myapplication ngresource ngroute object on-submit open override overriding parameter perform placeholder points port prism product product-specific production project prompt protocol proxy purposes r46 rackcdn rackspace redirect redirecting request requests routes rxfeedback rxfeedbacksvc script selects sending sends service set setendpoint single specifiable src ssl staging structure submission supports svcs tasks text true type ui update updating user user-submitted version website window"
     },
     {
       "section": "api",
@@ -83,42 +119,6 @@ NG_DOCS={
       "moduleName": "metadata",
       "shortDescription": "metadata Component",
       "keywords": "api component directive elements metadata overview rxmetadata"
-    },
-    {
-      "section": "api",
-      "id": "rxAccountInfo",
-      "shortName": "rxAccountInfo",
-      "type": "overview",
-      "moduleName": "rxAccountInfo",
-      "shortDescription": "rxAccountInfo Component",
-      "keywords": "account account-number accountstatusgroup activate additional allow api box breadcrumbs change cloud component design directive directives directly draw drop-down encore info integrates intention internal overview parameters passing products project provided racker rackspace repository requires route rxaccountinfo rxapp rxpage selector services sitting style supportaccount teams template theoretically time top underneath user user-selection"
-    },
-    {
-      "section": "api",
-      "id": "rxAccountInfo.directive:rxAccountInfo",
-      "shortName": "rxAccountInfo",
-      "type": "directive",
-      "moduleName": "rxAccountInfo",
-      "shortDescription": "Responsible for drawing an account info box.",
-      "keywords": "account account-info-banner accountnumber api appears badges box breadcrumbs data defaults directive drawing errors info intended load loading notifications number optional pass responsible retrieve rxaccountinfo set stack style styles supported team true under-the-breadcrumbs underneath"
-    },
-    {
-      "section": "api",
-      "id": "rxActionMenu",
-      "shortName": "rxActionMenu",
-      "type": "overview",
-      "moduleName": "rxActionMenu",
-      "shortDescription": "rxActionMenu Component",
-      "keywords": "action api component configurable create directive directives menu overview rxactionmenu"
-    },
-    {
-      "section": "api",
-      "id": "rxActionMenu.directive:rxActionMenu",
-      "shortName": "rxActionMenu",
-      "type": "directive",
-      "moduleName": "rxActionMenu",
-      "shortDescription": "Component to add a clickable cog which brings up a menu of configurable actions.",
-      "keywords": "actions add api attribute brings clickable clicking cog component configurable directive disabled dismissable false global-dismiss menu optional passing rxactionmenu"
     },
     {
       "section": "api",
@@ -226,7 +226,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxApp",
       "shortDescription": "Responsible for creating the HTML necessary for a page (including breadcrumbs and page title)",
-      "keywords": "accept accepts accessible account account-number accountnumber actions add adds addstatus alpha alpha-status alt angular api appear application arbitrary attribute attributes automatically beta box breadcrumb breadcrumbs browser build called capable case chosen class common component config considered content correct create created creating css currently custom customized default define demo dependency depending directive directly document draw drawing drawn easily embedded enable enabling encore encoreui ensure essentially example executed executing expression expressions file final framework gamma hello href html http info injection inside integrates internal javascript jpg key link-action ll memegenerator method msg-action myview net opt-in overview page-actions pass passed passing plain previous product property provide provided rackspace receive repository requires responsible rx-app rx-page rxaccountinfo rxapp rxbreadcrumbs rxpage rxstatustagsprovider scope server servers services set setting source specific src status status-tag string stripped style styled styling subtitle supportaccount system tab tag tags takes teams template text title titles top true trust underneath unique unsafe unsafe-html-title unsafehtmltitle usage usestatustag version view views visible world wrapper"
+      "keywords": "accept accepts accessible account account-number accountnumber actions add adds addstatus alpha alpha-status alt angular api appear application arbitrary attribute attributes automatically beta box breadcrumb breadcrumbs browser build called capable case chosen class common component config considered content correct create created creating css currently custom customized default define demo dependency depending directive directly document draw drawing drawn easily elements embedded enable enabling encore encoreui ensure essentially example executed executing expression expressions file final framework gamma hello href html http info injection inside integrates internal javascript jpg key link-action ll memegenerator method msg-action myview net opt-in overview page-actions pass passed passing plain previous product property provide provided rackspace receive repository requires responsible rx-app rx-page rxaccountinfo rxapp rxbreadcrumbs rxpage rxstatustagsprovider scope server servers services set setting source specific src status status-tag string stripped style styled styling subtitle supportaccount system tab tag tags takes teams template text title titles top true trust underneath unique unsafe unsafe-html-title unsafehtmltitle usage usestatustag version view views visible world wrapper"
     },
     {
       "section": "api",
@@ -263,24 +263,6 @@ NG_DOCS={
       "moduleName": "rxAttributes",
       "shortDescription": "This drective allows you to add attributes based on a value in scope being defined or not.",
       "keywords": "add allows api attribute attributes based custom defined directive drective rxattributes scope"
-    },
-    {
-      "section": "api",
-      "id": "rxBreadcrumbs",
-      "shortName": "rxBreadcrumbs",
-      "type": "overview",
-      "moduleName": "rxBreadcrumbs",
-      "shortDescription": "rxBreadcrumbs Component",
-      "keywords": "adds api breadcrumbs component directive directives navigation overview rxbreadcrumbs updates"
-    },
-    {
-      "section": "api",
-      "id": "rxBreadcrumbs.directive:rxBreadcrumbs",
-      "shortName": "rxBreadcrumbs",
-      "type": "directive",
-      "moduleName": "rxBreadcrumbs",
-      "shortDescription": "Responsible for drawing the breadcrumbs for a page",
-      "keywords": "alpha api apply breadcrumb breadcrumbs changed checking custom default defined directive directly display drawing inside leverages marked method passed precedence receive responsible rxapp rxbreadcrumbs rxbreadcrumbssvc service set sethome site-title status tag tags title true url usepagestatustag utilities"
     },
     {
       "section": "api",
@@ -415,24 +397,6 @@ NG_DOCS={
       "moduleName": "rxEnvironment",
       "shortDescription": "Show or hide content based on environment name",
       "keywords": "api based content directive environment hide prod rx-if-environment rxenvironment service staging unified-preprod utilities"
-    },
-    {
-      "section": "api",
-      "id": "rxFeedback",
-      "shortName": "rxFeedback",
-      "type": "overview",
-      "moduleName": "rxFeedback",
-      "shortDescription": "rxFeedback Component",
-      "keywords": "accept add adding allows altered angular api application argument attribute automatically behaviour cf1 changeorigin changes component configurations configured context controller create custom default define definition dependencies dependency depending describe description details development directive directives email encore encore-service-pillar encore-ui-svcs encorefeedback encoreui endinject endpoint ensure false feature features feedback field function gathers generator gulp host html http https include initialized inject injected integration internal js label latest list logic mailing managed manually module myapplication ngresource ngroute object on-submit open override overriding overview parameter perform placeholder points port prism product product-specific production project prompt protocol proxy purposes r46 rackcdn rackspace redirect redirecting request requests routes rxfeedback rxfeedbacksvc script selects sending sends service set setendpoint single specifiable src ssl staging structure submission supports svcs tasks text true type ui update updating user user-submitted version website window"
-    },
-    {
-      "section": "api",
-      "id": "rxFeedback.directive:rxFeedback",
-      "shortName": "rxFeedback",
-      "type": "directive",
-      "moduleName": "rxFeedback",
-      "shortDescription": "Custom Submission Function",
-      "keywords": "accepts allows api argument attribute custom default define definition describe description directive feedback field function json label logic object on-submit overriding placeholder points prompt purposes rxfeedback structure submission text type ui user-submitted"
     },
     {
       "section": "api",

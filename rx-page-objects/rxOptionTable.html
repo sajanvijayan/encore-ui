@@ -166,7 +166,7 @@ Will return a page object representing the <em>first</em> rxOptionTable object f
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line571">line 571</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line584">line 584</a>
     </li></ul></dd>
     
 
@@ -308,7 +308,7 @@ Will return a page object representing the <em>first</em> rxOptionTable object f
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line529">line 529</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line542">line 542</a>
     </li></ul></dd>
     
 
@@ -558,7 +558,7 @@ Get the row yourself if you need more information about the row's contents.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line502">line 502</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line515">line 515</a>
     </li></ul></dd>
     
 
@@ -704,7 +704,7 @@ but also get columns, query cells, and other useful functions exposed in the com
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line610">line 610</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line623">line 623</a>
     </li></ul></dd>
     
 
@@ -895,7 +895,7 @@ it('should select the country', function () {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line553">line 553</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line566">line 566</a>
     </li></ul></dd>
     
 
@@ -1261,6 +1261,172 @@ expect(optionTable.columnData('Surcharge', penniesFn)).to.eventually.eql(pennies
 
     
 
+    <h4 class="name" id="deselectAll"><span class="type-signature"></span>deselectAll<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Deselects every row in the rxOptionTable.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line353">line 353</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="deselectByColumnText"><span class="type-signature"></span>deselectByColumnText<span class="signature">()</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p><strong>DEPRECATED</strong>: Use <a href="rxOptionTable.html#deselectByColumnText">rxOptionTable#deselectByColumnText</a> instead.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line394">line 394</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="deselectByColumnText"><span class="type-signature"></span>deselectByColumnText<span class="signature">(columnName, columnText)</span><span class="type-signature"></span></h4>
 
     
@@ -1385,7 +1551,7 @@ This function uses cssContainingText, be certain your column name and text is un
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line363">line 363</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line376">line 376</a>
     </li></ul></dd>
     
 
@@ -1417,90 +1583,6 @@ This function uses cssContainingText, be certain your column name and text is un
     dogList.deselectByColumnText('Name', 'Sebastian');
     expect(dogList.selections).to.eventually.eql([]);
 });</code></pre>
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="deselectByColumnText"><span class="type-signature"></span>deselectByColumnText<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p><strong>DEPRECATED</strong>: Use <a href="rxOptionTable.html#deselectByColumnText">rxOptionTable#deselectByColumnText</a> instead.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <dt class="important tag-deprecated">Deprecated:</dt><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line381">line 381</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1610,7 +1692,7 @@ rxOptionTable#unselectByColumnText.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line407">line 407</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line420">line 420</a>
     </li></ul></dd>
     
 
@@ -2159,7 +2241,7 @@ This function uses cssContainingText, be certain your column name and text is un
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line444">line 444</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line457">line 457</a>
     </li></ul></dd>
     
 
@@ -2300,7 +2382,7 @@ This function uses cssContainingText, be certain your column name and text is un
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line475">line 475</a>
+        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line488">line 488</a>
     </li></ul></dd>
     
 
@@ -2348,88 +2430,6 @@ This function uses cssContainingText, be certain your column name and text is un
 
 
         
-            
-
-    
-
-    <h4 class="name" id="unselectAll"><span class="type-signature"></span>unselectAll<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Unselects every row in the rxOptionTable.</p>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="rxOptionTable.page.js.html">rxOptionTable.page.js</a>, <a href="rxOptionTable.page.js.html#line340">line 340</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
     
 
     
@@ -2451,7 +2451,7 @@ This function uses cssContainingText, be certain your column name and text is un
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 01 2016 16:52:56 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 15 2016 16:14:06 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>
