@@ -113,33 +113,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "metadata",
-      "shortName": "metadata",
-      "type": "overview",
-      "moduleName": "metadata",
-      "shortDescription": "metadata Component",
-      "keywords": "api component directive elements metadata overview rxmetadata"
-    },
-    {
-      "section": "api",
-      "id": "rxActiveUrl",
-      "shortName": "rxActiveUrl",
-      "type": "overview",
-      "moduleName": "rxActiveUrl",
-      "shortDescription": "rxActiveUrl Component",
-      "keywords": "adds api class component current directive directives future li marked matches overview pre-defined release removed rxactiveurl selected url"
-    },
-    {
-      "section": "api",
-      "id": "rxActiveUrl.directive:rxActiveUrl",
-      "shortName": "rxActiveUrl",
-      "type": "directive",
-      "moduleName": "rxActiveUrl",
-      "shortDescription": "This is used as an attribute to directive &lt;rx-product-resources&gt;, in the",
-      "keywords": "api attribute checks class current directive form returns rx-active-url rxactiveurl selected subset url"
-    },
-    {
-      "section": "api",
       "id": "rxApp",
       "shortName": "rxApp",
       "type": "overview",
@@ -181,7 +154,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxApp",
       "shortDescription": "Creates a menu based on items passed in.",
-      "keywords": "$route _all_ _also_ _always_ _any_ _at _both_ _completely _generally_ _intent_ _must_ _one_ access accessible account accountnumber ad add addition allowing allows angular api app application applications applications_ applied apps area argument array assign attached attribute attributes automatic automatically avoid aware based belong bob bottom box brand browser check checking chevron child childheader children childvisibility class click clickable clicked clicking clicks compile compiled components configuration consists content control correctly creates criteria current currently custom dash-delimited data deeper default define defined defines defining definition demo demos deployed described describing design designers details determine dev developed directive directives directly display displayed documentation doesn domain elements encore encorenav encoreui enhance ensure entered entering environemnts environment evaluated example exclusive exist exists expand expanded expected expecting experience exposes expression extra fact feature file files filtering final foobar form format framework front-end full function functions future general gl happen header heirarchy higher highlight href html identifier importantly include including independently individual insert inserted inside instance internally interpolated introducing isactivebykey item items javascript json key ldap left legacy level linked linktext list live lives load loaded loads local machine machine-search menu menuitems methods mind multiple mutually nav nav-section-all nav-section-highlight nav-section-type navigate navigated navigating navigation navjson nested note number object objects one_ operate optional optionally original outer overview paragraph param parameter parameters pass passed path pathparams people people-search permissions point predefined prevent previous product production products project property provide pull purely rackspace real reasons recall receive receives rely render rendered representing represents require required requires reserved resonsible restrict role role-based role1 role2 role3 roles route routing rx-account-search rx-app-key- rxaccountsearch rxaccountusers rxapp rxapproutes rxappsearch rxcompile rxenvironment rxenvironmentmatch rxhideifukaccount rxpathparams scope search second sections security separate server-side set setroutebykey shouldn simply single solution staging string structure styleguide styling sue support supposed syntax tailed takes technique term text things three title tools top top-level true type types typically unified-preprod unique url urls user users values variables version viewing visibility visible won working"
+      "keywords": "$route _all_ _also_ _always_ _any_ _at _both_ _completely _generally_ _intent_ _must_ _one_ access accessible account accountnumber ad add addition allowing allows angular api app application applications applications_ applied apps area argument array assign attached attribute attributes automatic automatically avoid aware based belong bob bottom box brand browser check checking chevron child childheader children childvisibility class click clickable clicked clicking clicks compile compiled components configuration consists content control correctly creates criteria current currently custom dash-delimited data deeper default define defined defines defining definition demo demos deployed described describing design designers details determine dev developed directive directives directly display displayed documentation doesn domain elements encore encorenav encoreui enhance ensure entered entering environemnts environment evaluated example exclusive exist exists expand expanded expected expecting experience exposes expression extra fact feature file files filtering final foobar form format framework front-end full function functions future general gl happen header heirarchy higher highlight href html identifier importantly include including independently individual insert inserted inside instance internally interpolated introducing isactivebykey item items javascript json key ldap left legacy level linked linktext list live lives load loaded loads local machine machine-search menu menuitems methods mind multiple mutually nav nav-section-all nav-section-highlight nav-section-type navigate navigated navigating navigation navjson nested note number object objects one_ operate optional optionally original outer overview paragraph param parameter parameters pass passed path pathparams people people-search permissions point predefined prevent previous product production products project property provide pull purely rackspace real reasons recall receive receives rely render rendered representing represents require required requires reserved resonsible restrict role role-based role1 role2 role3 roles route routing rx-account-search rx-app-key- rxaccountsearch rxaccountusers rxapp rxapproutes rxappsearch rxcompile rxenvironment rxenvironmentmatch rxpathparams scope search second sections security separate server-side set setroutebykey shouldn simply single solution staging string structure styleguide styling sue support supposed syntax tailed takes technique term text things three title tools top top-level true type types typically unified-preprod unique url urls user users values variables version viewing visibility visible won working"
     },
     {
       "section": "api",
@@ -423,7 +396,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxForm",
       "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced replacement required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformfieldset rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked stand-in standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
+      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
     },
     {
       "section": "api",
@@ -460,24 +433,6 @@ NG_DOCS={
       "moduleName": "rxForm",
       "shortDescription": "The rxForm directive is an attribute directive meant to be used for",
       "keywords": "api attribute desired directive div dom element elements form-related hierarchical html meant parent rx-form rxform rxformsection validation width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxFormFieldset",
-      "shortName": "rxFormFieldset",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "DEPRECATED - This directive has been marked as deprecated and will be removed in a future",
-      "keywords": "api current deprecated description directive documentation encoreui fields framework functionality future html input legend marked place proper release removed rxform set text updated wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxFormItem",
-      "shortName": "rxFormItem",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "DEPRECATED - This directive has been marked as deprecated and will be removed in a future",
-      "keywords": "api attach attribute boxes content create current deprecated description directive documentation encoreui exists fields framework functionality future html include input label left marked place prefix proper release removed rxform select suffix text transcluded updated wrap"
     },
     {
       "section": "api",
@@ -580,15 +535,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxMisc",
-      "shortName": "rxMisc",
-      "type": "overview",
-      "moduleName": "rxMisc",
-      "shortDescription": "rxMisc Component",
-      "keywords": "api component components deprecation marked overview refactored rxmisc utilities"
-    },
-    {
-      "section": "api",
       "id": "rxModalAction",
       "shortName": "rxModalAction",
       "type": "overview",
@@ -684,16 +630,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "rxOptionTable",
       "shortDescription": "rxOptionTable Component",
-      "keywords": "api checkbox component create directive directives functionality inputs overview radio rxformoptiontable rxoptiontable series table"
-    },
-    {
-      "section": "api",
-      "id": "rxOptionTable.directive:rxFormOptionTable",
-      "shortName": "rxFormOptionTable",
-      "type": "directive",
-      "moduleName": "rxOptionTable",
-      "shortDescription": "DEPRECATED: Please use rxOptionTable",
-      "keywords": "api directive rxoptiontable stand-in-replacement"
+      "keywords": "api checkbox component create directive directives functionality inputs overview radio rxoptiontable series table"
     },
     {
       "section": "api",
@@ -886,15 +823,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxTags",
-      "shortName": "rxTags",
-      "type": "overview",
-      "moduleName": "rxTags",
-      "shortDescription": "rxTags component",
-      "keywords": "api apply component descriptions directive directives entity overview predetermined rxtags"
-    },
-    {
-      "section": "api",
       "id": "rxTags.directive:rxTags",
       "shortName": "rxTags",
       "type": "directive",
@@ -940,15 +868,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "tooltips",
-      "shortName": "tooltips",
-      "type": "overview",
-      "moduleName": "tooltips",
-      "shortDescription": "tooltips Component",
-      "keywords": "api applied attributes bootstrap component configuration creating custom demo dependency directive directives documentation elements encoreui exact example fine github guidance html included inside io optional overview plugin raw styles template templates tooltip tooltips usage work"
-    },
-    {
-      "section": "api",
       "id": "typeahead",
       "shortName": "typeahead",
       "type": "overview",
@@ -963,7 +882,7 @@ NG_DOCS={
       "type": "overview",
       "moduleName": "utilities",
       "shortDescription": "Utilities",
-      "keywords": "api application business constant constants control controller controllers convenience devicepaths directive directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfavicon rxfeedbackcontroller rxfeedbacksvc rxformutils rxhideifukaccount rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
+      "keywords": "api application business constant constants control controller controllers convenience devicepaths directive directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfavicon rxfeedbackcontroller rxfeedbacksvc rxformutils rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
     },
     {
       "section": "api",
@@ -1210,15 +1129,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "utilities.service:LocalStorage",
-      "shortName": "LocalStorage",
-      "type": "service",
-      "moduleName": "utilities",
-      "shortDescription": "NOTICE: This service has be deprecated in favor of the",
-      "keywords": "api deprecated favor rxlocalstorage service utilities"
-    },
-    {
-      "section": "api",
       "id": "utilities.service:NotifyProperties",
       "shortName": "NotifyProperties",
       "type": "service",
@@ -1313,17 +1223,8 @@ NG_DOCS={
       "shortName": "rxFormUtils",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Set of utility functions used by rxForm to access form data.",
-      "keywords": "access api data fieldid form functions getselectedoptionfortable getselectedoptionfortabset option returns rowid rxform rxformoptiontable selected service set tableid tabset tabsetid utilities utility"
-    },
-    {
-      "section": "api",
-      "id": "utilities.service:rxHideIfUkAccount",
-      "shortName": "rxHideIfUkAccount",
-      "type": "service",
-      "moduleName": "utilities",
-      "shortDescription": "Check if account number in the URL is of UK origin.",
-      "keywords": "account api check false matches number origin pattern rxhideifukaccount service uk url utilities visibility"
+      "shortDescription": "Set of utility functions used by rxForm to access form data in ",
+      "keywords": "access api data directive fieldid form function functions getselectedoptionfortable getselectedoptionfortabset option returns rowid rxform rxformutils rxoptiontable selected service set table tableid tabset tabsetid utilities utility"
     },
     {
       "section": "api",

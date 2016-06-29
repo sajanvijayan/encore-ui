@@ -35,66 +35,6 @@ pre code {
   border-radius: 0;
   white-space: pre-wrap;
 }
-.swatch {
-  flex: 0 0 auto;
-  height: 250px;
-  width: 275px;
-  margin: 10px;
-  box-sizing: border-box;
-  background-color: #ffffff;
-  border: 1px solid #dededd;
-  padding: 0;
-  box-shadow: 0 3px 5px -2px #898989;
-}
-.swatch .swatch-heading,
-.swatch .swatch-body {
-  padding: 15px;
-}
-.swatch .swatch-heading {
-  height: 30px;
-  font-weight: bold;
-  font-size: 14px;
-}
-.swatch .swatch-body ul.list,
-.swatch .swatch-body ol.list {
-  margin: 0 0 0 20px;
-}
-.swatch .swatch-body ul.list li,
-.swatch .swatch-body ol.list li {
-  margin-left: 0;
-}
-.swatch .swatch-green {
-  background-color: #24b56a;
-  color: #ffffff;
-}
-.swatch .swatch-light-green {
-  background-color: #c8e5bf;
-  color: #000000;
-}
-.swatch .swatch-blue {
-  background-color: #4881c0;
-  color: #ffffff;
-}
-.swatch .swatch-light-blue {
-  background-color: #86cafd;
-  color: #000000;
-}
-.swatch .swatch-disabled-gray {
-  background-color: #dededd;
-  color: #000000;
-}
-.swatch .swatch-cancel-gray {
-  background-color: #898989;
-  color: #ffffff;
-}
-.swatch .swatch-orange {
-  background-color: #db7820;
-  color: #ffffff;
-}
-.swatch .swatch-red {
-  background-color: #fc0f1d;
-  color: #ffffff;
-}
 .palette {
   width: 350px;
   margin-right: 75px;

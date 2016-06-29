@@ -154,19 +154,6 @@ var optionRowFromElement = function (eleOptionRow) {
             value: function () {
                 this.selectInput.deselect();
             }
-        },
-
-        /**
-         * @deprecated
-         * @function
-         * @instance
-         * @memberof rxOptionTable.row
-         * @description **DEPRECATED**: Use {@link rxOptionTable.row#deselect} instead.
-         */
-        unselect: {
-            value: function () {
-                this.deselect();
-            }
         }
     });
 };//optionRowFromElement
@@ -363,19 +350,6 @@ var rxOptionTable = {
 
     /**
      * @function
-     * @deprecated
-     * @alias {rxOptionTable.deselectAll}
-     * @instance
-     * @description **DEPRECATED** Unselects every row in the rxOptionTable.
-     */
-    unselectAll: {
-        value: function () {
-            return this.deselectAll();
-        }
-    },
-
-    /**
-     * @function
      * @instance
      * @description Deselects every row in the rxOptionTable.
      */
@@ -408,21 +382,8 @@ var rxOptionTable = {
             var css = cellSelectorForColumn(columnName);
             var cellElement = this.rootElement.element(by.cssContainingText(css, columnText));
             return rowNumberFromCell(cellElement).then(function (rowNumber) {
-                optionRowFromElement(page.tblRows.get(rowNumber)).unselect();
+                optionRowFromElement(page.tblRows.get(rowNumber)).deselect();
             });
-        }
-    },
-
-    /**
-     * @deprecated
-     * @function
-     * @instance
-     * @description **DEPRECATED**: Use {@link rxOptionTable#deselectByColumnText} instead.
-     * @alias rxOptionTable#deselectByColumnText
-     */
-    unselectByColumnText: {
-        value: function (columnName, columnText) {
-            this.deselectByColumnText(columnName, columnText);
         }
     },
 
@@ -431,7 +392,7 @@ var rxOptionTable = {
      * @instance
      * @description
      * Deselect options where each `{ columnName: columnText }` in `selections` is passed to
-     * {@link rxOptionTable#unselectByColumnText}.
+     * {@link rxOptionTable#deselectByColumnText}.
      * @param {Object[]} selections - Array of single key-value pairs to unselect.
      * @returns {undefined}
      * @example
@@ -450,21 +411,8 @@ var rxOptionTable = {
         value: function (selections) {
             var page = this;
             _.forEach(selections, function (selection) {
-                page.unselectByColumnText(_.first(_.keys(selection)), _.first(_.values(selection)));
+                page.deselectByColumnText(_.first(_.keys(selection)), _.first(_.values(selection)));
             });
-        }
-    },
-
-    /**
-     * @deprecated
-     * @function
-     * @instance
-     * @description **DEPRECATED**: Use {@link rxOptionTable#deselectMany} instead.
-     * @alias rxCheckbox#deselectMany
-     */
-    unselectMany: {
-        value: function (selections) {
-            this.deselectMany(selections);
         }
     },
 
@@ -604,20 +552,6 @@ exports.rxOptionTable = {
     },
 
     /**
-     * @deprecated
-     * @memberof rxOptionTable
-     * @description **DEPRECATED**: Use {@link rxOptionTable.initialize} without arguments instead.
-     * Will return a page object representing the _first_ rxOptionTable object found on the page.
-     * @type {rxOptionTable}
-     */
-    main: (function () {
-        rxOptionTable.rootElement = {
-            get: function () { return $('rx-option-table'); }
-        };
-        return Page.create(rxOptionTable);
-    })(),
-
-    /**
      * @memberof rxOptionTable
      * @function
      * @description
@@ -662,43 +596,6 @@ exports.rxOptionTable = {
         };
     }
 };
-
-/**
- * @deprecated
- * @namespace
- * @description
- * **DEPRECATED**: Please use {@link rxOptionTable} as a stand-in replacement.
- */
-exports.rxOptionFormTable = {
-    /**
-     * @deprecated
-     * @function
-     * @returns {rxOptionTable}
-     * @memberof rxOptionFormTable
-     * @description
-     * **DEPRECATED**: Please use {@link encore.rxOptionTable.initialize} as a stand-in replacement.
-     */
-    initialize: exports.rxOptionTable.initialize,
-
-    /**
-     * @deprecated
-     * @memberof rxOptionFormTable
-     * @type {rxOptionTable}
-     * @description
-     * **DEPRECATED**: Please use {@link rxOptionTable.initialize} (without arguments) as a stand-in replacement.
-     */
-    main: exports.rxOptionTable.main,
-
-    /**
-     * @deprecated
-     * @function
-     * @memberof rxOptionFormTable
-     * @returns {rxOptionTable}
-     * @description
-     * **DEPRECATED**: Please use {@link rxOptionTable.generateAccessor} as a stand-in replacement.
-     */
-    generateAccessor: exports.rxOptionTable.generateAccessor
-};
 </code></pre>
         </article>
     </section>
@@ -709,13 +606,13 @@ exports.rxOptionFormTable = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 15 2016 16:15:46 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 29 2016 16:13:29 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -20,7 +20,7 @@ For example, say you have an &quot;Edit&quot; form. The user has gone to edit so
 be saved independently of each other. <code>rxAutoSave</code> will also let you independently store values for multiple forms
 appearing on the same page.</p>
 <p>By default, all values are stored in <a href="#/api/utilities.service:rxLocalStorage">rxLocalStoage</a> which interfaces with the
-browser&#39;s <code>LocalStorage</code> object. This means that if a user logs into a different computer, their stored values will
+browser&#39;s <code>localStorage</code> object. This means that if a user logs into a different computer, their stored values will
 not be present.  Use of <code>SessionStorage</code> is also supported out-of-the-box. If you wish to save form states elsewhere
 (for instance, to an API), see the &quot;Storage Location&quot; section below.</p>
 <h4 id="description_setting-up-your-template">Setting up your template</h4>
@@ -193,9 +193,9 @@ when it should save. To turn off automatic saving, set up your instance as follo
 </pre>
 <p>As with the <code>load</code> parameter, you can pass either a boolean or a promise to <code>save</code>.</p>
 <h4 id="description_storage-location">Storage location</h4>
-<p>All values for <code>rxAutoSave</code> are by default stored in the browser&#39;s <code>LocalStorage</code> through the <code>rxLocalStorage</code>
+<p>All values for <code>rxAutoSave</code> are by default stored in the browser&#39;s <code>localStorage</code> through the <code>rxLocalStorage</code>
 service, and keyed on the URL of the page, with a <code>rxAutoSave::</code> prefix. For example, if the above form were
-present at the URL <code>&#39;users/JonnyRocket/edit&#39;</code>, then the form data would be saved into the browser&#39;s <code>LocalStorage</code>
+present at the URL <code>&#39;users/JonnyRocket/edit&#39;</code>, then the form data would be saved into the browser&#39;s <code>localStorage</code>
 at location <code>&#39;rxAutoSave::users/JonnyRocket/edit&#39;</code>.</p>
 <p>If you wish to use a different storage backend (<code>SessionStorage</code>, for instance), use the <code>storageBackend</code> parameter:</p>
 <pre class="prettyprint linenums">

@@ -4,13 +4,13 @@
   height: 340px;
 }
 .rxBulkSelect-demo .pending-status {
-  color: #db7820;
+  color: #d14904;
 }
 .rxBulkSelect-demo .success-status {
-  color: #24b56a;
+  color: #2e7d32;
 }
 .rxBulkSelect-demo .failure-status {
-  color: #fc0f1d;
+  color: #f44336;
 }
 .rxMultiSelect-demo .multi-select-container {
   width: 200px;

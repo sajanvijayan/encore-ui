@@ -80,7 +80,21 @@
 53
 54
 55
-56</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -101,6 +115,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -114,6 +134,12 @@
 <span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,15 +167,16 @@
  * @ngdoc service
  *
  * @description
- * Set of utility functions used by rxForm to access form data.
+ * Set of utility functions used by rxForm to access form data in 
+ * {@link rxOptionTable.directive:rxOptionTable rxOptionTable}.
  *
- * @example
  * &lt;pre&gt;
- * // Returns the selected option for the rxFormOptionTable with id tableId
+ * // Returns the selected option for the rxOptionTable with id tableId
  * // [{ tableId: 'tableId', fieldId: 'fieldId', rowId: 'rowId' }]
  * getSelectedOptionForTable(tableId)
-&nbsp;
- * // Returns the selected option for the rxFormOptionTable in the tabset with id tabsetId
+ * &lt;/pre&gt;
+ * &lt;pre&gt;
+ * // Returns the selected option for the rxOptionTable in the tabset with id tabsetId
  * // [{ tableId: 'tableId', fieldId: 'fieldId', rowId: 'rowId' }]
  * getSelectedOptionForTabSet(tabsetId)
  * &lt;/pre&gt;
@@ -157,13 +184,19 @@
 .factory('rxFormUtils', function ($document) {
     var rxFormUtils = {};
 &nbsp;
-    // Returns the selected option for the rxFormOptionTable with id: tableId
-    // and fieldId: fieldId (optional)
-    // @param {String} tableId - The id of the table
-    // @returns {object} The rowId of the selected option
+    /**
+     * @ngdoc function
+     * @name  rxFormUtils.getSelectedOptionForTable
+     * @methodOf utilities.service:rxFormUtils
+     * @description
+     * Returns the selected option for the {@link rxOptionTable.directive:rxOptionTable rxOptionTable} with
+     * `id`: tableId and `fieldId`: fieldId (optional).
+     * @param {String} tableId - The id of the table
+     * @returns {object} The rowId of the selected option
+     */
     rxFormUtils.getSelectedOptionForTable = function (tableId) {
         var selectedRow;
-        var row = $document[0].querySelector('rx-form-option-table#' + tableId + ' .selected input');
+        var row = $document[0].querySelector('rx-option-table#' + tableId + ' .selected input');
 &nbsp;
         if (_.isObject(row) &amp;&amp; 'value' in row) {
             selectedRow = { rowId: row.value };
@@ -171,13 +204,19 @@
         return selectedRow;
     };
 &nbsp;
-    // Returns the selected option within the tabset
-    // @param {String} tabsetId - The id of the tabset
-    // @returns {object} The tableId, fieldId, and rowId of the selected option
+    /**
+     * @ngdoc function
+     * @name  rxFormUtils.getSelectedOptionForTabSet
+     * @methodOf utilities.service:rxFormUtils
+     * @description
+     * Returns the selected option within the tabset.
+     * @param {String} tabsetId - The id of the tabset
+     * @returns {object} The tableId, fieldId, and rowId of the selected option
+     */
     rxFormUtils.getSelectedOptionForTabSet = function (tabsetId) {
         var selectedOption;
         var xpathToTable = '//div[@id="' + tabsetId +
-            '"]//tr[contains(@class, "selected")]//ancestor::rx-form-option-table';
+            '"]//tr[contains(@class, "selected")]//ancestor::rx-option-table';
         var result = $document[0].evaluate(xpathToTable, $document[0], null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
         if (result.singleNodeValue) {
             var table = result.singleNodeValue;
@@ -195,7 +234,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 15 2016 16:16:00 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 29 2016 16:13:45 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

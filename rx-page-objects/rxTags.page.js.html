@@ -61,26 +61,6 @@ var tag = function (tagElement) {
          * @instance
          * @function
          * @memberof rxTags.tag
-         * @deprecated
-         * @description Whether or not the tag exists.
-         *
-         * **DEPRECATED** Use `isPresent()` instead.
-         * @example
-         * it('should have a tag present after creating it', function () {
-         *     expect(encore.rxTags.initialize().addTag('Foo').exists()).to.eventually.be.true;
-         * });
-         * @returns {Promise&lt;Boolean>}
-         */
-        exists: {
-            value: function () {
-                return this.isPresent();
-            }
-        },
-
-        /**
-         * @instance
-         * @function
-         * @memberof rxTags.tag
          * @description Whether or not the tag exists.
          * @example
          * it('should have a tag present after creating it', function () {
@@ -102,7 +82,7 @@ var tag = function (tagElement) {
          * @returns {Boolean}
          * @example
          * it('should focus on the last tag when clicking it', function () {
-         *     encore.rxTags.intitialize().addTag('Banana').then(function (tag) {
+         *     encore.rxTags.initialize().addTag('Banana').then(function (tag) {
          *         expect(tag.isFocused()).to.eventually.be.false;
          *         tag.click();
          *         expect(tag.isFocused()).to.eventually.be.true;
@@ -128,7 +108,7 @@ var tag = function (tagElement) {
          * it('should show a warning when deleting an existing tag with backspace', function () {
          *     encore.rxTags.initialize().byText('Enterprise').sendBackspace();
          *     var warning = 'Warning: Deleting tag "Enterprise" will notify some very angry sysadmins';
-         *     expect(encore.rxNotify.all.exists(warning, 'warning')).to.eventually.be.true;
+         *     expect(encore.rxNotify.all.isPresent(warning, 'warning')).to.eventually.be.true;
          * });
          */
         sendBackspace: {
@@ -140,16 +120,17 @@ var tag = function (tagElement) {
 
         /**
          * @instance
-         * @type {String}
+         * @function
          * @memberof rxTags.tag
          * @description The text within the tag. Does not include the text in {@link rxTags.tag#category}.
          * @example
          * it('should have "Enterprise" as the exact tag name', function () {
-         *     expect(encore.rxTags.initialize().byText('Banana').text).to.eventually.equal('Banana');
+         *     expect(encore.rxTags.initialize().byText('Banana').getText()).to.eventually.equal('Banana');
          * });
+         * @returns {Promise&lt;String>}
          */
-        text: {
-            get: function () {
+        getText: {
+            value: function () {
                 return tagElement.$('.text').getText();
             }
         },
@@ -182,7 +163,7 @@ var tag = function (tagElement) {
          * it('should show a warning when deleting an existing tag with the close button', function () {
          *     encore.rxTags.initialize().byText('Enterprise').remove();
          *     var warning = 'Warning: Deleting tag "Enterprise" will notify some very angry sysadmins';
-         *     expect(encore.rxNotify.all.exists(warning, 'warning')).to.eventually.be.true;
+         *     expect(encore.rxNotify.all.isPresent(warning, 'warning')).to.eventually.be.true;
          * });
          */
         remove: {
@@ -254,7 +235,7 @@ var rxTags = {
      * @example
      * it('should show an warning notification when adding the "Enterprise" tag', function () {
      *     encore.rxTags.initialize().addTag('Enterprise');
-     *     expect(encore.rxNotify.all.exists('Warning: "Enterprise"', 'warning')).to.eventually.be.true;
+     *     expect(encore.rxNotify.all.isPresent('Warning: "Enterprise"', 'warning')).to.eventually.be.true;
      * });
      */
     addTag: {
@@ -325,20 +306,7 @@ exports.rxTags = {
             get: function () { return rxTagsElement; }
         };
         return Page.create(rxTags);
-    },
-
-    /**
-     * @memberof rxTags
-     * @deprecated Use {@link rxTags.initialize} without arguments instead.
-     * @returns {rxTags} Page object representing the _first_ rxTags object found on the page.
-     */
-    main: (function () {
-        rxTags.rootElement = {
-            get: function () { return $('rx-tags'); }
-        };
-        return Page.create(rxTags);
-    })()
-
+    }
 };
 </code></pre>
         </article>
@@ -350,13 +318,13 @@ exports.rxTags = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 15 2016 16:15:46 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 29 2016 16:13:29 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>

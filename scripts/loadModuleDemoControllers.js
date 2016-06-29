@@ -28,10 +28,6 @@ angular.module('demoApp')
 });
 
 
-
-
-
-
 angular.module('demoApp')
 .controller('rxAppCtrl', function ($scope, $location, $rootScope, $window, encoreRoutes, rxVisibility, Session) {
     Session.getUserId = function () {
@@ -523,58 +519,6 @@ angular.module('encore.ui.rxForm')
 
 
 angular.module('demoApp')
-.controller('rxMiscCtrl', function ($scope, $timeout, $q, rxNotify, rxAutoSave) {
-    $scope.formData = {
-        checkbox: false,
-        name: '',
-        description: '',
-        sensitive: ''
-    };
-
-    var autosave = rxAutoSave($scope, 'formData', {
-        exclude: ['sensitive'],
-        ttl: 86400000
-    });
-
-    $scope.status = {
-        loading: false,
-        disable: false,
-        deferredLoading: false,
-        deferredDisable: false
-    };
-
-    var clearMsg = [
-        'rxAutoSave data has been cleared!',
-        'Navigate away and return, and the form will not be auto-populated'
-    ].join(' ');
-
-    // Clear with an explicit autosave.clear() call
-    $scope.clearStorage = function () {
-        $scope.status.loading = true;
-        $timeout(function () {
-            $scope.status.loading = false;
-            autosave.clear();
-            rxNotify.add(clearMsg, { type: 'success' });
-        }, 1000);
-    };
-
-    // Clear by resolving the associated promise
-    $scope.deferredClear = function () {
-        var deferred = $q.defer();
-
-        autosave.clearOnSuccess(deferred.promise);
-        $scope.status.deferredLoading = true;
-
-        $timeout(function () {
-            $scope.status.deferredLoading = false;
-            deferred.resolve();
-            rxNotify.add(clearMsg, { type: 'success' });
-        }, 1000);
-    };
-});
-
-
-angular.module('demoApp')
 .controller('rxModalActionCtrl', function ($scope, rxNotify) {
     $scope.password = 'guest';
 
@@ -1040,18 +984,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxTagsCtrl', function ($scope) {
-    $scope.tagOptions = [
-        { text: 'apple', category: 'fruit' },
-        { text: 'orange', category: 'fruit' },
-        { text: 'banana', category: 'fruit' },
-        { text: 'squash', category: 'vegetable' }
-    ];
-    $scope.tags = ['apple'];
-});
-
-
 
 
 angular.module('demoApp')
@@ -1095,12 +1027,6 @@ angular.module('demoApp')
             $scope.toggle5 = !value;
         }, 1000);
     };
-});
-
-
-angular.module('demoApp')
-.controller('tooltipsCtrl', function ($scope) {
-    $scope.dynamicTooltip = 'I was defined in the controller!';
 });
 
 
@@ -1549,6 +1475,25 @@ angular.module('demoApp')
 
 
 
+angular.module('demoApp')
+.controller('tagsSimpleExampleCtrl', function ($scope) {
+    $scope.tagOptions = [
+        { text: 'apple', category: 'fruit' },
+        { text: 'orange', category: 'fruit' },
+        { text: 'banana', category: 'fruit' },
+        { text: 'squash', category: 'vegetable' }
+    ];
+    $scope.tags = ['apple'];
+});
+
+
+angular.module('demoApp')
+.controller('tooltipsSimpleExampleCtrl', function ($scope) {
+    $scope.dynamicTooltip = 'I was defined in the controller!';
+    $scope.htmlTooltip = '<span class="tooltip-header">A Tooltip Title</span><p>You can use HTML</p>';
+});
+
+
 
 
 angular.module('demoApp')
@@ -1839,8 +1784,6 @@ angular.module('demoApp')
 .controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
-
-
 
 
 

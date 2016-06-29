@@ -43,7 +43,7 @@ var rxToggleSwitch = {
     /**
      * @function
      * @instance
-     * @description Whether the root element is currently displayed.
+     * @description Whether the toggle switch is currently displayed.
      * @returns {Boolean}
      */
     isDisplayed: {
@@ -55,14 +55,12 @@ var rxToggleSwitch = {
     /**
      * @function
      * @instance
-     * @description Whether or not the switch component is currently set to the "on" position.
+     * @description Whether the toggle switch has interaction enabled.
      * @returns {Boolean}
      */
     isEnabled: {
         value: function () {
-            return this.btnToggleSwitch.getAttribute('class').then(function (classes) {
-                return classes.split(' ').indexOf('on') > -1;
-            });
+            return this.btnToggleSwitch.getAttribute('disabled').then(_.isNull);
         }
     },
 
@@ -73,38 +71,21 @@ var rxToggleSwitch = {
      * set to this position, nothing happens.
      * @example
      * it('should enable the switch', function () {
-     *     var switch = encore.rxToggleSwitch.initialize();
-     *     expect(switch.isEnabled()).to.eventually.be.false;
-     *     switch.enable();
-     *     expect(switch.isEnabled()).to.eventually.be.true;
-     *     switch.enable(); // does nothing the second time it is called
-     *     expect(switch.isEnabled()).to.eventually.be.true;
+     *     var mySwitch = encore.rxToggleSwitch.initialize();
+     *     expect(mySwitch.isToggled()).to.eventually.be.false;
+     *     mySwitch.toggleOn();
+     *     expect(mySwitch.isToggled()).to.eventually.be.true;
+     *     mySwitch.toggleOn(); // does nothing the second time it is called
+     *     expect(mySwitch.isToggled()).to.eventually.be.true;
      * });
      */
-    enable: {
+    toggleOn: {
         value: function () {
             var page = this;
-            return this.isEnabled().then(function (enabled) {
-                if (!enabled) {
+            return this.isToggled().then(function (toggled) {
+                if (!toggled) {
                     page.btnToggleSwitch.click();
                 }
-            });
-        }
-    },
-
-    /**
-     * @todo Rename this function. This sounds like it checks for `ng-disable` on the directive.
-     * @function
-     * @instance
-     * @description Whether or not the switch component is currently set to the "off" position.
-     *
-     * **DEPRECATED** Check inverse of `isEnabled()` instead.
-     * @returns {Boolean}
-     */
-    isDisabled: {
-        value: function () {
-            return this.isEnabled().then(function (enabled) {
-                return !enabled;
             });
         }
     },
@@ -116,19 +97,19 @@ var rxToggleSwitch = {
      * set to this position, nothing happens.
      * @example
      * it('should disable the switch', function () {
-     *     var switch = encore.rxToggleSwitch.initialize();
-     *     expect(switch.isEnabled()).to.eventually.be.true;
-     *     switch.disable();
-     *     expect(switch.isEnabled()).to.eventually.be.false;
-     *     switch.disable(); // does nothing the second time it is called
-     *     expect(switch.isEnabled()).to.eventually.be.false;
+     *     var mySwitch = encore.rxToggleSwitch.initialize();
+     *     expect(mySwitch.isToggled()).to.eventually.be.true;
+     *     mySwitch.toggleOff();
+     *     expect(mySwitch.isToggled()).to.eventually.be.false;
+     *     mySwitch.toggleOff(); // does nothing the second time it is called
+     *     expect(mySwitch.isToggled()).to.eventually.be.false;
      * });
      */
-    disable: {
+    toggleOff: {
         value: function () {
             var page = this;
-            return this.isEnabled().then(function (enabled) {
-                if (enabled) {
+            return this.isToggled().then(function (toggled) {
+                if (toggled) {
                     page.btnToggleSwitch.click();
                 }
             });
@@ -136,18 +117,38 @@ var rxToggleSwitch = {
     },
 
     /**
+     * @function
      * @instance
+     * @description Whether or not the switch component is currently set to the "on" position.
+     * @returns {Boolean}
+     */
+    isToggled: {
+        value: function () {
+            return this.getText().then(function (text) {
+                if (text === 'ON') {
+                    return true;
+                } else if (text === 'OFF') {
+                    return false;
+                }
+                throw 'Toggle switch text was not toggled to either "ON" or "OFF" position';
+            });
+        }
+    },
+
+    /**
+     * @instance
+     * @function
      * @description The current text of the switch.
-     * @type {String}
      * @example
      * it('should toggle to the "on" position', function () {
-     *     var switch = encore.rxToggleSwitch.initialize();
-     *     switch.enable();
-     *     expect(switch.text).to.eventually.equal('ON');
+     *     var mySwitch = encore.rxToggleSwitch.initialize();
+     *     mySwitch.enable();
+     *     expect(mySwitch.getText()).to.eventually.equal('ON');
      * });
+     * @returns {Promise&lt;String>}
      */
-    text: {
-        get: function () {
+    getText: {
+        value: function () {
             return this.btnToggleSwitch.$('span').getText();
         }
     }
@@ -157,33 +158,16 @@ exports.rxToggleSwitch = {
     /**
      * @function
      * @memberof rxToggleSwitch
-     * @param {ElementFinder} [rxToggleSwitchElement=$('rx-toggle-switch')] -
+     * @param {ElementFinder} rxToggleSwitchElement -
      * ElementFinder to be transformed into an rxToggleSwitchElement object.
      * @returns {rxToggleSwitch} Page object representing the {@link rxToggleSwitch} object.
      */
     initialize: function (rxToggleSwitchElement) {
-        if (rxToggleSwitchElement === undefined) {
-            rxToggleSwitchElement = $('rx-toggle-switch');
-        }
-
         rxToggleSwitch.rootElement = {
             get: function () { return rxToggleSwitchElement; }
         };
         return Page.create(rxToggleSwitch);
-    },
-
-    /**
-     * @deprecated Use {@link rxToggleSwitch.initialize} without arguments instead.
-     * @memberof rxToggleSwitch
-     * @description Page object representing the _first_ rxToggleSwitch object found on the page.
-     * @type {rxToggleSwitch}
-     */
-    main: (function () {
-        rxToggleSwitch.rootElement = {
-            get: function () { return $('rx-toggle-switch'); }
-        };
-        return Page.create(rxToggleSwitch);
-    })()
+    }
 };
 </code></pre>
         </article>
@@ -195,13 +179,13 @@ exports.rxToggleSwitch = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
 </nav>
 
 <br clear="both">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 15 2016 16:15:46 GMT-0500 (CDT)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Wed Jun 29 2016 16:13:29 GMT-0500 (CDT)
 </footer>
 
 <script> prettyPrint(); </script>
