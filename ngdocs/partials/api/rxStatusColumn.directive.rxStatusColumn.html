@@ -17,8 +17,8 @@ If your code happens to already use those statuses, then you can simply pass
 them to the <code>status</code> attribute as appropriate. However, it&#39;s likely that
 internally you will be receiving a number of different statuses from your
 APIs, and will need to map them to these six statuses.</p>
-<p>The example in the <a href="/encore-ui/#/components/rxStatusColumn">demo</a> shows a typical
-use of this directive, such as:</p>
+<p>The example in the <a href="/encore-ui/#/components/rxStatusColumn">demo</a> shows
+a typical use of this directive, such as:</p>
 <pre class="prettyprint linenums">
 &lt;tbody&gt;
     &lt;tr ng-repeat="server in servers"&gt;
@@ -46,8 +46,8 @@ ends in -<code>ING</code>, it should get the animated yellow stripes of <code>PE
 <h2 id="usage">Usage</h2>
 <div class="usage">as attribute<pre class="prettyprint linenums">&lt;ANY rx-status-column
      status="{String}"
-     [api]="{String}"
-     [tooltip]="{String}"&gt;
+     [api="{String}"]
+     [tooltip="{String}"]&gt;
    ...
 &lt;/ANY&gt;</pre>
 <h3 id="usage_directive-info">Directive info</h3>
@@ -55,8 +55,8 @@ ends in -<code>ING</code>, it should get the animated yellow stripes of <code>PE
 </ul>
 </div>
 <h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>status</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxstatuscolumn-directive-page rxstatuscolumn-directive-rxstatuscolumn-page"><p>The status to draw</p>
-</div></td></tr><tr><td>[api]</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxstatuscolumn-directive-page rxstatuscolumn-directive-rxstatuscolumn-page"><p>Optionally specify which API mapping to use for the status</p>
-</div></td></tr><tr><td>[tooltip]</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxstatuscolumn-directive-page rxstatuscolumn-directive-rxstatuscolumn-page"><p>The string to use for the tooltip. If omitted,
-it will default to using the passed in status</p>
+</div></td></tr><tr><td>api <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxstatuscolumn-directive-page rxstatuscolumn-directive-rxstatuscolumn-page"><p>Optionally specify which API mapping to use for the status</p>
+</div></td></tr><tr><td>tooltip <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxstatuscolumn-directive-page rxstatuscolumn-directive-rxstatuscolumn-page"><p>The string to use for the tooltip. If omitted, it will default to using the
+passed in status</p>
 </div></td></tr></tbody></table></div>
 </div>

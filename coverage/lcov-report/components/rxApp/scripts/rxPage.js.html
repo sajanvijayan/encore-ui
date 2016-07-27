@@ -204,7 +204,13 @@
 177
 178
 179
-180</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+180
+181
+182
+183</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -391,13 +397,15 @@
  * @scope
  * @description
  *
- * Responsible for creating the HTML necessary for a page (including breadcrumbs and page title)
- * You can pass in a `title` attribute or an `unsafeHtmlTitle` attribute, but not both. Use the former
- * if your title is a plain string, use the latter if your title contains embedded HTML tags AND you
- * trust the source of this title. Arbitrary javascript can be executed, so ensure you trust your source.
+ * Responsible for creating the HTML necessary for a page (including breadcrumbs
+ * and page title) You can pass in a `title` attribute or an `unsafeHtmlTitle`
+ * attribute, but not both. Use the former if your title is a plain string, use
+ * the latter if your title contains embedded HTML tags AND you trust the source
+ * of this title. Arbitrary javascript can be executed, so ensure you trust your
+ * source.
  *
- * The document title will be set to either `title` or a stripped version of `unsafeHtmlTitle`, depending
- * on which you provide.
+ * The document title will be set to either `title` or a stripped version of
+ * `unsafeHtmlTitle`, depending on which you provide.
  *
  * You'll likely want to use the {@link rxApp.directive:rxPage rxPage} directive
  * inside your template view. For example, inside a 'myView.html' file:
@@ -414,8 +422,8 @@
  *
  * Both the `title` and `subtitle` attributes accept an Angular expression,
  * which can be a string (shown in the previous example) or a scope property.
- * This string/property can accept other expressions, enabling you to build custom
- * titles. The demo has an example of this usage.
+ * This string/property can accept other expressions, enabling you to build
+ * custom titles. The demo has an example of this usage.
  *
  * If you wish to use arbitrary HTML in your title, you can use the
  * `unsafe-html-title` attribute instead of `title`. This is considered "unsafe"
@@ -424,16 +432,16 @@
  * demo shows the use of HTML tags.
  *
  * In either case (`title` or `unsafe-html-title`), the document title
- * (i.e. visible in the browser tab) will be set to your chosen title. If you use
- * `unsafe-html-title`, all HTML tags will be stripped before setting the document
- * title.
+ * (i.e. visible in the browser tab) will be set to your chosen title. If you
+ * use `unsafe-html-title`, all HTML tags will be stripped before setting the
+ * document title.
  *
  * ### Account Info below Breadcrumbs
  *
- * `rxPage` integrates with the {@link elements.directive:rxAccountInfo rxAccountInfo} component,
- * to draw the Account Info box directly underneath the `rxBreadcrumbs`.
- * This is opt-in. By default, it will not appear. To enable it, pass the
- * `account-number="..."` attribute to `&lt;rx-page&gt;` in your template, i.e
+ * `rxPage` integrates with the {@link elements.directive:rxAccountInfo rxAccountInfo}
+ * component, to draw the Account Info box directly underneath the
+ * `rxBreadcrumbs`. This is opt-in. By default, it will not appear. To enable it,
+ * pass the `account-number="..."` attribute to `&lt;rx-page&gt;` in your template, i.e
  *
  * &lt;pre&gt;
  * &lt;rx-page account-number="{{ accountNumber }}"&gt;
@@ -441,8 +449,8 @@
  *
  * As noted in {@link elements.directive:rxAccountInfo rxAccountInfo}, this
  * directive requires that `SupportAccount`, `Encore` and `Teams` services are
- * available to the Angular Dependency Injection system. These are *not* provided
- * by EncoreUI, but are available in an internal Rackspace repository.
+ * available to the Angular Dependency Injection system. These are *not*
+ * provided by EncoreUI, but are available in an internal Rackspace repository.
  *
  *
  * ### Status tags
@@ -452,10 +460,10 @@
  * The "Customized rxApp" demo shows the use of this with the `"alpha"` tag.
  *
  * The framework currently provides `"alpha"` and `"beta"` tags, but any product
- * can specify their own custom tags using the `rxStatusTagsProvider`. It currently
- * has one method, `addStatus`, which takes an unique `key` for the new tag, the
- * `class` it should use in the HTML, and the `text` that will be drawn. All custom
- * tags are drawn inside of a `&lt;span&gt;`, essentially as:
+ * can specify their own custom tags using the `rxStatusTagsProvider`. It
+ * currently has one method, `addStatus`, which takes an unique `key` for the
+ * new tag, the `class` it should use in the HTML, and the `text` that will be
+ * drawn. All custom tags are drawn inside of a `&lt;span&gt;`, essentially as:
  *
  * &lt;pre&gt;
  * &lt;span class="status-tag {{ class }}"&gt;{{ text }}&lt;/span&gt;
@@ -471,7 +479,8 @@
  * });
  * &lt;/pre&gt;
  *
- * This will create a new status tag called `"gamma"`, which you can pass to `rx-page` as:
+ * This will create a new status tag called `"gamma"`, which you can pass to
+ * `rx-page` as:
  *
  * &lt;pre&gt;
  * &lt;rx-page title="'Some Title'" status="gamma"&gt;
@@ -483,8 +492,8 @@
  * value to `addStatus()`.
  *
  * All the tags are accessible inside of {@link elements.directive:rxBreadcrumbs rxBreadcrumbs}
- * as well. Any breadcrumb that was created with `useStatusTag: true` will automatically
- * receive the same status tag as you passed to `&lt;rx-page&gt;`.
+ * as well. Any breadcrumb that was created with `useStatusTag: true` will
+ * automatically receive the same status tag as you passed to `&lt;rx-page&gt;`.
  *
  * ### .page-actions
  *
@@ -501,9 +510,9 @@
  * &lt;/rx-page&gt;
  * &lt;/pre&gt;
  *
- * @param {expression} [title] Title of page
- * @param {expression} [unsafeHtmlTitle] Title for the page, with embedded HTML tags
- * @param {expression} [subtitle] Subtitle of page
+ * @param {String} title Title of page
+ * @param {String} unsafeHtmlTitle Title for the page, with embedded HTML tags
+ * @param {String=} subtitle Subtitle of page
  *
  * @example
  * &lt;pre&gt;
@@ -567,7 +576,7 @@
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jun 29 2016 16:16:06 GMT-0500 (CDT)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Jul 27 2016 16:31:24 GMT-0500 (CDT)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

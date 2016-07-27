@@ -240,21 +240,6 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
-.controller('rxCharacterCountCtrl', function ($scope) {
-    $scope.data = {
-        comment1: '',
-        comment2: '',
-        comment3: '',
-        comment4: '',
-        comment5: 'I have an initial value',
-        comment6: ''
-    };
-});
-
-
-
-
-angular.module('demoApp')
 .controller('rxCompileCtrl', function ($scope) {
     $scope.world = 'wrrrld';
     $scope.myExpression = 'Hello {{world}}';
@@ -1233,6 +1218,8 @@ angular.module('demoApp')
 });
 
 
+
+
 angular.module('demoApp')
 .controller('feedbackSimpleExampleCtrl', function ($scope, rxNotify) {
     $scope.alwaysSucceed = function () {
@@ -1250,6 +1237,18 @@ angular.module('demoApp')
     };
 });
 
+
+angular.module('demoApp')
+.controller('rxCharacterCountCtrl', function ($scope) {
+    $scope.data = {
+        comment1: '',
+        comment2: '',
+        comment3: '',
+        comment4: '',
+        comment5: 'I have an initial value',
+        comment6: ''
+    };
+});
 
 angular.module('demoApp')
 .controller('rxCheckboxCtrl', function ($scope) {
@@ -1767,6 +1766,18 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('rxDateDemoCtrl', function ($scope) {
+    $scope.dateString = '2015-09-17T19:37:17Z';
+});
+
+
+angular.module('demoApp')
+.controller('rxDateTimeDemoCtrl', function ($scope) {
+    $scope.dateString = '2015-09-17T19:37:17Z';
+});
+
+
+angular.module('demoApp')
 .controller('rxDiskSizeCtrl', function ($scope) {
     $scope.sizeGB = 420;
     $scope.sizeTB = 125000;
@@ -1809,6 +1820,14 @@ angular.module('demoApp')
 
 
 
+
+
+
+
+angular.module('demoApp')
+.controller('rxMonthDemoCtrl', function ($scope) {
+    $scope.dateString = '2015-09-17T19:37:17Z';
+});
 
 
 
@@ -1935,6 +1954,12 @@ angular.module('demoApp')
 });
 
 
+
+
+angular.module('demoApp')
+.controller('rxTimeDemoCtrl', function ($scope) {
+    $scope.dateString = '2015-09-17T19:37:17Z';
+});
 
 
 

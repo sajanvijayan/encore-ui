@@ -20,17 +20,17 @@ an asynchronous operation.</p>
 </div></div>
 <h2 id="usage">Usage</h2>
 <div class="usage">as element:<pre class="prettyprint linenums">&lt;rx-toggle-switch
-       [ng-model]="{String}"
-       [disabled]="{Boolean}"
-       [post-hook]="{Function}"
-       true-value="{Expression}"
-       false-value="{Expression}"&gt;
+       ng-model="{String}"
+       post-hook="{Function}"
+       [ng-disabled="{Boolean}"]
+       [true-value="{Expression}"]
+       [false-value="{Expression}"]&gt;
 &lt;/rx-toggle-switch&gt;</pre>
-<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>[ng-model]</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The scope property to bind to</p>
-</div></td></tr><tr><td>[disabled]</td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>Indicates if the input is disabled</p>
-</div></td></tr><tr><td>[postHook]</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>A function to run when the switch is toggled</p>
-</div></td></tr><tr><td>trueValue</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The value of the scope property when the switch is on</p>
-</div> <p><em>(default: true)</em></p></td></tr><tr><td>falseValue</td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The value of the scope property when the switch is off</p>
+<h4 id="usage_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>ng-model</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The scope property to bind to</p>
+</div></td></tr><tr><td>postHook</td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>A function to run when the switch is toggled</p>
+</div></td></tr><tr><td>ng-disabled <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>Indicates if the input is disabled</p>
+</div></td></tr><tr><td>trueValue <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The value of the scope property when the switch is on</p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>falseValue <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><p>The value of the scope property when the switch is off</p>
 </div> <p><em>(default: false)</em></p></td></tr></tbody></table></div>
 <h2 id="example">Example</h2>
 <div class="example"><div class="rxtoggleswitch-directive-page rxtoggleswitch-directive-rxtoggleswitch-page"><pre class="prettyprint linenums">

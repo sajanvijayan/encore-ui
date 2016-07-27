@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "This element is used to draw an account info box at the top of each page,",
-      "keywords": "account account-info-banner account-number accountnumber accountstatusgroup activate additional allow api appears badges box breadcrumbs change cloud data defaults design directive directly draw drop-down element elements encore errors info integrates intended intention internal load loading notifications number optional parameters pass passing products project provided racker rackspace repository requires retrieve route rxapp rxpage selector services set sitting stack style styles supportaccount supported team teams template theoretically time top true under-the-breadcrumbs underneath user user-selection"
+      "keywords": "account account-info-banner account-number accountinfobanner accountnumber accountstatusgroup activate additional allow api appears badges box breadcrumbs change cloud data design directive directly draw drop-down element elements encore errors info integrates intended intention internal load loading notifications number parameters pass passing products project provided racker rackspace repository requires retrieve route rxapp rxpage selector services set sitting stack style styles supportaccount supported team teamid teams template theoretically time top true under-the-breadcrumbs underneath user user-selection"
     },
     {
       "section": "api",
@@ -47,6 +47,15 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
       "keywords": "api applied attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxCharacterCount",
+      "shortName": "rxCharacterCount",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Provides an attribute directive intended for adding to &lt;textarea&gt;",
+      "keywords": "_do_ add adding addition advantage allowed api applied attribute built-in case cases character characters choose class classes considered content correctly count counted-input-wrapper counter currently default demo directive directives directly display div element elements enabled ensure enter enters example experimental extensively failure false feature field functionality heavily highlight highlighted highlighting ignored initial input-highlighting inside intended isshown leading left limit maximum model ng-hide ng-model ng-show ng-trim ngshow number orange performs place placing position preliminary putting recommend red remaining requires rx-character-count scrollbar shipping spaces span style styling support test tested text textarea trailing true underneath unstable user ve warning watch width"
     },
     {
       "section": "api",
@@ -145,7 +154,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxApp",
       "shortDescription": "Responsible for creating the HTML necessary for a common Encore layout.",
-      "keywords": "api binding collapsed collapsible common corner creating custom directive encore feedback hand hide html instance items layout left-hand link menu navigation pass responsible rx-logout rxapp rxapproutes set site site-title title true upper url"
+      "keywords": "api binding collapsed collapsednav collapsible collapsiblenav common corner creating custom directive encore feedback hand hide html instance items layout left-hand link logouturl menu navigation newinstance pass responsible rx-logout rxapp rxapproutes set site site-title sitetitle title true upper url"
     },
     {
       "section": "api",
@@ -172,7 +181,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxApp",
       "shortDescription": "Creates a search input form for navigation",
-      "keywords": "api argument creates directive form function input model navigation ng-model passed rxapp search submit tie title"
+      "keywords": "api argument creates directive form function input model navigation ng-model passed placeholder rxapp search submit tie title"
     },
     {
       "section": "api",
@@ -198,7 +207,7 @@ NG_DOCS={
       "shortName": "rxPage",
       "type": "directive",
       "moduleName": "rxApp",
-      "shortDescription": "Responsible for creating the HTML necessary for a page (including breadcrumbs and page title)",
+      "shortDescription": "Responsible for creating the HTML necessary for a page (including breadcrumbs",
       "keywords": "accept accepts accessible account account-number accountnumber actions add adds addstatus alpha alpha-status alt angular api appear application arbitrary attribute attributes automatically beta box breadcrumb breadcrumbs browser build called capable case chosen class common component config considered content correct create created creating css currently custom customized default define demo dependency depending directive directly document draw drawing drawn easily elements embedded enable enabling encore encoreui ensure essentially example executed executing expression expressions file final framework gamma hello href html http info injection inside integrates internal javascript jpg key link-action ll memegenerator method msg-action myview net opt-in overview page-actions pass passed passing plain previous product property provide provided rackspace receive repository requires responsible rx-app rx-page rxaccountinfo rxapp rxbreadcrumbs rxpage rxstatustagsprovider scope server servers services set setting source specific src status status-tag string stripped style styled styling subtitle supportaccount system tab tag tags takes teams template text title titles top true trust underneath unique unsafe unsafe-html-title unsafehtmltitle usage usestatustag version view views visible world wrapper"
     },
     {
@@ -299,33 +308,6 @@ NG_DOCS={
       "moduleName": "rxBulkSelect",
       "shortDescription": "A directive used to validate rxBulkSelect in a form. The directive should be placed",
       "keywords": "api directive element form invalid item items rxbulkselect selected valid validate"
-    },
-    {
-      "section": "api",
-      "id": "rxCharacterCount",
-      "shortName": "rxCharacterCount",
-      "type": "overview",
-      "moduleName": "rxCharacterCount",
-      "shortDescription": "rxCharacterCount Component",
-      "keywords": "api character component count designed directive directives elements functionality overview rxcharactercount"
-    },
-    {
-      "section": "api",
-      "id": "rxCharacterCount.directive:rxCharacterCount",
-      "shortName": "rxCharacterCount",
-      "type": "directive",
-      "moduleName": "rxCharacterCount",
-      "shortDescription": "A component provides an attribute directive intended for adding to &lt;textarea&gt;",
-      "keywords": "_do_ add adding addition advantage allowed api applied attribute built-in case cases character characters choose class classes component considered content correctly count counted-input-wrapper counter currently default demo directive directives directly display div element elements enabled ensure enter enters example experimental extensively failure false feature field functionality heavily highlight highlighted highlighting ignored initial input-highlighting inside intended isshown leading left limit maximum model ng-hide ng-model ng-show ng-trim ngshow number orange performs place placing position preliminary putting recommend red remaining requires rx-character-count rxcharactercount scrollbar shipping spaces span style styling support test tested text textarea trailing true underneath unstable user ve warning watch width"
-    },
-    {
-      "section": "api",
-      "id": "rxCollapse",
-      "shortName": "rxCollapse",
-      "type": "overview",
-      "moduleName": "rxCollapse",
-      "shortDescription": "rxCollapse Component",
-      "keywords": "api component content directive directives display hide overview rxcollapse"
     },
     {
       "section": "api",
@@ -441,7 +423,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxForm",
       "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api attribute children default directive display div element elements horizontally html inline layout manner parent place rx-form rx-form-section rxfield rxform rxselectfilter stack stacked structural sub-elements vertically width"
+      "keywords": "api attribute children consume container controlled-width default directive display div element elements full horizontally html inline layout manner parent place rx-form rx-form-section rxfield rxform rxselectfilter stack stacked structural sub-elements vertically width"
     },
     {
       "section": "api",
@@ -548,8 +530,8 @@ NG_DOCS={
       "shortName": "rxModalAction",
       "type": "directive",
       "moduleName": "rxModalAction",
-      "shortDescription": "Link which will show a modal window on click, and handle callbacks for pre/post modal actions",
-      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed don dynamic entered esc example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook pre pre-defined pre-hook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url text toggle top transcluding ui url user values window windows work"
+      "shortDescription": "Link which will show a modal window on click, and handle callbacks for",
+      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed dismisshook don dynamic entered esc evaluates example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook posthook pre pre-defined pre-hook prehook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url templateurl text toggle top transcluding true ui url user values window windows work"
     },
     {
       "section": "api",
@@ -567,7 +549,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxModalAction",
       "shortDescription": "Responsible for creating the HTML necessary for modal form",
-      "keywords": "api autofocus button cancel common creating cursor default defaults directive element firsttabbable focus form format forms helpful html input inside is-loading keyboard mechanism modal modals move providing responsible return rxmodalaction spinner submit submit-text subtitle tabbable text title true window"
+      "keywords": "api autofocus button cancel common creating cursor default defaultfocus directive element focus form format forms helpful html input inside is-loading isloading keyboard ll mechanism modal modals move provided providing responsible return rxmodalaction spinner submit submit-text subtitle tabbable text title true window"
     },
     {
       "section": "api",
@@ -666,7 +648,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxPaginate",
       "shortDescription": "Directive that takes in the page tracking object and outputs a page",
-      "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error fails filter getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort switching table takes time tracking ui-based utilities watch"
+      "keywords": "api call change changes column conjunction controller current described direction directive display displayed documentation error errormessage fails filter filtertext getitems input instance intend maximum message method model module number numberofpages object optional outputs pagetracking paginate paginated pagination property request requirements rxpaginate selected selectfilter selections server-side serverinterface service sort sortcolumn sortdirection switching table takes time tracking ui-based utilities watch"
     },
     {
       "section": "api",
@@ -864,7 +846,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxToggleSwitch",
       "shortDescription": "Displays an on/off switch toggle",
-      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays evaluate evaluated expression false false-value foo function indicates initialization input model ng-model note operation passed performs post-hook prevent property rxtoggleswitch scope set switch takes time toggle toggled toggles true true-value values written"
+      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays evaluate evaluated expression false false-value foo function indicates initialization input model ng-disabled ng-model note operation passed performs post-hook posthook prevent property rxtoggleswitch scope set switch takes time toggle toggled toggles true true-value values written"
     },
     {
       "section": "api",
@@ -1003,6 +985,24 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.filter:rxDate",
+      "shortName": "rxDate",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts dateString to standard Date format",
+      "keywords": "api converts datestring filter format long september short standard utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxDateTime",
+      "shortName": "rxDateTime",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts dateString to standard DateTime format",
+      "keywords": "api converts datestring datetime filter format long sep short standard utilities"
+    },
+    {
+      "section": "api",
       "id": "utilities.filter:rxDiskSize",
       "shortName": "rxDiskSize",
       "type": "filter",
@@ -1030,12 +1030,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.filter:rxMonth",
+      "shortName": "rxMonth",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts dateString to standard Month format",
+      "keywords": "api converts datestring filter format long micro month september short standard utilities"
+    },
+    {
+      "section": "api",
       "id": "utilities.filter:rxSortEmptyTop",
       "shortName": "rxSortEmptyTop",
       "type": "filter",
       "moduleName": "utilities",
       "shortDescription": "Filter that moves rows with an empty predicate to the top of the column in",
       "keywords": "adam api ascending bottom column descending empty emptysort filter firstname moves null nullsort order predicate rows rxsortemptytop sort top utilities var"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxTime",
+      "shortName": "rxTime",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Converts dateString to standard Time format",
+      "keywords": "api converts datestring filter format long short standard time utilities"
     },
     {
       "section": "api",
@@ -1143,7 +1161,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "This is the data service that can be used in conjunction with the pagination",
-      "keywords": "$scope allowing alter api appropriate attribute behaviour change choose configuration conjunction controls createinstance customize data default determine directive display displayed encore generate globally inserted instance intended items itemsizelist itemsperpage list method number numbers object objects optional options ot page-tracking pager pagers pagestoshow pagetracking pagination passed persisted persistitemsperpage place rxpaginate service set showall store table tables takes true user utilities values"
+      "keywords": "$scope allowing alter api appropriate attribute behaviour change choose configuration conjunction controls createinstance customize data default determine directive display displayed encore generate globally inserted instance intended items itemsizelist itemsperpage list method number numbers object objects optional options page-tracking pager pagers pagestoshow pagetracking pagination passed persisted persistitemsperpage place rxpaginate service set showall store table tables takes true user utilities values"
     },
     {
       "section": "api",
@@ -1179,7 +1197,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "A factory that controllers can use to help automatically save and load",
-      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument array attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users utilities val values var variable visits watch watched won write"
+      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users utilities val values var variable visits watch watched won write"
     },
     {
       "section": "api",
