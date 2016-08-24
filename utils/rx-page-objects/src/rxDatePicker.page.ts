@@ -33,8 +33,8 @@ class rxDatePicker extends rxComponentElement {
      * ElementFinder to be transformed into an rxDatePicker page object
      * @returns {rxDatePicker}
      */
-    constructor(rxDatePickerElement) {
-        if (rxDatePickerElement === undefined) {
+    constructor(rxDatePickerElement?: ElementFinder) {
+        if (!rxDatePickerElement) {
             rxDatePickerElement = $$('rx-date-picker').first();
         }
 
