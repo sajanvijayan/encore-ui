@@ -127,9 +127,8 @@ describe('rxDatePicker', function () {
         });
 
         it('should update the date to one month ago', function () {
-            var previousMonth = moment(today).subtract(1, 'months').format(isoFormat);
-            picker.date = previousMonth;
-            expect(picker.date).to.eventually.equal(previousMonth);
+            picker.date = lastMonth.format(isoFormat);
+            expect(picker.date).to.eventually.equal(lastMonth.format(isoFormat));
         });
     });
 
