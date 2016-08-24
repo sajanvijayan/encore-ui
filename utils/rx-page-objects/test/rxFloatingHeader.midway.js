@@ -1,12 +1,10 @@
-var promise = require('selenium-webdriver').promise;
-
 var yDiff = function (e1, e2) {
     var promises = [
         encore.rxMisc.transformLocation(e1, 'y'),
         encore.rxMisc.transformLocation(e2, 'y')
     ];
 
-    return promise.all(promises).then(function (locations) {
+    return protractor.promise.all(promises).then(function (locations) {
         return locations[0] - locations[1];
     });
 };

@@ -1,6 +1,5 @@
 var Page = require('astrolabe').Page;
 var _ = require('lodash');
-var promise = require('selenium-webdriver').promise;
 
 /**
  * @namespace
@@ -418,7 +417,7 @@ var rxPaginate = {
      */
     totalPages: {
         get: function () {
-            return promise.all([this.totalItems, this.pageSize]).then(function (results) {
+            return protractor.promise.all([this.totalItems, this.pageSize]).then(function (results) {
                 var totalItems = results[0];
                 var pageSize = results[1];
                 return Math.ceil(totalItems / pageSize);
