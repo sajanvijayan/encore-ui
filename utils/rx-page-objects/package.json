@@ -15,7 +15,7 @@
     "lodash": "4.13.1",
     "mocha": "2.5.3",
     "moment": "2.13.0",
-    "protractor": "4.0.0"
+    "protractor": "4.0.3"
   },
   "repository": {
     "type": "git",
