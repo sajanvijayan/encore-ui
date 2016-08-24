@@ -4,9 +4,8 @@
 
 import {browser} from 'protractor/globals';
 import {ElementFinder} from 'protractor';
-let ElementFinderConstructor: typeof ElementFinder = require('protractor/built/element').ElementFinder;
 
-export class rxComponentElement extends ElementFinderConstructor {
+export class rxComponentElement extends ElementFinder {
     constructor(rootElement: ElementFinder) {
         super(browser, rootElement.elementArrayFinder_);
     }
