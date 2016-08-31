@@ -44,13 +44,6 @@
 <p>See <a href="#/guides/README">the main readme</a> for a link to the latest build.</p>
 <h4  id="github-permissions-for-release">Github Permissions for Release</h4><p>You&#39;ll need to be a member of the <code>encore-ui-admin</code> team in github to have proper permissions to release.</p>
 <h4  id="secret-files-needed-to-release">Secret Files Needed to Release</h4><p>For <code>grunt rxPageObjects</code>, you&#39;ll need to put the contents of the EncoreUI password safe entry for NPM in the project-local <code>.npmrc</code> file. This is located in the root of the project, and is ignored by git.</p>
-<h5  id="codelocalconfigjscode"><code>localConfig.js</code></h5><p>Used for CDN configuration/credentials, you&#39;ll need a <code>localConfig.js</code> file in the root of your repo with the following format:</p>
-<pre><code class="lang-javascript">module.export = {
-  cloudUsername: ‘encorecloudfiles’,
-  apiKey: GET_FROM_PASSWORDSAFE,
-  baseUrl: &#39;https://95c7050854423f809e66-6999ba0e7a4f47d417515fb3f08fa9b8.ssl.cf1.rackcdn.com&#39;
-}
-</code></pre>
 <h5  id="codenpmrccode"><code>.npmrc</code></h5><p>To publish <code>rx-page-objects</code> to the public npm registry.</p>
 <ol>
 <li><code>npm get registry</code> should return <code>https://registry.npmjs.org/</code></li>

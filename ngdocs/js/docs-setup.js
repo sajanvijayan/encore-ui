@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "This element is used to draw an account info box at the top of each page,",
-      "keywords": "account account-info-banner account-number accountinfobanner accountnumber accountstatusgroup activate additional allow api appears badges box breadcrumbs change cloud data design directive directly draw drop-down element elements encore errors info integrates intended intention internal load loading notifications number parameters pass passing products project provided racker rackspace repository requires retrieve route rxapp rxpage selector services set sitting stack style styles supportaccount supported team teamid teams template theoretically time top true under-the-breadcrumbs underneath user user-selection"
+      "keywords": "$interpolate account account-info-banner account-number accountinfobanner accountnumber accountstatusgroup activate additional allow api appears badges box breadcrumbs change cloud data design directive directly draw drop-down element elements encore errors info integrates intended intention internal load loading notifications number parameters pass passing products project provided racker rackspace repository requires retrieve route rxapp rxpage selector services set sitting stack style styles supportaccount supported team teamid teams template theoretically time top true under-the-breadcrumbs underneath user user-selection"
     },
     {
       "section": "api",
@@ -68,6 +68,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxCopy",
+      "shortName": "rxCopy",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "The rxCopy directive is designed to provide programmatic copy-to-clipboard",
+      "keywords": "$interpolate $interval $window api click clipboard copied copy-to-clipboard designed directive elements functionality icon nearby plain programmatic provide rxcopy screen service system text utilities"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxDatePicker",
       "shortName": "rxDatePicker",
       "type": "directive",
@@ -86,6 +95,96 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxField",
+      "shortName": "rxField",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used for layout of sub-elements.",
+      "keywords": "api directive div element elements equally html layout rx-form rxfield rxfieldcontent rxfieldname rxformsection sibling structural sub-elements width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxFieldContent",
+      "shortName": "rxFieldContent",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used for layout of sub-elements.",
+      "keywords": "actual api class content controls directive element elements error fa fa-exclamation field help html labels layout markup messages parent rx-form rxfield rxfieldname rxinput structural sub-elements text width wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxFieldName",
+      "shortName": "rxFieldName",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Stylistic element directive that provides a standardized UI for",
+      "keywords": "add api directive element elements field form html left names parent required rx-form rxfield rxfieldcontent standardized stylistic symbol ui width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxForm",
+      "shortName": "rxForm",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "The elements directive is an attribute directive meant to be used for",
+      "keywords": "api attribute desired directive div dom element elements form-related hierarchical html meant parent rx-form rxformsection validation width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxFormSection",
+      "shortName": "rxFormSection",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used for layout of sub-elements.",
+      "keywords": "api attribute children consume container controlled-width default directive display div element elements full horizontally html inline layout manner parent place rx-form rx-form-section rxfield rxform rxselectfilter stack stacked structural sub-elements vertically width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxHelpText",
+      "shortName": "rxHelpText",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Stylistic element directive used to wrap form input help text.",
+      "keywords": "$1 $errors api best demoform directive element elements form greater help input minimum ng-show number parent rx-form rxinlineerror rxinput salary sibling stylistic text type width wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxInfix",
+      "shortName": "rxInfix",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used to wrap content to be placed",
+      "keywords": "api block content control day directive element elements form hours html inline minutes number rx-form rxinput rxprefix rxsuffix structural type wide wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxInfoPanel",
+      "shortName": "rxInfoPanel",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "This renders a generic, pre-styled, info panel, with an optional title.",
+      "keywords": "api area directive displayed elements generic info optional panel panel-title pre-styled renders text title"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxInlineError",
+      "shortName": "rxInlineError",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Stylistic element directive used to wrap an error message.",
+      "keywords": "$1 $errors api best demoform directive element elements error message min ng-model ng-show number parent rx-form rxhelptext rxinput salary sibling stylistic type width wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxInput",
+      "shortName": "rxInput",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used for layout of sub-elements.",
+      "keywords": "api control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxMeta",
       "shortName": "rxMeta",
       "type": "directive",
@@ -101,6 +200,96 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Parent directive used for styling and arranging metadata information.",
       "keywords": "accommodate api arranging blocks columns container degraded directive element elements enought example field highly html isn label maintenance metadata parent purposes recommended row rxmeta sections single stack status styling system vertically wide width wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxModalAction",
+      "shortName": "rxModalAction",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Link which will show a modal window on click, and handle callbacks for",
+      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed dismisshook don dynamic elements entered esc evaluates example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook posthook pre pre-defined pre-hook prehook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url templateurl text toggle top transcluding true ui url user values window windows work"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxModalFooter",
+      "shortName": "rxModalFooter",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Define a footer for the next modal.",
+      "keywords": "activated api attribute button buttons cancel case changing class complete confirm content controller default define defined demo design directive editing element elements example footer footers form framework global inherits kicks loaded method modal modals module multiple ng-click pattern pending process provided return risks scope setstate standard submit subsequent takes template toggle tracked understand usage values views"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxModalForm",
+      "shortName": "rxModalForm",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Responsible for creating the HTML necessary for modal form",
+      "keywords": "api autofocus button cancel common creating cursor default defaultfocus directive element elements focus form format forms helpful html input inside is-loading isloading keyboard ll mechanism modal modals move provided providing responsible return spinner submit submit-text subtitle tabbable text title true window"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxNotification",
+      "shortName": "rxNotification",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Display a static message with styling taken from rx-notifications.",
+      "keywords": "api directive display elements error info message notification rx-notifications static styling type warning"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxNotifications",
+      "shortName": "rxNotifications",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Displays all messages in a stack.",
+      "keywords": "api associate directive displays elements message messages mycustomstack stack"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxPrefix",
+      "shortName": "rxPrefix",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used to wrap content to be placed",
+      "keywords": "api best block content control directive element elements form html inline number rx-form rxinfix rxinput rxsuffix structural type wide wrap"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxRadio",
+      "shortName": "rxRadio",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "rxRadio is an attribute directive that wraps a native radio element in markup required for styling purposes.",
+      "keywords": "api attribute behave class code complexity control correct css decendents demo determines directive directives disabled display element elements highly inline-block input inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes raddemo radio recommend recommended replace required rx-radio rxradio scope set smart style styling type unnecessary wrapper wraps"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxSelectFilter",
+      "shortName": "rxSelectFilter",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Automatically creates the appropriate dropdowns to manage a filter object.",
+      "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns elements enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter selectfilter set usage validation"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxSpinner",
+      "shortName": "rxSpinner",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Renders a spinner animation on the provided element given the &#39;toggle&#39; attribute is truthy",
+      "keywords": "adds animation api attribute class color controls default depicting directive display element elements extra extra-large large mini options provided renders rxspinner size small spinner toggle true truthy"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxSuffix",
+      "shortName": "rxSuffix",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Structural element directive used to wrap content to be placed",
+      "keywords": "api best block content control directive element elements form html inline number rx-form rxinfix rxinput rxprefix structural type wide wrap"
     },
     {
       "section": "api",
@@ -373,132 +562,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxForm",
-      "shortName": "rxForm",
-      "type": "overview",
-      "moduleName": "rxForm",
-      "shortDescription": "rxForm Component",
-      "keywords": "$error accessibility accomodate address advanced aim angular api applicable apply applying arrange arrangement asterisk attribute based breakage brittle browser check child children class closest code column columnar common comparing compatible component conjunction console control controls cost create creating css custom default define definitions demo demoform denote deprecated description design designed desired details directive directives display displaying div documentation easier element elements eliminating email enabled encore encoreui ensure equivalent error errors evaluates example examples explicit fashion feedback field fields flexibility foo foocheck form forms framework free-range full functional functionality future grow heading help helps hierarchical hierarchy html implemented incredibly individual inline inline-error inputs invalid items javascript label layout left legend limited looked markup message messages migrating modules monthly nest nested ng-model ng-required ng-show note number online overview parent pertains place placement placing plenty prefix project prone properly properties provide ranges release removed replaced required requirements resize responsive row rule rules rx-field rx-form rx-form-section rx-select-filter rxbutton rxcharactercount rxcheckbox rxfield rxfieldcontent rxfieldname rxform rxformitem rxformsection rxhelptext rxinfix rxinlineerror rxinput rxmultiselect rxoptiontable rxprefix rxradio rxsearchbox rxselect rxselectfilter rxsuffix rxtoggleswitch sections set showing single specific stacked standard standardizing style styled suffix tab text textarea thing throw thumb top true turn type typeahead unnecessary upgrade useremail validation validator validators variant vary versus volume warning width wordy work wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxField",
-      "shortName": "rxField",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api directive div element elements equally html layout rx-form rxfield rxfieldcontent rxfieldname rxform rxformsection sibling structural sub-elements width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxFieldContent",
-      "shortName": "rxFieldContent",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "actual api class content controls directive element error fa fa-exclamation field help html labels layout markup messages parent rx-form rxfield rxfieldname rxform rxinput structural sub-elements text width wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxFieldName",
-      "shortName": "rxFieldName",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Stylistic element directive that provides a standardized UI for",
-      "keywords": "add api directive element field form html left names parent required rx-form rxfield rxfieldcontent rxform standardized stylistic symbol ui width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxForm",
-      "shortName": "rxForm",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "The rxForm directive is an attribute directive meant to be used for",
-      "keywords": "api attribute desired directive div dom element elements form-related hierarchical html meant parent rx-form rxform rxformsection validation width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxFormSection",
-      "shortName": "rxFormSection",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api attribute children consume container controlled-width default directive display div element elements full horizontally html inline layout manner parent place rx-form rx-form-section rxfield rxform rxselectfilter stack stacked structural sub-elements vertically width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxHelpText",
-      "shortName": "rxHelpText",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Stylistic element directive used to wrap form input help text.",
-      "keywords": "$1 $errors api best demoform directive element elements form greater help input minimum ng-show number parent rx-form rxform rxinlineerror rxinput salary sibling stylistic text type width wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxInfix",
-      "shortName": "rxInfix",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used to wrap content to be placed",
-      "keywords": "api block content control day directive element form hours html inline minutes number rx-form rxform rxinput rxprefix rxsuffix structural type wide wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxInlineError",
-      "shortName": "rxInlineError",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Stylistic element directive used to wrap an error message.",
-      "keywords": "$1 $errors api best demoform directive element elements error message min ng-model ng-show number parent rx-form rxform rxhelptext rxinput salary sibling stylistic type width wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxInput",
-      "shortName": "rxInput",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used for layout of sub-elements.",
-      "keywords": "api control directive element elements html layout number parent place rx-form rxcheckbox rxfieldcontent rxform rxoptiontable rxprefix rxradio rxselect rxsuffix rxtoggleswitch structural sub-elements type width"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxPrefix",
-      "shortName": "rxPrefix",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used to wrap content to be placed",
-      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinfix rxinput rxsuffix structural type wide wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxForm.directive:rxSuffix",
-      "shortName": "rxSuffix",
-      "type": "directive",
-      "moduleName": "rxForm",
-      "shortDescription": "Structural element directive used to wrap content to be placed",
-      "keywords": "api best block content control directive element form html inline number rx-form rxform rxinfix rxinput rxprefix structural type wide wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxInfoPanel",
-      "shortName": "rxInfoPanel",
-      "type": "overview",
-      "moduleName": "rxInfoPanel",
-      "shortDescription": "rxInfoPanel Component",
-      "keywords": "api component directive directives generic info intended overview panel rxinfopanel top"
-    },
-    {
-      "section": "api",
-      "id": "rxInfoPanel.directive:rxInfoPanel",
-      "shortName": "rxInfoPanel",
-      "type": "directive",
-      "moduleName": "rxInfoPanel",
-      "shortDescription": "This renders a generic, pre-styled, info panel, with an optional title.",
-      "keywords": "api area directive displayed generic info optional panel panel-title pre-styled renders rxinfopanel text title"
-    },
-    {
-      "section": "api",
       "id": "rxLogout",
       "shortName": "rxLogout",
       "type": "overview",
@@ -514,42 +577,6 @@ NG_DOCS={
       "moduleName": "rxLogout",
       "shortDescription": "Adds logout functionality to an element.",
       "keywords": "adds api custom directive element functionality location logging logout redirect rx-logout rxlogout url"
-    },
-    {
-      "section": "api",
-      "id": "rxModalAction",
-      "shortName": "rxModalAction",
-      "type": "overview",
-      "moduleName": "rxModalAction",
-      "shortDescription": "rxModalAction Component",
-      "keywords": "angular-ui api blank bootstrap build buttons component content dependency directive directives form github going hook included inside io link modal module open operations overview perform rxmodalaction rxmodalfooter rxmodalform submit tie title webpage window"
-    },
-    {
-      "section": "api",
-      "id": "rxModalAction.directive:rxModalAction",
-      "shortName": "rxModalAction",
-      "type": "directive",
-      "moduleName": "rxModalAction",
-      "shortDescription": "Link which will show a modal window on click, and handle callbacks for",
-      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed dismisshook don dynamic entered esc evaluates example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook posthook pre pre-defined pre-hook prehook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url templateurl text toggle top transcluding true ui url user values window windows work"
-    },
-    {
-      "section": "api",
-      "id": "rxModalAction.directive:rxModalFooter",
-      "shortName": "rxModalFooter",
-      "type": "directive",
-      "moduleName": "rxModalAction",
-      "shortDescription": "Define a footer for the next modal.",
-      "keywords": "activated api attribute button buttons cancel case changing class complete component confirm content controller default define defined demo design directive editing example footer footers form framework global inherits kicks loaded method modal modals module multiple ng-click pattern pending process provided return risks rxmodalaction scope setstate standard submit subsequent takes template toggle tracked understand usage values views"
-    },
-    {
-      "section": "api",
-      "id": "rxModalAction.directive:rxModalForm",
-      "shortName": "rxModalForm",
-      "type": "directive",
-      "moduleName": "rxModalAction",
-      "shortDescription": "Responsible for creating the HTML necessary for modal form",
-      "keywords": "api autofocus button cancel common creating cursor default defaultfocus directive element focus form format forms helpful html input inside is-loading isloading keyboard ll mechanism modal modals move provided providing responsible return rxmodalaction spinner submit submit-text subtitle tabbable text title true window"
     },
     {
       "section": "api",
@@ -577,33 +604,6 @@ NG_DOCS={
       "moduleName": "rxMultiSelect",
       "shortDescription": "A single option for use within rxMultiSelect.",
       "keywords": "api attribute content defaults directive disabled element elements label option provided rxmultiselect single text titleized transcluded version"
-    },
-    {
-      "section": "api",
-      "id": "rxNotify",
-      "shortName": "rxNotify",
-      "type": "overview",
-      "moduleName": "rxNotify",
-      "shortDescription": "rxNotify Component",
-      "keywords": "$scope $timeout add api apicallback appropriate asks attribute call case cases change code component content create custom data delete differs directive directives dismiss error example false flags form function loaded loading login loginform message messages messaging modal note notification notifications object options overview queue recommend reference required rxnotification rxnotifications rxnotify service situations stack status styling supported true type username utilities var variable views warning window"
-    },
-    {
-      "section": "api",
-      "id": "rxNotify.directive:rxNotification",
-      "shortName": "rxNotification",
-      "type": "directive",
-      "moduleName": "rxNotify",
-      "shortDescription": "Display a static message with styling taken from rx-notifications.",
-      "keywords": "api directive display error info message notification rx-notifications rxnotify static styling type warning"
-    },
-    {
-      "section": "api",
-      "id": "rxNotify.directive:rxNotifications",
-      "shortName": "rxNotifications",
-      "type": "directive",
-      "moduleName": "rxNotify",
-      "shortDescription": "Displays all messages in a stack.",
-      "keywords": "api associate directive displays message messages mycustomstack rxnotify stack"
     },
     {
       "section": "api",
@@ -670,24 +670,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxRadio",
-      "shortName": "rxRadio",
-      "type": "overview",
-      "moduleName": "rxRadio",
-      "shortDescription": "rxRadio Component",
-      "keywords": "api component directive directives element markup native overview purposes radio required rxradio styling wraps"
-    },
-    {
-      "section": "api",
-      "id": "rxRadio.directive:rxRadio",
-      "shortName": "rxRadio",
-      "type": "directive",
-      "moduleName": "rxRadio",
-      "shortDescription": "rxRadio is an attribute directive that wraps a native radio element in markup required for styling purposes.",
-      "keywords": "api attribute behave class code complexity control correct css decendents demo determines directive directives disabled display element highly inline-block input inside introduce isshown label logic markup native ng-hide ng-if ng-model ng-show ng-switch output performing placing purposes raddemo radio recommend recommended replace required rx-radio rxradio scope set smart style styling type unnecessary wrapper wraps"
-    },
-    {
-      "section": "api",
       "id": "rxSearchBox",
       "shortName": "rxSearchBox",
       "type": "overview",
@@ -724,24 +706,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxSelectFilter",
-      "shortName": "rxSelectFilter",
-      "type": "overview",
-      "moduleName": "rxSelectFilter",
-      "shortDescription": "rxSelectFilter component",
-      "keywords": "api component directive directives dropdown filtering intended interface multi-select overview rxselectfilter table"
-    },
-    {
-      "section": "api",
-      "id": "rxSelectFilter.directive:rxSelectFilter",
-      "shortName": "rxSelectFilter",
-      "type": "directive",
-      "moduleName": "rxSelectFilter",
-      "shortDescription": "Automatically creates the appropriate dropdowns to manage a filter object.",
-      "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter selectfilter set usage validation"
-    },
-    {
-      "section": "api",
       "id": "rxSortableColumn",
       "shortName": "rxSortableColumn",
       "type": "overview",
@@ -757,24 +721,6 @@ NG_DOCS={
       "moduleName": "rxSortableColumn",
       "shortDescription": "Renders a clickable link in a table heading which will sort the table by",
       "keywords": "api array ascending called clickable clicked collection current descending directive displayed displaytext function heading indicates link order predicate property referenced renders reverse rxsortablecolumn sort sorted sortmethod sortproperty table text"
-    },
-    {
-      "section": "api",
-      "id": "rxSpinner",
-      "shortName": "rxSpinner",
-      "type": "overview",
-      "moduleName": "rxSpinner",
-      "shortDescription": "rxSpinner Component",
-      "keywords": "adds api component directive directives element icon overview rxspinner spinner"
-    },
-    {
-      "section": "api",
-      "id": "rxSpinner.directive:rxSpinner",
-      "shortName": "rxSpinner",
-      "type": "directive",
-      "moduleName": "rxSpinner",
-      "shortDescription": "Renders a spinner animation on the provided element given the &#39;toggle&#39; attribute is truthy",
-      "keywords": "adds animation api attribute class color controls default depicting directive display element extra extra-large large mini options provided renders rxspinner size small spinner toggle true truthy"
     },
     {
       "section": "api",
@@ -954,7 +900,7 @@ NG_DOCS={
       "type": "filter",
       "moduleName": "utilities",
       "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
-      "keywords": "active api createinstance displayed displaying filter instance items list numbers pager pagetracking result return second service string utilities"
+      "keywords": "$interpolate active api createinstance displayed displaying filter instance items list numbers pager pagetracking result return second service string utilities"
     },
     {
       "section": "api",
@@ -1219,6 +1165,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.service:rxCopyUtil",
+      "shortName": "rxCopyUtil",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Utility service used by rxCopy.",
+      "keywords": "api apis argument attempt browsers call callback caniuse chrome clipboard dependably directive document element elementnode elements error execcommand execcopy expected failfn fails failure feat firefox html http https invoke method minimum mozilla node older org pass passed passfn range required rxcopy select selection selectnodetext service succeeds success supported text utilities utility varying versions"
+    },
+    {
+      "section": "api",
       "id": "utilities.service:rxDOMHelper",
       "shortName": "rxDOMHelper",
       "type": "service",
@@ -1278,7 +1233,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Manages page messages for an application.",
-      "keywords": "add adding adds allow allowed angular api app appear application areas argument associate change clear clearing collect create created custom customize default deletes demo details directive disappear dismiss dismissed dismissing display displayed equals error example form form-specific function gather html icon info inject integer loading manages message messages method msg navigates noop notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready remove removes repeat replaces returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single specific spinner stack stacks string success tag template text time timeout top true type usage user utilities values warning watch work"
+      "keywords": "$scope $timeout add adding adds allow allowed angular api apicallback app appear application appropriate areas argument asks associate attribute call case cases change clear clearing code collect component content create created custom customize data default delete deletes demo details differs directive directives disappear dismiss dismissed dismissing display displayed elements equals error example false flags form form-specific function gather html icon info inject integer loaded loading login loginform manages message messages messaging method modal msg navigates noop note notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready recommend reference remove removes repeat replaces required returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single situations specific spinner stack stacks status string styling success supported tag template text time timeout top true type usage user username utilities values var variable views warning watch window work"
     },
     {
       "section": "api",
@@ -1404,7 +1359,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
-      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
+      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier elements encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
     },
     {
       "section": "api",
