@@ -222,7 +222,7 @@ was to pass an expression, filtering values with <code>rxEnvironmentMatch</code>
 </pre>
 <p>This expression would be evaluated, checking if the user is currently viewing
 the app in the <code>unified-preprod</code> environment or the <code>local</code> environment, and
-only display the item if one of those was true. (See <a href="#/api/rxEnvironment">rxEnvironment</a>
+only display the item if one of those was true. (See <a href="#/api/utilities.service:Environment">utilities.service:Environment</a>
 for more details on environemnts). This was used to prevent items from being
 displayed in a production environment if they were only currently available in
 staging.</p>
@@ -251,7 +251,7 @@ all of the children under <code>Account</code> will be visible, as they all requ
 above the <code>children</code> in an expanded area (and thus having a <code>childHeader</code>
 attribute requires having a <code>children</code> attribute).</p>
 <p><code>childHeader</code> receives HTML content as a string, and uses
-<a href="#/api/rxCompile">rxCompile</a> to compile and insert the content above
+<a href="#/api/utilities.directive:rxCompile">utilities.directive:rxCompile</a> to compile and insert the content above
 the <code>children</code> items. The compiled content will be linked against the current
 scope, allowing you to do things like:</p>
 <pre class="prettyprint linenums">

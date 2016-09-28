@@ -31,6 +31,52 @@ Environment.add({
     url: baseGithubUrl + '{{path}}'
 });
 </pre>
+<p>Component built to detect and provide the current environment (e.g. dev, staging, prod)</p>
+<h4 id="description_current-environments">Current Environments</h4>
+<p>This service defines the following Encore specific environments:</p>
+<ul>
+<li><strong>local</strong> - <a href="http://localhost:port">http://localhost:port</a> and <a href="http://server:port">http://server:port</a></li>
+<li><strong>preprod</strong> - <a href="http://preprod.encore.rackspace.com">http://preprod.encore.rackspace.com</a></li>
+<li><strong>unified-preprod</strong> - <a href="https://*.encore.rackspace.com">https://*.encore.rackspace.com</a></li>
+<li><strong>unified</strong> - All environments including <a href="https://encore.rackspace.com">https://encore.rackspace.com</a></li>
+<li><strong>unified-prod</strong> - Only <a href="https://encore.rackspace.com">https://encore.rackspace.com</a></li>
+</ul>
+<p>Please note that we&#39;ve made an assumption that staging/preprod/prod environments
+will all end with <code>encore.rackspace.com</code>. Try to avoid using
+<code>staging.encore.myNewProduct.rackspace.com</code> for new products, and instead set
+up your system as <code>encore.rackspace.com/myNewProduct</code>.</p>
+<h4 id="description_checking-current-environment">Checking Current Environment</h4>
+<p>The <code>Environment</code> service contains methods for checking if we are currently in
+one of the five listed environments, namely:</p>
+<ul>
+<li><code>Environment.isLocal()</code></li>
+<li><code>Environment.isPreProd()</code></li>
+<li><code>Environment.isUnifiedPreProd()</code></li>
+<li><code>Environment.isUnified()</code></li>
+<li><code>Environment.isUnifiedProd()</code></li>
+</ul>
+<p>The normal procedure is to assume that your code is running in local or staging,
+and take special actions if <code>Environment.isPreProd()</code> or
+<code>Environment.isUnifiedProd()</code> are <code>true</code>.</p>
+<h4 id="description_overlapping-environments">Overlapping Environments</h4>
+<p>Keep in mind that the environments we define are not mutually exclusive. For
+instance, if we&#39;re at <code>http://preprod.encore.rackspace.com</code>, then we are in
+the <code>preprod</code> environment, the <code>unified-preprod</code> environment, and <code>unified-prod</code>.</p>
+<p>When you want to check if you&#39;re in one of the custom environments, you can
+use <code>envCheck()</code>, i.e.: <code>Environment.envCheck(&#39;ghPages&#39;)</code></p>
+<h4 id="description_a-warning-about-rxenvironmenturl">A Warning About rxEnvironmentUrl</h4>
+<p><code>rxEnvironmentUrl</code> can be used for building full URLs, based on the current
+environment. For now, you should consider it as deprecated. It has problems
+with overlapping environments, and could potentially generate the wrong URL.</p>
+<h4 id="description_a-warning-about">A Warning About <code>Environment.get().name</code></h4>
+<p>You might find older Encore code that uses <code>Environment.get().name</code> to get
+the name of the current environment. This pattern should be avoided,
+specifically because of the overlapping environment issue discussed above.
+If you call <code>Environment.get().name</code>, it will just return the first matching
+environment in the list of environments, even if we&#39;re overlapping and have
+multiple environments. Instead, check explicitly with
+<code>Environment.isLocal()</code>, <code>Environment.isPreProd()</code>, etc., or
+use <code>Environment.envCheck(&#39;local&#39;)</code></p>
 </div></div>
 <h2 id="example">Example</h2>
 <div class="example"><div class="utilities-service-page utilities-service-environment-page"><pre class="prettyprint linenums">

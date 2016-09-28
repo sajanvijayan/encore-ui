@@ -5,30 +5,6 @@
 
 
 angular.module('demoApp')
-.controller('layoutController', function ($scope) {
-    $scope.layout = 'row';
-    $scope.align = { first: 'center', second: 'middle' };
-    $scope.options1 = ['left', 'center', 'right', 'spread', 'justify'];
-    $scope.options2 = ['top', 'middle', 'bottom', 'stretch'];
-
-    // Swap the first 3 items in each array and set new value
-    $scope.swap = function (option) {
-
-        if ($scope.layout === option) {
-            return;
-        }
-
-        var swap = $scope.options2.slice(0, 3).concat($scope.options1.slice(3));
-        $scope.options2 = $scope.options1.slice(0, 3).concat($scope.options2.slice(3));
-        $scope.options1 = swap;
-        swap = $scope.options1[$scope.options1.indexOf($scope.align.second)] || 'spread';
-        $scope.align.second = $scope.options2[$scope.options2.indexOf($scope.align.first)] || 'stretch';
-        $scope.align.first = swap;
-    };
-});
-
-
-angular.module('demoApp')
 .controller('rxAppCtrl', function ($scope, $location, $rootScope, $window, encoreRoutes, rxVisibility, Session) {
     Session.getUserId = function () {
         return 'bert3000';
@@ -166,141 +142,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('rxAttributesCtrl', function ($scope) {
-    $scope.customStyles = 'color: red; font-weight: bold;';
-    $scope.customContent = '"Custom Content"';
-});
-
-
-// This file is used to help build the 'demo' documentation page and should be updated with example code
-angular.module('demoApp')
-.controller('rxBulkSelectCtrl', function ($scope) {
-
-    $scope.datacenters = [
-        { name: 'ORD1', city: 'Chicago' },
-        { name: 'DFW1', city: 'Grapevine' },
-        { name: 'DFW2', city: 'Richardson' },
-        { name: 'IAD2', city: 'Ashburn' },
-        { name: 'IAD3', city: 'Ashburn' },
-        { name: 'LON1', city: 'West Drayton' },
-        { name: 'LON3', city: 'Berkshire' },
-        { name: 'LON5', city: 'Crawley' },
-        { name: 'HKG1', city: 'Honk Kong' },
-        { name: 'SYD2', city: 'Sydney' }
-    ];
-
-    // cloned to avoid interference with first demo table
-    $scope.validateDatacenters = _.cloneDeep($scope.datacenters);
-
-    $scope.filter = { keyword: '' };
-
-    $scope.getSelectedDatacenters = function () {
-        return _.cloneDeep(_.where($scope.datacenters, { rowIsSelected: true }));
-    };
-
-})
-.controller('ShutdownDatacentersCtrl', function ($scope, $modalInstance, $timeout, rxSortUtil, PageTracking) {
-    $scope.sort = rxSortUtil.getDefault('name');
-    $scope.sortCol = function (predicate) {
-        return rxSortUtil.sortCol($scope, predicate);
-    };
-
-    var itemsPerPage = 8;
-    $scope.pager = PageTracking.createInstance({ itemsPerPage: itemsPerPage });
-    $scope.showPagination = itemsPerPage < $scope.selectedDatacenters.length;
-
-    $scope.removeDatacenter = function (dc) {
-        _.remove($scope.selectedDatacenters, dc);
-    };
-
-    $scope.submit = function () {
-        $scope.setState('working');
-
-        $scope.numCompleted = 0;
-
-        var delay = 1000;
-        $scope.selectedDatacenters.forEach(function (dc, i) {
-            $timeout(function () {
-                dc.status = 'pending';
-            }, i * delay);
-            $timeout(function () {
-                dc.status = i % 4 === 0 ? 'failure' : 'success';
-                $scope.numCompleted++;
-            }, ++i * delay);
-        });
-        $timeout(function () {
-            $scope.setState('complete');
-            $scope.errorsPresent = _.some($scope.selectedDatacenters, { status: 'failure' });
-        }, $scope.selectedDatacenters.length * delay);
-    };
-
-    $scope.cancel = $modalInstance.dismiss;
-});
-
-
-angular.module('demoApp')
-.controller('rxCompileCtrl', function ($scope) {
-    $scope.world = 'wrrrld';
-    $scope.myExpression = 'Hello {{world}}';
-});
-
-
-angular.module('demoApp')
-.controller('rxEnvironmentCtrl', function ($scope, Environment) {
-    $scope.Environment = Environment;
-});
-
-
-angular.module('demoApp')
-.controller('rxFloatingHeaderCtrl', function ($scope) {
-    $scope.searchText = '';
-    $scope.data = [
-        { name: 'First', value: 1 },
-        { name: 'A', value: 2 },
-        { name: 'B', value: 3 },
-        { name: 'C', value: 4 },
-        { name: 'D', value: 5 },
-        { name: 'E', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'Middle', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'F', value: 1 },
-        { name: 'G', value: 2 },
-        { name: 'H', value: 3 },
-        { name: 'I', value: 4 },
-        { name: 'J', value: 5 },
-        { name: 'K', value: 1 },
-        { name: 'Last', value: 2 }
-    ];
-
-    $scope.clearFilter = function () {
-        $scope.searchText = '';
-    };
-});
-
-
-
-
-angular.module('demoApp')
-.controller('rxMultiSelectCtrl', function ($scope) {
-    $scope.data = {
-        classification: []
-    };
-
-    $scope.validEnabled = 'C';
-    $scope.validDisabled = '';
-
-    $scope.invalidEnabled = 'D';
-    $scope.invalidDisabled = '';
-
-});
 
 
 angular.module('demoApp')
@@ -374,263 +215,6 @@ angular.module('demoApp')
 
     $scope.disableOption = function (tableId, fieldId, rowId) {
         return rowId === 'option4';
-    };
-});
-
-
-angular.module('demoApp')
-.controller('rxPaginateCtrl', function ($scope, $q, $timeout, $filter, rxPaginateUtils,
-                                        PageTracking, rxSortUtil, SelectFilter) {
-    $scope.pager = PageTracking.createInstance({ itemsPerPage: 3 });
-
-    var os = ['Ubuntu 12.04', 'Red Hat Enterprise Linux 6.4', 'CentOS 6.4', 'Ubuntu 13.04'];
-    var makeServers = function (serverCount) {
-        var servers = [];
-        for (var i = 1; i < serverCount + 1; i++) {
-            var server = {
-                id: i,
-                name: 'Server ' + i,
-                os: os[i % os.length]
-            };
-            servers.push(server);
-        }
-        return servers;
-    };
-
-    $scope.servers = makeServers(21);
-
-    $scope.removeServers = function () {
-        if ($scope.servers.length > 2) {
-            $scope.servers = $scope.servers.splice(2);
-        }
-    };
-
-    $scope.addServers = function () {
-        $scope.servers = $scope.servers.concat(makeServers(2));
-    };
-
-    var allLazyServers = makeServers(701);
-
-    var serverInterface = {
-        getItems: function (pageNumber, itemsPerPage, params) {
-            var deferred = $q.defer();
-            var filterText = params.filterText;
-            var sortColumn = params.sortColumn;
-            var sortDirection = params.sortDirection;
-
-            if (sortColumn === 'name') {
-                sortColumn = 'id';
-            }
-
-            if (sortDirection === 'DESCENDING') {
-                sortColumn = '-' + sortColumn;
-            }
-
-            $timeout(function () {
-                var first = pageNumber * itemsPerPage;
-                var added = first + itemsPerPage;
-                var last = (added > allLazyServers.length) ? allLazyServers.length : added;
-
-                var filteredServers = $filter('filter')(allLazyServers, filterText);
-                filteredServers = $scope.osFilter.applyTo(filteredServers);
-                filteredServers = $filter('orderBy')(filteredServers, sortColumn);
-
-                // Return 100 items more than the user's `itemsPerPage`. i.e. if the
-                // user is asking for 25 items per page, return 125 in total
-                var lazyServers = filteredServers.slice(first, last + 100);
-
-                var response = {
-                    items: lazyServers,
-                    pageNumber: pageNumber,
-                    totalNumberOfItems: filteredServers.length
-                };
-
-                if (filterText === 'error') {
-                    deferred.reject();
-                } else {
-                    deferred.resolve(response);
-                }
-            }, 300);
-            return deferred.promise;
-        }
-    };
-
-    $scope.sort = rxSortUtil.getDefault('name', false);
-    $scope.sortCol = function (predicate) {
-        return rxSortUtil.sortCol($scope, predicate);
-    };
-    $scope.data = { searchText: '' };
-    $scope.clearFilter = function () {
-        $scope.data.searchText = '';
-    };
-    $scope.osFilter = SelectFilter.create({
-        properties: ['os'],
-        available: {
-            os: os
-        }
-    });
-    $scope.serverInterface = serverInterface;
-    $scope.pagedServers = PageTracking.createInstance({ itemsPerPage: 25 });
-});
-
-
-angular.module('demoApp')
-.controller('rxPermissionCtrl', function ($scope, Session, rxNotify) {
-    rxNotify.add('Respect My Authority!!', {
-        stack: 'permission',
-        type: 'warning'
-    });
-
-    $scope.storeToken = function () {
-        Session.storeToken({
-            access: {
-                user: {
-                    roles: [{ name: 'test' }]
-                }
-            }
-        });
-    };
-
-    $scope.clearToken = function () {
-        Session.logout();
-    };
-});
-
-
-angular.module('demoApp')
-.controller('rxSearchBoxCtrl', function ($scope) {
-    $scope.searchModel = '';
-    $scope.filterPlaceholder = 'Filter by any...';
-});
-
-
-angular.module('demoApp')
-.controller('rxSelectCtrl', function ($scope) {
-    $scope.radCreateDestroy = 'destroyed';
-
-    $scope.validEnabled = 3;
-    $scope.validNgDisabled = 'na';
-    $scope.validDisabled = 'na';
-
-    $scope.invalidEnabled = 4;
-    $scope.invalidNgDisabled = 'na';
-    $scope.invalidDisabled = 'na';
-
-    $scope.htmlSelectAlternativeValue = 'second';
-});
-
-
-angular.module('demoApp')
-.controller('rxSortableColumnCtrl', function ($scope, rxSortUtil) {
-    $scope.sort = rxSortUtil.getDefault('name', false);
-
-    $scope.sortCol = function (predicate) {
-        return rxSortUtil.sortCol($scope, predicate);
-    };
-
-    $scope.talentPool = [
-        {
-            name: 'Andrew Yurisich',
-            jobTitle: 'Mailroom Associate IV'
-        },
-        {
-            name: 'Patrick Deuley',
-            jobTitle: 'Design Chaplain'
-        },
-        {
-            name: null,
-            jobTitle: 'Chief Mastermind'
-        },
-        {
-            jobTitle: 'Assistant Chief Mastermind'
-        },
-        {
-            name: 'Hussam Dawood',
-            jobTitle: 'Evangelist of Roger Enriquez'
-        },
-        {
-            name: 'Kerry Bowley',
-            jobTitle: 'Dev Mom'
-        },
-    ];
-});
-
-
-angular.module('demoApp')
-.controller('rxStatusColumnCtrl', function ($scope, rxStatusMappings, rxSortUtil) {
-    $scope.servers = [
-        { status: 'ACTIVE', title: 'ACTIVE status' },
-        { status: 'ERROR', title: 'ERROR status' },
-        { status: 'DISABLED', title: 'DISABLED status' },
-        { status: 'DELETED', title: 'DELETED status mapped to ERROR' },
-        { status: 'UNKNOWN', title: 'UNKNOWN status mapped to ERROR' },
-        { status: 'RESCUE', title: 'RESCUE status mapped to INFO' },
-        { status: 'SUSPENDED', title: 'SUSPENDED status mapped to WARNING' },
-        { status: 'REBUILD', title: 'REBUILD status mapped to PENDING' },
-        { status: 'RESIZE', title: 'RESIZE status mapped to PENDING' },
-        { status: 'MIGRATING', title: 'MIGRATING status mapped to PENDING' },
-        { status: 'DELETING', title: 'DELETING status mapped to PENDING, using `fooApi` mapping', api: 'fooApi' }
-    ];
-
-    // We have a few different ways of adding mappings. We've tried to show them all here
-    rxStatusMappings.addGlobal({
-        'DELETING': 'PENDING'
-    });
-    rxStatusMappings.mapToInfo('RESCUE');
-    rxStatusMappings.mapToWarning('SUSPENDED');
-    rxStatusMappings.mapToPending(['REBUILD','RESIZE','MIGRATING']);
-    rxStatusMappings.mapToError(['DELETED', 'UNKNOWN']);
-    rxStatusMappings.addAPI('fooApi', { 'DELETING': 'PENDING' });
-    rxStatusMappings.mapToPending('SomeApiSpecificStatus', 'fooApi');
-    $scope.sortCol = function (predicate) {
-        return rxSortUtil.sortCol($scope, predicate);
-    };
-    $scope.sort = rxSortUtil.getDefault('status');
-});
-
-
-
-
-angular.module('demoApp')
-.controller('rxToggleSwitchCtrl', function ($scope, $timeout, rxNotify) {
-    $scope.toggle3 = true;
-    $scope.toggle5 = true;
-
-    $scope.attemptChange = function () {
-        $scope.loading = true;
-        rxNotify.clear('page');
-        rxNotify.add('Saving...', {
-            loading: true
-        });
-
-        // Simulate an API request
-        $timeout(function () {
-            $scope.loading = false;
-            rxNotify.clear('page');
-            rxNotify.add('Change saved', {
-                type: 'success'
-            });
-        }, 1000);
-    };
-
-    $scope.attemptFailedChange = function (value) {
-        $scope.loading5 = true;
-        rxNotify.clear('page');
-        rxNotify.add('Attempting to activate...', {
-            loading: true
-        });
-
-        // Simulate a failed API request
-        $timeout(function () {
-            $scope.loading5 = false;
-            rxNotify.clear('page');
-            rxNotify.add('Asynchronous operation failed', {
-                type: 'error',
-            });
-
-            // Reset toggle switch to original value to simulate failed async operation
-            $scope.toggle5 = !value;
-        }, 1000);
     };
 });
 
@@ -930,6 +514,11 @@ angular.module('demoApp')
 });
 
 angular.module('demoApp')
+.controller('rxMultiSelectCtrl', function ($scope) {
+    $scope.classification = [];
+});
+
+angular.module('demoApp')
 .controller('rxRadioCtrl', function ($scope) {
     $scope.validEnabled = 1;
     $scope.validDisabled = 1;
@@ -940,6 +529,19 @@ angular.module('demoApp')
     $scope.invalidNgDisabled = 1;
 
     $scope.plainHtmlRadio = 'isChecked';
+});
+
+angular.module('demoApp')
+.controller('rxSelectCtrl', function ($scope) {
+    $scope.validEnabled = 3;
+    $scope.validNgDisabled = 'na';
+    $scope.validDisabled = 'na';
+
+    $scope.invalidEnabled = 4;
+    $scope.invalidNgDisabled = 'na';
+    $scope.invalidDisabled = 'na';
+
+    $scope.htmlSelectAlternativeValue = 'second';
 });
 
 angular.module('demoApp')
@@ -1296,7 +898,22 @@ angular.module('demoApp')
 });
 
 angular.module('demoApp')
+.controller('rxMultiSelectSimpleCtrl', function ($scope) {
+    $scope.classification = [];
+});
+
+angular.module('demoApp')
 .controller('rxRadioDestroyCtrl', function ($scope) {
+    $scope.radCreateDestroy = 'destroyed';
+});
+
+angular.module('demoApp')
+.controller('rxSearchBoxCustomCtrl', function ($scope) {
+    $scope.filterPlaceholder = 'Filter by any...';
+});
+
+angular.module('demoApp')
+.controller('rxSelectDestroyCtrl', function ($scope) {
     $scope.radCreateDestroy = 'destroyed';
 });
 
@@ -1304,6 +921,49 @@ angular.module('demoApp')
 .controller('rxTimePickerSimpleCtrl', function ($scope) {
     $scope.emptyValue = '';
     $scope.predefinedValue = '22:10-10:00';
+});
+
+angular.module('demoApp')
+.controller('rxToggleSwitchAsyncCtrl', function ($scope, $timeout, rxNotify) {
+    $scope.toggle3 = true;
+    $scope.toggle5 = true;
+
+    $scope.attemptChange = function () {
+        $scope.loading = true;
+        rxNotify.clear('page');
+        rxNotify.add('Saving...', {
+            loading: true
+        });
+
+        // Simulate an API request
+        $timeout(function () {
+            $scope.loading = false;
+            rxNotify.clear('page');
+            rxNotify.add('Change saved', {
+                type: 'success'
+            });
+        }, 1000);
+    };
+
+    $scope.attemptFailedChange = function (value) {
+        $scope.loading5 = true;
+        rxNotify.clear('page');
+        rxNotify.add('Attempting to activate...', {
+            loading: true
+        });
+
+        // Simulate a failed API request
+        $timeout(function () {
+            $scope.loading5 = false;
+            rxNotify.clear('page');
+            rxNotify.add('Asynchronous operation failed', {
+                type: 'error',
+            });
+
+            // Reset toggle switch to original value to simulate failed async operation
+            $scope.toggle5 = !value;
+        }, 1000);
+    };
 });
 
 
@@ -1459,6 +1119,167 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('rxBulkSelectAdvancedCtrl', function ($scope) {
+
+    $scope.datacenters = [
+        { name: 'ORD1', city: 'Chicago' },
+        { name: 'DFW1', city: 'Grapevine' },
+        { name: 'DFW2', city: 'Richardson' },
+        { name: 'IAD2', city: 'Ashburn' },
+        { name: 'IAD3', city: 'Ashburn' },
+        { name: 'LON1', city: 'West Drayton' },
+        { name: 'LON3', city: 'Berkshire' },
+        { name: 'LON5', city: 'Crawley' },
+        { name: 'HKG1', city: 'Honk Kong' },
+        { name: 'SYD2', city: 'Sydney' }
+    ];
+
+    // cloned to avoid interference with first demo table
+    $scope.validateDatacenters = _.cloneDeep($scope.datacenters);
+
+    $scope.filter = { keyword: '' };
+
+    $scope.getSelectedDatacenters = function () {
+        return _.cloneDeep(_.where($scope.datacenters, { rowIsSelected: true }));
+    };
+
+})
+.controller('ShutdownDatacentersCtrl', function ($scope, $modalInstance, $timeout, rxSortUtil, PageTracking) {
+    $scope.sort = rxSortUtil.getDefault('name');
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+
+    var itemsPerPage = 8;
+    $scope.pager = PageTracking.createInstance({ itemsPerPage: itemsPerPage });
+    $scope.showPagination = itemsPerPage < $scope.selectedDatacenters.length;
+
+    $scope.removeDatacenter = function (dc) {
+        _.remove($scope.selectedDatacenters, dc);
+    };
+
+    $scope.submit = function () {
+        $scope.setState('working');
+
+        $scope.numCompleted = 0;
+
+        var delay = 1000;
+        $scope.selectedDatacenters.forEach(function (dc, i) {
+            $timeout(function () {
+                dc.status = 'pending';
+            }, i * delay);
+            $timeout(function () {
+                dc.status = i % 4 === 0 ? 'failure' : 'success';
+                $scope.numCompleted++;
+            }, ++i * delay);
+        });
+        $timeout(function () {
+            $scope.setState('complete');
+            $scope.errorsPresent = _.some($scope.selectedDatacenters, { status: 'failure' });
+        }, $scope.selectedDatacenters.length * delay);
+    };
+
+    $scope.cancel = $modalInstance.dismiss;
+});
+
+angular.module('demoApp')
+.controller('rxBulkSelectValidateCtrl', function ($scope) {
+
+    $scope.datacenters = [
+        { name: 'ORD1', city: 'Chicago' },
+        { name: 'DFW1', city: 'Grapevine' },
+        { name: 'DFW2', city: 'Richardson' },
+        { name: 'IAD2', city: 'Ashburn' },
+        { name: 'IAD3', city: 'Ashburn' },
+        { name: 'LON1', city: 'West Drayton' },
+        { name: 'LON3', city: 'Berkshire' },
+        { name: 'LON5', city: 'Crawley' },
+        { name: 'HKG1', city: 'Honk Kong' },
+        { name: 'SYD2', city: 'Sydney' }
+    ];
+
+    // cloned to avoid interference with first demo table
+    $scope.validateDatacenters = _.cloneDeep($scope.datacenters);
+
+    $scope.filter = { keyword: '' };
+
+    $scope.getSelectedDatacenters = function () {
+        return _.cloneDeep(_.where($scope.datacenters, { rowIsSelected: true }));
+    };
+
+})
+.controller('ShutdownDatacentersCtrl', function ($scope, $modalInstance, $timeout, rxSortUtil, PageTracking) {
+    $scope.sort = rxSortUtil.getDefault('name');
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+
+    var itemsPerPage = 8;
+    $scope.pager = PageTracking.createInstance({ itemsPerPage: itemsPerPage });
+    $scope.showPagination = itemsPerPage < $scope.selectedDatacenters.length;
+
+    $scope.removeDatacenter = function (dc) {
+        _.remove($scope.selectedDatacenters, dc);
+    };
+
+    $scope.submit = function () {
+        $scope.setState('working');
+
+        $scope.numCompleted = 0;
+
+        var delay = 1000;
+        $scope.selectedDatacenters.forEach(function (dc, i) {
+            $timeout(function () {
+                dc.status = 'pending';
+            }, i * delay);
+            $timeout(function () {
+                dc.status = i % 4 === 0 ? 'failure' : 'success';
+                $scope.numCompleted++;
+            }, ++i * delay);
+        });
+        $timeout(function () {
+            $scope.setState('complete');
+            $scope.errorsPresent = _.some($scope.selectedDatacenters, { status: 'failure' });
+        }, $scope.selectedDatacenters.length * delay);
+    };
+
+    $scope.cancel = $modalInstance.dismiss;
+});
+
+angular.module('demoApp')
+.controller('rxFloatingHeaderCtrl', function ($scope) {
+    $scope.searchText = '';
+    $scope.data = [
+        { name: 'First', value: 1 },
+        { name: 'A', value: 2 },
+        { name: 'B', value: 3 },
+        { name: 'C', value: 4 },
+        { name: 'D', value: 5 },
+        { name: 'E', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'Middle', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'F', value: 1 },
+        { name: 'G', value: 2 },
+        { name: 'H', value: 3 },
+        { name: 'I', value: 4 },
+        { name: 'J', value: 5 },
+        { name: 'K', value: 1 },
+        { name: 'Last', value: 2 }
+    ];
+
+    $scope.clearFilter = function () {
+        $scope.searchText = '';
+    };
+});
+
+angular.module('demoApp')
 .controller('rxSelectFilterSimpleCtrl', function ($scope, SelectFilter) {
     $scope.filter = SelectFilter.create({
         properties: ['account', 'status'],
@@ -1473,6 +1294,41 @@ angular.module('demoApp')
         { account: 'B', status: 'TRANSFERRED', description: 'Don\'t stop believing' },
         { account: 'B', status: 'VENDOR', description: 'Hold on to that feeling' },
         { account: 'A', status: 'TRANSFERRED', description: 'qwertyuiop' }
+    ];
+});
+
+angular.module('demoApp')
+.controller('rxSortableColumnSimpleCtrl', function ($scope, rxSortUtil) {
+    $scope.sort = rxSortUtil.getDefault('name', false);
+
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+
+    $scope.talentPool = [
+        {
+            name: 'Andrew Yurisich',
+            jobTitle: 'Mailroom Associate IV'
+        },
+        {
+            name: 'Patrick Deuley',
+            jobTitle: 'Design Chaplain'
+        },
+        {
+            name: null,
+            jobTitle: 'Chief Mastermind'
+        },
+        {
+            jobTitle: 'Assistant Chief Mastermind'
+        },
+        {
+            name: 'Hussam Dawood',
+            jobTitle: 'Evangelist of Roger Enriquez'
+        },
+        {
+            name: 'Kerry Bowley',
+            jobTitle: 'Dev Mom'
+        },
     ];
 });
 
@@ -1566,12 +1422,148 @@ angular.module('demoApp')
 });
 
 angular.module('demoApp')
-.controller('tablePaginateExampleController', function ($scope, PageTracking) {
-    $scope.pager = PageTracking.createInstance();
-    $scope.people = [
-        { name: 'Patrick Deuley', occupation: 'Design Chaplain' },
-        { name: 'Hussam Dawood', occupation: 'Cat Lover' }
+.controller('rxPaginateApiCtrl', function ($scope, $q, $timeout, $filter, PageTracking,
+                rxSortUtil, SelectFilter) {
+
+    var os = ['Ubuntu 12.04', 'Red Hat Enterprise Linux 6.4', 'CentOS 6.4', 'Ubuntu 13.04'];
+    var makeServers = function (serverCount) {
+        var servers = [];
+        for (var i = 1; i < serverCount + 1; i++) {
+            var server = {
+                id: i,
+                name: 'Server ' + i,
+                os: os[i % os.length]
+            };
+            servers.push(server);
+        }
+        return servers;
+    };
+
+    var allLazyServers = makeServers(701);
+
+    var serverInterface = {
+        getItems: function (pageNumber, itemsPerPage, params) {
+            var deferred = $q.defer();
+            var filterText = params.filterText;
+            var sortColumn = params.sortColumn;
+            var sortDirection = params.sortDirection;
+
+            if (sortColumn === 'name') {
+                sortColumn = 'id';
+            }
+
+            if (sortDirection === 'DESCENDING') {
+                sortColumn = '-' + sortColumn;
+            }
+
+            $timeout(function () {
+                var first = pageNumber * itemsPerPage;
+                var added = first + itemsPerPage;
+                var last = (added > allLazyServers.length) ? allLazyServers.length : added;
+
+                var filteredServers = $filter('filter')(allLazyServers, filterText);
+                filteredServers = $scope.osFilter.applyTo(filteredServers);
+                filteredServers = $filter('orderBy')(filteredServers, sortColumn);
+
+                // Return 100 items more than the user's `itemsPerPage`. i.e. if the
+                // user is asking for 25 items per page, return 125 in total
+                var lazyServers = filteredServers.slice(first, last + 100);
+
+                var response = {
+                    items: lazyServers,
+                    pageNumber: pageNumber,
+                    totalNumberOfItems: filteredServers.length
+                };
+
+                if (filterText === 'error') {
+                    deferred.reject();
+                } else {
+                    deferred.resolve(response);
+                }
+            }, 300);
+            return deferred.promise;
+        }
+    };
+
+    $scope.sort = rxSortUtil.getDefault('name', false);
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+    $scope.data = { searchText: '' };
+    $scope.clearFilter = function () {
+        $scope.data.searchText = '';
+    };
+    $scope.osFilter = SelectFilter.create({
+        properties: ['os'],
+        available: {
+            os: os
+        }
+    });
+    $scope.serverInterface = serverInterface;
+    $scope.pagedServers = PageTracking.createInstance({ itemsPerPage: 25 });
+});
+
+angular.module('demoApp')
+.controller('rxPaginateUiCtrl', function ($scope, PageTracking) {
+    $scope.pager = PageTracking.createInstance({ itemsPerPage: 3 });
+
+    var os = ['Ubuntu 12.04', 'Red Hat Enterprise Linux 6.4', 'CentOS 6.4', 'Ubuntu 13.04'];
+    var makeServers = function (serverCount) {
+        var servers = [];
+        for (var i = 1; i < serverCount + 1; i++) {
+            var server = {
+                id: i,
+                name: 'Server ' + i,
+                os: os[i % os.length]
+            };
+            servers.push(server);
+        }
+        return servers;
+    };
+
+    $scope.servers = makeServers(21);
+
+    $scope.removeServers = function () {
+        if ($scope.servers.length > 2) {
+            $scope.servers = $scope.servers.splice(2);
+        }
+    };
+
+    $scope.addServers = function () {
+        $scope.servers = $scope.servers.concat(makeServers(2));
+    };
+});
+
+angular.module('demoApp')
+.controller('rxStatusColumnCtrl', function ($scope, rxStatusMappings, rxSortUtil) {
+    $scope.servers = [
+        { status: 'ACTIVE', title: 'ACTIVE status' },
+        { status: 'ERROR', title: 'ERROR status' },
+        { status: 'DISABLED', title: 'DISABLED status' },
+        { status: 'DELETED', title: 'DELETED status mapped to ERROR' },
+        { status: 'UNKNOWN', title: 'UNKNOWN status mapped to ERROR' },
+        { status: 'RESCUE', title: 'RESCUE status mapped to INFO' },
+        { status: 'SUSPENDED', title: 'SUSPENDED status mapped to WARNING' },
+        { status: 'REBUILD', title: 'REBUILD status mapped to PENDING' },
+        { status: 'RESIZE', title: 'RESIZE status mapped to PENDING' },
+        { status: 'MIGRATING', title: 'MIGRATING status mapped to PENDING' },
+        { status: 'DELETING', title: 'DELETING status mapped to PENDING, using `fooApi` mapping', api: 'fooApi' }
     ];
+
+    // We have a few different ways of adding mappings. We've tried to show them all here
+    rxStatusMappings.addGlobal({
+        'DELETING': 'PENDING'
+    });
+    rxStatusMappings.mapToInfo('RESCUE');
+    rxStatusMappings.mapToWarning('SUSPENDED');
+    rxStatusMappings.mapToPending(['REBUILD','RESIZE','MIGRATING']);
+    rxStatusMappings.mapToError(['DELETED', 'UNKNOWN']);
+    rxStatusMappings.addAPI('fooApi', { 'DELETING': 'PENDING' });
+    rxStatusMappings.mapToPending('SomeApiSpecificStatus', 'fooApi');
+    $scope.sortCol = function (predicate) {
+        return rxSortUtil.sortCol($scope, predicate);
+    };
+    $scope.sort = rxSortUtil.getDefault('status');
 });
 
 
@@ -1667,6 +1659,30 @@ angular.module('demoApp')
     $scope.setErrorMsg = function (msg) {
         var error = { message: msg };
         $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);
+    };
+});
+
+
+angular.module('demoApp')
+.controller('layoutController', function ($scope) {
+    $scope.layout = 'row';
+    $scope.align = { first: 'center', second: 'middle' };
+    $scope.options1 = ['left', 'center', 'right', 'spread', 'justify'];
+    $scope.options2 = ['top', 'middle', 'bottom', 'stretch'];
+
+    // Swap the first 3 items in each array and set new value
+    $scope.swap = function (option) {
+
+        if ($scope.layout === option) {
+            return;
+        }
+
+        var swap = $scope.options2.slice(0, 3).concat($scope.options1.slice(3));
+        $scope.options2 = $scope.options1.slice(0, 3).concat($scope.options2.slice(3));
+        $scope.options1 = swap;
+        swap = $scope.options1[$scope.options1.indexOf($scope.align.second)] || 'spread';
+        $scope.align.second = $scope.options2[$scope.options2.indexOf($scope.align.first)] || 'stretch';
+        $scope.align.first = swap;
     };
 });
 
@@ -1778,6 +1794,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('hotkeysVolumeCtrl', function ($scope, hotkeys) {
     $scope.volume = 5;
@@ -1817,6 +1835,13 @@ angular.module('demoApp')
 });
 
 
+
+
+angular.module('demoApp')
+.controller('rxAttributesCtrl', function ($scope) {
+    $scope.customStyles = 'color: red; font-weight: bold;';
+    $scope.customContent = '"Custom Content"';
+});
 
 
 angular.module('demoApp')
@@ -1891,6 +1916,13 @@ angular.module('demoApp')
 });
 
 
+angular.module('demoApp')
+.controller('rxCompileDemoCtrl', function ($scope) {
+    $scope.world = 'wrrrld';
+    $scope.myExpression = 'Hello {{world}}';
+});
+
+
 
 
 
@@ -1925,6 +1957,8 @@ angular.module('demoApp')
 .controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
+
+
 
 
 
@@ -1978,6 +2012,29 @@ angular.module('demoApp')
 });
 
 
+
+
+angular.module('demoApp')
+.controller('rxPermissionSimpleCtrl', function ($scope, Session, rxNotify) {
+    rxNotify.add('Respect My Authority!!', {
+        stack: 'permission',
+        type: 'warning'
+    });
+
+    $scope.storeToken = function () {
+        Session.storeToken({
+            access: {
+                user: {
+                    roles: [{ name: 'test' }]
+                }
+            }
+        });
+    };
+
+    $scope.clearToken = function () {
+        Session.logout();
+    };
+});
 
 
 angular.module('demoApp')
@@ -2090,6 +2147,8 @@ angular.module('demoApp')
 .controller('rxTimeDemoCtrl', function ($scope) {
     $scope.dateString = '2015-09-17T19:37:17Z';
 });
+
+
 
 
 
