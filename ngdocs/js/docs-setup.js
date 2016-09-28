@@ -100,7 +100,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Renders a button which will disable when clicked and show a loading message,",
-      "keywords": "api applied attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled normal operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true variable"
+      "keywords": "api applied attribute attributes behavior button buttons call class classes clicked complete controlled create default default-msg defaultmsg defaults defined desired directive disable disabled disables display displayed documented dynamically-displayed elements expression false handler indicator instance loading loadingmsg matter meant message messages modified modify multiple names ng-click ng-disabled operation passed process progress provided re-enable renders replacement replaces rxbutton scenarios set styleguide styles styling text toggle toggle-msg toggled true truthy variable"
     },
     {
       "section": "api",
@@ -271,7 +271,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Link which will show a modal window on click, and handle callbacks for",
-      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed dismisshook don dynamic elements entered esc evaluates example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook posthook pre pre-defined pre-hook prehook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url templateurl text toggle top transcluding true ui url user values window windows work"
+      "keywords": "$modalinstance action actions allows api attribute based benefit button call callbacks called calling cancel cancelled changes click clicking close closed common complex component confirmation content data define defined dialog directive disable-esc disabled dismiss dismiss-hook dismissed dismisshook don dynamic elements entered esc evaluates example explicitly expression extra field file fully function functional functions handle handled happen helpful hook hooks html indeterminate input inside javascript json lifecycle link live loaded logic maintainability making modal modalcontent multiple myposthook myprehook nature ng-include opened opening optional passed points populate post-hook posthook pre pre-defined pre-hook prehook press pressing previous re-use requests return rxmodalaction scenario scenarios send separate simple simply specific submitted submitting switches takes template template-url templateurl text toggle top transcluding truthy ui url user values window windows work"
     },
     {
       "section": "api",
@@ -442,7 +442,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Displays an on/off switch toggle",
-      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays elements evaluate evaluated expression false false-value foo function indicates initialization input model ng-disabled ng-model note operation passed performs post-hook posthook prevent property scope set switch takes time toggle toggled toggles true true-value values written"
+      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays elements evaluate evaluated expression false false-value foo function initialization model ng-disabled ng-model note operation passed performs post-hook posthook prevent property scope set switch takes time toggle toggled toggles true true-value truthy values written"
     },
     {
       "section": "api",
@@ -569,24 +569,6 @@ NG_DOCS={
       "moduleName": "rxFloatingHeader",
       "shortDescription": "rxFloatingHeader is an attribute directive that turns a tableheader into a floating persistent header so that names",
       "keywords": "add api attribute based colspan columns common compatible directive directly displayed element elements example filter floating fully header http inside items match names ng-model number pattern persistent place placing products restrict rx-floating-header rx-placeholder rxfloatingheader rxsortablecolumn scrolls searchtext set support table tableheader top turns user visible"
-    },
-    {
-      "section": "api",
-      "id": "rxLogout",
-      "shortName": "rxLogout",
-      "type": "overview",
-      "moduleName": "rxLogout",
-      "shortDescription": "rxLogout Component",
-      "keywords": "api apply component directive directives element functionality logic logout overview rxlogout"
-    },
-    {
-      "section": "api",
-      "id": "rxLogout.directive:rxLogout",
-      "shortName": "rxLogout",
-      "type": "directive",
-      "moduleName": "rxLogout",
-      "shortDescription": "Adds logout functionality to an element.",
-      "keywords": "adds api custom directive element functionality location logging logout redirect rx-logout rxlogout url"
     },
     {
       "section": "api",

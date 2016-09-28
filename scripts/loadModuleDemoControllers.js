@@ -142,8 +142,6 @@ angular.module('demoApp')
 });
 
 
-
-
 angular.module('demoApp')
 .controller('rxOptionTableCtrl', function ($scope) {
     $scope.radioValue = 0;
@@ -318,9 +316,9 @@ angular.module('demoApp')
 
     return function (statusText) {
         var lower = statusText.toLowerCase();
-        if (_.contains(warning, lower)) {
+        if (_.includes(warning, lower)) {
             return 'warning';
-        } else if (_.contains(info, lower)) {
+        } else if (_.includes(info, lower)) {
             return 'info';
         }
         return '';
@@ -684,7 +682,7 @@ angular.module('demoApp')
         }
     ];
     // select the first type by default
-    $scope.volumeType = _.first($scope.volumeTypes).value;
+    $scope.volumeType = _.head($scope.volumeTypes).value;
     $scope.selectedServices = [];
 });
 
@@ -751,7 +749,7 @@ angular.module('demoApp')
 
 angular.module('demoApp')
 .controller('formIntermediateControlsDemoCtrl', function ($scope) {
-    
+
     $scope.userEmail = '';
     // TODO: use isNameRequired for rxFieldName "required" midway tests
     $scope.isNameRequired = true;
@@ -759,7 +757,7 @@ angular.module('demoApp')
 })
 
 // A dummy directive only used within the rxForm demo page.
-// It's used to check that some string contains 'foo', and works
+// It's used to check that some string includes 'foo', and works
 // with ngForm to set the appropriate `.$error` value
 // Note: This code is easier to write in Angular 1.3, because
 // you can use `.$validators` instead of `.$parsers`
@@ -769,7 +767,7 @@ angular.module('demoApp')
         link: function (scope, elm, attrs, ctrl) {
             // Put a new validator on the beginning
             ctrl.$parsers.unshift(function (viewValue) {
-                if (_.contains(viewValue, 'foo')) {
+                if (_.includes(viewValue, 'foo')) {
                     ctrl.$setValidity('foocheck', true);
                     return viewValue;
                 } else {
@@ -1080,7 +1078,7 @@ angular.module('demoApp')
         var messageOptions = _.clone($scope.options);
 
         if ($scope.ondismiss.should) {
-            messageOptions.ondismiss = _.clone($scope.ondismiss.method);
+            messageOptions.ondismiss = $scope.ondismiss.method;
         }
 
         messageOptions.stack = stack;
@@ -1140,7 +1138,7 @@ angular.module('demoApp')
     $scope.filter = { keyword: '' };
 
     $scope.getSelectedDatacenters = function () {
-        return _.cloneDeep(_.where($scope.datacenters, { rowIsSelected: true }));
+        return _.cloneDeep(_.filter($scope.datacenters, { rowIsSelected: true }));
     };
 
 })

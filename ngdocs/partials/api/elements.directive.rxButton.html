@@ -15,13 +15,12 @@ in scenarios where the button has multiple states.</p>
 disables the button and replaces the <code>default-msg</code> with the <code>toggle-msg</code> as
 the button&#39;s text.  There are no defaults for these messages, so they must
 be defined if the toggle behavior is desired.  While the button is in the
-toggled state, it is also disabled (no matter what the value of <code>disable</code> is).</p>
+toggled state, it is also disabled (no matter what the value of <code>ng-disabled</code>
+may be).</p>
 <p>The button does not modify the variable passed to <code>toggle</code>; it should be
 modified in the handler provided to <code>ng-click</code>.  Usually, the handler will
 set the variable to <code>true</code> immediately, and then to <code>false</code> once the the
 process (e.g. an API call) is complete.</p>
-<p>To disable the button, use the <code>disable</code> attribute instead of the normal
-<code>ng-disabled</code> - the behavior is the same.</p>
 <h4 id="description_styling">Styling</h4>
 <p>There are several styles of buttons available, and they are documented in the
 <a href="/encore-ui/#/elements/Buttons">Buttons Styleguide</a>. Any classes that need to be
@@ -32,7 +31,7 @@ added to the button should be passed to the <code>classes</code> attribute.</p>
        loading-msg="{String}"
        default-msg="{String}"
        [toggle="{Boolean}"]
-       [ng-disabled="{Boolean}"]
+       [ng-disabled="{Expression}"]
        [classes="{String}"]&gt;
 &lt;/rx-button&gt;</pre>
 <h3 id="usage_directive-info">Directive info</h3>
@@ -42,7 +41,8 @@ added to the button should be passed to the <code>classes</code> attribute.</p>
 <h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>loadingMsg</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>Text to be displayed when an operation is in progress.</p>
 </div></td></tr><tr><td>defaultMsg</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>Text to be displayed by default when no operation is in progress.</p>
 </div></td></tr><tr><td>toggle <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>When true, the button will display the loading text.</p>
-</div> <p><em>(default: false)</em></p></td></tr><tr><td>ngDisabled <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>When true, the button will be disabled.</p>
+</div> <p><em>(default: false)</em></p></td></tr><tr><td>ngDisabled <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-expression">Expression</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>If the expression is truthy, then the
+<code>disabled</code> attribute will be set on the button</p>
 </div> <p><em>(default: false)</em></p></td></tr><tr><td>classes <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="elements-directive-page elements-directive-rxbutton-page"><p>The class names to be applied to the button.</p>
 </div> <p><em>(default: "")</em></p></td></tr></tbody></table></div>
 </div>
