@@ -50,8 +50,8 @@ angular.module('encore.ui.rxApp')
                 // Element by attempting to set a property on it.  If we have no errors
                 // then this means that `document.domain` matches and we have no Cross
                 // Origin security constraints
-                $window.top['hasSameDomain'] = true;
-                scope.isEmbedded = $window.self !== $window.top;
+                $window.parent.hasSameDomain = true;
+                scope.isEmbedded = $window.self !== $window.parent;
             } catch (e) {
                 scope.isEmbedded = false;
             }
