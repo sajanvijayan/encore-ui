@@ -2,7 +2,7 @@
  * EncoreUI
  * https://github.com/rackerlabs/encore-ui
  *
- * Version: 3.0.0 - 2016-09-28
+ * Version: 3.0.3 - 2016-11-03
  * License: Apache-2.0
  */
 angular.module('encore.ui', [
@@ -4706,11 +4706,20 @@ angular.module('encore.ui.rxApp')
  * @description
  * Provides the ability to switch between account users. This directive is specific to Rackspace
  */
-.directive('rxAccountUsers', ["$location", "$route", "Encore", "$rootScope", "encoreRoutes", function ($location, $route, Encore, $rootScope, encoreRoutes) {
+.directive('rxAccountUsers', ["$location", "$route", "Encore", "$rootScope", "$injector", "encoreRoutes", function ($location, $route, Encore, $rootScope, $injector, encoreRoutes) {
     return {
         restrict: 'E',
         templateUrl: 'templates/rxAccountUsers.html',
         link: function (scope, element) {
+            var setUrl;
+
+            if ($injector.has('oriLocationService')) {
+                var oriLocationService = $injector.get('oriLocationService');
+                setUrl = _.bind(oriLocationService.setCanvasURL, oriLocationService);
+            } else { 
+                setUrl = _.bind($location.url, $location);
+            }
+
             scope.isCloudProduct = false;
 
             var checkCloud = function () {
@@ -4771,7 +4780,7 @@ angular.module('encore.ui.rxApp')
                 if (userIndex !== -1) {
                     var path = $location.url().split('/');
                     path[userIndex] = user;
-                    $location.url(path.join('/'));
+                    setUrl(path.join('/'));
                 }
             };
 
@@ -6447,7 +6456,7 @@ angular.module('encore.ui.utilities')
  * </pre>
  *
  * The above example could be used to have the current url ignore any caching flags passed in. The `keyShaping`
- * function will receive the default calculated key (`rxAutoSave::` + $location.url()). By default, `keyShaping`
+ * function will receive the default calculated key (`rxAutoSave::` + $location.path()). By default, `keyShaping`
  * just returns the original calculated key.
  *
  *
@@ -6563,10 +6572,10 @@ angular.module('encore.ui.utilities')
     //                           it must support both getObject(key) and setObject(key, val), matching
     //                           the operations of rxLocalStorage and SessionStorage
     // @param [keyShaping] - Optional, defaults to just returning the originally defined key value.
-    //                       It gets passed the original value defined ('rxAutoSave::' + $location.url())
+    //                       It gets passed the original value defined ('rxAutoSave::' + $location.path())
     //                       and is expected to return the new key that you wish to have used.
     var StorageAPI = function (watchVar, storageBackend, keyShaping) {
-        this.key = keyShaping('rxAutoSave::' + $location.url());
+        this.key = keyShaping('rxAutoSave::' + $location.path());
         this.watchVar = watchVar;
         this.storage = storageBackend ? storageBackend : rxLocalStorage;
     };

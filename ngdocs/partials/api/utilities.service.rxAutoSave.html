@@ -217,7 +217,7 @@ stated, these are calculated by prepending <code>&#39;rxAutoSave::&#39;</code> b
   });
 </pre>
 <p>The above example could be used to have the current url ignore any caching flags passed in. The <code>keyShaping</code>
-function will receive the default calculated key (<code>rxAutoSave::</code> + $location.url()). By default, <code>keyShaping</code>
+function will receive the default calculated key (<code>rxAutoSave::</code> + $location.path()). By default, <code>keyShaping</code>
 just returns the original calculated key.</p>
 </div></div>
 <h2 id="usage">Usage</h2>
