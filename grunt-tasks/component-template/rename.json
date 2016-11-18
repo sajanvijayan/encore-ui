@@ -1,8 +1,0 @@
-{
-    "component.js": "{%= name %}.js",
-    "component.spec.js": "{%= name %}.spec.js",
-    "component.less": "{%= name %}.less",
-    "docs/component.js": "docs/{%= name %}.js",
-    "docs/component.html": "docs/{%= name %}.html",
-    "templates/component.html": "templates/{%= name %}.html"
-}

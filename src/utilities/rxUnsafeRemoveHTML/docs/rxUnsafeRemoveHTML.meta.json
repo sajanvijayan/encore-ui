@@ -1,7 +1,0 @@
-{
-    "displayName": "rxUnsafeRemoveHTML",
-    "stability": "stable",
-    "description": "Removes all HTML tags from a string.",
-    "api": "filter:rxUnsafeRemoveHTML",
-    "keywords": []
-}

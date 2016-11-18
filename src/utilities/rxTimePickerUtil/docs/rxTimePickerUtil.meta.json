@@ -1,7 +1,0 @@
-{
-    "displayName": "rxTimePickerUtil",
-    "stability": "experimental",
-    "description": "Utilities for rxTimePicker element",
-    "api": "service:rxTimePickerUtil",
-    "keywords": []
-}

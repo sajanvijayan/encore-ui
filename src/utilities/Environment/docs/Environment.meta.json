@@ -1,7 +1,0 @@
-{
-    "displayName": "Environment",
-    "stability": "unstable",
-    "description": "Allows environments to be defined, and retrieving the current environment based on location.",
-    "api": "service:Environment",
-    "keywords": []
-}

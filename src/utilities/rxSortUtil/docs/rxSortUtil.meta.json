@@ -1,8 +1,0 @@
-{
-    "displayName": "rxSortUtil",
-    "stability": "unstable",
-    "description": "Service which provides utility methods for sorting collections.",
-    "api": "service:rxSortUtil",
-    "keywords": []
-}
-

@@ -1,7 +1,0 @@
-{
-    "displayName": "rxDiskSize",
-    "stability": "stable",
-    "description": "Converts raw GB disk size into a more readable format",
-    "api": "filter:rxDiskSize",
-    "keywords": []
-}

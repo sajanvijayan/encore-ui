@@ -1,8 +1,0 @@
-{
-    "displayName": "rxSortEmptyTop",
-    "stability": "unstable",
-    "description": "Moves rows with an empty predicate in ascending and descending order.",
-    "api": "filter:rxSortEmptyTop",
-    "keywords": []
-}
-

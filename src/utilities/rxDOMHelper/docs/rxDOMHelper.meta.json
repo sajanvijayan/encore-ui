@@ -1,7 +1,0 @@
-{
-    "displayName": "rxDOMHelper",
-    "stability": "unstable",
-    "description": "A small set of useful DOM-related functions.",
-    "api": "service:rxDOMHelper",
-    "keywords": []
-}

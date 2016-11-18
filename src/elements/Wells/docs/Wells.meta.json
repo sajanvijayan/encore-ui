@@ -1,9 +1,0 @@
-{
-    "displayName": "Wells",
-    "stability": "stable",
-    "description": "Provides usage of wells in different context.",
-    "hasApi": false,
-    "keywords": [
-        "well"
-    ]
-}

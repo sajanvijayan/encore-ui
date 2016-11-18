@@ -1,7 +1,0 @@
-{
-    "displayName": "rxCapitalize",
-    "stability": "stable",
-    "description": "Capitalizes the first word in a string",
-    "api": "filter:rxCapitalize",
-    "keywords": []
-}

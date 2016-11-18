@@ -1,7 +1,0 @@
-{
-    "displayName": "rxModalFooterTemplates",
-    "stability": "stable",
-    "description": "A cache for storing the modal footer templates.",
-    "api": "service:rxModalFooterTemplates",
-    "keywords": []
-}

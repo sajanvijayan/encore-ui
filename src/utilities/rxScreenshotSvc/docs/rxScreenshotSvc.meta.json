@@ -1,7 +1,0 @@
-{
-    "displayName": "rxScreenshotSvc",
-    "stability": "unstable",
-    "description": "Captures a screenshot for rxFeedback submission form.",
-    "api": "service:rxScreenshotSvc",
-    "keywords": []
-}

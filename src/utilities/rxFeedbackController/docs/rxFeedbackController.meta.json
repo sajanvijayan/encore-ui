@@ -1,7 +1,0 @@
-{
-    "displayName": "rxFeedbackController",
-    "stability": "unstable",
-    "description": "Allows the customization of the feedback modal.",
-    "api": "controller:rxFeedbackController",
-    "keywords": []
-}

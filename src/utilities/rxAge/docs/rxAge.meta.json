@@ -1,7 +1,0 @@
-{
-    "displayName": "rxAge",
-    "stability": "stable",
-    "description": "Filters to parse dates",
-    "api": "filter:rxAge",
-    "keywords": []
-}

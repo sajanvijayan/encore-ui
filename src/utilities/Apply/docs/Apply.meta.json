@@ -1,7 +1,0 @@
-{
-    "displayName": "Apply",
-    "stability": "experimental",
-    "description": "Used to apply an instance of SelectFilter to an array.",
-    "api": "filter:Apply",
-    "keywords": []
-}

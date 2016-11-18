@@ -1,7 +1,0 @@
-{
-    "displayName": "rxPageTitle",
-    "stability": "stable",
-    "description": "Provides a service that manages page titles.",
-    "api": "service:rxPageTitle",
-    "keywords": []
-}

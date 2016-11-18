@@ -1,7 +1,0 @@
-{
-    "displayName": "rxNestedElement",
-    "stability": "unstable",
-    "description": "Helper function to aid in the creation of boilerplate DDO definitions",
-    "api": "service:rxNestedElement",
-    "keywords": []
-}

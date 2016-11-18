@@ -1,7 +1,0 @@
-{
-    "displayName": "rxPromiseNotifications",
-    "stability": "stable",
-    "description": "Manages displaying messages for a notification promise.",
-    "api": "service:rxPromiseNotifications",
-    "keywords": []
-}

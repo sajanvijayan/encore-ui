@@ -1,7 +1,0 @@
-{
-    "displayName": "rxBulkSelectController",
-    "stability": "experimental",
-    "description": "Provides controller logic for rxBulkSelect",
-    "api": "controller:rxBulkSelectController",
-    "keywords": []
-}
