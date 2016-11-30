@@ -273,9 +273,18 @@ rx-example .source-tabset .tab-content .tab-pane .toggle-expand.expanded .fa-exp
 rx-example .source-tabset .tab-content .tab-pane .toggle-expand.expanded .fa-compress {
   display: inline-block;
 }
+rx-permalink .permalink {
+  position: relative;
+}
 rx-permalink .permalink .icon {
+  top: 0;
+  right: 100%;
+  position: absolute;
   visibility: hidden;
   color: #757575;
+}
+rx-permalink .permalink .icon:hover {
+  visibility: visible;
 }
 rx-permalink .permalink:hover .icon {
   visibility: visible;

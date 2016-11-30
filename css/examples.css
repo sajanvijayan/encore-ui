@@ -81,17 +81,87 @@
    * rxDatePicker
    */
 }
-.example .rxBulkSelect-demo .pending-status {
+.example .table-demo--bulk-select {
+  /* ----- CORRECTIONS ----- */
+  /* ----- COLUMNS ----- */
+  /* ----- STATUSES ----- */
+}
+.example .table-demo--bulk-select th,
+.example .table-demo--bulk-select td {
+  /* fetch the correct computed width of column headers */
+  box-sizing: border-box;
+}
+.example .table-demo--bulk-select .column-action {
+  width: 38px;
+}
+.example .table-demo--bulk-select .column-name {
+  width: 150px;
+}
+.example .table-demo--bulk-select .column-city {
+  /* Leave the width fluid for this column */
+}
+.example .table-demo--bulk-select .status--pending {
   color: #d14904;
 }
-.example .rxBulkSelect-demo .success-status {
+.example .table-demo--bulk-select .status--success {
   color: #2e7d32;
 }
-.example .rxBulkSelect-demo .failure-status {
+.example .table-demo--bulk-select .status--failure {
   color: #f44336;
+}
+.example .table-demo--floating-header {
+  /* ----- CORRECTIONS ----- */
+  /* ----- COLUMNS ----- */
+}
+.example .table-demo--floating-header th,
+.example .table-demo--floating-header td {
+  /* fetch the correct computed width of column headers */
+  box-sizing: border-box;
+}
+.example .table-demo--floating-header .column-name {
+  width: 150px;
+}
+.example .table-demo--floating-header .column-value {
+  /* Leave the width fluid for this column */
+}
+.example .table-demo--sortable-column {
+  /* ----- CORRECTIONS ----- */
+  /* ----- COLUMNS ----- */
+}
+.example .table-demo--sortable-column th,
+.example .table-demo--sortable-column td {
+  /* fetch the correct computed width of column headers */
+  box-sizing: border-box;
+}
+.example .table-demo--sortable-column .column-name {
+  width: 150px;
+}
+.example .table-demo--sortable-column .column-occupation {
+  /* Leave the width fluid for this column */
 }
 .example .collapsible-filter-example-form {
   width: 400px;
+}
+.example .table-demo--api-pagination {
+  /* ----- CORRECTIONS ----- */
+  /* ----- COLUMNS ----- */
+}
+.example .table-demo--api-pagination th,
+.example .table-demo--api-pagination td {
+  /* fetch the correct computed width of column headers */
+  box-sizing: border-box;
+}
+.example .table-demo--api-pagination .column-name {
+  width: 200px;
+}
+.example .table-demo--api-pagination .column-os {
+  /* Leave the width of this column fluid */
+}
+.example .table-demo--ui-pagination .column-name {
+  width: 200px;
+}
+.example .table-demo--ui-pagination .column-os {
+  /* Leave the width of this column fluid */
 }
 .example .rxStatusMappings-demo .demo-status-column-table {
   max-width: 500px;

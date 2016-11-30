@@ -474,6 +474,30 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('layoutController', function ($scope) {
+    $scope.layout = 'row';
+    $scope.align = { first: 'center', second: 'middle' };
+    $scope.options1 = ['left', 'center', 'right', 'spread', 'justify'];
+    $scope.options2 = ['top', 'middle', 'bottom', 'stretch'];
+
+    // Swap the first 3 items in each array and set new value
+    $scope.swap = function (option) {
+
+        if ($scope.layout === option) {
+            return;
+        }
+
+        var swap = $scope.options2.slice(0, 3).concat($scope.options1.slice(3));
+        $scope.options2 = $scope.options1.slice(0, 3).concat($scope.options2.slice(3));
+        $scope.options1 = swap;
+        swap = $scope.options1[$scope.options1.indexOf($scope.align.second)] || 'spread';
+        $scope.align.second = $scope.options2[$scope.options2.indexOf($scope.align.first)] || 'stretch';
+        $scope.align.first = swap;
+    };
+});
+
+
+angular.module('demoApp')
 .controller('rxCharacterCountCtrl', function ($scope) {
     $scope.data = {
         comment1: '',
@@ -749,32 +773,18 @@ angular.module('demoApp')
 
 angular.module('demoApp')
 .controller('formIntermediateControlsDemoCtrl', function ($scope) {
-
     $scope.userEmail = '';
-    // TODO: use isNameRequired for rxFieldName "required" midway tests
     $scope.isNameRequired = true;
     $scope.volumeName = '';
 })
-
-// A dummy directive only used within the rxForm demo page.
-// It's used to check that some string includes 'foo', and works
-// with ngForm to set the appropriate `.$error` value
-// Note: This code is easier to write in Angular 1.3, because
-// you can use `.$validators` instead of `.$parsers`
 .directive('foocheck', function () {
     return {
         require: 'ngModel',
         link: function (scope, elm, attrs, ctrl) {
-            // Put a new validator on the beginning
-            ctrl.$parsers.unshift(function (viewValue) {
-                if (_.includes(viewValue, 'foo')) {
-                    ctrl.$setValidity('foocheck', true);
-                    return viewValue;
-                } else {
-                    ctrl.$setValidity('foocheck', false);
-                    return undefined;
-                }
-            });
+            ctrl.$validators.foocheck = function (modelValue, viewValue) {
+                var value = modelValue || viewValue;
+                return _.includes(value, 'foo');
+            }
         }
     };
 });
@@ -1111,6 +1121,13 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+    .controller('progressbarDynamicCtrl', function ($scope) {
+        $scope.value = 22;
+        $scope.max = 100;
+    });
+
+
+angular.module('demoApp')
 .controller('SpinnerSimpleCtrl', function ($scope) {
     $scope.loading = true;
 });
@@ -1128,7 +1145,7 @@ angular.module('demoApp')
         { name: 'LON1', city: 'West Drayton' },
         { name: 'LON3', city: 'Berkshire' },
         { name: 'LON5', city: 'Crawley' },
-        { name: 'HKG1', city: 'Honk Kong' },
+        { name: 'HKG1', city: 'Hong Kong' },
         { name: 'SYD2', city: 'Sydney' }
     ];
 
@@ -1586,10 +1603,6 @@ angular.module('demoApp')
 });
 
 
-
-
-
-
 angular.module('demoApp')
 .controller('typeadheadShowOnFocusCtrl', function ($scope) {
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
@@ -1613,23 +1626,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('ApplySimpleCtrl', function ($scope, SelectFilter) {
-    $scope.filter = SelectFilter.create({
-        properties: ['account', 'status'],
-        selected: {
-            account: ['A']
-        }
-    });
-
-    $scope.tickets = [
-        { account: 'A', status: 'NEW', description: 'Open a new service ticket.' },
-        { account: 'A', status: 'IN_PROGRESS', description: 'Updating server status.' },
-        { account: 'B', status: 'TRANSFERRED', description: 'Transferred account to ORD region.' },
-        { account: 'B', status: 'VENDOR', description: 'Added new third-party vendor service.' },
-        { account: 'A', status: 'TRANSFERRED', description: 'Transferred account to IAD region.' }
-    ];
-});
 
 
 angular.module('demoApp')
@@ -1657,30 +1653,6 @@ angular.module('demoApp')
     $scope.setErrorMsg = function (msg) {
         var error = { message: msg };
         $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);
-    };
-});
-
-
-angular.module('demoApp')
-.controller('layoutController', function ($scope) {
-    $scope.layout = 'row';
-    $scope.align = { first: 'center', second: 'middle' };
-    $scope.options1 = ['left', 'center', 'right', 'spread', 'justify'];
-    $scope.options2 = ['top', 'middle', 'bottom', 'stretch'];
-
-    // Swap the first 3 items in each array and set new value
-    $scope.swap = function (option) {
-
-        if ($scope.layout === option) {
-            return;
-        }
-
-        var swap = $scope.options2.slice(0, 3).concat($scope.options1.slice(3));
-        $scope.options2 = $scope.options1.slice(0, 3).concat($scope.options2.slice(3));
-        $scope.options1 = swap;
-        swap = $scope.options1[$scope.options1.indexOf($scope.align.second)] || 'spread';
-        $scope.align.second = $scope.options2[$scope.options2.indexOf($scope.align.first)] || 'stretch';
-        $scope.align.first = swap;
     };
 });
 
@@ -1833,6 +1805,25 @@ angular.module('demoApp')
 });
 
 
+
+
+angular.module('demoApp')
+.controller('ApplySimpleCtrl', function ($scope, SelectFilter) {
+    $scope.filter = SelectFilter.create({
+        properties: ['account', 'status'],
+        selected: {
+            account: ['A']
+        }
+    });
+
+    $scope.tickets = [
+        { account: 'A', status: 'NEW', description: 'Open a new service ticket.' },
+        { account: 'A', status: 'IN_PROGRESS', description: 'Updating server status.' },
+        { account: 'B', status: 'TRANSFERRED', description: 'Transferred account to ORD region.' },
+        { account: 'B', status: 'VENDOR', description: 'Added new third-party vendor service.' },
+        { account: 'A', status: 'TRANSFERRED', description: 'Transferred account to IAD region.' }
+    ];
+});
 
 
 angular.module('demoApp')
@@ -2033,6 +2024,8 @@ angular.module('demoApp')
         Session.logout();
     };
 });
+
+
 
 
 angular.module('demoApp')

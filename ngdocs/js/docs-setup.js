@@ -5,12 +5,21 @@ NG_DOCS={
   "pages": [
     {
       "section": "api",
+      "id": "index",
+      "shortName": "index",
+      "type": "overview",
+      "moduleName": "index",
+      "shortDescription": "EncoreUI",
+      "keywords": "angularjs api application blocks building contribute elements enable encoreui features functionality larger overview supporting utilities visible"
+    },
+    {
+      "section": "api",
       "id": "elements",
       "shortName": "elements",
       "type": "overview",
       "moduleName": "elements",
       "shortDescription": "Elements",
-      "keywords": "api directive directives elements overview rxaccountinfo rxactionmenu rxbutton rxcheckbox rxdatepicker rxmetadata rxtimepicker utilities visual"
+      "keywords": "api directives elements left-hand list navigation overview utilities visual"
     },
     {
       "section": "api",
@@ -122,6 +131,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxCollapse",
+      "shortName": "rxCollapse",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "rxCollapse directive hides and shows an element with a transition.  It can be configured to show as either expanded",
+      "keywords": "api areas avoid bad border browser button chevron collapsed column columns configured content contents context data decreases default described developed directive display displaying doesn double element elements estate expanded experience filter final flexbox header hide hides initially keeping key load lost metadata pairs parameter pattern presented problem real responsive-friendly rxcollapse screen short title toggle toggles transition true user visible width wrap"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxCopy",
       "shortName": "rxCopy",
       "type": "directive",
@@ -173,6 +191,15 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Stylistic element directive that provides a standardized UI for",
       "keywords": "add api directive element elements field form html left names parent required rx-form rxfield rxfieldcontent standardized stylistic symbol ui width"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:rxFloatingHeader",
+      "shortName": "rxFloatingHeader",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "rxFloatingHeader is an attribute directive that turns a tableheader into a floating persistent header so that names",
+      "keywords": "add api attribute based colspan columns common compatible directive directly displayed element elements example filter floating fully header http inside items match names ng-model number pattern persistent place placing products restrict rx-floating-header rx-placeholder rxfloatingheader rxsortablecolumn scrolls searchtext set support table tableheader top turns user visible"
     },
     {
       "section": "api",
@@ -338,6 +365,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxProgressbar",
+      "shortName": "rxProgressbar",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Element used to provide feedback on the progress of a workflow or action.",
+      "keywords": "action api calculate directive element elements feedback max maximum numeric progress provide relation workflow"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxRadio",
       "shortName": "rxRadio",
       "type": "directive",
@@ -428,6 +464,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "elements.directive:rxTags",
+      "shortName": "rxTags",
+      "type": "directive",
+      "moduleName": "elements",
+      "shortDescription": "Like native form components, this directive uses ng-model to store",
+      "keywords": "$scope accepts additional api applied array attribute binding blue category color coloroptions colors component components customize default determines directive disabled elements form ignored key list meaning model native ng-disabled ng-model object objects option options properties provided represent required selected selecting single store subset tag tag0 tags text"
+    },
+    {
+      "section": "api",
       "id": "elements.directive:rxTimePicker",
       "shortName": "rxTimePicker",
       "type": "directive",
@@ -443,6 +488,15 @@ NG_DOCS={
       "moduleName": "elements",
       "shortDescription": "Displays an on/off switch toggle",
       "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays elements evaluate evaluated expression false false-value foo function initialization model ng-disabled ng-model note operation passed performs post-hook posthook prevent property scope set switch takes time toggle toggled toggles true true-value truthy values written"
+    },
+    {
+      "section": "api",
+      "id": "elements.directive:typeahead",
+      "shortName": "typeahead",
+      "type": "overview",
+      "moduleName": "elements",
+      "shortDescription": "typeahead Component",
+      "keywords": "add allowempty angular-ui api attribute bootstrap case component configuration demo demoed dependency directive docs elements empty encoreui exact example feature filter filtered focus github gl guidance included input io list options overview parameter plugin receives site styles typeahead usage"
     },
     {
       "section": "api",
@@ -554,24 +608,6 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxCollapse.directive:rxCollapse",
-      "shortName": "rxCollapse",
-      "type": "directive",
-      "moduleName": "rxCollapse",
-      "shortDescription": "rxCollapse directive hides and shows an element with a transition.  It can be configured to show as either expanded",
-      "keywords": "api areas avoid bad border browser button chevron collapsed column columns configured content contents context data decreases default described developed directive display displaying doesn double element elements estate expanded experience filter final flexbox header hide hides initially keeping key load lost metadata pairs parameter pattern presented problem real responsive-friendly rxcollapse screen short title toggle toggles transition true user visible width wrap"
-    },
-    {
-      "section": "api",
-      "id": "rxFloatingHeader.directive:rxFloatingHeader",
-      "shortName": "rxFloatingHeader",
-      "type": "directive",
-      "moduleName": "rxFloatingHeader",
-      "shortDescription": "rxFloatingHeader is an attribute directive that turns a tableheader into a floating persistent header so that names",
-      "keywords": "add api attribute based colspan columns common compatible directive directly displayed element elements example filter floating fully header http inside items match names ng-model number pattern persistent place placing products restrict rx-floating-header rx-placeholder rxfloatingheader rxsortablecolumn scrolls searchtext set support table tableheader top turns user visible"
-    },
-    {
-      "section": "api",
       "id": "rxOptionTable",
       "shortName": "rxOptionTable",
       "type": "overview",
@@ -590,30 +626,12 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "rxTags.directive:rxTags",
-      "shortName": "rxTags",
-      "type": "directive",
-      "moduleName": "rxTags",
-      "shortDescription": "Like native form components, this directive uses ng-model to store",
-      "keywords": "$scope accepts additional api applied array attribute binding blue category color coloroptions colors component components customize default determines directive disabled form ignored key list meaning model native ng-disabled ng-model object objects option options properties provided represent required rxtags selected selecting single store subset tag tag0 tags text"
-    },
-    {
-      "section": "api",
-      "id": "typeahead",
-      "shortName": "typeahead",
-      "type": "overview",
-      "moduleName": "typeahead",
-      "shortDescription": "typeahead Component",
-      "keywords": "add allowempty angular-ui api attribute bootstrap case component configuration demo demoed dependency docs empty encoreui exact example feature filter filtered focus github gl guidance included input io list options overview parameter plugin receives site styles typeahead usage"
-    },
-    {
-      "section": "api",
       "id": "utilities",
       "shortName": "utilities",
       "type": "overview",
       "moduleName": "utilities",
       "shortDescription": "Utilities",
-      "keywords": "api application business constant constants control controller controllers convenience devicepaths directive directives display encoreroutes environment errorformatter feedbackapi feedbacktypes filter filters flow hotkeys identity logic modules notifyproperties object overview pagetracking paginate paginateditemssummary permission routescdnpath rxage rxapproutes rxautosave rxbreadcrumbssvc rxbulkselectcontroller rxbulkselectutils rxcapitalize rxdisksize rxdomhelper rxenvironmentmatch rxenvironmenturl rxfavicon rxfeedbackcontroller rxfeedbacksvc rxformutils rxlocalstorage rxmodalctrl rxmodalfootertemplates rxnestedelement rxnotify rxpagetitle rxpaginateutils rxpromisenotifications rxscreenshotsvc rxsortemptytop rxsortutil rxstatuscolumnicons rxstatusmappings rxstatustags rxunsaferemovehtml rxvisibility rxvisibilitypathparams service services session status statusutil switch titleize tokeninterceptor unauthorizedinterceptor urlutils utilities values xor"
+      "keywords": "api constants control controllers directives elements features flow full functionality include left-hand limited list logic nav non-visual overview services support switch utilities"
     },
     {
       "section": "api",
@@ -719,8 +737,7 @@ NG_DOCS={
       "shortName": "Apply",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
-      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat selectfilter service utilities"
+      "keywords": "api filter release removed rxapply utilities"
     },
     {
       "section": "api",
@@ -757,6 +774,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Several filters are available to parse dates.",
       "keywords": "abbreviated allow amounts api argument aug combine component dates days default digit digits display effects encore expand filter filters framework full gmt-0500 hours js largest letter manipulate method minutes mulitple multiple ng-controller number parse pass provided representation requires rxage rxagectrl second sep sun third thu true truncates tue units usage utilities word"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxApply",
+      "shortName": "rxApply",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
+      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat selectfilter service utilities"
     },
     {
       "section": "api",

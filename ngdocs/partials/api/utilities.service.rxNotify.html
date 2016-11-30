@@ -1,4 +1,4 @@
-<h1><code ng:non-bindable="">rxNotify</code>
+<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/utilities/rxNotify/scripts/rxNotify.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/c08e029/src/utilities/rxNotify/scripts/rxNotify.js#L150" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">rxNotify</code>
 <div><span class="hint">service in module <code ng:non-bindable="">utilities</code>
 </span>
 </div>
@@ -116,11 +116,11 @@ rxNotify.clear('page');
 </pre>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><h3 id="methods_add">add(text, options)</h3>
+<ul class="methods"><li><a href="https://github.com/rackerlabs/encore-ui/blob/c08e029/src/utilities/rxNotify/scripts/rxNotify.js#L368" class="view-source icon-eye-open"> </a><h3 id="methods_add">add(text, options)</h3>
 <div class="add"><div class="add-page"><p>adds a message to a stack</p>
 </div><h5 id="methods_add_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>text</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="add-page"><p>Message text</p>
 </div></td></tr><tr><td>options <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="add-page"><p>Message options</p>
-</div></td></tr><tr><td>options.type <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="add-page"><p>Message Type</p>
+</div><table><thead><tr><th>Property</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>type <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="add-page"><p>Message Type</p>
 <p>Values:</p>
 <ul>
 <li>&#39;info&#39;</li>
@@ -128,7 +128,7 @@ rxNotify.clear('page');
 <li>&#39;error&#39;</li>
 <li>&#39;success&#39;</li>
 </ul>
-</div> <p><em>(default: 'info')</em></p></td></tr><tr><td>options.timeout <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="add-page"><p>Time (in seconds) for message to appear. A value of -1 will display
+</div> <p><em>(default: 'info')</em></p></td></tr><tr><td>timeout <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-integer">Integer</a></td><td><div class="add-page"><p>Time (in seconds) for message to appear. A value of -1 will display
 the message until it is dismissed or the user navigates away from the
 page.</p>
 <p>Values:</p>
@@ -136,10 +136,10 @@ page.</p>
 <li>-1</li>
 <li>Any positive integer</li>
 </ul>
-</div> <p><em>(default: -1)</em></p></td></tr><tr><td>options.repeat <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="add-page"><p>Whether the message should be allowed to appear more than once in the stack.</p>
-</div> <p><em>(default: true)</em></p></td></tr><tr><td>options.loading <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="add-page"><p>Replaces type icon with spinner. Removes option for use to dismiss message.</p>
+</div> <p><em>(default: -1)</em></p></td></tr><tr><td>repeat <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="add-page"><p>Whether the message should be allowed to appear more than once in the stack.</p>
+</div> <p><em>(default: true)</em></p></td></tr><tr><td>loading <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="add-page"><p>Replaces type icon with spinner. Removes option for use to dismiss message.</p>
 <p>You usually want to associate this with a &#39;dismiss&#39; property.</p>
-</div> <p><em>(default: false)</em></p></td></tr><tr><td>options.show <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="add-page"><p>When to have the message appear.</p>
+</div> <p><em>(default: false)</em></p></td></tr><tr><td>show <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="add-page"><p>When to have the message appear.</p>
 <p>Values:</p>
 <ul>
 <li>&#39;immediate&#39;</li>
@@ -150,7 +150,7 @@ When the property equals true, the message is shown.</li>
 </ul>
 </li>
 </ul>
-</div> <p><em>(default: 'immediate')</em></p></td></tr><tr><td>options.dismiss <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="add-page"><p>When to have the message disappear.</p>
+</div> <p><em>(default: 'immediate')</em></p></td></tr><tr><td>dismiss <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="add-page"><p>When to have the message disappear.</p>
 <p>Values:</p>
 <ul>
 <li>&#39;next&#39;</li>
@@ -160,22 +160,22 @@ When the property equals true, the message is dismissed.</li>
 </ul>
 </li>
 </ul>
-</div> <p><em>(default: 'next')</em></p></td></tr><tr><td>options.ondismiss <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="add-page"><p>Function that should be run when message is dismissed.</p>
-</div> <p><em>(default: _.noop)</em></p></td></tr><tr><td>options.stack <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="add-page"><p>Which message stack the message gets added to.</p>
+</div> <p><em>(default: 'next')</em></p></td></tr><tr><td>ondismiss <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="add-page"><p>Function that should be run when message is dismissed.</p>
+</div> <p><em>(default: _.noop)</em></p></td></tr><tr><td>stack <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="add-page"><p>Which message stack the message gets added to.</p>
 <p>Values:</p>
 <ul>
 <li>&#39;page&#39;</li>
 <li>Any String <em>(results in a custom stack)</em></li>
 </ul>
-</div> <p><em>(default: 'page')</em></p></td></tr></tbody></table><h5 id="methods_add_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="add-page"><p>message object</p>
+</div> <p><em>(default: 'page')</em></p></td></tr></tbody></table></td></tr></tbody></table><h5 id="methods_add_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="add-page"><p>message object</p>
 </div></td></tr></table></div>
 </li>
-<li><h3 id="methods_clear">clear(stack)</h3>
+<li><a href="https://github.com/rackerlabs/encore-ui/blob/c08e029/src/utilities/rxNotify/scripts/rxNotify.js#L285" class="view-source icon-eye-open"> </a><h3 id="methods_clear">clear(stack)</h3>
 <div class="clear"><div class="clear-page"><p>deletes all messages in a stack</p>
 </div><h5 id="methods_clear_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>stack</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="clear-page"><p>The name of the stack to clear</p>
 </div></td></tr></tbody></table></div>
 </li>
-<li><h3 id="methods_dismiss">dismiss(msg)</h3>
+<li><a href="https://github.com/rackerlabs/encore-ui/blob/c08e029/src/utilities/rxNotify/scripts/rxNotify.js#L300" class="view-source icon-eye-open"> </a><h3 id="methods_dismiss">dismiss(msg)</h3>
 <div class="dismiss"><div class="dismiss-page"><p>removes a specific message from a stack</p>
 </div><h5 id="methods_dismiss_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>msg</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="dismiss-page"><p>Message object to remove</p>
 </div></td></tr></tbody></table></div>
