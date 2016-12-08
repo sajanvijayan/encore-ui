@@ -1,0 +1,4 @@
+<select rx-select
+  ng-model="version"
+  ng-options="v as (v.path + (v.isReleased ? '' : ' (unreleased)')) for v in versions | orderBy:['-path']">
+</select>
