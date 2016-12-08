@@ -1,0 +1,40 @@
+<h1><code ng:non-bindable=""></code>
+<div><span class="hint"></span>
+</div>
+</h1>
+<div><div class="rxattributes-page"><h2 id="rxattributes-component">rxAttributes Component</h2>
+<p>This component allows you to add attributes based on a value in scope being defined or not.</p>
+<h3 id="rxattributes-component_example">Example</h3>
+<pre class="prettyprint linenums">
+&lt;div rx-attributes="{'my-custom-attr': customAttrVal, 'ng-click': noFunc}"
+     ng-controller="myCtrl"&gt;
+&lt;/div&gt;
+</pre>
+<pre class="prettyprint linenums">
+angular.module('demoApp')
+.controller('myCtrl', function ($scope) {
+    $scope.customAttrVal = 'some value';
+});
+</pre>
+<p>Given this code, if the scope only had <code>$scope.customAttrVal</code> set, only
+<code>my-custom-attr</code> would be added to the component. Since noFunc was never
+defined, <code>ng-click</code> isn&#39;t added.</p>
+<p>The output of the above code is:</p>
+<pre class="prettyprint linenums">
+&lt;div my-custom-attr="some value" ng-controller="myCtrl"&gt;&lt;/div&gt;
+</pre>
+<h3 id="rxattributes-component_value-format">Value Format</h3>
+<p>The value of <code>rx-attributes</code> follows the same object convention as
+<code>ng-class</code>, in that it takes in an object to parse through. The object
+follows this pattern:</p>
+<pre class="prettyprint linenums">
+{
+    'attribute-name': scopeValue,
+    'another-attribute-name': anotherScopeValue,
+}
+</pre>
+<h3 id="rxattributes-component_directives">Directives</h3>
+<ul>
+<li><a href="#/api/rxAttributes.directive:rxAttributes">rxAttributes</a></li>
+</ul>
+</div></div>

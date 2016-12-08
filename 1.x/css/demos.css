@@ -1,0 +1,29 @@
+.rxApp-demo #embedded-app {
+  display: block;
+  width: 100%;
+  height: 340px;
+}
+.rxBulkSelect-demo .pending-status {
+  color: #db7820;
+}
+.rxBulkSelect-demo .success-status {
+  color: #24b56a;
+}
+.rxBulkSelect-demo .failure-status {
+  color: #fc0f1d;
+}
+.rxMultiSelect-demo .multi-select-container {
+  width: 200px;
+}
+.rxMultiSelect-demo table {
+  table-layout: fixed;
+}
+.rxSearchBox-demo .wide-search-box {
+  width: 100%;
+}
+.rxSelect-demo .demoContainer {
+  width: 400px;
+}
+.rxStatusColumn-demo .demo-status-column-table {
+  max-width: 500px;
+}

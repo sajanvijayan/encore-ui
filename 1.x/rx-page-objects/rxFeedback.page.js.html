@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: rxFeedback.page.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    <link type="text/css" rel="stylesheet" href="jsdoc-custom.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: rxFeedback.page.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var rxSelect = require('./rxSelect.page').rxSelect;
+var rxNotify = require('./rxNotify.page').rxNotify;
+var rxModalAction = require('./rxModalAction.page').rxModalAction;
+
+/**
+ * @namespace
+ * @description Utilities for interacting with an rxFeedback component.
+ */
+var rxFeedback = {
+    selReportType: {
+        get: function () {
+            return rxSelect.initialize($('#selFeedbackType'));
+        }
+    },
+
+    txtFeedback: {
+        get: function () {
+            return this.rootElement.element(by.model('fields.description'));
+        }
+    },
+
+    /**
+     * @instance
+     * @function
+     * @description Opens the feedback modal.
+     */
+    open: {
+        value: function () {
+            var page = this;
+            return this.isDisplayed().then(function (isDisplayed) {
+                if (!isDisplayed) {
+                    page.eleFeedback.$('a').click();
+                }
+            });
+        }
+    },
+
+    /**
+     * @instance
+     * @type {String}
+     * @description A getter and setter for changing the type of feedback to be submitted.
+     * @example
+     * feedback = encore.rxFeedback.initialize();
+     * feedback.open();
+     * feedback.type = 'Kudos';
+     * expect(feedback.type).to.eventually.equal('Kudos');
+     */
+    type: {
+        get: function () {
+            return this.selReportType.selectedOption.getText();
+        },
+        set: function (optionText) {
+            var option = this.selReportType.rootElement.element(by.cssContainingText('option', optionText));
+            /*
+             * For some reason, it seems that the slow click method in combination
+             * with an rx-select in the modal will dismiss the modal instead of
+             * selecting the dropdown option.
+             *
+             * Reverted to basic .click() functionality, for the time being.
+             */
+            option.click();
+        }
+    },
+
+    /**
+     * @instance
+     * @type {String[]}
+     * @description All feedback types available for submission.
+     */
+    types: {
+        get: function () {
+            return this.selReportType.options;
+        }
+    },
+
+    /**
+     * @instance
+     * @type {String}
+     * @description A getter and setter to get or change the feedback's description text.
+     */
+    description: {
+        get: function () {
+            return this.txtFeedback.getAttribute('value');
+        },
+        set: function (feedback) {
+            this.txtFeedback.clear();
+            this.txtFeedback.sendKeys(feedback);
+        }
+    },
+
+    /**
+     * @private
+     * @instance
+     * @type {String}
+     * @description The placeholder string that populates the feedback description by default.
+     */
+    descriptionPlaceholder: {
+        get: function () {
+            return this.txtFeedback.getAttribute('placeholder');
+        }
+    },
+
+    /**
+     * @private
+     * @instance
+     * @type {String}
+     * @description The label above the description text box.
+     */
+    descriptionLabel: {
+        get: function () {
+            return this.rootElement.$('.feedback-description').getText();
+        }
+    },
+
+    /**
+     * @instance
+     * @function
+     * @description A high-level utility function for quickly submitting feedback.
+     * Prepares, writes, and submits feedback.
+     * If `confirmSuccessWithin` is defined, a confirmation of submission success must appear
+     * within `confirmSuccessWithin` milliseconds.
+     * If `confirmSuccessFn` is undefined, the default behavior will look for an rxNotify success
+     * message. Otherwise, `confirmSuccessFn` will be attempted until it yields a truthy value,
+     * using Protractor's `wait` function.
+     * @param {String} feedbackType - The type of feedback to submit.
+     * @param {String} feedbackText - The text to include as a feedback description.
+     * @param {Number} [confirmSuccessWithin=3000] - Milliseconds to confirm success within.
+     * @param {Function} [confirmSuccessFn={@link rxNotify#isPresent}] -
+     * Function used to detect whether the feedback submission was successful.
+     */
+    send: {
+        value: function (feedbackType, feedbackText, confirmSuccessWithin, confirmSuccessFn) {
+            var page = this;
+            return this.isDisplayed().then(function (isDisplayed) {
+                if (!isDisplayed) {
+                    page.open();
+                }
+                page.reportType = feedbackType;
+                page.description = feedbackText;
+                page.submit();
+                if (confirmSuccessWithin !== undefined) {
+                    page.confirmSuccess(confirmSuccessWithin, confirmSuccessFn);
+                }
+            });
+        }
+    },
+
+    /**
+     * @private
+     * @instance
+     * @function
+     * @description Helper function used to confirm that {@link rxFeedback#send} was confirmed as successful.
+     * @see rxFeedback#send
+     */
+    confirmSuccess: {
+        value: function (within, fn) {
+            if (fn === undefined) {
+                fn = function () {
+                    return rxNotify.all.isPresent('feedback', 'success');
+                };
+            }
+
+            browser.wait(function () {
+                return fn();
+            }, within, 'feedback submission did not confirm success within ' + within + ' msecs');
+        }
+    }
+};//rxFeedback
+
+exports.rxFeedback = {
+    /**
+     * @function
+     * @memberof rxFeedback
+     * @description Creates a page object from a link that launches a feedback modal. Uses {@link rxModalAction} under
+     * the hood to provide typical interactions with the feedback modal.
+     * @param {ElementFinder} [rxFeedbackElement=$([rx-feedback])] -
+     * ElementFinder to be transformed into an {@link rxModalAction} object that is supplemented
+     * with additional functionality provided by {@link rxFeedback}
+     * @returns {rxFeedback}
+     * @see rxModalAction
+     */
+    initialize: function (rxFeedbackElement) {
+        if (rxFeedbackElement === undefined) {
+            rxFeedbackElement = $('[rx-feedback]');
+        }
+
+        rxFeedback.eleFeedback = {
+            get: function () { return rxFeedbackElement; }
+        };
+        return rxModalAction.initialize(rxFeedback);
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-exercise_rxBulkSelect.html">exercise/rxBulkSelect</a></li><li><a href="module-exercise_rxCharacterCount.html">exercise/rxCharacterCount</a></li><li><a href="module-exercise_rxCheckbox.html">exercise/rxCheckbox</a></li><li><a href="module-exercise_rxCollapse.html">exercise/rxCollapse</a></li><li><a href="module-exercise_rxFieldName.html">exercise/rxFieldName</a></li><li><a href="module-exercise_rxMetadata.html">exercise/rxMetadata</a></li><li><a href="module-exercise_rxMultiSelect.html">exercise/rxMultiSelect</a></li><li><a href="module-exercise_rxOptionTable.html">exercise/rxOptionTable</a></li><li><a href="module-exercise_rxPaginate.html">exercise/rxPaginate</a></li><li><a href="module-exercise_rxRadio.html">exercise/rxRadio</a></li><li><a href="module-exercise_rxSearchBox.html">exercise/rxSearchBox</a></li><li><a href="module-exercise_rxSelect.html">exercise/rxSelect</a></li><li><a href="module-exercise_rxTags.html">exercise/rxTags</a></li><li><a href="module-exercise_rxToggleSwitch.html">exercise/rxToggleSwitch</a></li></ul><h3>Classes</h3><ul><li><a href="rxTimePicker.html">rxTimePicker</a></li></ul><h3>Namespaces</h3><ul><li><a href="rxAccountInfo.html">rxAccountInfo</a></li><li><a href="rxAccountInfo.badge.html">rxAccountInfo.badge</a></li><li><a href="rxActionMenu.html">rxActionMenu</a></li><li><a href="rxActionMenu.action.html">rxActionMenu.action</a></li><li><a href="rxAge.html">rxAge</a></li><li><a href="rxApp.html">rxApp</a></li><li><a href="rxBreadcrumbs.html">rxBreadcrumbs</a></li><li><a href="rxBreadcrumbs.breadcrumb.html">rxBreadcrumbs.breadcrumb</a></li><li><a href="rxBulkSelect.html">rxBulkSelect</a></li><li><a href="rxCharacterCount.html">rxCharacterCount</a></li><li><a href="rxCheckbox.html">rxCheckbox</a></li><li><a href="rxCollapse.html">rxCollapse</a></li><li><a href="rxDatePicker.html">rxDatePicker</a></li><li><a href="rxDiskSize.html">rxDiskSize</a></li><li><a href="rxEnvironment.html">rxEnvironment</a></li><li><a href="rxFeedback.html">rxFeedback</a></li><li><a href="rxFieldName.html">rxFieldName</a></li><li><a href="rxFloatingHeader.html">rxFloatingHeader</a></li><li><a href="rxForm.html">rxForm</a></li><li><a href="rxForm.fieldName.html">rxForm.fieldName</a></li><li><a href="rxForm.textField.html">rxForm.textField</a></li><li><a href="rxInfoPanel.html">rxInfoPanel</a></li><li><a href="rxLocalStorage.html">rxLocalStorage</a></li><li><a href="rxMetadata.html">rxMetadata</a></li><li><a href="rxMisc.html">rxMisc</a></li><li><a href="rxModalAction.html">rxModalAction</a></li><li><a href="rxMultiSelect.html">rxMultiSelect</a></li><li><a href="rxNotify.html">rxNotify</a></li><li><a href="rxNotify.notification.html">rxNotify.notification</a></li><li><a href="rxOptionFormTable.html">rxOptionFormTable</a></li><li><a href="rxOptionTable.html">rxOptionTable</a></li><li><a href="rxOptionTable.row.html">rxOptionTable.row</a></li><li><a href="rxPage.html">rxPage</a></li><li><a href="rxPaginate.html">rxPaginate</a></li><li><a href="rxPaginate.shownItems.html">rxPaginate.shownItems</a></li><li><a href="rxRadio.html">rxRadio</a></li><li><a href="rxSearchBox.html">rxSearchBox</a></li><li><a href="rxSelect.html">rxSelect</a></li><li><a href="rxSelect.option.html">rxSelect.option</a></li><li><a href="rxSelectFilter.html">rxSelectFilter</a></li><li><a href="rxSortableColumn.html">rxSortableColumn</a></li><li><a href="rxSortableColumns.html">rxSortableColumns</a></li><li><a href="rxStatusColumn.html">rxStatusColumn</a></li><li><a href="rxStatusColumn.tooltip.html">rxStatusColumn.tooltip</a></li><li><a href="rxTags.html">rxTags</a></li><li><a href="rxTags.tag.html">rxTags.tag</a></li><li><a href="rxToggleSwitch.html">rxToggleSwitch</a></li><li><a href="tabs.html">tabs</a></li><li><a href="tabs.tab.html">tabs.tab</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a> on Thu Dec 08 2016 11:42:58 GMT-0600 (CST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
