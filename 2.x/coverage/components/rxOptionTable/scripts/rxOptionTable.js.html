@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/rxOptionTable/scripts/rxOptionTable.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">components/rxOptionTable/scripts/rxOptionTable.js</span></h1>
+    <h2>
+        Statements: <span class="metric">96.55% <small>(56 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">81.25% <small>(26 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(15 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">96.55% <small>(56 / 58)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">components/rxOptionTable/scripts/</a> &#187; rxOptionTable.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">11</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">528</span>
+<span class="cline-any cline-yes">210</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">318</span>
+<span class="cline-any cline-yes">318</span>
+<span class="cline-any cline-yes">318</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">330</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">430</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">190</span>
+<span class="cline-any cline-yes">150</span>
+<span class="cline-any cline-yes">80</span>
+<span class="cline-any cline-yes">70</span>
+<span class="cline-any cline-yes">70</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">38</span>
+<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">118</span>
+<span class="cline-any cline-yes">114</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('encore.ui.rxOptionTable')
+/**
+ * @ngdoc directive
+ * @name rxOptionTable.directive:rxOptionTable
+ * @restrict E
+ * @scope
+ * @description
+ * This directive is used to build a table of radio/checkbox inputs.
+ *
+ * @param {String} field-id - Used as the base for unique identifiers within the generated markup.
+ * @param {Object} model - The AngularJS model to tie all radios/checkboxes together.
+ * @param {String} type - (`radio` | `checkbox`) Type of input to be used.
+ * @param {String} empty-message - A default message if the data attribute is empty.
+ * @param {Array} data - Array of objects used to populate table. Properties must match column keys.
+ * For checkboxes, checked values default to true unless `value` and `falseValue` attributes are given.
+ *
+ * Example:
+ * &lt;pre&gt;
+ * [
+ *     {
+ *         'name': 'Option 1',
+ *         'value': 0
+ *     }, {
+ *         'name': 'Option 2',
+ *         'value': 1
+ *     }, {
+ *         'name': 'Option 3',
+ *         'value': 2
+ *     }
+ * ]
+ * &lt;/pre&gt;
+ * @param {Object} columns - Array of column data to match against data objects.
+ * Each object may include the following properties.
+ * * **label** - Column display value
+ * * **key** - object key used to display data from the data object
+ * * *selectedLabel* - (optional) Label to display alongside preseleted-values. Expressions are allowed; see
+ *   demonstration samples.
+ *
+ * Example:
+ *
+ * &lt;pre&gt;
+ * [{
+ *     'label': 'Name',
+ *     'key': 'name'
+ * }]
+ * &lt;/pre&gt;
+ * @param {String=} selected - Array of objects to match against data for preselection on page load.
+ * If excluded, no values will be preselected on initial load.
+ * @param {Boolean=} required - Value passed to input's `ng-required` attribute.
+ * For checkboxes, a `true` value means that there must be at least one checkbox selected.
+ * @param {Function=} disable-fn - Optional callback function to determine if option should be disabled.
+ * Parameters `tableId`, `fieldId`, and `rowId` will be passed to the function.
+ *
+ * Example:
+ *
+ * &lt;pre&gt;
+ *  &lt;rx-option-table disable-fn="disableOption(tableId, fieldId, rowId)"&gt;&lt;/rx-option-table&gt;
+ * &lt;/pre&gt;
+ */
+.directive('rxOptionTable', function ($interpolate) {
+    return {
+        restrict: 'E',
+        templateUrl: 'templates/rxOptionTable.html',
+        scope: {
+            data: '=',
+            columns: '=',
+            selected: '@',
+            type: '@',
+            model: '=',
+            fieldId: '@',
+            required: '=',
+            emptyMessage: '@',
+            disableFn: '&amp;?'
+        },
+        link: function (scope, element) {
+            var boxesChecked = 0;
+            scope.selectAllModel = false;
+&nbsp;
+            scope.$watchCollection('modelProxy', function (newValue) {
+                scope.selectAllModel = !_.any(newValue, function (val) {
+                    return val === false;
+                });
+            });
+&nbsp;
+            var determineMatch = function (val1, val2) {
+                if (_.isUndefined(val1) || _.isUndefined(val2)) {
+                    return false;
+                }
+&nbsp;
+                val1 = val1.toString();
+                val2 = val2.toString();
+                return (val1 === val2);
+            };
+&nbsp;
+            scope.selectAll = function (currentVal) {
+                scope.selectAllModel = !currentVal;
+                scope.modelProxy.forEach(function (model, index) {
+                    // assigning the value to `model` variable caused the
+                    // select all functionality to not select checkboxes
+                    // so using `modelProxy[index]` is workaround
+                    scope.modelProxy[index] = scope.selectAllModel;
+                    scope.updateCheckboxes(scope.selectAllModel, index);
+                });
+            };
+&nbsp;
+            scope.checkDisabled = function (row) {
+                return scope.disableFn({
+                    tableId: element.attr('id'),
+                    fieldId: scope.fieldId,
+                    rowId: row.id
+                });
+            };
+&nbsp;
+            // Determines whether the row is the initial choice
+            scope.isCurrent = function (val) {
+                return determineMatch(val, scope.selected);
+            };
+&nbsp;
+            // Determines whether the row is selected
+            scope.isSelected = function (val, idx) {
+                // row can only be 'selected' if it's not the 'current' value
+                if (!scope.isCurrent(val)) {
+                    if (scope.type === 'radio') {
+                        return determineMatch(val, scope.model);
+                    } else <span class="missing-if-branch" title="else path not taken" >E</span>if (scope.type === 'checkbox') {
+                        if (!_.isUndefined(val)) {
+                            // if 'val' is defined, run it through our custom matcher
+                            return determineMatch(val, scope.model[idx]);
+                        } else {
+                            // otherwise, just return the value of the model and angular can decide
+                            return scope.modelProxy[idx];
+                        }
+                    }
+                }
+&nbsp;
+                return false;
+            };
+&nbsp;
+            /*
+             * checkRequired: Returns true/false to the ng-required attribute for checkboxes.
+             * Returns a true value if required="true" and there is at least one checkbox
+             * checked (based on $scope.values).
+             */
+            scope.checkRequired = function () {
+                if (_.isBoolean(scope.required)) {
+                    return scope.required &amp;&amp; boxesChecked === 0;
+                } else {
+                    return false;
+                }
+            };
+&nbsp;
+            // Because of a bug in Angular 1.2.x, we can't use `required` and
+            // ngTrueValue/ngFalseValue simultaneously. We'll
+            // build a `modelProxy` which is simply a mapping of $scope.model to
+            // an array of `true` / `false` values. We then have to take care
+            // of updating the actual $scope.model ourselves in `updateCheckboxes`
+            // with the correct ngTrueValue/ngFalseValue values
+            scope.modelProxy = _.map(scope.model, function (val, index) {
+                var data = scope.data[index];
+                var trueValue = _.has(data, 'value') ? data.value : true;
+                return val === trueValue;
+            });
+&nbsp;
+            // If we are using checkboxes and the required attribute is set, then we
+            // need an array to store the indexes of checked boxes. ng-required is
+            // specifically set if required is true and the array is empty.
+            _.forEach(scope.modelProxy, function (el) {
+                if (el) {
+                    boxesChecked += 1;
+                }
+            });
+&nbsp;
+            /*
+             * Updates $scope.values when a checkbox is clicked.
+             * @param {String|boolean} val - The checkbox value (Boolean, ng-true-value or ng-false-value per row)
+             * @param {Integer} index - Array index of the checkbox element marked true
+             */
+            scope.updateCheckboxes = function (val, index) {
+                var data = scope.data[index];
+                var trueValue = _.has(data, 'value') ? <span class="branch-0 cbranch-no" title="branch not covered" >data.value </span>: true;
+                var falseValue = _.has(data, 'falseValue') ? <span class="branch-0 cbranch-no" title="branch not covered" >data.falseValue </span>: false;
+&nbsp;
+                scope.model[index] = val ? trueValue : <span class="branch-1 cbranch-no" title="branch not covered" >falseValue;</span>
+&nbsp;
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (val) {
+                    boxesChecked += 1;
+                } else {
+<span class="cstat-no" title="statement not covered" >                    boxesChecked -= 1;</span>
+                }
+            };
+&nbsp;
+            /*
+             * Get the value out of a key from the row, or parse an expression
+             * @param {Object} column - Column whose `key` is an Angular Expression or HTML to be compiled
+             * @param {Object} row - Data object with data to be used against the expression
+             */
+            scope.getContent = function (column, row) {
+                var expr = column.key;
+                // If no expression exit out;
+                <span class="missing-if-branch" title="if path not taken" >I</span>if (!expr) {
+<span class="cstat-no" title="statement not covered" >                    return '';</span>
+                }
+&nbsp;
+                // if the expr is a property of row, then we expect the value of the key.
+                if (row.hasOwnProperty(expr)) {
+                    return String(row[expr]);
+                }
+&nbsp;
+                // Compile expression &amp; Run output template
+                var outputHTML = $interpolate(expr)(row);
+                return outputHTML;
+            };
+        }
+    };
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Dec 08 2016 15:05:37 GMT-0600 (CST)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
