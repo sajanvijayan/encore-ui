@@ -1,0 +1,88 @@
+<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/components/rxOptionTable/scripts/rxOptionTable.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/534c249/src/components/rxOptionTable/scripts/rxOptionTable.js#L60" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">rxOptionTable</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">rxOptionTable</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><p>This directive is used to build a table of radio/checkbox inputs.</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;rx-option-table
+       field-id="{String}"
+       model="{Object}"
+       type="{String}"
+       empty-message="{String}"
+       data="{Array}"
+       columns="{Object}"
+       [selected]
+       [required]
+       [disable-fn="{Function}"]&gt;
+&lt;/rx-option-table&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>field-id</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Used as the base for unique identifiers within the generated markup.</li>
+</ul>
+</div></td></tr><tr><td>model</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>The AngularJS model to tie all radios/checkboxes together.</li>
+</ul>
+</div></td></tr><tr><td>type</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>(<code>radio</code> | <code>checkbox</code>) Type of input to be used.</li>
+</ul>
+</div></td></tr><tr><td>empty-message</td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>A default message if the data attribute is empty.</li>
+</ul>
+</div></td></tr><tr><td>data</td><td><a href="" class="label type-hint type-hint-array">Array</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Array of objects used to populate table. Properties must match column keys.
+For checkboxes, checked values default to true unless <code>value</code> and <code>falseValue</code> attributes are given.</li>
+</ul>
+<p>Example:
+<pre class="prettyprint linenums">
+[
+    {
+        'name': 'Option 1',
+        'value': 0
+    }, {
+        'name': 'Option 2',
+        'value': 1
+    }, {
+        'name': 'Option 3',
+        'value': 2
+    }
+]
+</pre>
+</div></td></tr><tr><td>columns</td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Array of column data to match against data objects.
+Each object may include the following properties.</li>
+<li><strong>label</strong> - Column display value</li>
+<li><strong>key</strong> - object key used to display data from the data object</li>
+<li><em>selectedLabel</em> - (optional) Label to display alongside preseleted-values. Expressions are allowed; see
+demonstration samples.</li>
+</ul>
+<p>Example:</p>
+<pre class="prettyprint linenums">
+[{
+    'label': 'Name',
+    'key': 'name'
+}]
+</pre>
+</div></td></tr><tr><td>selected <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">String</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Array of objects to match against data for preselection on page load.
+If excluded, no values will be preselected on initial load.</li>
+</ul>
+</div></td></tr><tr><td>required <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-boolean">Boolean</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Value passed to input&#39;s <code>ng-required</code> attribute.
+For checkboxes, a <code>true</code> value means that there must be at least one checkbox selected.</li>
+</ul>
+</div></td></tr><tr><td>disable-fn <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">Function</a></td><td><div class="rxoptiontable-directive-page rxoptiontable-directive-rxoptiontable-page"><ul>
+<li>Optional callback function to determine if option should be disabled.
+Parameters <code>tableId</code>, <code>fieldId</code>, and <code>rowId</code> will be passed to the function.</li>
+</ul>
+<p>Example:</p>
+<pre class="prettyprint linenums">
+ &lt;rx-option-table disable-fn="disableOption(tableId, fieldId, rowId)"&gt;&lt;/rx-option-table&gt;
+</pre>
+</div></td></tr></tbody></table></div>
+</div>
