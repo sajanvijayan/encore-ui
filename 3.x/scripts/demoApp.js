@@ -193,8 +193,7 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                     linkText: 'Version 3.1.0',
                     directive: 'switch-docs',
                     children: [{}],
-                    childVisibility: 'false',
-                    visibility: '!("local" | rxEnvironmentMatch)'
+                    childVisibility: 'false'
                 },
                 {
                     linkText: 'Overview',
