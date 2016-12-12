@@ -1,0 +1,44 @@
+<div class="appLayout">
+  <div class="appLayout__app-bar appBar">
+    <section class="appBar__left">
+      <div class="appBar__item">
+        <span class="brand">EncoreUI</span>
+      </div>
+    </section>
+
+    <section class="appBar__right">
+      <!-- intentionally left blank -->
+    </section>
+  </div>
+
+  <div class="appLayout__stage appStage">
+    <div class="appStage__left globalNav rx-inverse">
+      <div class="globalNav__header">
+        <!-- TODO: style -->
+        <span>
+          <b>Version 3.1.0</b>
+          <rx-collapse expanded="false">
+            <switch-docs>
+              <em>Dev Mode: Cannot Switch Versions</em>
+            </switch-docs>
+          </rx-collapse>
+        </span>
+      </div>
+
+      <nav class="globalNav__list">
+        <app-nav-item
+           ng-repeat="route in routes"
+           item="route"
+           level="1">
+        </app-nav-item>
+      </nav>
+
+      <footer class="globalNav__footer">
+        <i class="fa fa-fw fa-comment"></i>
+        <rx-feedback></rx-feedback>
+      </footer>
+    </div><!-- .globalNav -->
+
+    <div class="appStage__center" ng-transclude></div>
+  </div>
+</div>

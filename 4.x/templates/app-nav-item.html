@@ -1,0 +1,41 @@
+<div
+  class="appNav__item"
+  data-nav-key="{{ item.key }}"
+  ng-show="isVisible(item.visibility, item.roles)">
+
+  <a
+    class="appNav__item-link appNav__item-link--level-{{level}}"
+    ng-class="{ 'is-active': item.active, 'is-branch': item.children, 'is-leaf': !item.children }"
+    ng-attr-target="{{ getTarget() }}"
+    ng-click="navClickHandler($event, item)"
+    ng-href="{{ getUrl(item.url) }}">
+
+    <span class="link-text">{{ item.linkText }}</span>
+    <span class="link-icon fa fa-fw fa-angle-double-down"></span>
+  </a>
+
+  <div
+    class="appNav__item-content appNav__item-content--level-{{level}}"
+    ng-show="item.active && ( item.directive || item.children )">
+
+    <div
+      class="appNav__item-directive"
+      ng-show="item.directive">
+      <!-- item.directive injected here -->
+      <!-- TODO: needed? -->
+    </div>
+
+    <div
+      class="appNav__item-children"
+      ng-show="item.children && isVisible(item.childVisibility)">
+
+      <div
+        class="appNav__child-header"
+        ng-if="item.childHeader"
+        rx-compile="item.childHeader">
+      </div>
+
+      <!-- appNav injected here if 'children' is array -->
+    </div>
+  </div>
+</div>
