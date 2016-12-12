@@ -1,4 +1,4 @@
-describe('utilities:Identity', function () {
+describe('utilities:rxIdentity', function () {
     var identity, $httpBackend, token;
 
     token = {
@@ -20,19 +20,19 @@ describe('utilities:Identity', function () {
 
         inject(function ($injector) {
             $httpBackend = $injector.get('$httpBackend');
-            identity = $injector.get('Identity');
+            identity = $injector.get('rxIdentity');
         });
     });
 
-    describe('service:Identity', function () {
-        it('Identity.loginWithJSON() should get a token', function () {
+    describe('service:rxIdentity', function () {
+        it('rxIdentity.loginWithJSON() should get a token', function () {
             $httpBackend.expectPOST('/api/identity/tokens').respond(token);
             var result = identity.loginWithJSON({ username: 'Batman', token: 'bat-token' });
             $httpBackend.flush();
             expect(result.access).not.be.empty;
         });
 
-        it('Identity.login() enables login via username/password', function () {
+        it('rxIdentity.login() enables login via username/password', function () {
             var callback = function () { return; };
             $httpBackend.expectPOST('/api/identity/tokens').respond(token);
             var result = identity.login({ username: 'Batman', password: 'dark-knight' }, callback, callback);

@@ -4,11 +4,11 @@ angular.module('encore.ui.utilities')
  * @name utilities.service:Auth
  * @description
  * Service which provides an entire solution for authenticating, user session management
- * and permissions in the UI.  The Auth service is a wrapper for the Identity, Session and
+ * and permissions in the UI.  The Auth service is a wrapper for the rxIdentity, Session and
  * Permission services.  These services were broken into smaller components to facilitate
  * customization and re-use.
  *
- * @requires utilities.service:Identity
+ * @requires utilities.service:rxIdentity
  * @requires utilities.service:Session
  * @requires utilities.service:Permission
  *
@@ -25,10 +25,10 @@ angular.module('encore.ui.utilities')
  * Auth.hasRole(role) // Returns true/false if user has specified role
  * </pre>
  */
-.factory('Auth', function (Identity, Session, Permission) {
+.factory('Auth', function (rxIdentity, Session, Permission) {
     var svc = {};
 
-    _.assign(svc, Identity);
+    _.assign(svc, rxIdentity);
     _.assign(svc, Session);
     _.assign(svc, Permission);
 

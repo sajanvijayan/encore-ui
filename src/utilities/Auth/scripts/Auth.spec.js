@@ -21,7 +21,7 @@ describe('utilities:Auth', function () {
         inject(function ($injector) {
             permission = $injector.get('Permission');
             session = $injector.get('Session');
-            identity = $injector.get('Identity');
+            identity = $injector.get('rxIdentity');
 
             identity.loginWithJSON = sinon.stub().returns(token);
             session.getToken = sinon.stub().returns(token);
