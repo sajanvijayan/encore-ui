@@ -23,10 +23,6 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         .when('/', {
             redirectTo: '/overview'
         })
-        .when('/login', {
-            templateUrl: 'templates/login.html',
-            controller: genericRouteController()
-        })
         .when('/overview', {
             templateUrl: 'templates/overview.html',
             controller: genericRouteController()
@@ -147,6 +143,12 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                     });
                 }
             }
+        })
+        .otherwise({
+            templateUrl: 'templates/404.html',
+            controller: genericRouteController([
+                { name: '404' }
+            ])
         });
 
     // Define a custom status tag for use in the rxBreadcrumbs demo

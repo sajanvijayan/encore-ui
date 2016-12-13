@@ -5424,6 +5424,7 @@ angular.module('encore.ui.rxApp')
                     // Return as normal if no prefix
                     return url;
                 }
+
             };
             /*
              * @description Determines whether or not the links need to point to a target, this allows

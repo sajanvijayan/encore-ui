@@ -380,10 +380,9 @@ rx-permalink .permalink:hover .icon:hover {
 .appStage__left {
   background-color: #262626;
   border-right: 1px solid #000000;
-  box-shadow: 4px 0 4px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  flex: 0 300px;
+  flex: 0 0 300px;
   overflow: hidden;
   z-index: 1;
 }
@@ -391,17 +390,30 @@ rx-permalink .permalink:hover .icon:hover {
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
   background-color: #f5f5f5;
+  position: relative;
 }
-.appStage__center .page-body {
-  padding: 20px 30px 50px;
+.appStage__center > .rx-notifications {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
 }
 .appStage__center .page-header {
   background: linear-gradient(to bottom, #e7e7e7 0%, #d8d8d8 100%);
   border-bottom: 1px solid #bdbdbd;
-  height: 30px;
+  flex: 0;
+}
+.appStage__center .page-actions {
+  float: right;
+  margin: 0 0 2em 2em;
+}
+.appStage__center main {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px 30px 50px;
 }
 .appStage__right {
   background-color: #262626;
@@ -554,6 +566,48 @@ rx-permalink .permalink:hover .icon:hover {
   margin: 12px 0;
   padding-right: 10px;
 }
+.error-page {
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #616161;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+.error-message {
+  width: 700px;
+  font-family: "Roboto", sans-serif;
+}
+.error-message__image {
+  border-right: 1px solid #616161;
+  box-sizing: content-box;
+  float: left;
+  height: 144px;
+  margin-right: 16px;
+  padding-right: 16px;
+  width: 144px;
+}
+.error-message__title {
+  font-size: 72px;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+.error-message__divider {
+  border-color: #616161;
+  border-style: solid;
+  border-width: 0 0 1px;
+}
+.error-message__text {
+  font-size: 22px;
+  font-weight: 100;
+}
+.rx-option-table thead tr th:first-child {
+  /* Fix column width in demos */
+  width: 40px;
+}
 html {
   box-sizing: border-box;
 }
@@ -569,9 +623,6 @@ body {
   overflow: hidden;
   padding: 0;
   width: 100vw;
-}
-[ng-cloak] {
-  display: none !important;
 }
 /* TODO: (deprecated) remove with last of components */
 .module-description {
@@ -632,22 +683,18 @@ body {
 .overview-column a + p {
   margin-top: 5px;
 }
-.modules-list .page-content {
-  clear: left;
-  margin-top: 60px;
-}
-.modules-list table thead th {
+.table--modules thead th {
   cursor: pointer;
 }
-.modules-list table thead th.column.category {
-  width: 120px;
-}
-.modules-list table thead th.column.stability {
-  width: 120px;
-}
-.modules-list table td,
-.modules-list table th {
+.table--modules td,
+.table--modules th {
   padding: 7px 10px;
+}
+.table--modules .column--category {
+  width: 120px;
+}
+.table--modules .column--stability {
+  width: 120px;
 }
 .page-content {
   clear: both;

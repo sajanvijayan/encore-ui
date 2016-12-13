@@ -1196,8 +1196,8 @@ body:hover .visually-hidden button {
   float: right;
 }
 .rx-app .page-header {
-  background: linear-gradient(to bottom, #e7e7e7 0%, #d8d8d8 100%);
-  border-bottom: 1px solid #bdbdbd;
+  background: linear-gradient(to bottom, #e7e7e7 0%, #d6d6d6 100%);
+  border-bottom: 1px solid #bbbbbb;
 }
 .rx-app .page-body {
   padding: 20px 30px 50px;
@@ -5533,7 +5533,7 @@ rx-search-box .rxSearchBox-wrapper .rxSearchBox-clear .rxSearchBox-clear-icon {
   border-radius: 0;
   min-width: 60px;
   height: 26px;
-  /* Inverse Theme */
+  /* Inverse Theme - [ALPHA] */
 }
 .rxSelect.rx-disabled {
   color: #9e9e9e;
