@@ -13,10 +13,10 @@ function genericRouteController (title, breadcrumbs) {
 
         rxPageTitle.setTitle(title);
     }
-}
+}//genericRouteController
 
 angular.module('demoApp', ['encore.ui', 'ngRoute'])
-.config(function ($routeProvider, rxStatusTagsProvider) {
+.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             redirectTo: '/overview'
@@ -137,16 +137,9 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
             templateUrl: 'templates/404.html',
             controller: genericRouteController('Not Found')
         });
-
-    // Define a custom status tag for use in the rxBreadcrumbs demo
-    rxStatusTagsProvider.addStatus({
-        key: 'demo',
-        class: 'alpha-status',
-        text: 'Demo Tag'
-    });
 })
-.run(function ($rootScope, $window, $location, $anchorScroll, $interpolate,
-               rxEnvironment, rxBreadcrumbsSvc, rxPageTitle, Modules, $timeout) {
+.run(function ($rootScope, $anchorScroll, rxEnvironment, rxBreadcrumbsSvc,
+               rxPageTitle, $timeout) {
     var baseGithubUrl = '//rackerlabs.github.io/encore-ui/';
     rxEnvironment.add({
         name: 'ghPages',
@@ -154,7 +147,7 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         url: baseGithubUrl + '{{path}}'
     });
 
-    rxBreadcrumbsSvc.setHome($interpolate(rxEnvironment.get().url)({ path: '#/overview' }), 'Overview');
+    rxBreadcrumbsSvc.setHome('#/overview', 'Overview');
 
     rxPageTitle.setSuffix(' - EncoreUI');
 
