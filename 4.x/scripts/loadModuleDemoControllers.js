@@ -351,7 +351,6 @@ angular.module('demoApp')
         .module('demoApp')
         .config(function (rxStatusTagsProvider) {
             // Define a custom status tag for use in the rxBreadcrumbs demo
-            // TODO: move to the src/elements/Breadcrumbs/Breadcrumbs.docs.js
             rxStatusTagsProvider.addStatus({
                 key: 'demo',
                 class: 'alpha-status',

@@ -205,7 +205,7 @@ angular.module('demoApp')
         ],
         "docs": {
             "md": "",
-            "js": "(function () {\n    angular\n        .module('demoApp')\n        .config(function (rxStatusTagsProvider) {\n            // Define a custom status tag for use in the rxBreadcrumbs demo\n            // TODO: move to the src/elements/Breadcrumbs/Breadcrumbs.docs.js\n            rxStatusTagsProvider.addStatus({\n                key: 'demo',\n                class: 'alpha-status',\n                text: 'Demo Tag'\n            });\n        });\n})();\n\nangular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
+            "js": "(function () {\n    angular\n        .module('demoApp')\n        .config(function (rxStatusTagsProvider) {\n            // Define a custom status tag for use in the rxBreadcrumbs demo\n            rxStatusTagsProvider.addStatus({\n                key: 'demo',\n                class: 'alpha-status',\n                text: 'Demo Tag'\n            });\n        });\n})();\n\nangular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
             "html": "<p>\n  Displays navigation breadcrumbs on a page.\n</p>\n\n<rx-example class=\"site-breadcrumbs\" name=\"Breadcrumbs.simple\"></rx-example>\n",
             "less": ""
         }
@@ -1679,7 +1679,7 @@ angular.module('demoApp')
         "docs": {
             "md": "",
             "js": "",
-            "html": "<p>\n  Provides controller logic for\n  <a href=\"#/elements/Tables#bulk-selet\">Bulk Select Tables</a>.\n</p>\n",
+            "html": "<p>\n  Provides controller logic for\n  <a href=\"#/elements/Tables#bulk-select\">Bulk Select Tables</a>.\n</p>\n",
             "less": ""
         }
     },
