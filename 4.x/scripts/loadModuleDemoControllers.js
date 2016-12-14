@@ -346,6 +346,20 @@ angular.module('demoApp')
 });
 
 
+(function () {
+    angular
+        .module('demoApp')
+        .config(function (rxStatusTagsProvider) {
+            // Define a custom status tag for use in the rxBreadcrumbs demo
+            // TODO: move to the src/elements/Breadcrumbs/Breadcrumbs.docs.js
+            rxStatusTagsProvider.addStatus({
+                key: 'demo',
+                class: 'alpha-status',
+                text: 'Demo Tag'
+            });
+        });
+})();
+
 angular.module('demoApp')
 .controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {
     rxBreadcrumbsSvc.set([{
@@ -1641,14 +1655,6 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
-.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {
-    var environment = Environment.get();
-    $scope.url = environment.url;
-    $scope.name = environment.name;
-});
-
-
-angular.module('demoApp')
 .controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {
     $scope.setErrorMsg = function (msg) {
         var error = { message: msg };
@@ -1937,14 +1943,22 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('EnvironmentSimpleCtrl', function ($scope, rxEnvironment) {
+    var environment = rxEnvironment.get();
+    $scope.url = environment.url;
+    $scope.name = environment.name;
+});
+
+
+angular.module('demoApp')
 .controller('rxEnvironmentMatchSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
 
 
 angular.module('demoApp')
-.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
-    $scope.Environment = Environment;
+.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, rxEnvironment) {
+    $scope.rxEnvironment = rxEnvironment;
 });
 
 

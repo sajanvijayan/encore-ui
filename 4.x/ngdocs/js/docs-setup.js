@@ -934,8 +934,7 @@ NG_DOCS={
       "shortName": "Environment",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
-      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
+      "keywords": "api item release removed rxenvironment service utilities"
     },
     {
       "section": "api",
@@ -1053,6 +1052,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "A small set of functions to provide some functionality",
       "keywords": "angularjs api arguments dom-related element elements functionality functions isn jquery-lite methods org provide service set small utilities wrapped"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxEnvironment",
+      "shortName": "rxEnvironment",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
+      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
     },
     {
       "section": "api",

@@ -2,7 +2,7 @@
  * EncoreUI
  * https://github.com/rackerlabs/encore-ui
  *
- * Version: 3.1.0 - 2016-12-12
+ * Version: 3.1.0 - 2016-12-14
  * License: Apache-2.0
  */
 angular.module('encore.ui', [
@@ -650,8 +650,8 @@ angular.module('encore.ui.utilities')
  *
  * @return {Object} Instance of rxAppRoutes with `fetchRoutes` method added
  */
-.factory('encoreRoutes', ["rxAppRoutes", "routesCdnPath", "rxNotify", "$q", "$http", "rxVisibilityPathParams", "rxVisibility", "Environment", "rxLocalStorage", function (rxAppRoutes, routesCdnPath, rxNotify, $q, $http,
-                                   rxVisibilityPathParams, rxVisibility, Environment,
+.factory('encoreRoutes', ["rxAppRoutes", "routesCdnPath", "rxNotify", "$q", "$http", "rxVisibilityPathParams", "rxVisibility", "rxEnvironment", "rxLocalStorage", function (rxAppRoutes, routesCdnPath, rxNotify, $q, $http,
+                                   rxVisibilityPathParams, rxVisibility, rxEnvironment,
                                    rxLocalStorage) {
 
     // We use rxVisibility in the nav menu at routesCdnPath, so ensure it's ready
@@ -674,12 +674,12 @@ angular.module('encore.ui.utilities')
 
     var url, suffix;
     switch (true) {
-        case Environment.isUnifiedProd(): {
+        case rxEnvironment.isUnifiedProd(): {
             url = routesCdnPath.production;
             suffix = 'prod';
             break;
         }
-        case Environment.isPreProd(): {
+        case rxEnvironment.isPreProd(): {
             url = routesCdnPath.preprod;
             suffix = 'preprod';
             break;
@@ -717,289 +717,6 @@ angular.module('encore.ui.utilities')
     };
 
     return encoreRoutes;
-}]);
-
-angular.module('encore.ui.utilities')
-/**
- * @ngdoc service
- * @name utilities.service:Environment
- * @description
- *
- * Allows defining environments and retrieving the current environment based on location
- *
- * ## Adding New Environments ##
- *
- * If necessary, you can add additional environments with `Environment.add()`.
- * This takes an object with three properties, `name`, `pattern` and `url`, where
- *
- * * name: The "friendly" name of your environment, like "local", "preprod", etc.
- * * pattern: A string or RegEx that the current path is matched against
- * * url: The URL pattern used to build URLs when using rxEnvironmentUrl
- *
- * As an example, if we didn't already have a `'preprod'` environment, we could
- * add it as follows:
- *
- * <pre>
- * Environment.add({
- *     // Matches only https://preprod.encore.rackspace.com
- *     name: 'preprod',
- *     pattern: /\/\/preprod.encore.rackspace.com/,
- *     url: '{{path}}'
- * });
- * </pre>
- *
- * For this demo application, we add a "Github Pages" environment, like this:
- *
- * <pre>
- * Environment.add({
- *     name: 'ghPages',
- *     pattern: '//rackerlabs.github.io',
- *     url: baseGithubUrl + '{{path}}'
- * });
- * </pre>
- *
- * Component built to detect and provide the current environment (e.g. dev, staging, prod)
- *
- * ## Current Environments ##
- *
- * This service defines the following Encore specific environments:
- *
- * * **local** - http://localhost:port and http://server:port
- * * **preprod** - http://preprod.encore.rackspace.com
- * * **unified-preprod** - https://*.encore.rackspace.com
- * * **unified** - All environments including https://encore.rackspace.com
- * * **unified-prod** - Only https://encore.rackspace.com
- *
- * Please note that we've made an assumption that staging/preprod/prod environments
- * will all end with `encore.rackspace.com`. Try to avoid using
- * `staging.encore.myNewProduct.rackspace.com` for new products, and instead set
- * up your system as `encore.rackspace.com/myNewProduct`.
- *
- * ## Checking Current Environment ##
- *
- * The `Environment` service contains methods for checking if we are currently in
- * one of the five listed environments, namely:
- *
- * * `Environment.isLocal()`
- * * `Environment.isPreProd()`
- * * `Environment.isUnifiedPreProd()`
- * * `Environment.isUnified()`
- * * `Environment.isUnifiedProd()`
- *
- * The normal procedure is to assume that your code is running in local or staging,
- * and take special actions if `Environment.isPreProd()` or
- * `Environment.isUnifiedProd()` are `true`.
- *
- * ## Overlapping Environments ##
- *
- * Keep in mind that the environments we define are not mutually exclusive. For
- * instance, if we're at `http://preprod.encore.rackspace.com`, then we are in
- * the `preprod` environment, the `unified-preprod` environment, and `unified-prod`.
- *
- * When you want to check if you're in one of the custom environments, you can
- * use `envCheck()`, i.e.: `Environment.envCheck('ghPages')`
- *
- * ## A Warning About rxEnvironmentUrl ##
- * `rxEnvironmentUrl` can be used for building full URLs, based on the current
- * environment. For now, you should consider it as deprecated. It has problems
- * with overlapping environments, and could potentially generate the wrong URL.
- *
- * ## A Warning About `Environment.get().name` ##
- * You might find older Encore code that uses `Environment.get().name` to get
- * the name of the current environment. This pattern should be avoided,
- * specifically because of the overlapping environment issue discussed above.
- * If you call `Environment.get().name`, it will just return the first matching
- * environment in the list of environments, even if we're overlapping and have
- * multiple environments. Instead, check explicitly with
- * `Environment.isLocal()`, `Environment.isPreProd()`, etc., or
- * use `Environment.envCheck('local')`
- *
- * @example
- * <pre>
- * Environment.get() // return environment object that matches current location
- * </pre>
- *
- */
-.service('Environment', ["$location", "$rootScope", "$log", function ($location, $rootScope, $log) {
-    /*
-     * This array defines different environments to check against.
-     * It is prefilled with 'Encore' based environments
-     * It can be overwritten if necessary via the returned 'environments' property
-     *
-     * @property {string} name The 'friendly' name of the environment
-     * @property {string|RegEx} pattern The pattern to match the current path against
-     * @property {string} url The url pattern used to build out urls for that environment.
-     *                        See 'buildUrl' for more details
-     */
-    var environments = [{
-        // Regexr: http://www.regexr.com/3de5m
-        // http://localhost:3000/
-        // http://localhost:9000/
-        // http://localhost/
-        // http://server/
-        // http://encore.dev/
-        // http://apps.server/
-        name: 'local',
-        pattern: /\/\/(?:\w+\.)?(localhost|server|(.*)\.dev)(:\d{1,4})?/,
-        url: '//' + $location.host() + ($location.port() !== 80 ? ':' + $location.port() : '') + '/{{path}}'
-    }, {
-        // Matches only preprod and it's subdomains
-        // Regexr: http://www.regexr.com/3eani
-        // https://preprod.encore.rackspace.com
-        // https://apps.preprod.encore.rackspace.com
-        // https://cloud.preprod.encore.rackspace.com
-        name: 'preprod',
-        pattern: /\/\/(?:\w+\.)?preprod.encore.rackspace.com/,
-        url: '{{path}}'
-    }, {
-        // This is anything with a host preceeding encore.rackspace.com
-        // Regexr: http://www.regexr.com/3eanl
-        // https://staging.encore.rackspace.com/
-        // https://preprod.encore.rackspace.com/
-        // https://apps.encore.rackspace.com
-        // https://apps.staging.encore.rackspace.com
-        // https://cloud.staging.encore.rackspace.com
-        // https://apps.preprod.encore.rackspace.com/
-        // https://cloud.preprod.encore.rackspace.com/
-        name: 'unified-preprod',
-        pattern: /\/\/(?:\w+\.)?(\w+\.)encore.rackspace.com/,
-        url: '{{path}}'
-    }, {
-        // This is *all* environments
-        // Regexr: http://www.regexr.com/3de5v
-        // https://encore.rackspace.com/
-        // https://staging.encore.rackspace.com/
-        // https://preprod.encore.rackspace.com/
-        // https://apps.encore.rackspace.com
-        // https://apps.staging.encore.rackspace.com
-        name: 'unified',
-        pattern: 'encore.rackspace.com',
-        url: '{{path}}'
-    }, {
-        // This is only production only
-        // Regexr: http://www.regexr.com/3eal4
-        // https://encore.rackspace.com/
-        // https://apps.encore.rackspace.com
-        // https://origin.encore.rackspace.com
-        name: 'unified-prod',
-        pattern: /\/\/(?:apps\.|origin\.)?encore.rackspace.com/,
-        url: '{{path}}'
-    }];
-
-    /*
-     * Checks if an environment has valid properties
-     * @private
-     * @param {object} environment The environment object to check
-     * @returns {boolean} true if valid, false otherwise
-     */
-    var isValidEnvironment = function (environment) {
-        return _.isString(environment.name) &&
-            (_.isString(environment.pattern) || _.isRegExp(environment.pattern)) &&
-            _.isString(environment.url);
-    };
-
-    var environmentPatternMatch = function (href, pattern) {
-        if (_.isRegExp(pattern)) {
-            return pattern.test(href);
-        }
-
-        return _.includes(href, pattern);
-    };
-
-    /*
-     * Retrieves current environment
-     * @public
-     * @param {string} [href] The path to check the environment on. Defaults to $location.absUrl()
-     * @returns {Object} The current environment (if found), else 'localhost' environment.
-     */
-    this.get = function (href) {
-        // default to current location if href not provided
-        href = href || $location.absUrl();
-
-        var currentEnvironment = _.find(environments, function (environment) {
-            return environmentPatternMatch(href, environment.pattern);
-        });
-
-        if (_.isUndefined(currentEnvironment)) {
-            $log.warn('No environments match URL: ' + $location.absUrl());
-            // set to default/first environment to avoid errors
-            currentEnvironment = environments[0];
-        }
-
-        return currentEnvironment;
-    };
-
-    /*
-     * Adds an environment to the front of the stack, ensuring it will be matched first
-     * @public
-     * @param {object} environment The environment to add. See 'environments' array for required properties
-     */
-    this.add = function (environment) {
-        // do some sanity checks here
-        if (isValidEnvironment(environment)) {
-            // add environment, over riding all others created previously
-            environments.unshift(environment);
-        } else {
-            $log.error('Unable to add Environment: defined incorrectly');
-        }
-    };
-
-    /*
-     * Replaces current environments array with new one
-     * @public
-     * @param {array} newEnvironments New environments to use
-     */
-    this.setAll = function (newEnvironments) {
-        // validate that all new environments are valid
-        if (newEnvironments.length > 0 && _.every(environments, isValidEnvironment)) {
-            // overwrite old environments with new
-            environments = newEnvironments;
-        }
-    };
-
-    /*
-     * Given an environment name, check if any of our registered environments
-     * match it
-     * @public
-     * @param {string} [name] Environment name to check
-     * @param {string} [href] Optional href to check against. Defaults to $location.absUrl()
-     */
-    this.envCheck = function (name, href) {
-        href = href || $location.absUrl();
-        var matchingEnvironments = _.filter(environments, function (environment) {
-            return environmentPatternMatch(href, environment.pattern);
-        });
-        return _.includes(_.map(matchingEnvironments, 'name'), name);
-    };
-
-    var makeEnvCheck = function (name) {
-        return function (href) { return this.envCheck(name, href); };
-    };
-
-    /* Whether or not we're in the `preprod` environment
-     * @public
-     */
-    this.isPreProd = makeEnvCheck('preprod');
-
-    /* Whether or not we're in `local` environment
-     * @public
-     */
-    this.isLocal = makeEnvCheck('local');
-
-    /* Whether or not we're in the `unified-preprod` environment
-     * @public
-     */
-    this.isUnifiedPreProd = makeEnvCheck('unified-preprod');
-
-    /* Whether or not we're in the `unified` environment
-     * @public
-     */
-    this.isUnified = makeEnvCheck('unified');
-
-    /* Whether or not we're in the `unified-prod` environment
-     * @public
-     */
-    this.isUnifiedProd = makeEnvCheck('unified-prod');
 }]);
 
 angular.module('encore.ui.utilities')
@@ -4759,8 +4476,8 @@ angular.module('encore.ui.rxApp')
  * <rx-app site-title="Custom Title"></rx-app>
  * </pre>
  */
-.directive('rxApp', ["encoreRoutes", "rxAppRoutes", "hotkeys", "Environment", "routesCdnPath", "Session", "$window", function (encoreRoutes, rxAppRoutes, hotkeys,
-                              Environment, routesCdnPath, Session, $window) {
+.directive('rxApp', ["encoreRoutes", "rxAppRoutes", "hotkeys", "rxEnvironment", "routesCdnPath", "Session", "$window", function (encoreRoutes, rxAppRoutes, hotkeys,
+                              rxEnvironment, routesCdnPath, Session, $window) {
     return {
         restrict: 'E',
         transclude: true,
@@ -4777,9 +4494,9 @@ angular.module('encore.ui.rxApp')
         link: function (scope) {
             scope.userId = Session.getUserId();
 
-            scope.isPreProd = Environment.isPreProd();
+            scope.isPreProd = rxEnvironment.isPreProd();
 
-            scope.isLocalNav = routesCdnPath.hasCustomURL && (Environment.isLocal());
+            scope.isLocalNav = routesCdnPath.hasCustomURL && (rxEnvironment.isLocal());
 
             scope.isWarning = scope.isPreProd || scope.isLocalNav;
 
@@ -7321,6 +7038,303 @@ angular.module('encore.ui.utilities')
 
 angular.module('encore.ui.utilities')
 /**
+ * @ngdoc service
+ * @name utilities.service:rxEnvironment
+ * @description
+ *
+ * Allows defining environments and retrieving the current environment based on location
+ *
+ * ## Adding New Environments ##
+ *
+ * If necessary, you can add additional environments with `Environment.add()`.
+ * This takes an object with three properties, `name`, `pattern` and `url`, where
+ *
+ * * name: The "friendly" name of your environment, like "local", "preprod", etc.
+ * * pattern: A string or RegEx that the current path is matched against
+ * * url: The URL pattern used to build URLs when using rxEnvironmentUrl
+ *
+ * As an example, if we didn't already have a `'preprod'` environment, we could
+ * add it as follows:
+ *
+ * <pre>
+ * Environment.add({
+ *     // Matches only https://preprod.encore.rackspace.com
+ *     name: 'preprod',
+ *     pattern: /\/\/preprod.encore.rackspace.com/,
+ *     url: '{{path}}'
+ * });
+ * </pre>
+ *
+ * For this demo application, we add a "Github Pages" environment, like this:
+ *
+ * <pre>
+ * Environment.add({
+ *     name: 'ghPages',
+ *     pattern: '//rackerlabs.github.io',
+ *     url: baseGithubUrl + '{{path}}'
+ * });
+ * </pre>
+ *
+ * Component built to detect and provide the current environment (e.g. dev, staging, prod)
+ *
+ * ## Current Environments ##
+ *
+ * This service defines the following Encore specific environments:
+ *
+ * * **local** - http://localhost:port and http://server:port
+ * * **preprod** - http://preprod.encore.rackspace.com
+ * * **unified-preprod** - https://*.encore.rackspace.com
+ * * **unified** - All environments including https://encore.rackspace.com
+ * * **unified-prod** - Only https://encore.rackspace.com
+ *
+ * Please note that we've made an assumption that staging/preprod/prod environments
+ * will all end with `encore.rackspace.com`. Try to avoid using
+ * `staging.encore.myNewProduct.rackspace.com` for new products, and instead set
+ * up your system as `encore.rackspace.com/myNewProduct`.
+ *
+ * ## Checking Current Environment ##
+ *
+ * The `Environment` service contains methods for checking if we are currently in
+ * one of the five listed environments, namely:
+ *
+ * * `Environment.isLocal()`
+ * * `Environment.isPreProd()`
+ * * `Environment.isUnifiedPreProd()`
+ * * `Environment.isUnified()`
+ * * `Environment.isUnifiedProd()`
+ *
+ * The normal procedure is to assume that your code is running in local or staging,
+ * and take special actions if `Environment.isPreProd()` or
+ * `Environment.isUnifiedProd()` are `true`.
+ *
+ * ## Overlapping Environments ##
+ *
+ * Keep in mind that the environments we define are not mutually exclusive. For
+ * instance, if we're at `http://preprod.encore.rackspace.com`, then we are in
+ * the `preprod` environment, the `unified-preprod` environment, and `unified-prod`.
+ *
+ * When you want to check if you're in one of the custom environments, you can
+ * use `envCheck()`, i.e.: `Environment.envCheck('ghPages')`
+ *
+ * ## A Warning About rxEnvironmentUrl ##
+ * `rxEnvironmentUrl` can be used for building full URLs, based on the current
+ * environment. For now, you should consider it as deprecated. It has problems
+ * with overlapping environments, and could potentially generate the wrong URL.
+ *
+ * ## A Warning About `Environment.get().name` ##
+ * You might find older Encore code that uses `Environment.get().name` to get
+ * the name of the current environment. This pattern should be avoided,
+ * specifically because of the overlapping environment issue discussed above.
+ * If you call `Environment.get().name`, it will just return the first matching
+ * environment in the list of environments, even if we're overlapping and have
+ * multiple environments. Instead, check explicitly with
+ * `Environment.isLocal()`, `Environment.isPreProd()`, etc., or
+ * use `Environment.envCheck('local')`
+ *
+ * @example
+ * <pre>
+ * Environment.get() // return environment object that matches current location
+ * </pre>
+ *
+ */
+.service('rxEnvironment', ["$location", "$rootScope", "$log", function ($location, $rootScope, $log) {
+    /*
+     * This array defines different environments to check against.
+     * It is prefilled with 'Encore' based environments
+     * It can be overwritten if necessary via the returned 'environments' property
+     *
+     * @property {string} name The 'friendly' name of the environment
+     * @property {string|RegEx} pattern The pattern to match the current path against
+     * @property {string} url The url pattern used to build out urls for that environment.
+     *                        See 'buildUrl' for more details
+     */
+    var environments = [{
+        // Regexr: http://www.regexr.com/3de5m
+        // http://localhost:3000/
+        // http://localhost:9000/
+        // http://localhost/
+        // http://server/
+        // http://encore.dev/
+        // http://apps.server/
+        name: 'local',
+        pattern: /\/\/(?:\w+\.)?(localhost|server|(.*)\.dev)(:\d{1,4})?/,
+        url: '//' + $location.host() + ($location.port() !== 80 ? ':' + $location.port() : '') + '/{{path}}'
+    }, {
+        // Matches only preprod and it's subdomains
+        // Regexr: http://www.regexr.com/3eani
+        // https://preprod.encore.rackspace.com
+        // https://apps.preprod.encore.rackspace.com
+        // https://cloud.preprod.encore.rackspace.com
+        name: 'preprod',
+        pattern: /\/\/(?:\w+\.)?preprod.encore.rackspace.com/,
+        url: '{{path}}'
+    }, {
+        // This is anything with a host preceeding encore.rackspace.com
+        // Regexr: http://www.regexr.com/3eanl
+        // https://staging.encore.rackspace.com/
+        // https://preprod.encore.rackspace.com/
+        // https://apps.encore.rackspace.com
+        // https://apps.staging.encore.rackspace.com
+        // https://cloud.staging.encore.rackspace.com
+        // https://apps.preprod.encore.rackspace.com/
+        // https://cloud.preprod.encore.rackspace.com/
+        name: 'unified-preprod',
+        pattern: /\/\/(?:\w+\.)?(\w+\.)encore.rackspace.com/,
+        url: '{{path}}'
+    }, {
+        // This is *all* environments
+        // Regexr: http://www.regexr.com/3de5v
+        // https://encore.rackspace.com/
+        // https://staging.encore.rackspace.com/
+        // https://preprod.encore.rackspace.com/
+        // https://apps.encore.rackspace.com
+        // https://apps.staging.encore.rackspace.com
+        name: 'unified',
+        pattern: 'encore.rackspace.com',
+        url: '{{path}}'
+    }, {
+        // This is only production only
+        // Regexr: http://www.regexr.com/3eal4
+        // https://encore.rackspace.com/
+        // https://apps.encore.rackspace.com
+        // https://origin.encore.rackspace.com
+        name: 'unified-prod',
+        pattern: /\/\/(?:apps\.|origin\.)?encore.rackspace.com/,
+        url: '{{path}}'
+    }];
+
+    /*
+     * Checks if an environment has valid properties
+     * @private
+     * @param {object} environment The environment object to check
+     * @returns {boolean} true if valid, false otherwise
+     */
+    var isValidEnvironment = function (environment) {
+        return _.isString(environment.name) &&
+            (_.isString(environment.pattern) || _.isRegExp(environment.pattern)) &&
+            _.isString(environment.url);
+    };
+
+    var environmentPatternMatch = function (href, pattern) {
+        if (_.isRegExp(pattern)) {
+            return pattern.test(href);
+        }
+
+        return _.includes(href, pattern);
+    };
+
+    /*
+     * Retrieves current environment
+     * @public
+     * @param {string} [href] The path to check the environment on. Defaults to $location.absUrl()
+     * @returns {Object} The current environment (if found), else 'localhost' environment.
+     */
+    this.get = function (href) {
+        // default to current location if href not provided
+        href = href || $location.absUrl();
+
+        var currentEnvironment = _.find(environments, function (environment) {
+            return environmentPatternMatch(href, environment.pattern);
+        });
+
+        if (_.isUndefined(currentEnvironment)) {
+            $log.warn('No environments match URL: ' + $location.absUrl());
+            // set to default/first environment to avoid errors
+            currentEnvironment = environments[0];
+        }
+
+        return currentEnvironment;
+    };
+
+    /*
+     * Adds an environment to the front of the stack, ensuring it will be matched first
+     * @public
+     * @param {object} environment The environment to add. See 'environments' array for required properties
+     */
+    this.add = function (environment) {
+        // do some sanity checks here
+        if (isValidEnvironment(environment)) {
+            // add environment, over riding all others created previously
+            environments.unshift(environment);
+        } else {
+            $log.error('Unable to add Environment: defined incorrectly');
+        }
+    };
+
+    /*
+     * Replaces current environments array with new one
+     * @public
+     * @param {array} newEnvironments New environments to use
+     */
+    this.setAll = function (newEnvironments) {
+        // validate that all new environments are valid
+        if (newEnvironments.length > 0 && _.every(environments, isValidEnvironment)) {
+            // overwrite old environments with new
+            environments = newEnvironments;
+        }
+    };
+
+    /*
+     * Given an environment name, check if any of our registered environments
+     * match it
+     * @public
+     * @param {string} [name] Environment name to check
+     * @param {string} [href] Optional href to check against. Defaults to $location.absUrl()
+     */
+    this.envCheck = function (name, href) {
+        href = href || $location.absUrl();
+        var matchingEnvironments = _.filter(environments, function (environment) {
+            return environmentPatternMatch(href, environment.pattern);
+        });
+        return _.includes(_.map(matchingEnvironments, 'name'), name);
+    };
+
+    var makeEnvCheck = function (name) {
+        return function (href) { return this.envCheck(name, href); };
+    };
+
+    /* Whether or not we're in the `preprod` environment
+     * @public
+     */
+    this.isPreProd = makeEnvCheck('preprod');
+
+    /* Whether or not we're in `local` environment
+     * @public
+     */
+    this.isLocal = makeEnvCheck('local');
+
+    /* Whether or not we're in the `unified-preprod` environment
+     * @public
+     */
+    this.isUnifiedPreProd = makeEnvCheck('unified-preprod');
+
+    /* Whether or not we're in the `unified` environment
+     * @public
+     */
+    this.isUnified = makeEnvCheck('unified');
+
+    /* Whether or not we're in the `unified-prod` environment
+     * @public
+     */
+    this.isUnifiedProd = makeEnvCheck('unified-prod');
+}])
+/**
+ * @deprecated
+ * Please use rxEnvironment instead. This item will be removed on the 4.0.0 release.
+ * @ngdoc service
+ * @name utilities.service:Environment
+ * @requires utilities.service:rxEnvironment
+ */
+.service('Environment', ["rxEnvironment", function (rxEnvironment) {
+    console.warn(
+        'DEPRECATED: Environment - Please use rxEnvironment. ' +
+        'Environment will be removed in EncoreUI 4.0.0'
+    );
+    return rxEnvironment;
+}]);
+
+angular.module('encore.ui.utilities')
+/**
  * @ngdoc filter
  * @name utilities.filter:rxEnvironmentMatch
  * @description
@@ -7335,7 +7349,7 @@ angular.module('encore.ui.utilities')
  * returns false if current environment is 'production', true otherwise
  * </pre>
  */
-.filter('rxEnvironmentMatch', ["Environment", function (Environment) {
+.filter('rxEnvironmentMatch', ["rxEnvironment", function (rxEnvironment) {
     return function (environment) {
         // check to see if first character is negation indicator
         var isNegated = environment[0] === '!';
@@ -7343,7 +7357,7 @@ angular.module('encore.ui.utilities')
         // get name of environment to look for
         var targetEnvironmentName = isNegated ? environment.substr(1) : environment;
 
-        var environmentMatches = Environment.envCheck(targetEnvironmentName);
+        var environmentMatches = rxEnvironment.envCheck(targetEnvironmentName);
         return isNegated ? !environmentMatches : environmentMatches;
     };
 }]);
@@ -7365,9 +7379,9 @@ angular.module('encore.ui.utilities')
  * Renders as '/myPath' regardless of environment, because value passed in was not an object
  * </pre>
  */
-.filter('rxEnvironmentUrl', ["Environment", "$interpolate", function (Environment, $interpolate) {
+.filter('rxEnvironmentUrl', ["rxEnvironment", "$interpolate", function (rxEnvironment, $interpolate) {
     return function (details) {
-        var environment = Environment.get();
+        var environment = rxEnvironment.get();
 
         // convert url template into full path based on details provided (if details is an object)
         return _.isObject(details) ? $interpolate(environment.url)(details) : details;
@@ -7395,7 +7409,7 @@ angular.module('encore.ui.utilities')
  *       rx-favicon="{ staging: 'staging-favicon.png', local: 'local-favicon.png' }" />
  * </pre>
  */
-.directive('rxFavicon', ["Environment", "$parse", "$log", function (Environment, $parse, $log) {
+.directive('rxFavicon', ["rxEnvironment", "$parse", "$log", function (rxEnvironment, $parse, $log) {
     return {
         restrict: 'A',
         replace: true,
@@ -7424,7 +7438,7 @@ angular.module('encore.ui.utilities')
             };
 
             scope.$watch(function () {
-                return Environment.get();
+                return rxEnvironment.get();
             }, function (environment) {
                 var currentEnv = environmentMap[environment.name];
 
@@ -7577,7 +7591,7 @@ angular.module('encore.ui.utilities')
  * @ngdoc directive
  * @name utilities.directive:rxIfEnvironment
  * @restrict A
- * @requires utilities.service:Environment
+ * @requires utilities.service:rxEnvironment
  * @description
  * Show or hide content based on environment name
  *

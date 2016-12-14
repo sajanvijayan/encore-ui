@@ -5,7 +5,7 @@ angular.module('demoApp')
         "moduleName": "'encore.ui.elements'",
         "category": "elements",
         "description": "",
-        "stability": "experimental",
+        "stability": "prototype",
         "keywords": [],
         "displayName": "elements",
         "isLegacy": false,
@@ -28,7 +28,7 @@ angular.module('demoApp')
         "moduleName": "'encore.ui.utilities'",
         "category": "utilities",
         "description": "",
-        "stability": "experimental",
+        "stability": "prototype",
         "keywords": [],
         "displayName": "utilities",
         "isLegacy": false,
@@ -48,7 +48,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxApp",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "",
         "isLegacy": true,
         "keywords": [],
@@ -205,14 +205,14 @@ angular.module('demoApp')
         ],
         "docs": {
             "md": "",
-            "js": "angular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '/#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
+            "js": "(function () {\n    angular\n        .module('demoApp')\n        .config(function (rxStatusTagsProvider) {\n            // Define a custom status tag for use in the rxBreadcrumbs demo\n            // TODO: move to the src/elements/Breadcrumbs/Breadcrumbs.docs.js\n            rxStatusTagsProvider.addStatus({\n                key: 'demo',\n                class: 'alpha-status',\n                text: 'Demo Tag'\n            });\n        });\n})();\n\nangular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '/#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
             "html": "<p>\n  Displays navigation breadcrumbs on a page.\n</p>\n\n<rx-example class=\"site-breadcrumbs\" name=\"Breadcrumbs.simple\"></rx-example>\n",
             "less": ""
         }
     },
     {
         "displayName": "Buttons",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Several examples and styles of Buttons available for different contexts.",
         "api": "directive:rxButton",
         "keywords": [
@@ -272,7 +272,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Copy",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Element to aid in copying text to the system clipboard",
         "api": "directive:rxCopy",
         "keywords": [
@@ -495,7 +495,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Links",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Usage and examples of different link and status message patterns.",
         "hasApi": false,
         "keywords": [
@@ -528,7 +528,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Lists",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Usage and examples of different List patterns.",
         "hasApi": false,
         "keywords": [
@@ -656,7 +656,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Progress Bars",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Provides feedback on the progress of a workflow or action",
         "api": "directive:rxProgressbar",
         "keywords": [
@@ -934,7 +934,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Auth",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Provides logic for authenticating, validating permissions, and managing sessions.",
         "api": "service:Auth",
         "keywords": [],
@@ -953,30 +953,6 @@ angular.module('demoApp')
             "md": "",
             "js": "angular.module('demoApp')\n.controller('AuthSimpleCtrl', function ($scope, $window, Auth) {\n    $scope.hasRole = function () {\n        $window.alert('Has \"superhero\" Role? : ' + Auth.hasRole('superhero'));\n    };\n\n    $scope.isAuthenticated = function () {\n        $window.alert('Is Authenticated? : ' + Auth.isAuthenticated());\n    };\n});\n",
             "html": "<p>\n  Provides logic for authenticating, validating permissions, and managing sessions.\n</p>\n\n<rx-example name=\"Auth.simple\"></rx-example>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "Environment",
-        "stability": "unstable",
-        "description": "Allows environments to be defined, and retrieving the current environment based on location.",
-        "api": "service:Environment",
-        "keywords": [],
-        "name": "Environment",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/Environment/scripts/Environment.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "angular.module('demoApp')\n.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {\n    var environment = Environment.get();\n    $scope.url = environment.url;\n    $scope.name = environment.name;\n});\n",
-            "html": "<p>\n  Allows environments to be defined, and retrieving the current environment based on location.\n</p>\n\n<rx-example name=\"Environment.simple\"></rx-example>",
             "less": ""
         }
     },
@@ -1006,7 +982,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Identity",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "This is a component designed to aid interaction with Rackspace's Identity API.",
         "api": "service:Identity",
         "keywords": [],
@@ -1030,7 +1006,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "NotifyProperties",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Provides a registration service for directive, controller, or other service notification updates.",
         "api": "service:NotifyProperties",
         "keywords": [],
@@ -1150,7 +1126,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Permission",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Simple service for accessing roles and permissions for a user.",
         "api": "service:Permission",
         "keywords": [],
@@ -1174,7 +1150,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "SelectFilter",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "A prototype for creating objects that can be used for filtering arrays.",
         "api": "service:SelectFilter",
         "keywords": [],
@@ -1198,7 +1174,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "Session",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Manages user session",
         "api": "service:Session",
         "keywords": [],
@@ -1222,7 +1198,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "SessionStorage",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "",
         "keywords": [],
         "name": "SessionStorage",
@@ -1293,7 +1269,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "TokenInterceptor",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Adds an authorization token to all HTTP requests, which allows access to system services.",
         "api": "service:TokenInterceptor",
         "keywords": [],
@@ -1317,7 +1293,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "UnauthorizedInterceptor",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Redirects users to the login page, when user authentication fails during a system service request.",
         "api": "service:UnauthorizedInterceptor",
         "keywords": [],
@@ -1341,7 +1317,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "UtcOffsets",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "List of known UTC offset values",
         "api": "constant:UtcOffsets",
         "keywords": [],
@@ -1389,7 +1365,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "encoreRoutes",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Allows apps to make updates to the navigation.",
         "api": "service:encoreRoutes",
         "keywords": [],
@@ -1437,7 +1413,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "feedbackTypes",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Provides default feedback types with placeholder text.",
         "api": "value:feedbackTypes",
         "keywords": [],
@@ -1487,7 +1463,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "hotkeys",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "",
         "api": "service:hotkeys",
         "keywords": [],
@@ -1559,7 +1535,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxAppRoutes",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Manage application routes and states of routes.",
         "api": "service:rxAppRoutes",
         "keywords": [],
@@ -1583,7 +1559,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxApply",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Used to apply an instance of SelectFilter to an array.",
         "api": "filter:rxApply",
         "keywords": [
@@ -1609,7 +1585,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxAttributes",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "used to add attributes based on scope values.",
         "api": "directive:rxAttributes",
         "keywords": [
@@ -1637,7 +1613,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxAutoSave",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Service to help automatically save/load form data.",
         "api": "service:rxAutoSave",
         "keywords": [],
@@ -1661,7 +1637,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxBreadcrumbsSvc",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "",
         "api": "service:rxBreadcrumbsSvc",
         "keywords": [],
@@ -1685,7 +1661,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxBulkSelectController",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Provides controller logic for rxBulkSelect",
         "api": "controller:rxBulkSelectController",
         "keywords": [],
@@ -1709,7 +1685,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxBulkSelectUtils",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Selects or deselects all visible rows.  Support function for rxBulkSelect.",
         "api": "service:rxBulkSelectUtils",
         "keywords": [],
@@ -1733,7 +1709,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxBytesConvert",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Converts raw byte disk size into a more readable format",
         "api": "filter:rxBytesConvert",
         "keywords": [],
@@ -1808,7 +1784,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxCopyUtil",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Utilities for rxCopy element",
         "api": "service:rxCopyUtil",
         "keywords": [],
@@ -1832,7 +1808,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxDOMHelper",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "A small set of useful DOM-related functions.",
         "api": "service:rxDOMHelper",
         "keywords": [],
@@ -1856,7 +1832,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxDate",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Filter to convert a date string to an accepted standard Date format",
         "api": "utilities.filter:rxDate",
         "keywords": [
@@ -1886,7 +1862,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxDateTime",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Filter to convert a date string to an accepted standard DateTime format",
         "api": "utilities.filter:rxDateTime",
         "keywords": [
@@ -1940,8 +1916,34 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxEnvironment",
+        "stability": "stable",
+        "description": "Allows environments to be defined, and retrieving the current environment based on location.",
+        "api": "service:rxEnvironment",
+        "keywords": [
+            "Environment"
+        ],
+        "name": "rxEnvironment",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxEnvironment/scripts/rxEnvironment.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('EnvironmentSimpleCtrl', function ($scope, rxEnvironment) {\n    var environment = rxEnvironment.get();\n    $scope.url = environment.url;\n    $scope.name = environment.name;\n});\n",
+            "html": "<p>\n  Allows environments to be defined, and retrieving the current environment based on location.\n</p>\n\n<rx-example name=\"rxEnvironment.simple\"></rx-example>",
+            "less": ""
+        }
+    },
+    {
         "displayName": "rxEnvironmentMatch",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Checks if current environment matches target environment",
         "api": "filter:rxEnvironmentMatch",
         "keywords": [],
@@ -1965,7 +1967,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxEnvironmentUrl",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Builds a URL based on current environment.",
         "api": "filter:rxEnvironmentUrl",
         "keywords": [],
@@ -1982,14 +1984,14 @@ angular.module('demoApp')
         "tplJsFiles": [],
         "docs": {
             "md": "",
-            "js": "angular.module('demoApp')\n.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {\n    $scope.Environment = Environment;\n});\n",
+            "js": "angular.module('demoApp')\n.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, rxEnvironment) {\n    $scope.rxEnvironment = rxEnvironment;\n});\n",
             "html": "<p>\n  Builds a URL based on current environment.\n</p>\n\n<rx-example name=\"rxEnvironmentUrl.simple\"></rx-example>\n",
             "less": ""
         }
     },
     {
         "displayName": "rxFavicon",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Allows custom favicons between local, staging and production environments.",
         "api": "directive:rxFavicon",
         "keywords": [
@@ -2018,7 +2020,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxFeedbackController",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Allows the customization of the feedback modal.",
         "api": "controller:rxFeedbackController",
         "keywords": [],
@@ -2042,7 +2044,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxFeedbackSvc",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Service that supports the customization of user feedback endpoints.",
         "api": "service:rxFeedbackSvc",
         "keywords": [],
@@ -2066,7 +2068,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxFormUtils",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Set of utility functions used by rxForm to access form data",
         "api": "service:rxFormUtils",
         "keywords": [],
@@ -2118,7 +2120,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxLocalStorage",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Simple wrapper for interacting with local storage in the browser.",
         "api": "service:rxLocalStorage",
         "keywords": [],
@@ -2190,7 +2192,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxMomentFormats",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Formatting masks that are compliant with approved Date/Time formats",
         "hasApi": false,
         "keywords": [
@@ -2220,7 +2222,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxMonth",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Filter to convert a date string to an accepted standard Month format",
         "api": "utilities.filter:rxMonth",
         "keywords": [
@@ -2250,7 +2252,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxNestedElement",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Helper function to aid in the creation of boilerplate DDO definitions",
         "api": "service:rxNestedElement",
         "keywords": [],
@@ -2375,7 +2377,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxProgressbarUtil",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Utilities for rxProgressbar element",
         "api": "service:rxProgressbarUtil",
         "keywords": [],
@@ -2423,7 +2425,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxScreenshotSvc",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Captures a screenshot for rxFeedback submission form.",
         "api": "service:rxScreenshotSvc",
         "keywords": [],
@@ -2447,7 +2449,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxSortEmptyTop",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Moves rows with an empty predicate in ascending and descending order.",
         "api": "filter:rxSortEmptyTop",
         "keywords": [],
@@ -2471,7 +2473,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxSortUtil",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Service which provides utility methods for sorting collections.",
         "api": "service:rxSortUtil",
         "keywords": [],
@@ -2495,7 +2497,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxStatusColumnIcons",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Mapping of internal statuses to FontAwesome icons.",
         "api": "object:rxStatusColumnIcons",
         "keywords": [],
@@ -2519,7 +2521,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxStatusMappings",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "A set of methods for creating mappings to status identifiers used in EncoreUI",
         "api": "service:rxStatusMappings",
         "keywords": [],
@@ -2543,7 +2545,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxStatusTags",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Primarily used for applications to specify custom status tags.",
         "api": "service:rxStatusTags",
         "keywords": [],
@@ -2567,7 +2569,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxTime",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Filter to convert a date string to an accepted standard Time format",
         "api": "utilities.filter:rxTime",
         "keywords": [
@@ -2597,7 +2599,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxTimePickerUtil",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "Utilities for rxTimePicker element",
         "api": "service:rxTimePickerUtil",
         "keywords": [],
@@ -2672,7 +2674,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxVisibility",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Provides an interface for adding new visibility methods for nav menus.",
         "api": "service:rxVisibility",
         "keywords": [],
@@ -2696,7 +2698,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxVisibilityPathParams",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Returns an object with name and method params that can be passed to rxVisibility.addMethod().",
         "api": "service:rxVisibilityPathParams",
         "keywords": [],
@@ -2720,7 +2722,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "titleize",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Convert a string to title case, stripping out underscores and all uppercase words.",
         "api": "filter:titleize",
         "keywords": [],
@@ -2744,7 +2746,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "urlUtils",
-        "stability": "unstable",
+        "stability": "stable",
         "description": "Set of utility functions to break apart/compare URLs.",
         "api": "service:urlUtils",
         "keywords": [],
@@ -2768,7 +2770,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "xor",
-        "stability": "experimental",
+        "stability": "prototype",
         "description": "xor filter",
         "api": "filter:xor",
         "keywords": [],

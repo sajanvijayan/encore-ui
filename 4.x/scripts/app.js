@@ -1,24 +1,17 @@
 function genericRouteController (breadcrumbs) {
-    return function (rxBreadcrumbsSvc, Environment, $interpolate) {
+    return function (rxBreadcrumbsSvc) {
         if (breadcrumbs === undefined) {
             breadcrumbs = [{
                 name: '',
                 path: ''
             }]
         }
-
-        breadcrumbs.forEach(function (breadcrumb) {
-            if (breadcrumb.path) {
-                breadcrumb.path = $interpolate(Environment.get().url)({ path: breadcrumb.path });
-            }
-        });
-
         rxBreadcrumbsSvc.set(breadcrumbs);
     }
-}
+}//genericRouteController
 
 angular.module('demoApp', ['encore.ui', 'ngRoute'])
-.config(function ($routeProvider, rxStatusTagsProvider) {
+.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             redirectTo: '/overview'
@@ -39,9 +32,9 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         })
         .when('/styles/formatting', {
             templateUrl: 'templates/styles/formatting.html',
-            controller: genericRouteController([{
-                name: 'Formatting'
-            }])
+            controller: genericRouteController([
+                { name: 'Formatting' }
+            ])
         })
         .when('/styles/layout/detail', {
             templateUrl: 'templates/styles/layouts/detail-page.html',
@@ -64,9 +57,7 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         .when('/styles/typography', {
             templateUrl: 'templates/styles/typography.html',
             controller: genericRouteController([
-                {
-                    name: 'Typography'
-                }
+                { name: 'Typography' }
             ])
         })
 
@@ -150,24 +141,17 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
                 { name: '404' }
             ])
         });
-
-    // Define a custom status tag for use in the rxBreadcrumbs demo
-    rxStatusTagsProvider.addStatus({
-        key: 'demo',
-        class: 'alpha-status',
-        text: 'Demo Tag'
-    });
 })
-.run(function ($rootScope, $window, $location, $anchorScroll, $interpolate,
-               Environment, rxBreadcrumbsSvc, rxPageTitle, Modules, $timeout) {
+.run(function ($rootScope, $anchorScroll, rxEnvironment, rxBreadcrumbsSvc,
+               rxPageTitle, $timeout) {
     var baseGithubUrl = '//rackerlabs.github.io/encore-ui/';
-    Environment.add({
+    rxEnvironment.add({
         name: 'ghPages',
         pattern: /\/\/rackerlabs.github.io/,
         url: baseGithubUrl + '{{path}}'
     });
 
-    rxBreadcrumbsSvc.setHome($interpolate(Environment.get().url)({ path: '#/overview' }), 'Overview');
+    rxBreadcrumbsSvc.setHome('#/overview', 'Overview');
 
     rxPageTitle.setSuffix(' - EncoreUI');
 

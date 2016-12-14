@@ -385,10 +385,6 @@ angular.module('demoApp')
         "markup": "<div ng-controller=\"AuthSimpleCtrl\">\n    <button ng-click=\"hasRole()\" class=\"button\">Is a Superhero?</button>\n    <button ng-click=\"isAuthenticated()\" class=\"button\">Is Authenticated?</button>\n</div>\n",
         "javascript": "angular.module('demoApp')\n.controller('AuthSimpleCtrl', function ($scope, $window, Auth) {\n    $scope.hasRole = function () {\n        $window.alert('Has \"superhero\" Role? : ' + Auth.hasRole('superhero'));\n    };\n\n    $scope.isAuthenticated = function () {\n        $window.alert('Is Authenticated? : ' + Auth.isAuthenticated());\n    };\n});\n"
     },
-    "Environment.simple": {
-        "markup": "<div ng-controller=\"EnvironmentSimpleCtrl\">\n  <ul>\n    <li>Your current enviroment: <strong>{{name}}</strong></li>\n    <li>URL: <code>http:{{url}}</code></li>\n  </ul>\n</div>",
-        "javascript": "angular.module('demoApp')\n.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {\n    var environment = Environment.get();\n    $scope.url = environment.url;\n    $scope.name = environment.name;\n});\n"
-    },
     "ErrorFormatter.simple": {
         "markup": "<div ng-controller=\"ErrorFormatterSimpleCtrl\">\n  <p>\n    <button class=\"button\"\n      ng-click=\"setErrorMsg('this is an error message set with ErrorFormatter.')\">\n      Set Error Message\n    </button>\n    should set an error message with <code>ErrorFormatter</code>.\n  </p>\n  <p>{{errorMsg}}</p>\n</div>\n",
         "javascript": "angular.module('demoApp')\n.controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {\n    $scope.setErrorMsg = function (msg) {\n        var error = { message: msg };\n        $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);\n    };\n});\n"
@@ -452,13 +448,17 @@ angular.module('demoApp')
         "markup": "<div ng-controller=\"rxDiskSizeCtrl\" id=\"rx-disk-size-demo\">\n    <ul>\n        <li>{{sizeGB}} &rarr; {{sizeGB | rxDiskSize}}</li>\n        <li>{{sizeTB}} &rarr; {{sizeTB | rxDiskSize}}</li>\n        <li>{{sizePB}} &rarr; {{sizePB | rxDiskSize}}</li>\n    </ul>\n    <ul>\n        <li>{{sizeGB}} GB &rarr; {{sizeGB | rxDiskSize:'GB'}}</li>\n        <li>{{sizeTB}} GB &rarr; {{sizeTB | rxDiskSize:'TB'}}</li>\n        <li>{{sizePB}} GB &rarr; {{sizePB | rxDiskSize:'PB'}}</li>\n    </ul>\n</div>\n",
         "javascript": "angular.module('demoApp')\n.controller('rxDiskSizeCtrl', function ($scope) {\n    $scope.sizeGB = 420;\n    $scope.sizeTB = 125000;\n    $scope.sizePB = 171337000;\n});\n"
     },
+    "rxEnvironment.simple": {
+        "markup": "<div ng-controller=\"EnvironmentSimpleCtrl\">\n  <ul>\n    <li>Your current enviroment: <strong>{{name}}</strong></li>\n    <li>URL: <code>http:{{url}}</code></li>\n  </ul>\n</div>",
+        "javascript": "angular.module('demoApp')\n.controller('EnvironmentSimpleCtrl', function ($scope, rxEnvironment) {\n    var environment = rxEnvironment.get();\n    $scope.url = environment.url;\n    $scope.name = environment.name;\n});\n"
+    },
     "rxEnvironmentMatch.simple": {
         "markup": "<div ng-controller=\"rxEnvironmentMatchSimpleCtrl\">\n  <p>\n    This example checks if you are in a <code>ghPages</code> environment using <code>rxEnvironmentMatch</code> filter.\n  </p>\n  <p>\n    Are you in the <code>ghPages</code> environment? <b>{{ 'ghPages' | rxEnvironmentMatch }}</b>\n  </p>\n</div>\n",
         "javascript": "angular.module('demoApp')\n.controller('rxEnvironmentMatchSimpleCtrl', function ($scope, Environment) {\n    $scope.Environment = Environment;\n});\n"
     },
     "rxEnvironmentUrl.simple": {
         "markup": "<div ng-controller=\"rxEnvironmentUrlSimpleCtrl\">\n  <p>\n    This example determines your current environment and builds a URL using <code>rxEnvironmentUrl</code> filter.\n  </p>\n  <p>\n    URL built from <code>Environment</code> data:\n    <pre>http:{{ { tld: 'cloudatlas', path: 'some/path' } | rxEnvironmentUrl }}</pre>\n  </p>\n</div>\n",
-        "javascript": "angular.module('demoApp')\n.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {\n    $scope.Environment = Environment;\n});\n"
+        "javascript": "angular.module('demoApp')\n.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, rxEnvironment) {\n    $scope.rxEnvironment = rxEnvironment;\n});\n"
     },
     "rxIfEnvironment.simple": {
         "markup": "<p>\n  Content shows if on GitHub demo page:\n  <span rx-if-environment=\"ghPages\">\n    You're on the GitHub demo page\n  </span>\n</p>\n\n<p>\n  Content shows if not on GitHub demo page:\n  <span rx-if-environment=\"!ghPages\">\n    You're not on the GitHub demo page\n  </span>\n</p>\n"
