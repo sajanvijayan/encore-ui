@@ -2,7 +2,7 @@
     angular.module('demoApp')
     .directive('appLayout', AppLayoutDirective);
 
-    function AppLayoutDirective ($rootScope, $location, Modules, urlUtils) {
+    function AppLayoutDirective ($rootScope, $location, Modules) {
         var linksForModuleCategory = function (kategory) {
             var filteredModules = _.filter(Modules, {
                 category: kategory,
@@ -82,9 +82,6 @@
             var currentUrl = $location.url();
 
             routes.forEach(function (route) {
-                // build out url for current route
-                route.url = urlUtils.buildUrl(route.href);
-
                 if (route.children) {
                     /*
                      * Recurse through children to see if any of them
@@ -95,20 +92,20 @@
                      * Route is active if ANY child is active.
                      */
                     route.active = _.some(route.children, 'active');
-                } else if (!_.isEmpty(route.url)) {
-                    // Prepend a "#" to match easier
+                } else if (!_.isEmpty(route.href)) {
+                    // Prepend a "#" for easier matching
                     var normalizedUrl = '#' + currentUrl;
 
                     /*
-                     * Does the normalizedUrl contain the route.url?
+                     * Does the normalizedUrl contain the route.href?
                      *
-                     * normalizedUrl      | route.url | result
-                     * ------------------ | --------- | ------
-                     * #/foo/bar          | #/foo     | TRUE
-                     * #/foo/bar?bang=biz | #/foo     | TRUE
-                     * #/foo/bar?bang=biz | #/bar     | FALSE
+                     * $location.url() | normalizedUrl | route.href | result
+                     * --------------- | ------------- | ---------- | ------
+                     * /foo/bar        | #/foo/bar     | #/foo      | TRUE
+                     * /foo/bar?a=b    | #/foo/bar?a=b | #/foo      | TRUE
+                     * /foo/bar?a=b    | #/foo/bar?a=b | #/bar      | FALSE
                      */
-                    route.active = (normalizedUrl.indexOf(route.url) > -1);
+                    route.active = (normalizedUrl.indexOf(route.href) > -1);
                 } else {
                     /*
                      * Route should not be active

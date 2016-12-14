@@ -3,7 +3,7 @@
     class="appNav__item-link appNav__item-link--level-{{level}}"
     ng-class="{ 'is-active': item.active, 'is-branch': item.children, 'is-leaf': !item.children }"
     ng-click="navClickHandler($event, item)"
-    ng-href="{{ item.url }}">
+    ng-href="{{ item.href }}">
 
     <span class="link-text">{{ item.linkText }}</span>
     <span class="link-icon fa fa-fw fa-angle-double-down"></span>
