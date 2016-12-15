@@ -322,41 +322,24 @@ rx-permalink .permalink:hover .icon:hover {
   text-align: left;
   max-width: 300px;
 }
-/*
-  FYI: Z-Index
-  ====================
-  .appLayout__app-bar: 1
-  .appStage__left: 1
-  .appStage__right: 1
-    - All three of these must be at the same z-index to prevent
-      their shadows from overlapping one another
-
-  .appLayout__stage: 0
-    - Gives proper layers to apply "frame" shadows.
-    - Ensures that stacking context of content does not
-      interfere with that of the layout
-*/
 .appLayout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0;
+  min-height: 100%;
   padding: 0;
-  width: 100vw;
 }
 .appLayout__app-bar {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-  display: flex;
   flex: 0 0 30px;
-  z-index: 1;
 }
 .appLayout__stage {
-  z-index: 0;
+  flex: 1;
 }
 .appBar {
   background-color: #000000;
   color: #757575;
   font-size: 15px;
+  display: flex;
 }
 .appBar__item {
   align-items: center;
@@ -403,119 +386,74 @@ rx-permalink .permalink:hover .icon:hover {
 }
 .appStage {
   display: flex;
-  flex: 1 0px;
+  align-items: stretch;
 }
 .appStage__left {
   background-color: #262626;
   border-right: 1px solid #000000;
-  display: flex;
-  flex-direction: column;
   flex: 0 0 300px;
-  overflow: hidden;
-  z-index: 1;
 }
-.appStage__center {
+.appStage__right {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #f5f5f5;
   position: relative;
 }
-.appStage__center > .rx-notifications {
+.appStage__right main {
+  flex: 1;
+  padding: 20px 30px 50px;
+}
+.appStage__right > .rx-notifications {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 20;
 }
-.appStage__center .page-header {
+.appStage__right .page-header {
   background: linear-gradient(to bottom, #e7e7e7 0%, #d8d8d8 100%);
   border-bottom: 1px solid #bdbdbd;
   flex: 0;
 }
-.appStage__center .page-actions {
+.appStage__right .page-actions {
   float: right;
   margin: 0 0 2em 2em;
 }
-.appStage__center main {
-  flex: 1;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 20px 30px 50px;
-}
-.appStage__right {
-  background-color: #262626;
-  border-left: 1px solid #000000;
-  box-shadow: -4px 0 4px 0 rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 300px;
-  overflow: hidden;
-  z-index: 1;
-}
 .globalNav {
-  display: flex;
-  flex-direction: column;
   font-size: 15px;
   font-weight: 300;
   line-height: 1.2;
+  padding-bottom: 60px;
 }
 .globalNav__header {
   border-bottom: 1px solid #000000;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
   color: #9e9e9e;
-  flex: 0;
   padding: 10px;
-  z-index: 1;
-}
-.globalNav__help {
-  display: flex;
-  align-items: center;
-  flex: 0 0 20px;
-  font-size: 15px;
-  justify-content: center;
-  margin-left: 5px;
 }
 .globalNav__list {
   display: flex;
   flex-direction: column;
-  flex: 1 0px;
-  overflow-x: hidden;
-  overflow-y: auto;
   color: #ffffff;
   font-size: 15px;
   font-weight: 300;
   line-height: 1.2;
 }
-.globalNav__list::-webkit-scrollbar {
-  width: 12px;
-  box-sizing: border-box;
-}
-.globalNav__list::-webkit-scrollbar-track {
-  background-color: #262626;
-}
-.globalNav__list::-webkit-scrollbar-thumb {
-  background-color: #424242;
-  border-radius: 6px;
-  border: 3px solid #262626;
-}
-.globalNav__list::-webkit-scrollbar-corner {
-  background-color: #262626;
-}
 .globalNav__footer {
   align-items: center;
   background-color: #212121;
   border-top: 1px solid #000000;
-  box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
+  bottom: 0;
   color: #ffc107;
   display: flex;
-  flex: 0 0 40px;
   font-size: 15px;
   font-weight: 300;
+  height: 40px;
   justify-content: center;
+  left: 0;
   padding: 0 10px;
+  position: fixed;
   text-shadow: 1px 1px 0 rgba(26, 26, 26, 0.2);
-  z-index: 1;
+  width: 300px;
 }
 .globalNav__footer rx-feedback {
   margin-left: 5px;
@@ -645,12 +583,8 @@ html {
   box-sizing: inherit;
 }
 body {
-  background-color: #333333;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
+  background-color: #f5f5f5;
   padding: 0;
-  width: 100vw;
 }
 /* TODO: (deprecated) remove with last of components */
 .module-description {
