@@ -410,7 +410,7 @@ rx-permalink .permalink:hover .icon:hover {
 .globalNav__footer rx-feedback .modal-link {
   color: #ffc107;
 }
-.appNav__item-link {
+.demoNav__item-link {
   align-items: center;
   border: 0;
   color: #9e9e9e;
@@ -420,60 +420,60 @@ rx-permalink .permalink:hover .icon:hover {
   position: relative;
   transition: background 0.2s;
 }
-.appNav__item-link:hover,
-.appNav__item-link:focus {
+.demoNav__item-link:hover,
+.demoNav__item-link:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer;
 }
-.appNav__item-link .link-text {
+.demoNav__item-link .link-text {
   flex: 1;
 }
-.appNav__item-link .link-icon {
+.demoNav__item-link .link-icon {
   flex: 0;
   transition: all 0.2s;
 }
-.appNav__item-link.is-leaf .link-icon {
+.demoNav__item-link.is-leaf .link-icon {
   display: none;
 }
-.appNav__item-link.is-leaf.is-active {
+.demoNav__item-link.is-leaf.is-active {
   background-color: #616161;
   color: #ffffff;
 }
-.appNav__item-link.is-branch.is-active .link-icon {
+.demoNav__item-link.is-branch.is-active .link-icon {
   transform: scaleY(-1);
 }
-.appNav__item-link--level-1 {
+.demoNav__item-link--level-1 {
   font-size: 14px;
   height: 40px;
   padding: 0 10px 0 16px;
   text-transform: uppercase;
 }
-.appNav__item-link--level-2 {
+.demoNav__item-link--level-2 {
   font-size: 13px;
   height: 30px;
   padding: 0 24px 0 32px;
 }
-.appNav__item-link--level-3 {
+.demoNav__item-link--level-3 {
   font-size: 13px;
   height: 30px;
   padding: 0 38px 0 56px;
 }
-.appNav__item-content--level-1 {
+.demoNav__item-content--level-1 {
   margin-bottom: 16px;
 }
-.appNav__item-content--level-1 > .appNav__item-directive {
+.demoNav__item-content--level-1 > .demoNav__item-directive {
   margin-left: 32px;
 }
-.appNav__item-content--level-2 > .appNav__item-directive {
+.demoNav__item-content--level-2 > .demoNav__item-directive {
   margin-left: 56px;
 }
-.appNav__item-directive {
+.demoNav__item-directive {
   margin-top: 4px;
   margin-bottom: 8px;
   margin-right: 10px;
 }
-.appNav__child-header {
+.demoNav__child-header {
   margin: 12px 0;
   padding-right: 10px;
 }
