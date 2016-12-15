@@ -322,71 +322,12 @@ rx-permalink .permalink:hover .icon:hover {
   text-align: left;
   max-width: 300px;
 }
-.appLayout {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  min-height: 100%;
-  padding: 0;
-}
-.appLayout__app-bar {
-  flex: 0 0 30px;
-}
-.appLayout__stage {
-  flex: 1;
-}
-.appBar {
-  background-color: #000000;
-  color: #757575;
-  font-size: 15px;
-  display: flex;
-}
-.appBar__item {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-}
-.appBar__button {
-  background: transparent;
-  overflow: hidden;
-  width: 40px;
-  height: 40px;
-  color: inherit;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.appBar__button.active {
-  background-color: #262626;
-  color: #ffffff;
-  border: 0;
-  box-shadow: none;
-}
-.appBar__left,
-.appBar__right {
-  display: flex;
-  flex: 1;
-}
-.appBar__left {
-  justify-content: flex-start;
-}
-.appBar__right {
-  justify-content: flex-end;
-}
-.appBar__item-icon {
-  font-size: 14px;
-}
-.appBar__item-text {
-  margin: 0 6px;
-  font-size: 12px;
-}
-.appBar .brand {
-  margin: 0 10px;
-}
 .appStage {
   display: flex;
   align-items: stretch;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 .appStage__left {
   background-color: #262626;
@@ -426,9 +367,16 @@ rx-permalink .permalink:hover .icon:hover {
   padding-bottom: 60px;
 }
 .globalNav__header {
+  background-color: #212121;
   border-bottom: 1px solid #000000;
   color: #9e9e9e;
   padding: 10px;
+}
+.globalNav__header .brand {
+  color: #f5f5f5;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 .globalNav__list {
   display: flex;
@@ -461,9 +409,6 @@ rx-permalink .permalink:hover .icon:hover {
 }
 .globalNav__footer rx-feedback .modal-link {
   color: #ffc107;
-}
-.globalNav [rx-form] rx-form-section rx-field {
-  flex-basis: auto;
 }
 .appNav__item-link {
   align-items: center;
@@ -542,11 +487,11 @@ rx-permalink .permalink:hover .icon:hover {
   justify-content: center;
   width: 100%;
 }
-.error-message {
+.error-page .error-message {
   width: 700px;
   font-family: "Roboto", sans-serif;
 }
-.error-message__image {
+.error-page .error-message__image {
   border-right: 1px solid #616161;
   box-sizing: content-box;
   float: left;
@@ -555,24 +500,27 @@ rx-permalink .permalink:hover .icon:hover {
   padding-right: 16px;
   width: 144px;
 }
-.error-message__title {
+.error-page .error-message__title {
   font-size: 72px;
   font-weight: 600;
   margin: 0;
   padding: 0;
 }
-.error-message__divider {
+.error-page .error-message__divider {
   border-color: #616161;
   border-style: solid;
   border-width: 0 0 1px;
 }
-.error-message__text {
+.error-page .error-message__text {
   font-size: 22px;
   font-weight: 100;
 }
 .rx-option-table thead tr th:first-child {
   /* Fix column width in demos */
   width: 40px;
+}
+.info-panel .info-title {
+  box-sizing: content-box;
 }
 html {
   box-sizing: border-box;

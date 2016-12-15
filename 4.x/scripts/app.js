@@ -1,12 +1,17 @@
-function genericRouteController (breadcrumbs) {
-    return function (rxBreadcrumbsSvc) {
+function genericRouteController (title, breadcrumbs) {
+    var crumbs = [];
+    title = title || '';
+
+    return function (rxBreadcrumbsSvc, rxPageTitle) {
+        var titleCrumb = { name: title };
         if (breadcrumbs === undefined) {
-            breadcrumbs = [{
-                name: '',
-                path: ''
-            }]
+            crumbs = titleCrumb
+        } else {
+            crumbs = breadcrumbs.concat(titleCrumb);
         }
-        rxBreadcrumbsSvc.set(breadcrumbs);
+        rxBreadcrumbsSvc.set(crumbs);
+
+        rxPageTitle.setTitle(title);
     }
 }//genericRouteController
 
@@ -18,7 +23,12 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         })
         .when('/overview', {
             templateUrl: 'templates/overview.html',
-            controller: genericRouteController()
+            controller: function (rxBreadcrumbsSvc, rxPageTitle) {
+                rxBreadcrumbsSvc.set([
+                    { name: '', path: '' }
+                ]);
+                rxPageTitle.setTitle('Overview');
+            }
         })
 
         /* Layout */
@@ -26,39 +36,27 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         /* Style Pages */
         .when('/styles/color', {
             templateUrl: 'templates/styles/color.html',
-            controller: genericRouteController([
-                { name: 'Color' }
-            ])
+            controller: genericRouteController('Color')
         })
         .when('/styles/formatting', {
             templateUrl: 'templates/styles/formatting.html',
-            controller: genericRouteController([
-                { name: 'Formatting' }
-            ])
+            controller: genericRouteController('Date/Time Formatting')
         })
         .when('/styles/layout/detail', {
             templateUrl: 'templates/styles/layouts/detail-page.html',
-            controller: genericRouteController([
-                { name: 'Detail Page' }
-            ])
+            controller: genericRouteController('Layout 1: Detail Page')
         })
         .when('/styles/layout/data-table', {
             templateUrl: 'templates/styles/layouts/data-table-page.html',
-            controller: genericRouteController([
-                { name: 'Data Table' }
-            ])
+            controller: genericRouteController('Layout 2: Data Table')
         })
         .when('/styles/layout/form', {
             templateUrl: 'templates/styles/layouts/form-page.html',
-            controller: genericRouteController([
-                { name: 'Form Page' }
-            ])
+            controller: genericRouteController('Layout 3: Form Page')
         })
         .when('/styles/typography', {
             templateUrl: 'templates/styles/typography.html',
-            controller: genericRouteController([
-                { name: 'Typography' }
-            ])
+            controller: genericRouteController('Typography')
         })
 
         /* Module Pages */
@@ -137,9 +135,7 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
         })
         .otherwise({
             templateUrl: 'templates/404.html',
-            controller: genericRouteController([
-                { name: '404' }
-            ])
+            controller: genericRouteController('Not Found')
         });
 })
 .run(function ($rootScope, $anchorScroll, rxEnvironment, rxBreadcrumbsSvc,

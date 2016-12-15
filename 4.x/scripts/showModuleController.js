@@ -3,7 +3,9 @@
         .module('demoApp')
         .controller('showModuleController', ShowModuleController);
 
-    function ShowModuleController ($scope, $filter, rxBreadcrumbsSvc, module) {
+    function ShowModuleController ($scope, $filter, rxBreadcrumbsSvc, module, rxPageTitle) {
+        rxPageTitle.setTitle(module.displayName);
+
         rxBreadcrumbsSvc.set([
             {
                 path: '#/modules',
