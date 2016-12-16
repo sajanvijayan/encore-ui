@@ -2,7 +2,7 @@
  * EncoreUI
  * https://github.com/rackerlabs/encore-ui
  *
- * Version: 2.3.4 - 2016-12-08
+ * Version: 2.3.4 - 2016-12-16
  * License: Apache-2.0
  */
 angular.module('encore.ui', [
@@ -554,7 +554,7 @@ angular.module('encore.ui.elements')
  * ## Styling
  *
  * There are several styles of buttons available, and they are documented in the
- * [Buttons Styleguide](/encore-ui/#/elements/Buttons). Any classes that need to be
+ * [Buttons Styleguide](../#/elements/Buttons). Any classes that need to be
  * added to the button should be passed to the `classes` attribute.
  *
  * @param {String} loadingMsg Text to be displayed when an operation is in progress.
@@ -2690,12 +2690,12 @@ angular.module('encore.ui.elements')
  *
  * Though it is described as a search box, you can also use it for filtering
  * capabilities (as seen by the placeholder text in the "Customized"
- * {@link /encore-ui/#/elements/Forms#search-box demo}).
+ * [demo](../#/elements/Forms#search-box)).
  *
  * # Styling
  * You can style the `<rx-search-box>` element via custom CSS classes the same
  * way you would any HTML element. See the customized search box in the
- * {@link /encore-ui/#/elements/Forms#search-box demo} for an example.
+ * [demo](../#/elements/Forms#search-box) for an example.
  *
  * <pre>
  * <rx-search-box
@@ -3128,7 +3128,7 @@ angular.module('encore.ui.elements')
  * time the switch is toggled (after the model property is written on the
  * scope).  It takes one argument, `value`, which is the new value of the model.
  * This can be used instead of a `$scope.$watch` on the `ng-model` property.
- * As shown in the {@link /encore-ui/#/elements/Forms demo}, the `disabled`
+ * As shown in the [demo](../#/elements/Forms), the `disabled`
  * attribute can be used to prevent further toggles if the `post-hook` performs
  * an asynchronous operation.
  *
@@ -3620,7 +3620,7 @@ angular.module('encore.ui.elements')
  *
  * The modal's controller also inherits the `setState()` method on the scope,
  * which should be used to toggle different views or footers. See the
- * *Multi-View Example* in the element {@link /encore-ui/#/elements/Modals demo}
+ * *Multi-View Example* in the element [demo](../#/elements/Modals)
  * for an example of this design pattern's usage.
  *
  * The default `editing` state shows the standard submit and cancel buttons,
@@ -8060,7 +8060,7 @@ angular.module('encore.ui.utilities')
  * You can also create custom stacks for specific notification areas. Say you have a form on your page that you want to
  * add error messages to. You can create a custom stack for this form and send form-specific messages to it.
  *
- * Please see the *Custom Stack* usage example in the `rxNotify` {@link /encore-ui/#/components/rxForm demo}.
+ * Please see the *Custom Stack* usage example in the Notifications [demo](../#/elements/Notifications).
  *
  * ## Adding an `rxNotification` to the Default Stack
  *
@@ -11650,7 +11650,7 @@ angular.module('encore.ui.elements')
  * internally you will be receiving a number of different statuses from your
  * APIs, and will need to map them to these six statuses.
  *
- * The example in the {@link /encore-ui/#/components/rxStatusColumn demo} shows
+ * The example in the [demo](../#/components/rxStatusColumn) shows
  * a typical use of this directive, such as:
  *
  * <pre>
@@ -11744,11 +11744,11 @@ angular.module('encore.ui.elements')
  * <th rx-status-header></th>
  * </pre>
  * Note that status columns are sortable with
- * {@link /encore-ui/#/components/rxSortableColumn rxSortableColumn}, just like any
+ * [rxSortableColumn](../#/elements/Tables#sortable-column), just like any
  * other column. The demo below shows an example of this.
  *
- * One few things to note about the
- * {@link /encore-ui/#/components/rxStatusColumn demo}: The `<th>` is defined as:
+ * One thing to note about the [demo](../#/elements/Tables#sortable-column):
+ * The `<th>` is defined as:
  *
  * <pre>
  * <th rx-status-header>
@@ -11999,7 +11999,7 @@ angular.module('encore.ui.utilities')
  * receives focus.  This list is still filtered according to the input's value,
  * except when the input is empty.  In that case, all the options are shown.
  * To use this feature, add the `allowEmpty` parameter to the `filter` filter
- * in the `typeahead` attribute.  See the {@link /encore-ui/#/components/typeahead demo}
+ * in the `typeahead` attribute.  See the [demo](../#/elements/typeahead)
  * for an example.
  *
  */
