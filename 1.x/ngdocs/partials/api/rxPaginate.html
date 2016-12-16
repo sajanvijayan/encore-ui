@@ -72,7 +72,7 @@ footer, it&#39;s a good idea to hide the entire footer:</p>
     &lt;/tr&gt;
 &lt;/tfoot&gt;
 </pre>
-<p>See the rxPaginate compoent <a href="/encore-ui/#/components/rxPaginate">demo</a> for more examples of this.</p>
+<p>See the rxPaginate compoent <a href="../#/components/rxPaginate">demo</a> for more examples of this.</p>
 <p>This applies to both UI-based pagination and API-based pagination.</p>
 <h2 id="api-based-pagination">API-Based Pagination</h2>
 <p>Many APIs support pagination on their own. Previously, we would have to grab <em>all</em> the data at once,
@@ -201,7 +201,7 @@ pagedServers.refresh(stayOnPage);
 <p>Internally, calling <code>refresh()</code> equates to <code>&lt;rx-paginate&gt;</code> doing a new <code>getItems()</code> call, with
 the current filter/sort criteria. But the point is that you can&#39;t just call <code>getItems()</code> yourself
 to cause an update. The framework has to call that method, so it knows to wait on the returned promise.</p>
-<p>This is shown in the rxPaginate component <a href="/encore-ui/#/components/rxPaginate">demo</a> with a &quot;Refresh&quot; button
+<p>This is shown in the rxPaginate component <a href="../#/components/rxPaginate">demo</a> with a &quot;Refresh&quot; button
 above the API-paginated example.</p>
 <h3 id="api-based-pagination_error-handling">Error Handling</h3>
 <p><code>&lt;rx-paginate&gt;</code> includes a simple way to show error messages when <code>getItems()</code> rejects instead of

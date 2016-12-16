@@ -2,7 +2,7 @@
  * EncoreUI
  * https://github.com/rackerlabs/encore-ui
 
- * Version: 1.50.6 - 2016-12-08
+ * Version: 1.50.6 - 2016-12-16
  * License: Apache-2.0
  */
 angular.module('encore.ui', ['encore.ui.tpls', 'encore.ui.elements','encore.ui.utilities','encore.ui.elements','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.elements','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.layout','encore.ui.metadata','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.rxActiveUrl','encore.ui.utilities','encore.ui.rxApp','encore.ui.utilities','encore.ui.rxAttributes','encore.ui.utilities','encore.ui.utilities','encore.ui.rxBulkSelect','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.rxCharacterCount','encore.ui.rxCollapse','encore.ui.rxCompile','encore.ui.utilities','encore.ui.utilities','encore.ui.rxEnvironment','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.rxFloatingHeader','encore.ui.rxForm','encore.ui.utilities','encore.ui.utilities','encore.ui.rxInfoPanel','encore.ui.utilities','encore.ui.rxLogout','encore.ui.rxMisc','encore.ui.rxModalAction','encore.ui.utilities','encore.ui.utilities','encore.ui.rxMultiSelect','encore.ui.utilities','encore.ui.rxNotify','encore.ui.utilities','encore.ui.rxOptionTable','encore.ui.utilities','encore.ui.rxPaginate','encore.ui.utilities','encore.ui.rxPermission','encore.ui.utilities','encore.ui.rxRadio','encore.ui.utilities','encore.ui.rxSearchBox','encore.ui.rxSelect','encore.ui.rxSelectFilter','encore.ui.rxSortableColumn','encore.ui.utilities','encore.ui.utilities','encore.ui.rxSpinner','encore.ui.rxStatusColumn','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.rxToggle','encore.ui.rxToggleSwitch','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.elements','encore.ui.utilities','encore.ui.utilities','encore.ui.tooltips','encore.ui.typeahead','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities','encore.ui.utilities', 'cfp.hotkeys','ui.bootstrap']);
@@ -464,7 +464,7 @@ angular.module('encore.ui.elements')
  * ## Styling
  *
  * There are several styles of buttons available, and they are documented in the
- * [Buttons Styleguide](/encore-ui/#/elements/Buttons). Any classes that need to be
+ * [Buttons Styleguide](../#/elements/Buttons). Any classes that need to be
  * added to the button should be passed to the `classes` attribute.
  *
  * @param {String} loadingMsg Text to be displayed when an operation is in progress.
@@ -6455,21 +6455,21 @@ angular.module('encore.ui.rxFloatingHeader')
  * `rx-field`, `rx-select-filter`, and `div` children elements in a columnar fashion.  This can be used in conjunction
  * with sections taking the full width of the form.
  *
- *  *See "Advanced Inputs" in the {@link /encore-ui/#/components/rxForm demo} for an example.*
+ *  *See "Advanced Inputs" in the [demo](../#/components/rxForm) for an example.*
  *
  * ## Responsive
  * `rx-field` and `div` elements that are immediate children of `rx-form-section` will grow from 250px to full width of
  * the section.  As such, you will see that these elements will wrap in the section if there's not enough width to
  * accomodate more than one child.
  *
- * *You can see this in the {@link /encore-ui/#/components/rxForm demo} if you resize the width of your browser.*
+ * *You can see this in the [demo](../#/components/rxForm) if you resize the width of your browser.*
  *
  * # Validation
  *
  * ## Required Fields
  * When displaying a field that should be required, please make use of the `ng-required` attribute for rxFieldName.
  * When the value evaluates to true, an asterisk will display to the left of the field name.  You can see an example
- * of this with the "Required Textarea" field name in the {@link /encore-ui/#/components/rxForm demo}.
+ * of this with the "Required Textarea" field name in the [demo](../#/components/rxForm).
  *
  * See {@link rxForm.directive:rxFieldName rxFieldName}
  * API Documentation for more information.
@@ -6483,7 +6483,7 @@ angular.module('encore.ui.rxFloatingHeader')
  * The example shown in the "Email Address" example, uses a custom `foocheck` validator. Note that it is enabled by
  * placing the `foocheck` attribute in the `<input>` element, and using it with
  * `ng-show="demoForm.userEmail.$error.foocheck"`.  Check out the Javascript tab in
- * the {@link /encore-ui/#/components/rxForm demo} to see how this validator is implemented.
+ * the [demo](../#/components/rxForm) to see how this validator is implemented.
  *
  * There are plenty of examples online showing the same thing.
  *
@@ -7795,7 +7795,7 @@ angular.module('encore.ui.rxModalAction')
  * they were defined with.
  *
  * The modal's controller also inherits the `setState()` method on the scope, which should be used to toggle different
- * views or footers. See the *Multi-View Example* in the component {@link /encore-ui/#/components/rxModalAction demo}
+ * views or footers. See the *Multi-View Example* in the component [demo](../#/components/rxModalAction)
  * for an example of this design pattern's usage.
  *
  * The default `editing` state shows the standard submit and cancel buttons, and the only other state provided by the
@@ -8481,7 +8481,7 @@ angular.module('encore.ui.utilities')
  * You can also create custom stacks for specific notification areas. Say you have a form on your page that you want to
  * add error messages to. You can create a custom stack for this form and send form-specific messages to it.
  *
- * Please see the *Custom Stack* usage example in the `rxNotify` {@link /encore-ui/#/components/rxForm demo}.
+ * Please see the *Custom Stack* usage example in the `rxNotify` [demo](../#/components/rxNotify).
  *
  * ## Adding an `rxNotification` to the Default Stack
  *
@@ -9213,7 +9213,7 @@ angular.module('encore.ui.utilities')
  * </tfoot>
  * </pre>
  *
- * See the rxPaginate compoent {@link /encore-ui/#/components/rxPaginate demo} for more examples of this.
+ * See the rxPaginate compoent [demo](../#/components/rxPaginate) for more examples of this.
  *
  * This applies to both UI-based pagination and API-based pagination.
  *
@@ -9367,7 +9367,7 @@ angular.module('encore.ui.utilities')
  * the current filter/sort criteria. But the point is that you can't just call `getItems()` yourself
  * to cause an update. The framework has to call that method, so it knows to wait on the returned promise.
  *
- * This is shown in the rxPaginate component {@link /encore-ui/#/components/rxPaginate demo} with a "Refresh" button
+ * This is shown in the rxPaginate component [demo](../#/components/rxPaginate) with a "Refresh" button
  * above the API-paginated example.
  *
  * ## Error Handling
@@ -9869,7 +9869,7 @@ angular.module('encore.ui.rxPermission')
  * @scope
  * @description
  * Simple directive which will show or hide content based on whether or not the user has the specified role. See
- * the `rxPermission` component {@link /encore-ui/#/components/rxPermission demo} for an example.
+ * the `rxPermission` component [demo](../#/components/rxPermission) for an example.
  *
  * @requires rxPermission.service:Permission
  *
@@ -10197,12 +10197,12 @@ angular.module('encore.ui.rxSearchBox')
  *
  * Though it is described as a search box, you can also use it for filtering
  * capabilities (as seen by the placeholder text in the "Customized"
- * {@link /encore-ui/#/components/rxSearchBox demo}).
+ * [demo](../#/components/rxSearchBox)).
  *
  * # Styling
  * You can style the `<rx-search-box>` element via custom CSS classes the same
  * way you would any HTML element. See the customized search box in the
- * {@link /encore-ui/#/components/rxSearchBox demo} for an example.
+ * [demo](../#/components/rxSearchBox) for an example.
  *
  * <pre>
  * <rx-search-box
@@ -10640,7 +10640,7 @@ angular.module('encore.ui.rxStatusColumn')
  * internally you will be receiving a number of different statuses from your
  * APIs, and will need to map them to these six statuses.
  *
- * The example in the {@link /encore-ui/#/components/rxStatusColumn demo} shows a typical
+ * The example in the [demo](../#/components/rxStatusColumn) shows a typical
  * use of this directive, such as:
  *
  * <pre>
@@ -10732,11 +10732,11 @@ angular.module('encore.ui.rxStatusColumn')
  * <th rx-status-header></th>
  * </pre>
  * Note that status columns are sortable with
- * {@link /encore-ui/#/components/rxSortableColumn rxSortableColumn}, just like any
+ * [rxSortableColumn](../#/components/rxSortableColumn), just like any
  * other column. The demo below shows an example of this.
  *
- * One few things to note about the
- * {@link /encore-ui/#/components/rxStatusColumn demo}: The `<th>` is defined as:
+ * One thing to note about the [demo](../#/components/rxStatusColumn):
+ * The `<th>` is defined as:
  *
  * <pre>
  * <th rx-status-header>
@@ -11198,7 +11198,7 @@ angular.module('encore.ui.rxToggleSwitch')
  * time the switch is toggled (after the model property is written on the
  * scope).  It takes one argument, `value`, which is the new value of the model.
  * This can be used instead of a `$scope.$watch` on the `ng-model` property.
- * As shown in the {@link /encore-ui/#/components/rxToggleSwitch demo}, the `disabled`
+ * As shown in the [demo](../#/components/rxToggleSwitch), the `disabled`
  * attribute can be used to prevent further toggles if the `post-hook` performs
  * an asynchronous operation.
  *
@@ -12297,9 +12297,9 @@ angular.module('encore.ui.utilities')
  * <rx-button tooltip="...">
  * </pre>
  *
- * If you're creating your own custom directive, it's fine to use the `tooltip` 
+ * If you're creating your own custom directive, it's fine to use the `tooltip`
  * directive inside of your directive's template.  See the tooltips component
- * {@link /encore-ui/#/components/tooltips demo} for example usage.
+ * [demo](../#/components/tooltips) for example usage.
  *
  * The [Angular-UI Bootstrap Tooltip](https://github.com/angular-ui/bootstrap/tree/master/src/tooltip)
  * plugin is included as a dependency for EncoreUI.
@@ -12326,7 +12326,7 @@ angular.module('encore.ui.tooltips', []);
  * receives focus.  This list is still filtered according to the input's value,
  * except when the input is empty.  In that case, all the options are shown.
  * To use this feature, add the `allowEmpty` parameter to the `filter` filter
- * in the `typeahead` attribute.  See the {@link /encore-ui/#/components/typeahead demo}
+ * in the `typeahead` attribute.  See the [demo](../#/components/typeahead)
  * for an example.
  *
  */

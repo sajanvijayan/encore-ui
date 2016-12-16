@@ -30,7 +30,7 @@ angular.module('demoApp')
     },
     "Breadcrumbs.simple": {
         "markup": "<div ng-controller=\"BreadcrumbsSimpleCtrl\">\n  <nav>\n    <rx-breadcrumbs></rx-breadcrumbs>\n  </nav>\n</div>\n",
-        "javascript": "angular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '/#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n"
+        "javascript": "angular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n"
     },
     "button.animated": {
         "markup": "<div ng-controller=\"buttonAnimatedExampleCtrl\">\n  <rx-button\n     default-msg=\"Click here to see ellipses\"\n     toggle=\"status.loading\"\n     toggle-msg=\"Loading Ellipses\"\n     ng-click=\"clickMe()\"\n     disable=\"status.disable\">\n  </rx-button>\n</div>\n",

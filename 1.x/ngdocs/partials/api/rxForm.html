@@ -67,17 +67,17 @@ a common HTML layout and style for all form elements, which helps ensure form ac
 for a particular section, place the <code>stacked</code> attribute on the <code>rx-form-section</code> element.  This will arrange the
 <code>rx-field</code>, <code>rx-select-filter</code>, and <code>div</code> children elements in a columnar fashion.  This can be used in conjunction
 with sections taking the full width of the form.</p>
-<p> <em>See &quot;Advanced Inputs&quot; in the <a href="/encore-ui/#/components/rxForm">demo</a> for an example.</em></p>
+<p> <em>See &quot;Advanced Inputs&quot; in the <a href="../#/components/rxForm">demo</a> for an example.</em></p>
 <h3 id="layout_responsive">Responsive</h3>
 <p><code>rx-field</code> and <code>div</code> elements that are immediate children of <code>rx-form-section</code> will grow from 250px to full width of
 the section.  As such, you will see that these elements will wrap in the section if there&#39;s not enough width to
 accomodate more than one child.</p>
-<p><em>You can see this in the <a href="/encore-ui/#/components/rxForm">demo</a> if you resize the width of your browser.</em></p>
+<p><em>You can see this in the <a href="../#/components/rxForm">demo</a> if you resize the width of your browser.</em></p>
 <h2 id="validation">Validation</h2>
 <h3 id="validation_required-fields">Required Fields</h3>
 <p>When displaying a field that should be required, please make use of the <code>ng-required</code> attribute for rxFieldName.
 When the value evaluates to true, an asterisk will display to the left of the field name.  You can see an example
-of this with the &quot;Required Textarea&quot; field name in the <a href="/encore-ui/#/components/rxForm">demo</a>.</p>
+of this with the &quot;Required Textarea&quot; field name in the <a href="../#/components/rxForm">demo</a>.</p>
 <p>See <a href="#/api/rxForm.directive:rxFieldName">rxFieldName</a>
 API Documentation for more information.</p>
 <h3 id="validation_custom-validators">Custom Validators</h3>
@@ -87,7 +87,7 @@ validation errors into a styled message.  You can also use this element if you d
 <p>The example shown in the &quot;Email Address&quot; example, uses a custom <code>foocheck</code> validator. Note that it is enabled by
 placing the <code>foocheck</code> attribute in the <code>&lt;input&gt;</code> element, and using it with
 <code>ng-show=&quot;demoForm.userEmail.$error.foocheck&quot;</code>.  Check out the Javascript tab in
-the <a href="/encore-ui/#/components/rxForm">demo</a> to see how this validator is implemented.</p>
+the <a href="../#/components/rxForm">demo</a> to see how this validator is implemented.</p>
 <p>There are plenty of examples online showing the same thing.</p>
 <h2 id="migrating-old-code">Migrating Old Code</h2>
 <h3 id="migrating-old-code_deprecated-directives">Deprecated Directives</h3>

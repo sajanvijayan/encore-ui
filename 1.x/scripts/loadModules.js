@@ -984,7 +984,7 @@ angular.module('demoApp')
         ],
         "docs": {
             "md": "",
-            "js": "angular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '/#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
+            "js": "angular.module('demoApp')\n.controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {\n    rxBreadcrumbsSvc.set([{\n        path: '#/elements',\n        name: 'Elements',\n    }, {\n        name: '<strong>All Elements</strong>',\n        status: 'demo'\n    }]);\n});\n",
             "html": "<p>\n  Displays navigation breadcrumbs on a page.\n</p>\n\n<rx-example class=\"site-breadcrumbs\" name=\"Breadcrumbs.simple\"></rx-example>\n",
             "less": ""
         }
