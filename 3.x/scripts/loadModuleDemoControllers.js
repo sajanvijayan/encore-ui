@@ -349,7 +349,7 @@ angular.module('demoApp')
 angular.module('demoApp')
 .controller('BreadcrumbsSimpleCtrl', function ($scope, rxBreadcrumbsSvc) {
     rxBreadcrumbsSvc.set([{
-        path: '/#/elements',
+        path: '#/elements',
         name: 'Elements',
     }, {
         name: '<strong>All Elements</strong>',
@@ -1641,14 +1641,6 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
-.controller('EnvironmentSimpleCtrl', function ($scope, Environment) {
-    var environment = Environment.get();
-    $scope.url = environment.url;
-    $scope.name = environment.name;
-});
-
-
-angular.module('demoApp')
 .controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {
     $scope.setErrorMsg = function (msg) {
         var error = { message: msg };
@@ -1937,14 +1929,22 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
+.controller('EnvironmentSimpleCtrl', function ($scope, rxEnvironment) {
+    var environment = rxEnvironment.get();
+    $scope.url = environment.url;
+    $scope.name = environment.name;
+});
+
+
+angular.module('demoApp')
 .controller('rxEnvironmentMatchSimpleCtrl', function ($scope, Environment) {
     $scope.Environment = Environment;
 });
 
 
 angular.module('demoApp')
-.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, Environment) {
-    $scope.Environment = Environment;
+.controller('rxEnvironmentUrlSimpleCtrl', function ($scope, rxEnvironment) {
+    $scope.rxEnvironment = rxEnvironment;
 });
 
 

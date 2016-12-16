@@ -307,7 +307,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Define a footer for the next modal.",
-      "keywords": "activated api attribute button buttons cancel case changing class complete confirm content controller default define defined demo design directive editing element elements example footer footers form framework global inherits kicks loaded method modal modals module multiple ng-click pattern pending process provided return risks scope setstate standard submit subsequent takes template toggle tracked understand usage values views"
+      "keywords": "activated api attribute button buttons cancel case changing class complete confirm content controller default define defined design directive editing element elements example footer footers form framework global inherits kicks loaded method modal modals module multiple ng-click pattern pending process provided return risks scope setstate standard submit subsequent takes template toggle tracked understand usage values views"
     },
     {
       "section": "api",
@@ -388,7 +388,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "The rxSearchBox directive behaves similar to the HTML &quot;Search&quot; input type.",
-      "keywords": "allow api behaves bind boolean box button capabilities classes clear cleared css custom customized customsearchmodel default demo described directive disabled disappear display element elements empty enable example filtering filterplaceholder html input model ng-disabled ng-model override placeholder rx-placeholder rxsearchbox search search-box searchmodel string style styling text type"
+      "keywords": "allow api behaves bind boolean box button capabilities classes clear cleared css custom customized customsearchmodel default described directive disabled disappear display element elements empty enable example filtering filterplaceholder html input model ng-disabled ng-model override placeholder rx-placeholder rxsearchbox search search-box searchmodel string style styling text type"
     },
     {
       "section": "api",
@@ -442,7 +442,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "A directive for drawing colored status columns in a table. This",
-      "keywords": "action actions active add additional additive animated api apis appropriate appropriately attribute attributes code color colored column columns completes corresponding create css currently default delete demo destructive directive disabled distinction draw drawing elements encore ends error example explained follow general green info ing internally item logic map mapping ng-repeat note number optional optionally pass passed pending place progress receiving red rule rx-status-column rxstatuscolumn server servers set sets simply status statuses string stripes styles support table takes thumb title tooltip tooltip-content transition treatment true typical usage user warning yellow"
+      "keywords": "action actions active add additional additive animated api apis appropriate appropriately attribute attributes code color colored column columns completes corresponding create css currently default delete destructive directive disabled distinction draw drawing elements encore ends error example explained follow general green info ing internally item logic map mapping ng-repeat note number optional optionally pass passed pending place progress receiving red rule rx-status-column rxstatuscolumn server servers set sets simply status status-column statuses string stripes styles support table takes thumb title tooltip tooltip-content transition treatment true typical usage user warning yellow"
     },
     {
       "section": "api",
@@ -451,7 +451,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Place this attribute directive on the &lt;th&gt; for the status columns. It",
-      "keywords": "add api attribute column columns coming component correct defined demo directive elements ensures example note place predicate property referring representing reverse row rx-status-header rxsortablecolumn server sort sort-method sort-property sortable sortcol sorting status styling text things"
+      "keywords": "add api attribute column columns coming component correct defined demo directive elements ensures example note place predicate property referring representing reverse row rx-status-header rxsortablecolumn server sort sort-method sort-property sortable sortcol sorting status status-column styling text thing"
     },
     {
       "section": "api",
@@ -487,7 +487,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Displays an on/off switch toggle",
-      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined demo directive disabled displays elements evaluate evaluated expression false false-value foo function initialization model ng-disabled ng-model note operation passed performs post-hook posthook prevent property scope set switch takes time toggle toggled toggles true true-value truthy values written"
+      "keywords": "$scope $watch api argument asynchronous attribute attributes automatically bind configurable defined directive disabled displays elements evaluate evaluated expression false false-value foo function initialization model ng-disabled ng-model note operation passed performs post-hook posthook prevent property scope set switch takes time toggle toggled toggles true true-value truthy values written"
     },
     {
       "section": "api",
@@ -934,8 +934,7 @@ NG_DOCS={
       "shortName": "Environment",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
-      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
+      "keywords": "api item release removed rxenvironment service utilities"
     },
     {
       "section": "api",
@@ -1056,6 +1055,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.service:rxEnvironment",
+      "shortName": "rxEnvironment",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Allows defining environments and retrieving the current environment based on location",
+      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
+    },
+    {
+      "section": "api",
       "id": "utilities.service:rxFeedbackSvc",
       "shortName": "rxFeedbackSvc",
       "type": "service",
@@ -1106,7 +1114,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Manages page messages for an application.",
-      "keywords": "$scope $timeout add adding adds allow allowed angular api apicallback app appear application appropriate areas argument asks associate attribute call case cases change clear clearing code collect component content create created custom customize data default delete deletes demo details differs directive directives disappear dismiss dismissed dismissing display displayed elements equals error example false flags form form-specific function gather html icon info inject integer loaded loading login loginform manages message messages messaging method modal msg navigates noop note notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready recommend reference remove removes repeat replaces required returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single situations specific spinner stack stacks status string styling success supported tag template text time timeout top true type usage user username utilities values var variable views warning watch window work"
+      "keywords": "$scope $timeout add adding adds allow allowed angular api apicallback app appear application appropriate areas argument asks associate attribute call case cases change clear clearing code collect component content create created custom customize data default delete deletes details differs directive directives disappear dismiss dismissed dismissing display displayed elements equals error example false flags form form-specific function gather html icon info inject integer loaded loading login loginform manages message messages messaging method modal msg navigates noop note notification notifications object ondismiss opening option options page-level parameter pass point positive programatically programmatically programmaticaly property queue ready recommend reference remove removes repeat replaces required returned route rxapp rxnotification rxnotifications rxnotify rxpage scope second seconds send separate service set simply single situations specific spinner stack stacks status string styling success supported tag template text time timeout top true type usage user username utilities values var variable views warning watch window work"
     },
     {
       "section": "api",

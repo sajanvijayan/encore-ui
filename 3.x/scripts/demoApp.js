@@ -1,17 +1,11 @@
 function genericRouteController (breadcrumbs) {
-    return function (rxBreadcrumbsSvc, Environment, $interpolate) {
+    return function (rxBreadcrumbsSvc) {
         if (breadcrumbs === undefined) {
             breadcrumbs = [{
                 name: '',
                 path: ''
             }]
         }
-
-        breadcrumbs.forEach(function (breadcrumb) {
-            if (breadcrumb.path) {
-                breadcrumb.path = $interpolate(Environment.get().url)({ path: breadcrumb.path });
-            }
-        });
 
         rxBreadcrumbsSvc.set(breadcrumbs);
     }
@@ -157,15 +151,15 @@ angular.module('demoApp', ['encore.ui', 'ngRoute'])
     });
 })
 .run(function ($rootScope, $window, $location, $anchorScroll, $interpolate,
-               Environment, rxBreadcrumbsSvc, rxPageTitle, Modules, $timeout) {
+               rxEnvironment, rxBreadcrumbsSvc, rxPageTitle, Modules, $timeout) {
     var baseGithubUrl = '//rackerlabs.github.io/encore-ui/';
-    Environment.add({
+    rxEnvironment.add({
         name: 'ghPages',
         pattern: /\/\/rackerlabs.github.io/,
         url: baseGithubUrl + '{{path}}'
     });
 
-    rxBreadcrumbsSvc.setHome($interpolate(Environment.get().url)({ path: '#/overview' }), 'Overview');
+    rxBreadcrumbsSvc.setHome('#/overview', 'Overview');
 
     var linksForModuleCategory = function (kategory) {
         var filteredModules = _.filter(Modules, {
