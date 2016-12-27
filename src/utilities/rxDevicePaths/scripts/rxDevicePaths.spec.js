@@ -6,8 +6,8 @@ describe('devicePaths', function () {
         module('encore.ui.utilities');
 
         // Inject in angular constructs
-        inject(function (devicePaths) {
-            dp = devicePaths;
+        inject(function (rxDevicePaths) {
+            dp = rxDevicePaths;
         });
     });
 
