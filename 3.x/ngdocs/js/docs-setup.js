@@ -352,7 +352,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "The rxPaginate component adds pagination to a table.",
-      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated component conjunction controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete descending described details determine direction directive directly display displayed documentation don draw dropdowns dynamic element elements ensure entered enters entire equates error error-message errormessage errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially input instance instances intend intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching maximum meets message messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number numberofpages object offset option optional options opts orderby outputs page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement requirements resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported switching table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utilities utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
+      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated component conjunction controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete descending described details determine direction directive directly display displayed documentation don draw dropdowns dynamic element elements ensure entered enters entire equates error error-message errormessage errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially input instance instances intend intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching maximum meets message messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number numberofpages object offset option optional options opts orderby outputs page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement requirements resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxselectfilter rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported switching table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utilities utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
     },
     {
       "section": "api",
@@ -406,7 +406,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "Automatically creates the appropriate dropdowns to manage a filter object.",
-      "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns elements enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter selectfilter set usage validation"
+      "keywords": "$scope api appropriate automatically child component controller create creates directive dropdowns elements enforces filter hierarchy instance instaniated instantiated manage modify object options relationship rxform rxformsection rxselectfilter set usage validation"
     },
     {
       "section": "api",
@@ -745,8 +745,7 @@ NG_DOCS={
       "shortName": "Page",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
-      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination service utilities"
+      "keywords": "api filter release removed rxpager utilities"
     },
     {
       "section": "api",
@@ -781,8 +780,8 @@ NG_DOCS={
       "shortName": "rxApply",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "Used to apply an instance of SelectFilter to an array.",
-      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat selectfilter service utilities"
+      "shortDescription": "Used to apply an instance of rxSelectFilter to an array.",
+      "keywords": "api apply applyto array calls filter filtered input instance item list method ng-repeat rxselectfilter service utilities"
     },
     {
       "section": "api",
@@ -855,6 +854,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Converts dateString to standard Month format",
       "keywords": "api converts datestring filter format long micro month september short standard utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.filter:rxPager",
+      "shortName": "rxPager",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "This is the pagination filter that is used to limit the number of pages",
+      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination service utilities"
     },
     {
       "section": "api",
@@ -942,8 +950,7 @@ NG_DOCS={
       "shortName": "ErrorFormatter",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Provides a helper method to parse error objects for message and format them",
-      "keywords": "api automatically balanced browsing cleared defined displayed error errorformatter errorformmatter example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing referenceerror replace replacement replacements result second service seterror specialized status string template user utilities variable variables"
+      "keywords": "api item release removed rxerrorformatter service utilities"
     },
     {
       "section": "api",
@@ -969,8 +976,7 @@ NG_DOCS={
       "shortName": "NotifyProperties",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
-      "keywords": "_numselected abstracting allowing api call called calling change changes child complete control controller directive directives element example exposed factory function functionality integer live ll method modified notification notificationfunction notifications notified notifyproperties numselected oldvalue parent plain properties property register registered registerfornumselected registers registrationfn require scope service set sets stats track user utilities"
+      "keywords": "api item release removed rxnotifyproperties service utilities"
     },
     {
       "section": "api",
@@ -978,8 +984,7 @@ NG_DOCS={
       "shortName": "PageTracking",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
-      "keywords": "$scope allowing alter api appropriate attribute behaviour change choose configuration conjunction controls createinstance customize data default determine directive display displayed elements encore generate globally inserted instance intended items itemsizelist itemsperpage list method number numbers object objects optional options page-tracking pager pagers pagestoshow pagetracking pagination passed persisted persistitemsperpage place rxpaginate service set showall store table tables takes true user utilities values"
+      "keywords": "api item release removed rxpagetracker service utilities"
     },
     {
       "section": "api",
@@ -1015,7 +1020,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "A factory that controllers can use to help automatically save and load",
-      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords path prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service sessionstorage set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users utilities val values var variable visits watch watched won write"
+      "keywords": "$location $resource $scope $watch _some_ accept accepting accidentally actions add addition affect api appearing apply appropriate argument attribute attributes automatic automatically autosave autosave1 autosave2 backend backends background birthday blank boolean browser button caching calculated call calling card case cases chance change changed changes check checkbox chkcheckbox clear cleared clearing clearonsuccess click commit computer continuous controller controllers correctly corresponding create credit current custom customername data days decision default defaults delay demoform described description desired directives disable disagree don edit editing encoreui entering eventually example exclude excluding exist expiration expire expired expiring expiry explicit explict expression factory fails false field flags form form1data form2data formdata formed forms freshly function getobject good happen help hours html ignore independently individual initialization initialized inject instance instances instantation instantiating instantiation integer intended intent interested interface interfaces key keyed keyshaping knowledge length live load loaded loading loads localstorage location logs long manual manually manualsave mentioned method methods model models modify multiple names navigate ng-model note null numbers object onsubmit operates optional options opts original out-of-the-box override parameter pass passed passing password passwords path prefix prepending prevent preventing process progress promise property provide provided receive replace requirement requires resolution resolve resolved resolves return returns rows running rx-checkbox rx-form rxautosave rxlocalstoage rxlocalstorage rxsessionstorage save saved saves saving scope seconds send sensitive server server1 server2 servers serversubmitpromise service set setobject setting simultaneously specific stacked stated storage storagebackend store stored storing string submit success successful successfull support supported supports takes template templates text third time time-to-live track true ttl turn type unchecked url usage user users utilities val values var variable visits watch watched won write"
     },
     {
       "section": "api",
@@ -1061,6 +1066,15 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Allows defining environments and retrieving the current environment based on location",
       "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxErrorFormatter",
+      "shortName": "rxErrorFormatter",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Provides a helper method to parse error objects for message and format them",
+      "keywords": "api automatically balanced browsing cleared defined displayed error example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing referenceerror replace replacement replacements result rxerrorformatter second service seterror specialized status string template user utilities variable variables"
     },
     {
       "section": "api",
@@ -1118,12 +1132,30 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.service:rxNotifyProperties",
+      "shortName": "rxNotifyProperties",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This factory provides functionality for abstracting &quot;properties&quot;, and allowing",
+      "keywords": "_numselected abstracting allowing api call called calling change changes child complete control controller directive directives element example exposed factory function functionality integer live ll method modified notification notificationfunction notifications notified numselected oldvalue parent plain properties property register registered registerfornumselected registers registrationfn require rxnotifyproperties scope service set sets stats track user utilities"
+    },
+    {
+      "section": "api",
       "id": "utilities.service:rxPageTitle",
       "shortName": "rxPageTitle",
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "rxPageTitle service manages page titles.",
       "keywords": "alert api arbitrary caveats correctly danger html js listed manages methods note null onerror pass passed raw result rxpagetitle second service sets setting settitle settitleunsafestriphtml simply source src string stripped strips tags title titles trusted utilities valid"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxPageTracker",
+      "shortName": "rxPageTracker",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "This is the data service that can be used in conjunction with the pagination",
+      "keywords": "$scope allowing alter api appropriate attribute behaviour change choose configuration conjunction controls createinstance customize data default determine directive display displayed elements encore generate globally inserted instance intended items itemsizelist itemsperpage list method number numbers object objects optional options page-tracking pager pagers pagestoshow pagination passed persisted persistitemsperpage place rxpagetracker rxpaginate service set showall store table tables takes true user utilities values"
     },
     {
       "section": "api",
@@ -1151,6 +1183,24 @@ NG_DOCS={
       "moduleName": "utilities",
       "shortDescription": "Captures a screenshot for rxFeedback submission form.",
       "keywords": "api captures default encoreui form framework required rxfeedback rxscreenshotsvc screenshot service submission utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxSelectFilter",
+      "shortName": "rxSelectFilter",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
+      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public relying requirement rxselectfilter selected server-side service single source stated strict subsets three time tracks utilities var watched year"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxSessionStorage",
+      "shortName": "rxSessionStorage",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
+      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided removeitem return returns robin rxsessionstorage service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing utilities values variable w3 w3c works wrapper"
     },
     {
       "section": "api",
@@ -1212,8 +1262,7 @@ NG_DOCS={
       "shortName": "SelectFilter",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "A prototype for creating objects that can be used for filtering arrays.",
-      "keywords": "api applies apply applyto array arrays assuming auto-populated automatically call called case changed configurable control counterparts create creating data defaults defined delayed directly equivalent eventid example exposes filter filteredarray filtering form implied indicate initialization initialize initialized input instance instances internal item key list listed matches method note object objects option options pagination populated properties property prototype provided public relying requirement selected selectfilter server-side service single source stated strict subsets three time tracks utilities var watched year"
+      "keywords": "api item release removed rxselectfilter service utilities"
     },
     {
       "section": "api",
@@ -1230,8 +1279,7 @@ NG_DOCS={
       "shortName": "SessionStorage",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "A simple wrapper for injecting the global variable sessionStorage",
-      "keywords": "$document $window angular api batman clear functions getitem getobject global helper hero http includes injecting key objects org provided removeitem return returns robin service services session sessionstorage setitem setobject setting simple specification storage storage-0 storing utilities values variable w3 w3c works wrapper"
+      "keywords": "api item release removed rxsessionstorage service utilities"
     },
     {
       "section": "api",

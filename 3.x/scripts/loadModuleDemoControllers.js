@@ -1295,8 +1295,8 @@ angular.module('demoApp')
 });
 
 angular.module('demoApp')
-.controller('rxSelectFilterSimpleCtrl', function ($scope, SelectFilter) {
-    $scope.filter = SelectFilter.create({
+.controller('rxSelectFilterSimpleCtrl', function ($scope, rxSelectFilter) {
+    $scope.filter = rxSelectFilter.create({
         properties: ['account', 'status'],
         selected: {
             account: ['A']
@@ -1438,7 +1438,7 @@ angular.module('demoApp')
 
 angular.module('demoApp')
 .controller('rxPaginateApiCtrl', function ($scope, $q, $timeout, $filter, PageTracking,
-                rxSortUtil, SelectFilter) {
+                rxSortUtil, rxSelectFilter) {
 
     var os = ['Ubuntu 12.04', 'Red Hat Enterprise Linux 6.4', 'CentOS 6.4', 'Ubuntu 13.04'];
     var makeServers = function (serverCount) {
@@ -1508,7 +1508,7 @@ angular.module('demoApp')
     $scope.clearFilter = function () {
         $scope.data.searchText = '';
     };
-    $scope.osFilter = SelectFilter.create({
+    $scope.osFilter = rxSelectFilter.create({
         properties: ['os'],
         available: {
             os: os
@@ -1640,23 +1640,6 @@ angular.module('demoApp')
 });
 
 
-angular.module('demoApp')
-.controller('ErrorFormatterSimpleCtrl', function ($scope, ErrorFormatter) {
-    $scope.setErrorMsg = function (msg) {
-        var error = { message: msg };
-        $scope.errorMsg = ErrorFormatter.buildErrorMsg('Error: ${message}', error);
-    };
-});
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1669,18 +1652,6 @@ angular.module('demoApp')
 .controller('SessionSimpleCtrl', function ($scope, $window, Session) {
     $scope.isAuthenticated = function () {
         $window.alert(Session.isAuthenticated());
-    };
-});
-
-
-angular.module('demoApp')
-.controller('SessionStorageSimpleCtrl', function ($scope, $window, SessionStorage) {
-    $scope.setSideKick = function () {
-        SessionStorage.setItem('Batman', 'Robin');
-    };
-
-    $scope.getSideKick = function () {
-        $window.alert(SessionStorage.getItem('Batman'));
     };
 });
 
@@ -1800,8 +1771,8 @@ angular.module('demoApp')
 
 
 angular.module('demoApp')
-.controller('ApplySimpleCtrl', function ($scope, SelectFilter) {
-    $scope.filter = SelectFilter.create({
+.controller('ApplySimpleCtrl', function ($scope, rxSelectFilter) {
+    $scope.filter = rxSelectFilter.create({
         properties: ['account', 'status'],
         selected: {
             account: ['A']
@@ -1948,6 +1919,15 @@ angular.module('demoApp')
 });
 
 
+angular.module('demoApp')
+.controller('ErrorFormatterSimpleCtrl', function ($scope, rxErrorFormatter) {
+    $scope.setErrorMsg = function (msg) {
+        var error = { message: msg };
+        $scope.errorMsg = rxErrorFormatter.buildErrorMsg('Error: ${message}', error);
+    };
+});
+
+
 
 
 
@@ -1987,6 +1967,8 @@ angular.module('demoApp')
 
 
 
+
+
 angular.module('demoApp')
 .controller('rxPageTitleSimpleCtrl', function ($scope, rxPageTitle) {
     $scope.changeTitle = function () {
@@ -1999,6 +1981,10 @@ angular.module('demoApp')
 
     $scope.refreshTitle();
 });
+
+
+
+
 
 
 
@@ -2062,6 +2048,20 @@ angular.module('demoApp')
 });
 
 
+
+
+
+
+angular.module('demoApp')
+.controller('SessionStorageSimpleCtrl', function ($scope, $window, rxSessionStorage) {
+    $scope.setSideKick = function () {
+        rxSessionStorage.setItem('Batman', 'Robin');
+    };
+
+    $scope.getSideKick = function () {
+        $window.alert(rxSessionStorage.getItem('Batman'));
+    };
+});
 
 
 angular.module('demoApp')

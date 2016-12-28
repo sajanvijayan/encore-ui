@@ -1,34 +1,12 @@
-<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/utilities/ErrorFormatter/scripts/ErrorFormatter.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/335c776/src/utilities/ErrorFormatter/scripts/ErrorFormatter.js#L37" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">ErrorFormatter</code>
+<a href="https://github.com/rackerlabs/encore-ui/edit/master/src/utilities/rxErrorFormatter/scripts/rxErrorFormatter.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/rackerlabs/encore-ui/blob/cb48afb/src/utilities/rxErrorFormatter/scripts/rxErrorFormatter.js#L63" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">ErrorFormatter</code>
 <div><span class="hint">service in module <code ng:non-bindable="">utilities</code>
 </span>
 </div>
 </h1>
-<div><h2 id="description">Description</h2>
-<div class="description"><div class="utilities-service-page utilities-service-errorformatter-page"><p>Provides a helper method to parse error objects for <code>message</code> and format them
-as necessary for <code>Status.setError()</code>.  See <a href="#/api/utilities.service:Status">Status</a> Service
-for more information.</p>
-<h3 id="description_error-messages-using-errorformatter">Error Messages Using ErrorFormatter</h3>
-<p><code>ErrorFormmatter</code> provides a specialized template <code>error</code> string
-with an <code>object:{}</code> as the second parameter containing the replacements for
-the template in the error string.  If in a proper format, the object can be
-automatically parsed using an <code>ErrorFormatter</code> and displayed to the user.</p>
-<p>For example:</p>
-<pre class="prettyprint linenums">
-Status.setError(
-    'Failed loading browsing history: ${message}',
-    {
-        message: 'User has previously cleared their history!'
-    }
-);
-</pre>
-<p>Please note that the replacement variable <code>${message}</code> in the error string
-maps one-to-one to the keys provided in the the error object.</p>
-<ul>
-<li>One can specify any number of template variables to replace.</li>
-<li>Not providing a balanced list of variables and their replacements will result in a:</li>
+<div><fieldset class="deprecated"><legend>Deprecated API</legend>
+Please use rxErrorFormatter instead. This item will be removed on the 4.0.0 release.</fieldset>
+<h2 id="dependencies">Dependencies</h2>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#/api/utilities.service:rxErrorFormatter">rxErrorFormatter</a></code>
+</li>
 </ul>
-<pre class="prettyprint linenums">
-ReferenceError: &lt;replacement&gt; is not defined
-</pre>
-</div></div>
 </div>
