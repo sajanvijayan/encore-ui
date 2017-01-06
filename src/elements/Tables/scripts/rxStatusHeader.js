@@ -13,12 +13,10 @@ angular.module('encore.ui.elements')
  * <pre>
  * <th rx-status-header></th>
  * </pre>
- * Note that status columns are sortable with
- * {@link /encore-ui/#/components/rxSortableColumn rxSortableColumn}, just like any
+ * Note that status columns are sortable with rxSortableColumn, just like any
  * other column. The demo below shows an example of this.
  *
- * One few things to note about the
- * {@link /encore-ui/#/components/rxStatusColumn demo}: The `<th>` is defined as:
+ * **Note:** The `<th>` is defined as:
  *
  * <pre>
  * <th rx-status-header>

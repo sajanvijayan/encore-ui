@@ -7,12 +7,17 @@ var _banner = `/*
  */`;
 
 module.exports = {
+    github: {
+        base: 'https://github.com/rackerlabs/encore-ui',
+        branch: '4.x',
+        src: '<%= config.github.base %>/tree/<%= config.github.branch %>/src'
+    },
     dir: {
         app: 'src',
         bower: 'bower',
         build: 'build',
         dist: '<%= config.dir.docs %>/dist', // used for js/css files pushed to CDN/bower
-        docs: 'build/3.x', // used for demo, coverage, and jsdocs files to go to gh-pages
+        docs: 'build/4.x', // used for demo, coverage, and jsdocs files to go to gh-pages
         exportableStyles: '<%= config.dir.app %>/styles',
     },
     /* BOWER OUTPUT/DISTRIBUTION */
@@ -28,7 +33,7 @@ module.exports = {
     examples: {}, // filled in by examples task
     banner: _banner,
     css: {
-        demoApp: 'css/demoApp.css',
+        demoApp: 'css/app.css',
         demos: 'css/demos.css',
         examples: 'css/examples.css',
         map: {
