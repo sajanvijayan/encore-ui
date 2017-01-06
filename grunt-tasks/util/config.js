@@ -7,12 +7,17 @@ var _banner = `/*
  */`;
 
 module.exports = {
+    github: {
+        base: 'https://github.com/rackerlabs/encore-ui',
+        branch: '2.x',
+        src: '<%= config.github.base %>/tree/<%= config.github.branch %>/src'
+    },
     dir: {
         app: 'src',
         bower: 'bower',
         build: 'build',
-        dist: '<%= config.dir.build %>/dist', // used for js/css files pushed to CDN/bower
-        docs: 'build', // used for demo, coverage, and jsdocs files to go to gh-pages
+        dist: '<%= config.dir.docs %>/dist', // used for js/css files pushed to CDN/bower
+        docs: 'build/2.x', // used for demo, coverage, and jsdocs files to go to gh-pages
         exportableStyles: '<%= config.dir.app %>/styles',
     },
     /* BOWER OUTPUT/DISTRIBUTION */
