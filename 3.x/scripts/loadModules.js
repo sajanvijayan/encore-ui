@@ -933,30 +933,6 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "Auth",
-        "stability": "stable",
-        "description": "Provides logic for authenticating, validating permissions, and managing sessions.",
-        "api": "service:Auth",
-        "keywords": [],
-        "name": "Auth",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/Auth/scripts/Auth.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "angular.module('demoApp')\n.controller('AuthSimpleCtrl', function ($scope, $window, Auth) {\n    $scope.hasRole = function () {\n        $window.alert('Has \"superhero\" Role? : ' + Auth.hasRole('superhero'));\n    };\n\n    $scope.isAuthenticated = function () {\n        $window.alert('Is Authenticated? : ' + Auth.isAuthenticated());\n    };\n});\n",
-            "html": "<p>\n  Provides logic for authenticating, validating permissions, and managing sessions.\n</p>\n\n<rx-example name=\"Auth.simple\"></rx-example>",
-            "less": ""
-        }
-    },
-    {
         "displayName": "Identity",
         "stability": "stable",
         "description": "This is a component designed to aid interaction with Rackspace's Identity API.",
@@ -1077,30 +1053,6 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "Status",
-        "stability": "stable",
-        "description": "Manages notifications for rxNotify",
-        "api": "service:Status",
-        "keywords": [],
-        "name": "Status",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/Status/scripts/Status.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "angular.module('demoApp')\n.controller('StatusSimpleCtrl', function ($scope, $rootScope, Status) {\n    Status.setScope($scope);\n\n    $scope.triggerRouteChangeSuccess = function () {\n        $rootScope.$broadcast('$routeChangeSuccess');\n    };\n\n    $scope.clear = function () {\n        Status.clear();\n        $scope.notify = undefined;\n    };\n\n    $scope.setLoading = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setLoading(msg);\n    };\n\n    $scope.setSuccess = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setSuccess(msg);\n    };\n\n    $scope.setSuccessNext = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setSuccessNext(msg);\n    };\n\n    $scope.setSuccessImmediate = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setSuccessImmediate(msg);\n    };\n\n    $scope.setWarning = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setWarning(msg);\n    };\n\n    $scope.setInfo = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setInfo(msg);\n    };\n\n    $scope.setError = function (msg) {\n        Status.clear();\n        $scope.notify = Status.setError(msg);\n    };\n\n    $scope.dismiss = function () {\n        $scope.notify && Status.dismiss($scope.notify);\n        $scope.notify = undefined;\n    };\n});\n",
-            "html": "<p>\n  Manages notifications for <a href=\"#/components/rxNotify\">rxNotify</a>.\n</p>\n\n<rx-example name=\"Status.simple\"></rx-example>",
-            "less": ""
-        }
-    },
-    {
         "displayName": "StatusUtil",
         "stability": "stable",
         "description": "Manipulates required references to $scope input for proper notification functionality.",
@@ -1125,104 +1077,8 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "TokenInterceptor",
-        "stability": "stable",
-        "description": "Adds an authorization token to all HTTP requests, which allows access to system services.",
-        "api": "service:TokenInterceptor",
-        "keywords": [],
-        "name": "TokenInterceptor",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/TokenInterceptor/scripts/TokenInterceptor.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Adds an authorization token to all HTTP requests.  This allows access to system services for\n  authenticated users.\n</p>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "UnauthorizedInterceptor",
-        "stability": "stable",
-        "description": "Redirects users to the login page, when user authentication fails during a system service request.",
-        "api": "service:UnauthorizedInterceptor",
-        "keywords": [],
-        "name": "UnauthorizedInterceptor",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/UnauthorizedInterceptor/scripts/UnauthorizedInterceptor.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Redirects users to the login page, when user authentication fails during a system service request.\n</p>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "UtcOffsets",
-        "stability": "prototype",
-        "description": "List of known UTC offset values",
-        "api": "constant:UtcOffsets",
-        "keywords": [],
-        "name": "UtcOffsets",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/UtcOffsets/scripts/UtcOffsets.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  List of known UTC Offset Values as found at\n  <a href=\"https://en.wikipedia.org/wiki/List_of_UTC_time_offsets\"\n    target=\"_blank\">\n    https://en.wikipedia.org/wiki/List_of_UTC_time_offsets\n  </a>.\n</p>\n",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "devicePaths",
-        "stability": "stable",
-        "description": "Device Paths configuration",
-        "api": "value:devicePaths",
-        "keywords": [],
-        "name": "devicePaths",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/devicePaths/scripts/devicePaths.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Provides configuration for device paths.\n</p>",
-            "less": ""
-        }
-    },
-    {
         "displayName": "encoreRoutes",
-        "stability": "stable",
+        "stability": "deprecated",
         "description": "Allows apps to make updates to the navigation.",
         "api": "service:encoreRoutes",
         "keywords": [],
@@ -1241,54 +1097,6 @@ angular.module('demoApp')
             "md": "",
             "js": "",
             "html": "<p>\n  Allows apps to make updates to the navigation.\n</p>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "feedbackApi",
-        "stability": "stable",
-        "description": "Provides the feedback URL.",
-        "api": "constant:feedbackApi",
-        "keywords": [],
-        "name": "feedbackApi",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/feedbackApi/scripts/feedbackApi.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Provides the feedback URL.\n</p>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "feedbackTypes",
-        "stability": "stable",
-        "description": "Provides default feedback types with placeholder text.",
-        "api": "value:feedbackTypes",
-        "keywords": [],
-        "name": "feedbackTypes",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/feedbackTypes/scripts/feedbackTypes.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Provides default feedback types.\n</p>\n",
             "less": ""
         }
     },
@@ -1392,7 +1200,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxAppRoutes",
-        "stability": "stable",
+        "stability": "deprecated",
         "description": "Manage application routes and states of routes.",
         "api": "service:rxAppRoutes",
         "keywords": [],
@@ -1416,7 +1224,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxApply",
-        "stability": "prototype",
+        "stability": "stable",
         "description": "Used to apply an instance of rxSelectFilter to an array.",
         "api": "filter:rxApply",
         "keywords": [
@@ -1465,6 +1273,32 @@ angular.module('demoApp')
             "md": "",
             "js": "angular.module('demoApp')\n.controller('rxAttributesCtrl', function ($scope) {\n    $scope.customStyles = 'color: red; font-weight: bold;';\n    $scope.customContent = '\"Custom Content\"';\n});\n",
             "html": "<p>\n  <code>rxAttributes</code> allows to add attributes based on a value in scope being defined or not.\n</p>\n\n<rx-example name=\"rxAttributes.demo\"></rx-example>\n",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxAuth",
+        "stability": "stable",
+        "description": "Provides logic for authenticating, validating permissions, and managing sessions.",
+        "api": "service:rxAuth",
+        "keywords": [
+            "Auth"
+        ],
+        "name": "rxAuth",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxAuth/scripts/rxAuth.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxAuthSimpleCtrl', function ($scope, $window, rxAuth) {\n    $scope.hasRole = function () {\n        $window.alert('Has \"superhero\" Role? : ' + rxAuth.hasRole('superhero'));\n    };\n\n    $scope.isAuthenticated = function () {\n        $window.alert('Is Authenticated? : ' + rxAuth.isAuthenticated());\n    };\n});\n",
+            "html": "<p>\n  Provides logic for authenticating, validating permissions, and managing sessions.\n</p>\n\n<rx-example name=\"rxAuth.simple\"></rx-example>",
             "less": ""
         }
     },
@@ -1749,6 +1583,32 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxDevicePaths",
+        "stability": "stable",
+        "description": "Device Paths configuration",
+        "api": "value:rxDevicePaths",
+        "keywords": [
+            "devicePaths"
+        ],
+        "name": "rxDevicePaths",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxDevicePaths/scripts/rxDevicePaths.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Provides configuration for device paths.\n</p>",
+            "less": ""
+        }
+    },
+    {
         "displayName": "rxDiskSize",
         "stability": "stable",
         "description": "Converts raw GB disk size into a more readable format",
@@ -1902,6 +1762,32 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxFeedbackApi",
+        "stability": "stable",
+        "description": "Provides the feedback URL.",
+        "api": "constant:rxFeedbackApi",
+        "keywords": [
+            "feedbackApi"
+        ],
+        "name": "rxFeedbackApi",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxFeedbackApi/scripts/rxFeedbackApi.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Provides the feedback URL.\n</p>",
+            "less": ""
+        }
+    },
+    {
         "displayName": "rxFeedbackController",
         "stability": "stable",
         "description": "Allows the customization of the feedback modal.",
@@ -1946,6 +1832,32 @@ angular.module('demoApp')
             "md": "",
             "js": "",
             "html": "<p>\n  Service that supports the customization of user feedback endpoints.\n</p>",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxFeedbackTypes",
+        "stability": "stable",
+        "description": "Provides default feedback types with placeholder text.",
+        "api": "value:rxFeedbackTypes",
+        "keywords": [
+            "feedbackTypes"
+        ],
+        "name": "rxFeedbackTypes",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxFeedbackTypes/scripts/rxFeedbackTypes.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Provides default feedback types.\n</p>\n",
             "less": ""
         }
     },
@@ -2508,6 +2420,32 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxStatus",
+        "stability": "stable",
+        "description": "Manages notifications for rxNotify",
+        "api": "service:rxStatus",
+        "keywords": [
+            "Status"
+        ],
+        "name": "rxStatus",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxStatus/scripts/rxStatus.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('StatusSimpleCtrl', function ($scope, $rootScope, rxStatus) {\n    rxStatus.setScope($scope);\n\n    $scope.triggerRouteChangeSuccess = function () {\n        $rootScope.$broadcast('$routeChangeSuccess');\n    };\n\n    $scope.clear = function () {\n        rxStatus.clear();\n        $scope.notify = undefined;\n    };\n\n    $scope.setLoading = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setLoading(msg);\n    };\n\n    $scope.setSuccess = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setSuccess(msg);\n    };\n\n    $scope.setSuccessNext = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setSuccessNext(msg);\n    };\n\n    $scope.setSuccessImmediate = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setSuccessImmediate(msg);\n    };\n\n    $scope.setWarning = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setWarning(msg);\n    };\n\n    $scope.setInfo = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setInfo(msg);\n    };\n\n    $scope.setError = function (msg) {\n        rxStatus.clear();\n        $scope.notify = rxStatus.setError(msg);\n    };\n\n    $scope.dismiss = function () {\n        $scope.notify && rxStatus.dismiss($scope.notify);\n        $scope.notify = undefined;\n    };\n});\n",
+            "html": "<p>\n  Manages notifications for <a href=\"#/components/rxNotify\">rxNotify</a>.\n</p>\n\n<rx-example name=\"rxStatus.simple\"></rx-example>",
+            "less": ""
+        }
+    },
+    {
         "displayName": "rxStatusColumnIcons",
         "stability": "prototype",
         "description": "Mapping of internal statuses to FontAwesome icons.",
@@ -2634,6 +2572,32 @@ angular.module('demoApp')
         }
     },
     {
+        "displayName": "rxTitleize",
+        "stability": "stable",
+        "description": "Convert a string to title case, stripping out underscores and all uppercase words.",
+        "api": "filter:rxTitleize",
+        "keywords": [
+            "titleize"
+        ],
+        "name": "rxTitleize",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxTitleize/scripts/rxTitleize.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "angular.module('demoApp')\n.controller('rxTitleizeSimpleCtrl', function ($scope) {\n    $scope.sample = 'HELLO_welcome TO ENCore FRamework!';\n});\n",
+            "html": "<p>\n  Convert a string to title case, stripping out underscores and all uppercase words.\n</p>\n\n<rx-example name=\"rxTitleize.simple\"></rx-example>\n\n",
+            "less": ""
+        }
+    },
+    {
         "displayName": "rxToggle",
         "stability": "stable",
         "description": "",
@@ -2657,6 +2621,58 @@ angular.module('demoApp')
             "md": "",
             "js": "",
             "html": "<p>\n  This component provides an attribute directive to handle\n  toggling a boolean scopeproperty for show/hide purposes\n  (normally used in conjunction with ng-show to toggle hidden content).\n</p>\n\n<rx-example name=\"rxToggle.simple\"></rx-example>",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxTokenInterceptor",
+        "stability": "stable",
+        "description": "Adds an authorization token to all HTTP requests, which allows access to system services.",
+        "api": "service:rxTokenInterceptor",
+        "keywords": [
+            "TokenInterceptor"
+        ],
+        "name": "rxTokenInterceptor",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxTokenInterceptor/scripts/rxTokenInterceptor.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Adds an authorization token to all HTTP requests.  This allows access to system services for\n  authenticated users.\n</p>",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxUnauthorizedInterceptor",
+        "stability": "stable",
+        "description": "Redirects users to the login page, when user authentication fails during a system service request.",
+        "api": "service:rxUnauthorizedInterceptor",
+        "keywords": [
+            "UnauthorizedInterceptor"
+        ],
+        "name": "rxUnauthorizedInterceptor",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxUnauthorizedInterceptor/scripts/rxUnauthorizedInterceptor.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Redirects users to the login page, when user authentication fails during a system service request.\n</p>",
             "less": ""
         }
     },
@@ -2685,8 +2701,60 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "rxVisibility",
+        "displayName": "rxUrlUtils",
         "stability": "stable",
+        "description": "Set of utility functions to break apart/compare URLs.",
+        "api": "service:rxUrlUtils",
+        "keywords": [
+            "urlUtils"
+        ],
+        "name": "rxUrlUtils",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxUrlUtils/scripts/rxUrlUtils.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  Set of utility functions to break apart/compare URLs.\n</p>",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxUtcOffsets",
+        "stability": "prototype",
+        "description": "List of known UTC offset values",
+        "api": "constant:rxUtcOffsets",
+        "keywords": [
+            "UtcOffsets"
+        ],
+        "name": "rxUtcOffsets",
+        "moduleName": "'encore.ui.utilities'",
+        "category": "utilities",
+        "isLegacy": false,
+        "hasApi": true,
+        "isCategory": false,
+        "srcFiles": [
+            "src/utilities/rxUtcOffsets/scripts/rxUtcOffsets.js"
+        ],
+        "tplFiles": [],
+        "tplJsFiles": [],
+        "docs": {
+            "md": "",
+            "js": "",
+            "html": "<p>\n  List of known UTC Offset Values as found at\n  <a href=\"https://en.wikipedia.org/wiki/List_of_UTC_time_offsets\"\n    target=\"_blank\">\n    https://en.wikipedia.org/wiki/List_of_UTC_time_offsets\n  </a>.\n</p>\n",
+            "less": ""
+        }
+    },
+    {
+        "displayName": "rxVisibility",
+        "stability": "deprecated",
         "description": "Provides an interface for adding new visibility methods for nav menus.",
         "api": "service:rxVisibility",
         "keywords": [],
@@ -2710,7 +2778,7 @@ angular.module('demoApp')
     },
     {
         "displayName": "rxVisibilityPathParams",
-        "stability": "stable",
+        "stability": "deprecated",
         "description": "Returns an object with name and method params that can be passed to rxVisibility.addMethod().",
         "api": "service:rxVisibilityPathParams",
         "keywords": [],
@@ -2733,74 +2801,28 @@ angular.module('demoApp')
         }
     },
     {
-        "displayName": "titleize",
-        "stability": "stable",
-        "description": "Convert a string to title case, stripping out underscores and all uppercase words.",
-        "api": "filter:titleize",
-        "keywords": [],
-        "name": "titleize",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/titleize/scripts/titleize.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "angular.module('demoApp')\n.controller('titleizeSimpleCtrl', function ($scope) {\n    $scope.sample = 'HELLO_welcome TO ENCore FRamework!';\n});\n",
-            "html": "<p>\n  Convert a string to title case, stripping out underscores and all uppercase words.\n</p>\n\n<rx-example name=\"titleize.simple\"></rx-example>\n\n",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "urlUtils",
-        "stability": "stable",
-        "description": "Set of utility functions to break apart/compare URLs.",
-        "api": "service:urlUtils",
-        "keywords": [],
-        "name": "urlUtils",
-        "moduleName": "'encore.ui.utilities'",
-        "category": "utilities",
-        "isLegacy": false,
-        "hasApi": true,
-        "isCategory": false,
-        "srcFiles": [
-            "src/utilities/urlUtils/scripts/urlUtils.js"
-        ],
-        "tplFiles": [],
-        "tplJsFiles": [],
-        "docs": {
-            "md": "",
-            "js": "",
-            "html": "<p>\n  Set of utility functions to break apart/compare URLs.\n</p>",
-            "less": ""
-        }
-    },
-    {
-        "displayName": "xor",
+        "displayName": "rxXor",
         "stability": "prototype",
-        "description": "xor filter",
-        "api": "filter:xor",
-        "keywords": [],
-        "name": "xor",
+        "description": "rxXor filter",
+        "api": "filter:rxXor",
+        "keywords": [
+            "xor"
+        ],
+        "name": "rxXor",
         "moduleName": "'encore.ui.utilities'",
         "category": "utilities",
         "isLegacy": false,
         "hasApi": true,
         "isCategory": false,
         "srcFiles": [
-            "src/utilities/xor/scripts/xor.js"
+            "src/utilities/rxXor/scripts/rxXor.js"
         ],
         "tplFiles": [],
         "tplJsFiles": [],
         "docs": {
             "md": "",
             "js": "",
-            "html": "<p>xor filter</p>\n",
+            "html": "<p>rxXor filter</p>\n",
             "less": ""
         }
     }

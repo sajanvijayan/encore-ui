@@ -352,7 +352,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "elements",
       "shortDescription": "The rxPaginate component adds pagination to a table.",
-      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated component conjunction controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete descending described details determine direction directive directly display displayed documentation don draw dropdowns dynamic element elements ensure entered enters entire equates error error-message errormessage errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially input instance instances intend intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching maximum meets message messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number numberofpages object offset option optional options opts orderby outputs page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement requirements resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxlocalstorage rxnotification rxpaginate rxpaginateutils rxpromisenotifications rxselectfilter rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported switching table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utilities utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
+      "keywords": "$q $scope $watch _all_ _any_ _at _more_ _must_ _never_ _not_ _one _total_ access action actual add additional adds anytime api api-based apis applications applied applies appropriate argument arguments array ascending automatically based belong bit bottom bound boxes buttons cache cached caching calculate calculateapivals calculations call call_ called calling calls callserverapi careful case cases caveats change changed changes check class clicked clicks code colspan column column-sorting communicating comparing complicated component conjunction controller conversions create created createinstance criteria current currently custom data default defer deferred defined delete descending described details determine direction directive directly display displayed documentation don draw dropdowns dynamic element elements ensure entered enters entire equates error error-message errormessage errors eventually exactly example examples exist explicit explicitly extra extrasearch fails failure false fetch field filter filter-text filtering filters filtertext final flushed footer force forcing forms formula framework fresh full function general generic getitems getitemsfromapi globally good grab grabbing handled handling help hidden hide hiding highly idea ignore illustrate implement include includes initially input instance instances intend intended interaction interface internally isn item items itemsperpage last-used least_ length lives ll load loading loads local logic long longer loop looped match matching maximum meets message messages method mix model modify module moved multiple multitude navigate navigates navigation needed needing ng-hide ng-repeat ngrepeat normal note number numberofpages object offset option optional options opts orderby outputs page-tracking pagedservers pagenumber pager pagerequest pagers pagetracking paginate paginate-area paginated paginating pagination parameter parameters parse pass passed passes passing perform persisted persistence persistitemsperpage place point predicate preference pretty promise properties property provide provided pull re-process read receives recommended reduce reflect refresh rejects reliably reload remains remember request requested require required requirement requirements resolve resolved resolves response responsibility responsible retrieve retrieved return returned returns reverse round-trips rx-paginate rxlocalstorage rxnotification rxpagetracker rxpaginate rxpaginateutils rxpromisenotifications rxselectfilter rxsortablecolumn saved scope search search-text searchtext second selected selected_options_from_filters selectfilter selection selections selects send separately server server-interface server-side serverinterface serveritemsperpage serverpagenumber servers service set showing simple slice smart some_filter_search_text sort sort-column sort-direction sortcolumn sortdirection sorted sorter sorting specific stay stayonpage string support supported switching table tables takes teach telling term text the_direction_of_the_sort_column the_selected_sort_column things third three time total totalnumberofitems totalpages touch tracked tracking true turned ubuntu ui ui-based unaware unchanged update updated updates user utilities utility valid vals values var variable variables ve view viewing wait warning watch won work works worry write written yourrequesttoapi"
     },
     {
       "section": "api",
@@ -541,7 +541,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxApp",
       "shortDescription": "Creates a menu based on items passed in.",
-      "keywords": "$route _all_ _also_ _always_ _any_ _at _both_ _completely _generally_ _intent_ _must_ _one_ access accessible account accountnumber ad add addition allowing allows angular api app application applications applications_ applied apps area argument array assign attached attribute attributes automatic automatically avoid aware based belong bob bottom box brand browser check checking chevron child childheader children childvisibility class click clickable clicked clicking clicks compile compiled components configuration consists content control correctly creates criteria current currently custom dash-delimited data deeper default define defined defines defining definition demo demos deployed described describing design designers details determine dev developed directive directives directly display displayed documentation doesn domain elements encore encorenav encoreui enhance ensure entered entering environemnts environment evaluated example exclusive exist exists expand expanded expected expecting experience exposes expression extra fact feature file files filtering final foobar form format framework front-end full function functions future general gl happen header heirarchy higher highlight href html identifier importantly include including independently individual insert inserted inside instance internally interpolated introducing isactivebykey item items javascript json key ldap left legacy level linked linktext list live lives load loaded loads local machine machine-search menu menuitems methods mind multiple mutually nav nav-section-all nav-section-highlight nav-section-type navigate navigated navigating navigation navjson nested note number object objects one_ operate optional optionally original outer overview paragraph param parameter parameters pass passed path pathparams people people-search permissions point predefined prevent previous product production products project property provide pull purely rackspace real reasons recall receive receives rely render rendered representing represents require required requires reserved resonsible restrict role role-based role1 role2 role3 roles route routing rx-account-search rx-app-key- rxaccountsearch rxaccountusers rxapp rxapproutes rxappsearch rxenvironmentmatch rxpathparams scope search second sections security separate server-side service set setroutebykey shouldn simply single solution staging string structure styleguide styling sue support supposed syntax tailed takes technique term text things three title tools top top-level true type types typically unified-preprod unique url urls user users utilities values variables version viewing visibility visible won working"
+      "keywords": "$route _all_ _also_ _always_ _any_ _at _both_ _completely _generally_ _intent_ _must_ _one_ access accessible account accountnumber ad add addition allowing allows angular api app application applications applications_ applied apps area argument array assign attached attribute attributes automatic automatically avoid aware based belong bob bottom box brand browser check checking chevron child childheader children childvisibility class click clickable clicked clicking clicks compile compiled components configuration consists content control correctly creates criteria current currently custom dash-delimited data deeper default define defined defines defining definition demo demos deployed described describing design designers details determine dev developed directive directives directly display displayed documentation doesn domain elements encore encorenav encoreui enhance ensure entered entering environemnts environment evaluated example exclusive exist exists expand expanded expected expecting experience exposes expression extra fact feature file files filtering final foobar form format framework front-end full function functions future general gl happen header heirarchy higher highlight href html identifier importantly include including independently individual insert inserted inside instance internally interpolated introducing isactivebykey item items javascript json key ldap left legacy level linked linktext list live lives load loaded loads local machine machine-search menu menuitems methods mind multiple mutually nav nav-section-all nav-section-highlight nav-section-type navigate navigated navigating navigation navjson nested note number object objects one_ operate optional optionally original outer overview paragraph param parameter parameters pass passed path pathparams people people-search permissions point predefined prevent previous product production products project property provide pull purely rackspace real reasons recall receive receives rely render rendered representing represents require required requires reserved resonsible restrict role role-based role1 role2 role3 roles route routing rx-account-search rx-app-key- rxaccountsearch rxaccountusers rxapp rxapproutes rxappsearch rxenvironment rxenvironmentmatch rxpathparams scope search second sections security separate server-side service set setroutebykey shouldn simply single solution staging string structure styleguide styling sue support supposed syntax tailed takes technique term text things three title tools top top-level true type types typically unified-preprod unique url urls user users utilities values variables version viewing visibility visible won working"
     },
     {
       "section": "api",
@@ -622,7 +622,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "rxOptionTable",
       "shortDescription": "This directive is used to build a table of radio/checkbox inputs.",
-      "keywords": "allowed alongside angularjs api array attribute attributes base build callback checkbox checkboxes checked column columns data default demonstration determine directive disable-fn disabled disableoption display empty empty-message example excluded expressions falsevalue field-id fieldid function generated identifiers include initial input inputs key label load markup match message model ng-required object objects option optional parameters passed populate preselected preselection preseleted-values properties radio radios required rowid rxoptiontable samples selected table tableid tie true type unique values"
+      "keywords": "allowed alongside angularjs api array attribute attributes base build callback checkbox checkboxes checked column columns data default demonstration determine directive disable-fn disabled disableoption display empty empty-message encoreui example excluded expressions falsevalue field-id fieldid function generated identifiers include initial input inputs key label load markup match message model ng-required object objects option optional parameters passed populate preselected preselection preseleted-values properties radio radios removed required rowid rxoptiontable samples selected table tableid tie true type unique values"
     },
     {
       "section": "api",
@@ -639,8 +639,25 @@ NG_DOCS={
       "shortName": "feedbackApi",
       "type": "parameters",
       "moduleName": "utilities",
+      "keywords": "api constant item parameters release removed rxfeedbackapi utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.constant:rxFeedbackApi",
+      "shortName": "rxFeedbackApi",
+      "type": "parameters",
+      "moduleName": "utilities",
       "shortDescription": "Provides the feedback URL.",
       "keywords": "api constant feedback parameters url utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.constant:rxUtcOffsets",
+      "shortName": "rxUtcOffsets",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "shortDescription": "List of known UTC Offset Values",
+      "keywords": "api constant directive elements https list offset org parameters rxtimepicker service utc utilities utility values wikipedia"
     },
     {
       "section": "api",
@@ -648,8 +665,7 @@ NG_DOCS={
       "shortName": "UtcOffsets",
       "type": "parameters",
       "moduleName": "utilities",
-      "shortDescription": "List of known UTC Offset Values",
-      "keywords": "api constant directive elements https list offset org parameters rxtimepicker service utc utilities utility values wikipedia"
+      "keywords": "api constant item parameters release removed rxutcoffsets utilities"
     },
     {
       "section": "api",
@@ -754,7 +770,7 @@ NG_DOCS={
       "type": "filter",
       "moduleName": "utilities",
       "shortDescription": "This is the pagination filter that is used to calculate the division in the",
-      "keywords": "api calculate created current division filter instance items list object pager pagetracking pagination paging service sliced utilities"
+      "keywords": "api calculate created current division filter instance items list object pager pagination paging rxpagetracker service sliced utilities"
     },
     {
       "section": "api",
@@ -762,8 +778,8 @@ NG_DOCS={
       "shortName": "PaginatedItemsSummary",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "Given an active pager (i.e. the result of PageTracking.createInstance()),",
-      "keywords": "$interpolate active api createinstance displayed displaying filter instance items list numbers pager pagetracking result return second service string utilities"
+      "shortDescription": "Given an active pager (i.e. the result of rxPageTracker.createInstance()),",
+      "keywords": "$interpolate active api createinstance displayed displaying filter instance items list numbers pager result return rxpagetracker second service string utilities"
     },
     {
       "section": "api",
@@ -862,7 +878,7 @@ NG_DOCS={
       "type": "filter",
       "moduleName": "utilities",
       "shortDescription": "This is the pagination filter that is used to limit the number of pages",
-      "keywords": "api created displayed filter instance limit list number numbers pager pagetracking pagination service utilities"
+      "keywords": "api created displayed filter instance limit list number numbers pager pagination rxpagetracker service utilities"
     },
     {
       "section": "api",
@@ -884,6 +900,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.filter:rxTitleize",
+      "shortName": "rxTitleize",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
+      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js result rxtitleize simple simple_string string stripping title titleized underscores utilities version"
+    },
+    {
+      "section": "api",
       "id": "utilities.filter:rxUnsafeRemoveHTML",
       "shortName": "rxUnsafeRemoveHTML",
       "type": "filter",
@@ -893,12 +918,20 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.filter:rxXor",
+      "shortName": "rxXor",
+      "type": "filter",
+      "moduleName": "utilities",
+      "shortDescription": "Returns the exclusive or of two arrays.",
+      "keywords": "api array arrays elements excluded exclusive filter input returns second unique utilities"
+    },
+    {
+      "section": "api",
       "id": "utilities.filter:titleize",
       "shortName": "titleize",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "Convert a string to title case, stripping out underscores and capitalizing words.",
-      "keywords": "$filter api capitalizing case convert credit examples filter https inputstring js result simple simple_string string stripping title titleize titleized underscores utilities version"
+      "keywords": "api encoreui filter removed rxtitleize utilities"
     },
     {
       "section": "api",
@@ -906,8 +939,7 @@ NG_DOCS={
       "shortName": "xor",
       "type": "filter",
       "moduleName": "utilities",
-      "shortDescription": "Returns the exclusive or of two arrays.",
-      "keywords": "api array arrays elements excluded exclusive filter input returns second unique utilities"
+      "keywords": "api filter release removed rxxor utilities"
     },
     {
       "section": "api",
@@ -924,8 +956,7 @@ NG_DOCS={
       "shortName": "Auth",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
-      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise re-use returns role roles service services session smaller solution stored stores storetoken successcallback token true ui user utilities valid wrapper"
+      "keywords": "api item release removed rxauth service utilities"
     },
     {
       "section": "api",
@@ -934,7 +965,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Creates a shared instance of AppRoutes that is used for the Encore App nav.",
-      "keywords": "allows api app approutes apps creates encore encoreroutes fetchroutes instance method nav rxapproutes service shared updates utilities"
+      "keywords": "allows api app approutes apps creates encore encoreroutes encoreui fetchroutes instance item method nav removed rxapproutes service shared updates utilities"
     },
     {
       "section": "api",
@@ -1011,7 +1042,16 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Manages page routes, building urls and marking them as active on route change.",
-      "keywords": "active api building change manages marking route routes service urls utilities"
+      "keywords": "active api building change encoreui manages marking removed route routes service urls utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxAuth",
+      "shortName": "rxAuth",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Service which provides an entire solution for authenticating, user session management",
+      "keywords": "api array authenticating broken components customization entire errorcallback expired facilitate getroles gettoken hasrole identity isauthenticated iscurrent login loginwithjson logout logs management password permission permissions promise re-use returns role roles rxauth service services session smaller solution stored stores storetoken successcallback token true ui user utilities valid wrapper"
     },
     {
       "section": "api",
@@ -1065,7 +1105,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Allows defining environments and retrieving the current environment based on location",
-      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
+      "keywords": "actions add adding additional allows api application assume assumption avoid avoided based basegithuburl build building built call check checking code component consider current currently custom define defines defining demo deprecated detect dev didn discussed encore envcheck environment environments example exclusive explicitly find friendly full generate ghpages github http https including instance io islocal ispreprod issue isunified isunifiedpreprod isunifiedprod list listed local location matched matches matching methods mind multiple mutually mynewproduct normal note object older overlapping path pattern preprod problems procedure prod products properties provide rackspace regex retrieving return running rxenvironment rxenvironmenturl service set special specific staging string system takes three true unified-preprod unified-prod url urls utilities ve warning wrong"
     },
     {
       "section": "api",
@@ -1074,7 +1114,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Provides a helper method to parse error objects for message and format them",
-      "keywords": "api automatically balanced browsing cleared defined displayed error example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing referenceerror replace replacement replacements result rxerrorformatter second service seterror specialized status string template user utilities variable variables"
+      "keywords": "api automatically balanced browsing cleared defined displayed error example failed format helper history list loading maps message messages method note number object objects one-to-one parameter parse parsed proper provided providing referenceerror replace replacement replacements result rxerrorformatter rxstatus second service seterror specialized string template user utilities variable variables"
     },
     {
       "section": "api",
@@ -1213,6 +1253,15 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.service:rxStatus",
+      "shortName": "rxStatus",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
+      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier elements encore equivalent error event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxerrorformatter rxnotify rxstatus screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setwarning showing single specialized stack string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
+    },
+    {
+      "section": "api",
       "id": "utilities.service:rxStatusMappings",
       "shortName": "rxStatusMappings",
       "type": "service",
@@ -1240,12 +1289,39 @@ NG_DOCS={
     },
     {
       "section": "api",
+      "id": "utilities.service:rxTokenInterceptor",
+      "shortName": "rxTokenInterceptor",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Simple $http injector which will intercept http request and inject the",
+      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push rackspace request rxsession rxtokeninterceptor service simple token ui utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxUnauthorizedInterceptor",
+      "shortName": "rxUnauthorizedInterceptor",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
+      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push redirects response responses returned rxunauthorizedinterceptor service simple ui utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.service:rxUrlUtils",
+      "shortName": "rxUrlUtils",
+      "type": "service",
+      "moduleName": "utilities",
+      "shortDescription": "Set of utility functions to break apart/compare URLs.",
+      "keywords": "apart api break functions service set urls utilities utility"
+    },
+    {
+      "section": "api",
       "id": "utilities.service:rxVisibility",
       "shortName": "rxVisibility",
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Provides an interface for adding new visibility methods for nav menus.  Methods added via addMethod should",
-      "keywords": "adding addmethod api args argument bar definition foo function interface menu menus method methods nav object passed second service somemethodname utilities visibility"
+      "keywords": "adding addmethod api args argument bar definition deprecated encoreui foo function interface menu menus method methods nav object passed removed second service somemethodname utilities visibility"
     },
     {
       "section": "api",
@@ -1254,7 +1330,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Returns an object with name and method params that can",
-      "keywords": "addmethod api check current default js l22 menu method nav object param params passed register returns route routescdnpath rxpathparams service someparamname username utilities visibility"
+      "keywords": "addmethod api check current default deprecated encoreui js l22 menu method nav object param params passed register removed returns route routescdnpath rxpathparams service someparamname username utilities visibility"
     },
     {
       "section": "api",
@@ -1287,8 +1363,7 @@ NG_DOCS={
       "shortName": "Status",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Manages notifications for rxNotify with an abstracted set of functions for",
-      "keywords": "$on $rootscope $routechangesuccess $scope abstracted abstracts accomplished add addition advised allow allows api app attribute auto-dismissed automatically balanced behaviour behaviours bonus bootstrap browsing call calling cases change checking clear cleared code coherent common complete compliment consistency data decisions defaults defined deleted design dismiss displayed ease easier elements encore equivalent error errorformatter event example expected explanatory failed false fault flexibility format function functionality functions gain handler hidden history indirectly inform instantiate interface isn level list load loaded loading manages manner maps maximum message messages names note notifications number object one-to-one options order override overriden parameter parsed passed pending permitted place preparation products programmatically proper provide provided providing questionable raw receiving referenceerror removal remove repeat repeated repetitive replace replacement replacements requires respective result retrieval retrieving route running rxnotify screen second seconds service set seterror setinfo setloading setscope setsuccess setsuccessimmediate setsuccessnext setup setupscope setwarning showing single specialized stack status statusutil string success support supported template timeout today track tracking true type types unique usability user users utilities utility utilized variable variables wrapped wrapper wrappers"
+      "keywords": "api item release removed rxstatus service utilities"
     },
     {
       "section": "api",
@@ -1297,7 +1372,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "utilities",
       "shortDescription": "Manipulates required references to $scope input for proper notification functionality.",
-      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates notification proper references required scope service set setscope status utilities"
+      "keywords": "$on $rootscope $routechangesuccess $scope api forcibly function functionality input manipulates notification proper references required rxstatus scope service set setscope utilities"
     },
     {
       "section": "api",
@@ -1305,8 +1380,7 @@ NG_DOCS={
       "shortName": "TokenInterceptor",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Simple $http injector which will intercept http request and inject the",
-      "keywords": "$http $httpprovider angular api config encore encoreapp http identity inject injector intercept interceptors module push rackspace request rxsession service simple token tokeninterceptor ui utilities"
+      "keywords": "api item release removed rxtokeninterceptor service utilities"
     },
     {
       "section": "api",
@@ -1314,8 +1388,7 @@ NG_DOCS={
       "shortName": "UnauthorizedInterceptor",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Simple injector which will intercept HTTP responses. If a HTTP 401 response error code is returned,",
-      "keywords": "$httpprovider $q angular api code config encore encoreapp error http injector intercept interceptors module push redirects response responses returned service simple ui unauthorizedinterceptor utilities"
+      "keywords": "api item release removed rxunauthorizedinterceptor service utilities"
     },
     {
       "section": "api",
@@ -1323,13 +1396,28 @@ NG_DOCS={
       "shortName": "urlUtils",
       "type": "service",
       "moduleName": "utilities",
-      "shortDescription": "Set of utility functions to break apart/compare URLs.",
-      "keywords": "apart api break functions service set urls utilities utility"
+      "keywords": "api item release removed rxurlutils service utilities"
     },
     {
       "section": "api",
       "id": "utilities.value:devicePaths",
       "shortName": "devicePaths",
+      "type": "service",
+      "moduleName": "utilities",
+      "keywords": "api release removed rxdevicepaths service utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.value:feedbackTypes",
+      "shortName": "feedbackTypes",
+      "type": "parameters",
+      "moduleName": "utilities",
+      "keywords": "api item parameters release removed rxfeedbacktypes utilities"
+    },
+    {
+      "section": "api",
+      "id": "utilities.value:rxDevicePaths",
+      "shortName": "rxDevicePaths",
       "type": "parameters",
       "moduleName": "utilities",
       "shortDescription": "Provides configuration for device paths.",
@@ -1337,8 +1425,8 @@ NG_DOCS={
     },
     {
       "section": "api",
-      "id": "utilities.value:feedbackTypes",
-      "shortName": "feedbackTypes",
+      "id": "utilities.value:rxFeedbackTypes",
+      "shortName": "rxFeedbackTypes",
       "type": "parameters",
       "moduleName": "utilities",
       "shortDescription": "Provides default feedback types with placeholder text.",
